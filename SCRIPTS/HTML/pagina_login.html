@@ -5,18 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
   <link rel="stylesheet" href="/SCRIPTS/CSS/style_pagina_login.css">
+  <script src="/SCRIPTS/JS/pagina_inicial.js"></script>
 </head>
 <body>
   <div class="login-container">
-    <h2>Login</h2>
-    <form>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="senha">Senha:</label>
-      <input type="password" id="senha" name="senha" required />
-
-      <button type="submit">Entrar</button>
+    <h2>LOGIN</h2>
+    <form class="enter_login">
+      <div class="class_email">
+        <label for="login_email">Email:</label>
+        <input type="email" id="email" name="email" required/>
+      </div>
+      <div class="class_senha">
+        <label for="login_senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required/>
+      </div>
+      <div class="class_button">
+        <button type="submit">Entrar</button>
+      </div>
     </form>
   </div>
 </body>
