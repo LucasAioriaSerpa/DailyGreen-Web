@@ -14,7 +14,7 @@
     height: 100vh;
   }
   
-  .login-container {
+  .cadastro-container {
     background-color: #111;
     padding: 40px;
     border-radius: 10px;
@@ -23,20 +23,21 @@
     max-width: 400px;
   }
   
-  .login-container h2 {
+  .cadastro-container h2 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 28px;
     color: #fff;
   }
   
-  .login-container label {
+  .cadastro-container label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
   }
   
-  .login-container input {
+  .cadastro-container input,
+  .cadastro-container select {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
@@ -47,7 +48,7 @@
     font-size: 16px;
   }
   
-  .login-container button {
+  .cadastro-container button {
     width: 100%;
     padding: 12px;
     background-color: #fff;
@@ -60,25 +61,19 @@
     transition: background 0.3s ease;
   }
   
-  .login-container button:hover {
+  .cadastro-container button:hover {
     background-color: #ccc;
   }
-
-  .nav_bar_login {
-    display: flex;
-    
-   }
-
-   .nav_bar_login {
+  
+  .nav_bar_cadastro {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
   }
   
-  .nav_bar_login a {
+  .nav_bar_cadastro a {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
   }
-   

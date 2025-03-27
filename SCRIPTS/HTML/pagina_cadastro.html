@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_pagina_cadastro.css">
+</head>
+<body>
+  <div class="cadastro-container">
+    <div class="nav_bar_cadastro">
+      <h2>Cadastro</h2>
+      <a href="pagina_login.html">Login</a>
+    </div>
+    
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="file">Imagem de Perfil:</label>
+      <input type="file" id="file" name="file" accept="image/*" required/>
+
+      <label for="genero">Gênero:</label>
+        <select id="genero" name="genero" required>
+          <option value="">Selecione</option>
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+          <option value="outro">Outro</option>
+        </select>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required />
+
+      <input type="submit" value="Cadastrar" />
+    
+    </form>
+  </div>
+</body>
+</html>
