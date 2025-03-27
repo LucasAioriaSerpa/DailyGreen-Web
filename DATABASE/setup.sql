@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS organizacao (
 -- -----------------------------------------------------
 -- Tabela administrador
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS adminitrador (
-	id_adminitrador INT NOT NULL,
+CREATE TABLE IF NOT EXISTS administrador (
+    id_administrador INT NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
     PRIMARY KEY (id_administrador)
@@ -55,11 +55,11 @@ CREATE TABLE IF NOT EXISTS post (
 -- -----------------------------------------------------
 -- Tabela media
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS media (
-    id_media INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS midia (
+    id_midia INT NOT NULL AUTO_INCREMENT,
     id_post INT NOT NULL,
-    media_ref VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id_media),
+    midia_ref VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id_midia),
     CONSTRAINT fk_postMedia FOREIGN KEY (id_post) REFERENCES post (id_post)
 );
 
@@ -124,9 +124,3 @@ CREATE TABLE IF NOT EXISTS suspenso (
     CONSTRAINT fk_administradorSuspenso FOREIGN KEY (id_administrador) REFERENCES administrador (id_administrador),
     CONSTRAINT fk_participanteSuspenso FOREIGN KEY (id_participante_suspenso) REFERENCES participante (id_participante)
 );
-
-SET SQL_MODE = @OLD_SQL_MODE;
-
-SET FOREIGN_KEY_CHECKS = @OLD_FOREIGN_KEY_CHECKS;
-
-SET UNIQUE_CHECKS = @OLD_UNIQUE_CHECKS;
