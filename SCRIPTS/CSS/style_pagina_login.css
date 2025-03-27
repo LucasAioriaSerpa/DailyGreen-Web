@@ -7,7 +7,7 @@
   
   body {
     background-color: #EDF4ED;
-    color: #fff;
+    color: #51291E;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +27,7 @@
     text-align: center;
     margin-bottom: 30px;
     font-size: 28px;
-    color: #fff;
+    color: #51291E;
   }
   
   .login-container label {
