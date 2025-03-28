@@ -2,7 +2,7 @@
     "mySql": {
         "servername": "localhost",
         "username": "root",
-        "password": "****",
+        "password": "",
         "database": "db_dailygreen",
         "port": 3307
     }
