@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    color: #f0f0f0;
+}
+h1 {
+    text-align: center;
+    font-size: 10vh;
+}
+.error-connection {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    padding: 5vh;
+    border-radius: 10px;
+    transition: 0.25s;
+} .error-connection:hover {
+    transition: 0.5s;
+    background-color: #222222;
+}
+.forms {
+    display: flex;
+    justify-content: center;
+} .forms form {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+.forms-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+} .data-input{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+} .data-input label {
+    text-align: left;
+} .data-input input[type=text], input[type=password] {
+    padding: 1vh;
+    border-radius: 10px;
+} .password-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vw;
+}
+.btn-connect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+} .btn-connect input[type=submit] {
+    transition: 0.5s;
+    font-size: 5vh;
+    border-radius: 10px;
+    border-style: none;
+    outline: 0.5vh #f0f0f0 solid;
+    background-color: #212121;
+    color: #f0f0f0;
+} .btn-connect input[type=submit]:hover {
+    transition: 0.5s;
+    scale: 125%;
+    background-color: #f0f0f0;
+    color: #121212;
+}
