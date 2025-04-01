@@ -9,18 +9,20 @@ class SQL_connection {
         "database"=>"{$this->sqlData["database"]}",
         "port"=>"{$this->sqlData["port"]}"
     ];
-    private mysqli $conn = new mysqli(  $this->serverInfo['servername'],
-                                        $this->serverInfo['username'],
-                                        $this->serverInfo['password'],
-                                        $this->serverInfo['database'],
-                                        $this->serverInfo['port']);
-    public function connect() {
+    public function testConnect() {
         if ($this->serverInfo["password"] === "") {
             header("Location: /DailyGreen-Project/SCRIPT/PHP/SQL_connection_error.php");
         }
-        if ($this->conn->connect_error) {
-            header("Connection Error: " . $this->conn->connect_error);
+        $conn = new mysqli( $this->serverInfo['servername'],
+                            $this->serverInfo['username'],
+                            $this->serverInfo['password'],
+                            $this->serverInfo['database'],
+                            $this->serverInfo['port']);
+        if ($conn->connect_error) {
+            header("Location: /DailyGreen-Project/SCRIPT/PHP/SQL_connection_error.php");
         }
     }
+    public function addNewParticipant(array $arrayDATA) {
 
+    }
 }

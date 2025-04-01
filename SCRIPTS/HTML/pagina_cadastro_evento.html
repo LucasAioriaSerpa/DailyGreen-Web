@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_pagina_cadastro.css">
+</head>
+<body>
+  <div class="cadastro-container">
+    <div class="nav_bar_cadastro">
+      <h2>Inscreva-se no Evento</h2>
+    </div>
+    
+    <form>
+      <label for="nome">Data e hora do inicio: </label>
+      <input type="datetime-local" id="dhstart" name="dhstart" required /> <!-- dh = Data e Hora // dhstar = Data e Hora do Inicio -->
+
+      <label for="nome">Data e hora do fim: </label>
+      <input type="datetime-local" id="dhover" name="dhover" required />
+
+      <label for="email">Local do Evento:</label>
+      <input type="text" id="local" name="local" required />
+
+      <label for="email">Link do Evento:</label>
+      <input type="text" id="local" name="local" required />
+
+      <input type="submit" value="Cadastrar" />
+    
+    </form>
+  </div>
+</body>
+</html>
