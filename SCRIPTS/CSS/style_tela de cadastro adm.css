@@ -1,79 +1,75 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    background-color: #EDF4ED;
-    color: #EDF4ED;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .cadastro-container {
-    background-color: #ABD1B5;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px #79B791;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .cadastro-container h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 28px;
-    color: #fff;
-  }
-  
-  .cadastro-container label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
-  
-  .cadastro-container input,
-  .cadastro-container select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #EDF4ED;
-    color: #51291E;
-    font-size: 16px;
-  }
-  
-  .cadastro-container button {
-    width: 100%;
-    padding: 12px;
-    background-color: #fff;
-    color: #000;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .cadastro-container button:hover {
-    background-color: #ccc;
-  }
-  
-  .nav_bar_cadastro {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  
-  .nav_bar_cadastro a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.header {
+  background-color: #2ecc71;
+  padding: 40px 0;
+  text-align: center;
+  color: white;
+}
+
+.header h1 {
+  font-size: 32px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2ecc71;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #27ae60;
+}
+
+.create-account {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.create-account a {
+  color: #2ecc71;
+  text-decoration: none;
+}
+
+.create-account a:hover {
+  text-decoration: underline;
+}
