@@ -10,9 +10,6 @@ class SQL_connection {
         "port"=>"{$this->sqlData["port"]}"
     ];
     public function testConnect() {
-        if ($this->serverInfo["password"] === "") {
-            header("Location: /DailyGreen-Project/SCRIPT/PHP/SQL_connection_error.php");
-        }
         $conn = new mysqli( $this->serverInfo['servername'],
                             $this->serverInfo['username'],
                             $this->serverInfo['password'],
@@ -23,6 +20,6 @@ class SQL_connection {
         }
     }
     public function addNewParticipant(array $arrayDATA) {
-
+        
     }
 }

@@ -13,7 +13,7 @@
     <section class="error-connection">
         <h1>✖ Falha na conexão! ✖</h1>
         <div class="forms">
-            <form id="formBD" name="formBD" action="" method="post">
+            <form id="formBD" name="formBD" action="LOGIC/update_json_SQL_BD.php" method="post">
                 <div class="forms-inputs">
                     <div class="data-input">
                         <label for="servername">Server name:</label>
