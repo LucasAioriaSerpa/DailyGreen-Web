@@ -1,5 +1,15 @@
 body{
     background-color: #EDF4ED;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);  
+}
+
+.titulo_cadastro_adm{
+    font-weight: bold;
+    font-size: larger;
+    padding: 5px;
 }
 
 .container-cadastro-adm{
@@ -7,5 +17,47 @@ body{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
 }
 
+.inserir_dados{
+    background-color: #ABD1B5;
+    padding: 25px;
+}
+
+.input_dados_cadastrais{
+    width: 96%;
+    height: 30px;
+    padding: 5px;
+    padding-left: 7px;
+    font-size: 15px;
+    box-shadow: none;
+    border: none;
+    outline: 0;
+    border-radius: 5px;
+}
+
+.input_dados_cadastrais:focus{
+    border-bottom: 5px solid green;
+}
+
+.button_cadastrar_adm{
+    padding-top: 25px;
+}
+
+.botao_cadastrar{
+    width: 100%;
+    padding: 4%;
+    border: none;
+    background-color: #EDF4ED;
+    font-weight: bold;
+}
+
+.botao_cadastrar:hover{
+    transition: 0.5s;
+    background-color: #51291E;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}

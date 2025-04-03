@@ -10,29 +10,26 @@
 <body>
     <div class="container-cadastro-adm">
 
-        <div class="inserir_dados">
-            <p class="titulo_cadastro_adm">CADASTRO NOVO ADMINISTRADOR</p>
+        <form action="/DailyGreen-Project/SCRIPTS/HTML/pagina_administrador.html" class="inserir_dados">
+            <p class="titulo_cadastro_adm">CADASTRO NOVO ADMINISTRADOR</p><br>
 
             <div class="cadastro_email_adm">
-                <p class="txt_titulos">EMAIL DE ACESSO</p>
-                <input type="text" class="input_email_adm" placeholder="Digite o email" required>
-            </div>
+                <input type="text" class="input_dados_cadastrais" id="input_email_adm" placeholder="Email de Acesso" required>
+            </div><br>
 
             <div class="cadastro_senha_adm">
-                <p class="txt_titulos">DEFINA UMA SENHA</p>
-                <input type="text" class="input_senha_adm" placeholder="Digite a senha" required>
-            </div>
+                <input type="text" class="input_dados_cadastrais" id="input_senha_senha" placeholder="Digite a senha" required>
+            </div><br>
 
             <div class="confirmacao_senha_adm">
-                <p class="txt_titulos">CONFIRME A SENHA</p>
-                <input type="text" class="input_confirmacao_senha_adm" placeholder="Digite novamente a senha" required>
+                <input type="text" class="input_dados_cadastrais" id="input_confirmacao_senha" placeholder="Digite novamente a senha" required>
             </div>
-        </div>
 
-        <div class="button_cadastrar_adm">
-            <button class="botao_cadastrar">CADASTRAR</button>
-        </div>
+            <div class="button_cadastrar_adm">
+                <input type="submit" class="botao_cadastrar" value="CADASTRAR">
+            </div>
 
+        </form>
     </div>
 </body>
 </html>
