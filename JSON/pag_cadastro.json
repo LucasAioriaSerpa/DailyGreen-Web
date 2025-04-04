@@ -1,19 +1,20 @@
 {
-    "cad-part": "0",
+    "cad-part": "1",
     "part-1": {
-        "nome": "",
-        "email": "",
-        "org": false
+        "nome": "ffff",
+        "sobrenome": null,
+        "email": "aaaa@aaaa",
+        "senha": null
     },
     "part-1-org": {
-        "org-nome": "",
-        "CNPJ": ""
+        "org-nome": null,
+        "CNPJ": null
     },
     "part-2": {
-        "file": "",
-        "genero": ""
+        "file": null,
+        "genero": null
     },
     "part-3": {
-        "senha": ""
+        "senha": null
     }
 }

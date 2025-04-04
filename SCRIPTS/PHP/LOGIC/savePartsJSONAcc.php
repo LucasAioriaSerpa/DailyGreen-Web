@@ -1,6 +1,5 @@
 
 <?php
-$pagCadastroDATA = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json"), true);
 function updateCadastroSave() {
     return [
         "cad-part" => $_POST["cad-part"],
@@ -23,27 +22,27 @@ function updateCadastroSave() {
         ]
         ];
 }
-
+$filename = "/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json";
 switch ($_POST["cad-part"]) {
-    case 0:
+    case "0":
         $cadastroSave = updateCadastroSave();
         $cadastroSave["cad-part"] = "1";
-        $stringJSON = json_encode($cadastroSave);
-        file_put_contents("/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json", $stringJSON);
+        $stringJSON = json_encode($cadastroSave, JSON_PRETTY_PRINT);
+        file_put_contents($filename, $stringJSON);
         header("Location: /DailyGreen-Project/SCRIPTS/PHP/accountCreation.php");
         break;
-    case 1:
+    case "1":
         $cadastroSave = updateCadastroSave();
         $cadastroSave["cad-part"] = "2";
-        $stringJSON = json_encode($cadastroSave);
-        file_put_contents("/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json", $stringJSON);
+        $stringJSON = json_encode($cadastroSave, JSON_PRETTY_PRINT);
+        file_put_contents($filename, $stringJSON);
         header("Location: /DailyGreen-Project/SCRIPTS/PHP/accountCreation.php");
         break;
-    case 2:
+    case "2":
         $cadastroSave = updateCadastroSave();
         $cadastroSave["cad-part"] = "3";
-        $stringJSON = json_encode($cadastroSave);
-        file_put_contents("/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json", $stringJSON);
+        $stringJSON = json_encode($cadastroSave, JSON_PRETTY_PRINT);
+        file_put_contents($filename, $stringJSON);
         header("Location: /DailyGreen-Project/index.php");
         break;
     default:
