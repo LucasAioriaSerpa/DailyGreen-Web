@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS organizacao (
 -- Tabela administrador
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS administrador (
-    id_administrador INT NOT NULL,
+    id_administrador INT NOT NULL AUTO_INCREMENT,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
     PRIMARY KEY (id_administrador)

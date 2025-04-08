@@ -18,24 +18,29 @@ class SQLconnection {
     }
 
     public function tryConnectBD() {
-        $conn = new mysqli( $this->serverInfo['servername'],
-                            $this->serverInfo['username'],
-                            $this->decode->decrypt($this->serverInfo['password']),
-                            $this->serverInfo['database'],
-                            $this->serverInfo['port']);
-        if ($conn->connect_error) {
-            header("Location: /DailyGreen-Project/SCRIPT/PHP/SQL_connection_error.php");
+        try {
+            $conn = new mysqli( $this->serverInfo['servername'],
+                                $this->serverInfo['username'],
+                                $this->decode->decrypt($this->serverInfo['password']),
+                                $this->serverInfo['database'],
+                                $this->serverInfo['port']);
+            return $conn;
+        } catch (mysqli_sql_exception $e) {
+            error_log("Connection Failed: " . $conn->connect_error);
+            header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");
+            exit();
         }
-        return $conn;
     }
     public function insertQueryBD(string $query) {
         $conn = $this->tryConnectBD();
         if ($conn->query($query) === true) {
             $last_id = $conn->insert_id;
             echo "New recorded created sucessfully. Last ID: " . $last_id;
+            $conn->close();
             return $last_id;
         } else {
             echo "Error: " . $query . "<br>" . $conn->error;
+            $conn->close();
             return false;
         }
     }

@@ -1,5 +1,5 @@
 <?php
-include 'arrayJSON.php'; // Se você precisa usar funções daí
+include_once 'arrayJSON.php'; // Se você precisa usar funções daí
 
 $filename = "/xampp/htdocs/DailyGreen-Project/JSON/postagem.json";
 

@@ -1,7 +1,7 @@
 
 <?php
-include 'Cypher.php';
-include 'SQL_connection.php';
+include_once 'Cypher.php';
+include_once 'SQL_connection.php';
 $encode = new EncodeDecode();
 $sqlConnection = new SQLconnection();
 $cadastroSave = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json"), true);

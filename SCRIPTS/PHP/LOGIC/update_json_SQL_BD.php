@@ -1,6 +1,6 @@
 
 <?php
-include 'Cypher.php';
+include_once 'Cypher.php';
 $objEncode = new EncodeDecode();
 //! to get a file to read needs to add "/xampp/htdocs/[folder-site]..."
 $jsonDecodedBD = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/bd_info.json"), true);

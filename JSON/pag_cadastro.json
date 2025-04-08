@@ -1,10 +1,10 @@
 {
-    "cad-part": "1",
+    "cad-part": "0",
     "part-1": {
         "nome": "ffff",
         "sobrenome": null,
         "email": "aaaa@aaaa",
-        "senha": null
+        "org": "false"
     },
     "part-1-org": {
         "org-nome": null,
