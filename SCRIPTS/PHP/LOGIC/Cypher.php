@@ -1,6 +1,6 @@
 
 <?php
-include "functions.php";
+include 'functions.php';
 class EncodeDecode {
     private string $method = "aes-256-cbc";
     private $iv_length = null;
@@ -16,7 +16,6 @@ class EncodeDecode {
         return $output;
     }
     public function decrypt(string $input) {
-        //! there is some problem in the IV and encrypted data when trying to separate the strings . _ .)
         $key = base64_decode(json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/cypher_data.json"), true)["key"]);
         $mix = base64_decode($input);
         $iv = substr($mix,0,$this->iv_length);

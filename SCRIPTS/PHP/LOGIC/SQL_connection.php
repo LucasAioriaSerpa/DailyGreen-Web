@@ -1,6 +1,6 @@
 
 <?php
-include "Cypher.php";
+include 'Cypher.php';
 class SQLconnection {
     private EncodeDecode $decode = new EncodeDecode();
     private array $sqlData = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/bd_info.json"), true);
