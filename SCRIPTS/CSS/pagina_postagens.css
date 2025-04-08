@@ -300,3 +300,10 @@
             font-weight: bold;
             cursor: pointer;
         }
+
+        #invisivel {
+            border: none;           /* remove borda */
+            background: transparent;/* fundo invisível */
+            
+            outline: none;          /* remove o contorno ao focar */
+          }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twitter-like Full Screen</title>
-    <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/pagina_postagens.css">
+    <link rel="stylesheet" href="/SCRIPTS/CSS/pagina_postagens.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -44,8 +44,15 @@
 
                 <div class="caixa_postagem-header">
                     <div class="caixa_postagem-avatar"></div>
+
                     <div class="caixa_postagem-input">
-                        <textarea placeholder = "Poste Aqui" ></textarea>
+                        <form action="../PHP/LOGIC/gravar.php" method="POST">
+                            <input type="text" name="postagem" placeholder="Poste aqui">
+                            <input type="submit" value="Postar">
+                          </form>
+                          
+                          
+                        
                     </div>
                 </div>
 
@@ -54,8 +61,11 @@
                         <div class="caixa_postagem-action"><i class="far fa-image"></i></div>
                         
                     </div>
-                    <button class="caixa_postagem-button">Postar</button>
+                    
+                    
+                
                 </div>
+                
 
             </div>
             
