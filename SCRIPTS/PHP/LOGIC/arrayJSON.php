@@ -28,3 +28,16 @@ function updateLoginSave() {
         "senha" => $_POST["senha"]
     ];
 }
+function updateCadastroSaveAdm(){
+    return [
+        "email" => $_POST["email"],
+        "password" => $_POST["password"]
+    ];
+}
+
+function updateLoginSaveAdm(){
+    return [
+        "email" => $_POST["email"],
+        "password" => $_POST["password"]
+    ];
+}
