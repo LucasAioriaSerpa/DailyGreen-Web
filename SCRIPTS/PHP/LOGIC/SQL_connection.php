@@ -33,11 +33,11 @@ class SQLconnection {
             return false;
         }
     }
-    public function callQueryBD(string $query) {
+    public function callTableBD(string $table) {
         $conn = $this->tryConnectBD();
-        $result = mysqli_query($conn, $query);
-        if (mysqli_num_rows($result) > 0) {
-        //     while ($row = mysqli_fetc)
-        // }
+        $sqlQuery = "SELECT * FROM " . $table;
+        $stmt = $conn->prepare($sqlQuery);
+        $stmt->execute();
+        // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
