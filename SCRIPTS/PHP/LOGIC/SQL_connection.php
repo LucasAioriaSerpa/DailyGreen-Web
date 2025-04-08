@@ -1,16 +1,22 @@
 
 <?php
-include 'Cypher.php';
+include_once 'Cypher.php';
 class SQLconnection {
-    private EncodeDecode $decode = new EncodeDecode();
-    private array $sqlData = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/bd_info.json"), true);
-    private array $serverInfo = [
-        "servername"=>"{$this->sqlData["servername"]}",
-        "username"=>"{$this->sqlData["username"]}",
-        "password"=>"{$this->sqlData["password"]}",
-        "database"=>"{$this->sqlData["database"]}",
-        "port"=>"{$this->sqlData["port"]}"
-    ];
+    private EncodeDecode $decode;
+    private array $sqlData;
+    private array $serverInfo;
+    public function __construct(){
+        $this->decode = new EncodeDecode();
+        $this->sqlData = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/bd_info.json"), true);
+        $this->serverInfo = [
+            "servername"=>"{$this->sqlData["mySql"]["servername"]}",
+            "username"=>"{$this->sqlData["mySql"]["username"]}",
+            "password"=>"{$this->sqlData["mySql"]["password"]}",
+            "database"=>"{$this->sqlData["mySql"]["database"]}",
+            "port"=>"{$this->sqlData["mySql"]["port"]}"
+        ];
+    }
+
     public function tryConnectBD() {
         $conn = new mysqli( $this->serverInfo['servername'],
                             $this->serverInfo['username'],
