@@ -9,15 +9,15 @@
 <body>
     <div class="container-cadastro-adm">
 
-        <form class="inserir_dados" id="form_cadastro">
+        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsJSONCadastroAdm.php" method="post" class="inserir_dados" id="form_cadastro">
             <p class="titulo_cadastro_adm">CADASTRO NOVO ADMINISTRADOR</p><br>
 
             <div class="cadastro_email_adm">
-                <input type="text" class="input_dados_cadastrais" id="input_email_adm" placeholder="Email de Acesso" required>
+                <input type="text" class="input_dados_cadastrais" id="email" name="email" placeholder="Email de Acesso" required>
             </div><br>
 
             <div class="cadastro_senha_adm">
-                <input type="password" class="input_dados_cadastrais" id="input_senha_adm" placeholder="Digite a senha" required>
+                <input type="password" class="input_dados_cadastrais" id="password" name="password" placeholder="Digite a senha" required>
             </div><br>
 
             <div class="confirmacao_senha_adm">
@@ -31,5 +31,5 @@
         </form>
     </div>
 </body>
-<script src="/DailyGreen-Project/SCRIPTS/JS/tela_de_cadastro_adm.js"></script>
+<!-- <script src="/DailyGreen-Project/SCRIPTS/JS/tela_de_cadastro_adm.js"></script> -->
 </html>
