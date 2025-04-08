@@ -37,7 +37,7 @@ class SQLconnection {
         $conn = $this->tryConnectBD();
         $result = mysqli_query($conn, $query);
         if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetc)
-        }
+        //     while ($row = mysqli_fetc)
+        // }
     }
 }
