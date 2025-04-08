@@ -1,6 +1,6 @@
 
 <?php
-include "LOGIC/functions.php";
+include 'LOGIC/functions.php';
 $pagCadastroDATA = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json"), true);
 switch ($pagCadastroDATA["cad-part"]) {
     case "0":
