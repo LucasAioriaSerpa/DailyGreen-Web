@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EDF4ED; /* fundo verde claro quase branco */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #51291E;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #51291E; /* marrom escuro */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #ABD1B5; /* verde chá claro */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(81, 41, 30, 0.2); /* sombra marrom escura */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #51291E;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(81, 41, 30, 0.3);
+}
+
+.card h2 {
+    font-size: 1.8em;
+    color: #79B791; /* verde menta médio */
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #51291E; /* texto marrom escuro */
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #51291E;
+}
