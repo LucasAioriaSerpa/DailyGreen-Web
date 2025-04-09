@@ -38,21 +38,27 @@ body{
     border-radius: 5px;
 }
 
-.input_dados_cadastrais:focus{
-    border-bottom: 5px solid green;
+.cadastro_email_adm{
+    background-color: white;
+    border-radius: 5px;
+}
+
+.senha_status{
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    align-items: center;
 }
 
 .input-wrapper {
     position: relative;
-    width: 100%;
-    display: inline-block;
+    display: block;
 }
 
 .input-wrapper input.input_dados_cadastrais {
     display: flex;
     width: 100%;
-    flex-direction: row;
-    padding-right: 30px;
+    padding-right: 8px;
     box-sizing: border-box;
 }
 
@@ -68,11 +74,13 @@ body{
 #status_password {
     font-size: 15px;
     margin-right: 10px;
+    padding-left: 3%;
 }
 
 #status_confirmacao_password {
     font-size: 15px;
     margin-right: 10px;
+    padding-left: 3%;
 }
 
 .button_cadastrar_adm{
