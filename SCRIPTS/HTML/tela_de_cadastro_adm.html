@@ -17,11 +17,17 @@
             </div><br>
 
             <div class="cadastro_senha_adm">
-                <input type="password" class="input_dados_cadastrais" id="password" name="password" placeholder="Digite a senha" required>
+                <div class="senha_status">
+                    <input type="password" class="input_dados_cadastrais input-wrapper" id="password" name="password" placeholder="Digite a senha" required>
+                    <span class="status" id="status_password"></span>
+                </div>
             </div><br>
-
+            
             <div class="confirmacao_senha_adm">
-                <input type="password" class="input_dados_cadastrais" id="input_confirmacao_senha" placeholder="Digite novamente a senha" required>
+                <div class="senha_status">
+                    <input type="password" class="input_dados_cadastrais input-wrapper" id="input_confirmacao_password" placeholder="Digite novamente a senha" required>
+                    <span class="status" id="status_confirmacao_password"></span>
+                </div>
             </div>
 
             <div class="button_cadastrar_adm">
@@ -30,6 +36,6 @@
 
         </form>
     </div>
-</body>
-<!-- <script src="/DailyGreen-Project/SCRIPTS/JS/tela_de_cadastro_adm.js"></script> -->
+</body> 
+<script src="/DailyGreen-Project/SCRIPTS/JS/tela_de_cadastro_adm.js"></script>
 </html>
