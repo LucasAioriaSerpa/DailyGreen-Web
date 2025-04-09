@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
   <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_pagina_login.css">
   <script src="/DailyGreen-Project/SCRIPTS/JS/pagina_inicial.js"></script>
 </head>
+
+<script src="/DailyGreen-Project/SCRIPTS/JS/verify_email_org.js"></script>
+
 <body>
   <div class="login-container">
+
     <div class="nav_bar_login">
       <h2>LOGIN</h2>
       <a href="pagina_cadastro.html">CADASTRO</a>
     </div>
 
-    <form class="enter_login">
+    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsJSONLogin.php" method="post" class="enter_login">
+
       <div class="class_email">
         <label for="login_email">Email:</label>
-        <input type="email" id="email" name="email" required/>
+        <input type="email" id="email" name="email" required />
       </div>
+
       <div class="class_senha">
         <label for="login_senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required/>
+        <input type="password" id="password" name="password" required />
       </div>
+
+      <input type="hidden" name="org" value="false">
+
       <div class="class_button">
-        <button type="submit">Entrar</button>
+        <input type="submit" value="Entrar">
       </div>
+
     </form>
-    
+
   </div>
 </body>
+
 </html>

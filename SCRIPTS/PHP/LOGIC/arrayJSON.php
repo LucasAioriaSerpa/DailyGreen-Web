@@ -96,22 +96,13 @@ function updateLoginSave()
     $_ENCODE = new EncodeDecode();
     return [
         "email" => $_POST["email"],
-        "senha" => $_ENCODE->encrypt($_POST["senha"])
+        "password" => $_ENCODE->encrypt($_POST["password"]),
+        "org" => $_POST["org"]
     ];
 }
 
 //* CADASTRO ADM
 function updateCadastroSaveAdm()
-{
-    $_ENCODE = new EncodeDecode();
-    return [
-        "email" => $_POST["email"],
-        "password" => $_ENCODE->encrypt($_POST["password"])
-    ];
-}
-
-//* LOGIN ADM
-function updateLoginSaveAdm()
 {
     $_ENCODE = new EncodeDecode();
     return [
