@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_tela_de_cadastro_adm.css">
+    <!-- <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/JS/tela_de_cadastro_adm.js"> -->
     <title>Cadastro Administrador</title>
 </head>
 <body>
@@ -16,12 +17,14 @@
                 <input type="text" class="input_dados_cadastrais" id="email" name="email" placeholder="Email de Acesso" required>
             </div><br>
 
-            <div class="cadastro_senha_adm">
+            <div class="cadastro_senha_adm input-wrapper">
                 <input type="password" class="input_dados_cadastrais" id="password" name="password" placeholder="Digite a senha" required>
+                <span class="status" id="status_password"></span>
             </div><br>
-
-            <div class="confirmacao_senha_adm">
-                <input type="password" class="input_dados_cadastrais" id="input_confirmacao_senha" placeholder="Digite novamente a senha" required>
+            
+            <div class="confirmacao_senha_adm input-wrapper">
+                <input type="password" class="input_dados_cadastrais" id="input_confirmacao_password" placeholder="Digite novamente a senha" required>
+                <span class="status" id="status_confirmacao_password"></span>
             </div>
 
             <div class="button_cadastrar_adm">
@@ -30,6 +33,6 @@
 
         </form>
     </div>
-</body>
-<!-- <script src="/DailyGreen-Project/SCRIPTS/JS/tela_de_cadastro_adm.js"></script> -->
+</body> 
+<script src="/DailyGreen-Project/SCRIPTS/JS/tela_de_cadastro_adm.js"></script>
 </html>

@@ -26,8 +26,9 @@ class SQLconnection {
                                 $this->serverInfo['port']);
             return $conn;
         } catch (mysqli_sql_exception $e) {
-            error_log("Connection Failed: " . $conn->connect_error);
-            header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");
+            echo $e;
+            //error_log("Connection Failed: " . $conn->connect_error);
+            //header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");
             exit();
         }
     }
