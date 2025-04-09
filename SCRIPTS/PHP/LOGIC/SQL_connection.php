@@ -27,8 +27,8 @@ class SQLconnection {
             return $conn;
         } catch (mysqli_sql_exception $e) {
             echo $e;
-            //error_log("Connection Failed: " . $conn->connect_error);
-            //header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");
+            error_log("Connection Failed: " . $conn->connect_error);
+            header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");
             exit();
         }
     }
@@ -46,10 +46,17 @@ class SQLconnection {
         }
     }
     public function callTableBD(string $table) {
+        $data = [];
         $conn = $this->tryConnectBD();
-        $sqlQuery = "SELECT * FROM " . $table;
-        $stmt = $conn->prepare($sqlQuery);
-        $stmt->execute();
-        // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $table = $conn->real_escape_string($table);
+        $sqlQuery = "SELECT * FROM `$table`";
+        $result = $conn->query($sqlQuery);
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+        }
+        $conn->close();
+        return $data;
     }
 }

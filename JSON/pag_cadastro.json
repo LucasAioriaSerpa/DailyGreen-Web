@@ -1,19 +1,19 @@
 {
     "cad-part": "0",
     "part-1": {
-        "nome": "org_org",
-        "email": "org_org@org.br.com",
-        "org": null
+        "nome": "aaaaa",
+        "email": "Lucasaioriaserpa@outlook.com",
+        "org": "false"
     },
     "part-1-org": {
-        "org-nome": "Organiza\u00e7\u00e3o organiza",
-        "CNPJ": "0123456789"
+        "org-nome": null,
+        "CNPJ": null
     },
     "part-2": {
-        "file": "GSdIBOZWQAAa1C9.jpg",
+        "file": "maxresdefault.jpg",
         "genero": "masculino"
     },
     "part-3": {
-        "senha": "kZQlpt+rEKoKndrIa68Z7TUbhYxMOmysvLsrg1rejnylpEFXsZALf+sEg\/iESkByJ23TkcH99lpsRDA7cPC6aLuagEeW4sP4LmnEHnw04RG9VmVHqd74GhRAU1oK44Ln"
+        "senha": "6R0TjTH74OBlWENEBWTDcFKB+ELaYAbJQDO495d8HjYxXax0gtLJHtNhg6XwKimSCUboDL\/5XxWu7FGlTIIeeKuS0KLCG\/I0zgAe9uo0JnpXfcoNs2DPOTRL8vFfmjT9"
     }
 }
