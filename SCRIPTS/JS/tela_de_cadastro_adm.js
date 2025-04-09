@@ -1,18 +1,5 @@
-// const senha = document.getElementById('password');
-// const confirmarSenha = document.getElementById('input_confirmacao_password');
 
-// function redirecionarAdm(){
-//     alert('Usuário cadastrado com sucesso!');
-//     window.location.href = '/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsJSONCadastroAdm.php';
-// }
-
-// document.getElementById('form_cadastro').addEventListener("submit", function(chamarFuncaoCadastroAdm){
-//     chamarFuncaoCadastroAdm.preventDefault();
-//     if (senha.value === confirmarSenha.value){
-//         redirecionarAdm();
-//     } else {
-//         alert('As senhas estão diferentes!');
-//     }});
+// FUNÇÃO PARA VALIDAR SE OS CAMPOS DE SENHA SÃO IGUAIS
 
 const senha = document.getElementById('password');
 const confirmacaoSenha = document.getElementById('input_confirmacao_password');
@@ -35,3 +22,21 @@ function verificarSenha(){
 
 senha.addEventListener("input", verificarSenha);
 confirmacaoSenha.addEventListener("input", verificarSenha);
+
+// FUNÇÃO PARA VALIDAR SE O EMAIL É VALIDO → REGEX
+
+const forms_cadastro = document.getElementById('form_cadastro');
+forms_cadastro.addEventListener("submit", function(validarEmail){
+    const emailInput = document.getElementById('email');
+    const email = emailInput.value;
+    const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+
+    if (!regex.test(email)){
+        validarEmail.preventDefault();
+        alert('Email inválido, favor verificar!');
+        emailInput.focus();
+    } else if (senha.value != confirmacaoSenha.value){
+        validarEmail.preventDefault()
+        alert('As senhas estão diferentes!');
+    }
+})

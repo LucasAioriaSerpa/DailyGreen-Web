@@ -19,16 +19,18 @@
             <div class="cadastro_senha_adm">
                 <div class="senha_status">
                     <input type="password" class="input_dados_cadastrais input-wrapper" id="password" name="password" placeholder="Digite a senha" required>
-                    <span class="status" id="status_password"></span>
+                    <span class="status" id="status_password" value="0"></span>
                 </div>
             </div><br>
             
             <div class="confirmacao_senha_adm">
                 <div class="senha_status">
                     <input type="password" class="input_dados_cadastrais input-wrapper" id="input_confirmacao_password" placeholder="Digite novamente a senha" required>
-                    <span class="status" id="status_confirmacao_password"></span>
+                    <span class="status" id="status_confirmacao_password" value="0"></span>
                 </div>
             </div>
+
+            <input type="hidden" id="confirmarStatus" value="0">
 
             <div class="button_cadastrar_adm">
                 <input type="submit" class="botao_cadastrar" value="CADASTRAR">
