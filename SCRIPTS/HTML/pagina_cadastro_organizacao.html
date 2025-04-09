@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cadastro</title>
   <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_pagina_cadastro.css">
 </head>
+
 <body>
   <div class="cadastro-container">
     <div class="nav_bar_cadastro">
       <h2>Cadastro</h2>
       <a href="pagina_login.html">Login</a>
     </div>
-    
-    <form action="/SCRIPTS/PHP/" method="POST">
+
+    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsJSONAcc.php" method="post">
+
+      <input type="hidden" name="cad-part" value="1">
+
       <label for="nome">Nome da Organização:</label>
       <input type="text" id="nome" name="nome" required />
 
       <label for="email">CNPJ (Opcional):</label>
       <input type="text" id="cnpj" name="cnpj" />
 
-      <div class="next_button"> <a href="pagina_cadastro2.html">Próximo</a> </div>
-    
+      <input type="hidden" name="org" value="TRUE">
+
+      <div class="next_button"> <input type="submit" value="proximo"> </div>
+
     </form>
   </div>
 </body>
+
 </html>

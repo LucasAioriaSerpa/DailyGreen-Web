@@ -6,7 +6,7 @@ switch ($pagCadastroDATA["cad-part"]) {
     case "0":
         return include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/pagina_cadastro.html";
     case "1":
-        if ($pagCadastroDATA["part-1"]["org"]) {
+        if ($pagCadastroDATA["part-1"]["org"] == "true") {
             return include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/pagina_cadastro_organizacao.html";
         }
         return include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/pagina_cadastro2.html";

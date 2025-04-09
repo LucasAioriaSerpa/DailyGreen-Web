@@ -9,7 +9,7 @@ $profile_pic = $cadastroSave["part-2"]["file"];
 $username = $cadastroSave["part-1"]["nome"];
 $email = $cadastroSave["part-1"]["email"];
 $password = $encode->decrypt($cadastroSave["part-3"]["senha"]);
-$genero = $cadastroSave["part-2"]["genero"];
+$genero = $cadastroSave["part-2"]["genero"][0];
 $sqlQuery = "INSERT INTO participante(
     profile_pic,
     username,
@@ -24,7 +24,7 @@ $sqlQuery = "INSERT INTO participante(
     '{$genero}'
 )";
 $last_id = $sqlConnection->insertQueryBD($sqlQuery);
-if ($cadastroSave["part-1"]["org"]) {
+if ($cadastroSave["part-1"]["org"] == "TRUE") {
     $nomeOrg = $cadastroSave["part-1-org"]["org-nome"];
     $CNPJ = $cadastroSave["part-1-org"]["CNPJ"];
     $sqlQuery_org = "INSERT INTO organizacao(

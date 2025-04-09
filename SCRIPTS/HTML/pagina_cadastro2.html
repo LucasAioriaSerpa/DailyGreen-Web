@@ -16,8 +16,12 @@
     </div>
 
     <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsJSONAcc.php" method="POST">
+
+      <input type="hidden" name="cad-part" value="1">
+
       <label for="file">Imagem de Perfil:</label>
       <input type="file" id="file" name="file" accept="image/*" required />
+
       <label for="genero">Gênero:</label>
       <select id="genero" name="genero" required>
         <option value="">Selecione</option>
@@ -26,7 +30,7 @@
         <option value="outro">Outro</option>
       </select>
 
-      <div class="next_button"> <a href="pagina_cadastro3.html">Próximo</a> </div>
+      <div class="next_button"> <input type="submit" value="proximo"> </div>
 
     </form>
   </div>

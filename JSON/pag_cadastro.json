@@ -1,9 +1,8 @@
 {
     "cad-part": "0",
     "part-1": {
-        "nome": "ffff",
-        "sobrenome": null,
-        "email": "aaaa@aaaa",
+        "nome": "Lucas Aioria Serpa",
+        "email": "Garudaakuma2013@gmail.com",
         "org": "false"
     },
     "part-1-org": {
@@ -11,10 +10,10 @@
         "CNPJ": null
     },
     "part-2": {
-        "file": null,
-        "genero": null
+        "file": "GSdIBOZWQAAa1C9.jpg",
+        "genero": "masculino"
     },
     "part-3": {
-        "senha": null
+        "senha": "qHTqTwhS4L95D3uvZfk\/DpbG7pV5gg19pK9iiBvg555Vfaht7YBOJSm4sR9hpXAix2ZIGZ+bkPlhdsOihn6WZ4J3MWrs0ZiBJoAUH6M4mT3YH8ZPxU\/KSF0ffNgLR1xC"
     }
 }
