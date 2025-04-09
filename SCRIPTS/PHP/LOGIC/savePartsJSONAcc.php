@@ -1,24 +1,31 @@
 <?php
 include_once 'arrayJSON.php'; // Se você precisa usar funções daí
+include_once 'functions.php';
 
 $filename = "/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json";
 
 switch ($_POST["cad-part"]) {
     case "0":
         $cadastroSave = updateCadastroSave("0", false);
+        if (in_array("true", $cadastroSave['part-1'])) {
+            $cadastroSave["cad-part"] = "1-1";
+        } else {
+            $cadastroSave["cad-part"] = "1";
+        }
+        debug_var($_POST);
+        debug_var($cadastroSave);
+        $stringJSON = json_encode($cadastroSave, JSON_PRETTY_PRINT);
+        file_put_contents($filename, $stringJSON);
+        header("Location: /DailyGreen-Project/SCRIPTS/PHP/accountCreation.php");
+        break;
+    case "1-1":
+        $cadastroSave = updateCadastroSave("1", true);
         $cadastroSave["cad-part"] = "1";
         $stringJSON = json_encode($cadastroSave, JSON_PRETTY_PRINT);
         file_put_contents($filename, $stringJSON);
         header("Location: /DailyGreen-Project/SCRIPTS/PHP/accountCreation.php");
         break;
     case "1":
-        if ($_POST["part-1"]["org"] == "true") {
-            $cadastroSave = updateCadastroSave("1", true);
-            $cadastroSave["cad-part"] = "1";
-            $stringJSON = json_encode($cadastroSave, JSON_PRETTY_PRINT);
-            file_put_contents($filename, $stringJSON);
-            header("Location: /DailyGreen-Project/SCRIPTS/PHP/accountCreation.php");
-        }
         $cadastroSave = updateCadastroSave("1", false);
         $cadastroSave["cad-part"] = "2";
         $stringJSON = json_encode($cadastroSave, JSON_PRETTY_PRINT);

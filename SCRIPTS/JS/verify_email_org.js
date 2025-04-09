@@ -7,9 +7,9 @@ function checkOrganizationEmail() {
     const emailDomain = email.split('@')[1];
 
     if (organizationDomains.includes(emailDomain)) {
-        orgInput.value = "false";
+        orgInput.value = false;
     } else {
-        orgInput.value = "true";
+        orgInput.value = true;
     }
 }
 

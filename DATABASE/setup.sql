@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS participante (
 -- Tabela organizacao
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS organizacao (
-    id_organizacao INT NOT NULL,
+    id_organizacao INT NOT NULL AUTO_INCREMENT,
     id_participante INT NOT NULL,
     nome VARCHAR(100) NOT NULL,
     CNPJ INT UNIQUE NULL,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS administrador (
 -- Tabela post
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS post (
-    id_post INT NOT NULL,
+    id_post INT NOT NULL AUTO_INCREMENT,
     id_autor INT NOT NULL,
     titulo VARCHAR(50) NOT NULL,
     descricao VARCHAR(255) NULL,
