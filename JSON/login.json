@@ -1,9 +1,11 @@
-{
-    "id_participante": "1",
-    "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/67f741f9bc9e2.jpg",
-    "username": "Garudaakuma",
-    "email": "Garudaakuma2013@gmail.com",
-    "password": "xj2LARFPZdS5aT6fraM4ma37TiL6hYhibQgKEYViDD4T4fGDscb6qjalV7VzwJtCXaC8MLYR1iuPkFsQ9kWdXHiIWTfvRMJ5ZB1RO10O2kPFyQ2fnkTU\/tpBqe+9vfIN",
-    "genero": "m",
-    "create_time": "2025-04-10 00:59:17"
-}
+[
+    {
+        "id_participante": "2",
+        "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/67f763e8cc87d.jpg",
+        "username": "Lucas Aioria Serpa",
+        "email": "Lucasaioriaserpa@outlook.com",
+        "password": "LmyBHn0XzwmpfaRBu0\/SHpWEgr+JJontwMK2C8Ii4daA2X9IFIUt8iX6TC1WWCZ+NN09m5AEyN0q\/1BS0GPij+EDdig6tfYQ\/iaebHgfezGl76vGRnq4tP6TOTQ09fOy",
+        "genero": "m",
+        "create_time": "2025-04-10 03:23:42"
+    }
+]

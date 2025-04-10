@@ -5,13 +5,13 @@ $sqlConnection = new SQLconnection();
 $postsArray = $sqlConnection->callTableBD('post',false);
 $usersArray = $sqlConnection->callTableBD('participante',true);
 function pullName() {
-    echo json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/login.json"), true)["username"];
+    echo json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/login.json"), true)[0]["username"];
 }
 function pullProfileImage() {
-    return str_replace("/xampp/htdocs", "",json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/login.json"), true)["profile_pic"]);
+    return str_replace("/xampp/htdocs", "",json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/login.json"), true)[0]["profile_pic"]);
 }
 function pullID(){
-    return json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/login.json"), true)["id_participante"];
+    return json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/login.json"), true)[0]["id_participante"];
 }
 ?>
 

@@ -2,7 +2,6 @@
 <?php
 include_once 'SQL_connection.php';
 include_once 'Cypher.php';
-include_once 'functions.php';
 $decode = new EncodeDecode();
 $sqlConnection = new SQLconnection();
 $loginTable = $sqlConnection->callTableBD("participante", true);
@@ -27,7 +26,7 @@ foreach ($loginTable as $data) {
                             }
                         }
                     }
-                    file_put_contents('/xampp/htdocs/DailyGreen-Project/JSON/login.json', json_encode($data, JSON_PRETTY_PRINT));
+                    file_put_contents('/xampp/htdocs/DailyGreen-Project/JSON/login.json', json_encode([$data], JSON_PRETTY_PRINT));
                     header('Location: /DailyGreen-Project/SCRIPTS/PHP/postagens.php');
                     exit();
                 }

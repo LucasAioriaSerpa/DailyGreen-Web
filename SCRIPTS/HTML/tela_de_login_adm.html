@@ -12,14 +12,14 @@
       <h2>LOGIN</h2>
       <a href="pagina_cadastro.html">Cadastro</a>
     </div>
-    <form class="enter_login">
+    <form class="enter_login" action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/loginVerifyAdm.php" method="post">
       <div class="class_email">
-        <label for="login_email">Email:</label>
+        <label for="email">Email:</label>
         <input type="email" id="email" name="email" required/>
       </div>
       <div class="class_senha">
-        <label for="login_senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required/>
+        <label for="password">Senha:</label>
+        <input type="password" id="senha" name="password" required/>
       </div>
       <div class="class_button">
         <button type="submit">Entrar</button>
