@@ -1,19 +1,19 @@
 {
     "cad-part": "0",
     "part-1": {
-        "nome": "org_org",
-        "email": "org_org@org.com.br",
-        "org": null
+        "nome": "Lucas Aioria Serpa",
+        "email": "Lucasaioriaserpa@outlook.com",
+        "org": "false"
     },
     "part-1-org": {
-        "org-nome": "Organiza\u00e7\u00e3o organizacao",
-        "CNPJ": "0123456789"
+        "org-nome": null,
+        "CNPJ": null
     },
     "part-2": {
-        "file": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/67f7c942996cd.jpg",
-        "genero": "outro"
+        "file": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/67f7c3aaa6077.jpg",
+        "genero": "masculino"
     },
     "part-3": {
-        "senha": "A2WcLSp9E47g0\/IGRNFfdyJMts\/ui8IOnvaoPsUKUg2NOIlcNh0qCvqlIJ0Dq4wSxXmaX1tHLWay+6aMrgazLZ3nPV6AhDP0JbEuZOlxf9zqWYNxCn7uCcdDNvFKsdOL"
+        "senha": "25IdhG+MhJU0iWfn7l\/EBca8k5\/kdOUBKhgF9DHSBt1Y2XRql7kbHXpg50p7\/sdsAFT\/IE+mHKWJqJVta3KBW9qRRoaW6VhmxYjVGYzWTWc5b2pOYDmult0Cd1EZh44W"
     }
 }
