@@ -12,10 +12,24 @@
         <!-- -->
         <div class="sidebar_esquerda">
 
+            <header class="header_titulo">
+                <h2>DAILYGREEN</h2>
+            </header>
+
+            <div class="menu_navegacao">
+                test
+            </div>
         </div>
 
         <div class="menu_principal">
 
+            <header class="header_menu_principal">
+                test
+            </header>
+
+            <div class="navegacao_principal">
+
+            </div>
         </div>
 
     </div>

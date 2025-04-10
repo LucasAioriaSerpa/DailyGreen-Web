@@ -1,3 +1,37 @@
  body{
-    
+    background-color: #EDF4ED;
+    margin: 0%;
+ }
+
+.container-admPage{
+    display: flex;
+}
+
+.sidebar_esquerda{
+    background-color: #ABD1B5;
+    width: 15%;
+    height: 100vh;
+    justify-content: center;
+}
+
+.header_titulo{
+    background-color: #79B791;
+    font-size: 15px;
+    display: flex;
+    margin: 0%;
+    justify-content: center;
+    width: 33vb;
+    height: 9vh;
+    overflow: hidden;
+}
+
+ .menu_principal{
+    display: flex;
+ }
+
+ .header_menu_principal{
+    background-color: #79B791;
+    display: flex;
+    width: 100vb;
+    height: 9vh;
  }
