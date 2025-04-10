@@ -1,79 +1,56 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    background-color: #EDF4ED;
-    color: #EDF4ED;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .cadastro-container {
-    background-color: #ABD1B5;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px #79B791;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .cadastro-container h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 28px;
-    color: #fff;
-  }
-  
-  .cadastro-container label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
-  
-  .cadastro-container input,
-  .cadastro-container select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #EDF4ED;
-    color: #51291E;
-    font-size: 16px;
-  }
-  
-  .cadastro-container button {
-    width: 100%;
-    padding: 12px;
-    background-color: #fff;
-    color: #000;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .cadastro-container button:hover {
-    background-color: #ccc;
-  }
-  
-  .nav_bar_cadastro {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  
-  .nav_bar_cadastro a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-  }
+body{
+  background-color: #EDF4ED;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.nav_bar_login{
+  display: flex;
+  color: #51291E;
+  font-weight: bold;
+  font-size: larger;
+  padding-left: 20px;
+  align-items: center;
+}
+
+.login-container{
+  background-color: #ABD1B5;
+  padding: 20px;
+  width: 150%;
+  height: 400%;
+  transform: translate(-20%,-0%);
+}
+
+.campoInserirDados{
+  width: 96%;
+  height: 30px;
+  padding: 5px;
+  padding-left: 7px;
+  font-size: 15px;
+  box-shadow: none;
+  border: none;
+  outline: 0;
+  border-radius: 5px;
+}
+
+.enter_login{
+  padding: 15px;
+}
+
+.botaoLogar{
+  width: 100%;
+  padding: 4%;
+  border: none;
+  background-color: #EDF4ED;
+  font-weight: bold;
+}
+
+.botaoLogar:hover{
+  transition: 0.5s;
+  background-color: #51291E;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}

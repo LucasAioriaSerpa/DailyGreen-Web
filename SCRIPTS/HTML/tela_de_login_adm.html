@@ -3,28 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login</title>
-  <link rel="stylesheet" href="/DailyGreen-Project\SCRIPTS\CSS\style_tela_de_login_adm.css">
+  <title>Login Adm</title>
+  <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_tela_de_login_adm.css">
 </head>
 <body>
   <div class="login-container">
+
     <div class="nav_bar_login">
       <h2>LOGIN</h2>
-      <a href="pagina_cadastro.html">Cadastro</a>
+      <a href="tela_de_cadastro_adm.html">Cadastro</a>
     </div>
+
     <form class="enter_login" action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/loginVerifyAdm.php" method="post">
+
       <div class="class_email">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required/>
-      </div>
+        <input type="text" id="email" name="email" class="campoInserirDados" placeholder="Digite seu email" required/>
+      </div><br>
+
       <div class="class_senha">
-        <label for="password">Senha:</label>
-        <input type="password" id="senha" name="password" required/>
-      </div>
+        <input type="password" id="senha" name="password" class="campoInserirDados" placeholder="Digite sua senha" required/>
+      </div><br>
+
       <div class="class_button">
-        <button type="submit">Entrar</button>
+        <input type="submit" id="botaoLogar" name="botaoLogar" class="botaoLogar" value="ENTRAR">
       </div>
+
     </form>
+
   </div>
 </body>
 </html>
