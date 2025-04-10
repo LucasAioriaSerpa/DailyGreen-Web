@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_tela_de_cadastro_adm.css">
+    <title>Cadastro Administrador</title>
+</head>
+<body>
+    <div class="container-cadastro-adm">
+
+        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsJSONCadastroAdm.php" method="post" class="inserir_dados" id="form_cadastro">
+            <p class="titulo_cadastro_adm">CADASTRO NOVO ADMINISTRADOR</p><br>
+
+            <div class="cadastro_email_adm">
+                <input type="text" class="input_dados_cadastrais" id="email" name="email" placeholder="Email de Acesso" required>
+            </div><br>
+
+            <div class="cadastro_senha_adm">
+                <div class="senha_status">
+                    <input type="password" class="input_dados_cadastrais input-wrapper" id="password" name="password" placeholder="Digite a senha" required>
+                    <span class="status" id="status_password" value="0"></span>
+                </div>
+            </div><br>
+            
+            <div class="confirmacao_senha_adm">
+                <div class="senha_status">
+                    <input type="password" class="input_dados_cadastrais input-wrapper" id="input_confirmacao_password" placeholder="Digite novamente a senha" required>
+                    <span class="status" id="status_confirmacao_password" value="0"></span>
+                </div>
+            </div>
+
+            <input type="hidden" id="confirmarStatus" value="0">
+
+            <div class="button_cadastrar_adm">
+                <input type="submit" class="botao_cadastrar" value="CADASTRAR">
+            </div>
+
+        </form>
+    </div>
+</body> 
+<script src="/DailyGreen-Project/SCRIPTS/JS/tela_de_cadastro_adm.js"></script>
+</html>

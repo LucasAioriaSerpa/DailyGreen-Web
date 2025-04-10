@@ -2,8 +2,8 @@
     "mySql": {
         "servername": "localhost",
         "username": "root",
-        "password": "",
+        "password": "cdp60SJQMONVyl8W2hmnLvW6KpuqbnzdcsB6v0vSGsQIjtVSvTWzcuZJrTcy11iWl4rc+0unjhJZC5+NEDQyjx2Zf1h784JSm\/fHjaxCKcbkt7nc8XOE6y1W\/O2zYsMCYWj\/rueL3a\/bkU7UTacHuQ==",
         "database": "db_dailygreen",
-        "port": 3307
+        "port": "3307"
     }
 }

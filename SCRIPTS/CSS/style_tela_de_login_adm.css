@@ -1,0 +1,70 @@
+body{
+  background-color: #EDF4ED;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.nav_bar_login{
+  display: flex;
+  color: #51291E;
+  font-weight: bold;
+  font-size: larger;
+  padding-left: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.nav_bar_login a{
+  text-decoration: none;
+  color: #51291E;
+  font-size: 10px;
+}
+
+.nav_bar_login a:hover{
+  color: blue;
+}
+
+.login-container{
+  background-color: #ABD1B5;
+  padding: 20px;
+  width: 150%;
+  height: 400%;
+  transform: translate(-20%,-0%);
+}
+
+.campoInserirDados{
+  width: 97%;
+  height: 30px;
+  padding: 5px;
+  padding-left: 7px;
+  font-size: 15px;
+  box-shadow: none;
+  border: none;
+  outline: 0;
+  border-radius: 5px;
+}
+
+.enter_login{
+  padding: 15px;
+}
+
+.botaoLogar{
+  width: 100%;
+  padding: 4%;
+  border: none;
+  background-color: #EDF4ED;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.botaoLogar:hover{
+  transition: 0.5s;
+  background-color: #51291E;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}

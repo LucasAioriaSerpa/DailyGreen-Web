@@ -77,3 +77,11 @@
     text-decoration: none;
     font-size: 16px;
   }
+
+  .next_button, input[type="submit"] {
+    display: flex;
+    align-items: center;
+    background-color: #EDF4ED;
+    padding: 15px;
+    border-radius: 5px;
+  }

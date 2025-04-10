@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_pagina_cadastro.css">
+</head>
+
+<body>
+  <div class="cadastro-container">
+    <div class="nav_bar_cadastro">
+      <h2>Cadastro</h2>
+      <a href="pagina_login.html">Login</a>
+    </div>
+
+    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsJSONAcc.php" method="POST">
+
+      <input type="hidden" name="cad-part" value="2">
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required />
+
+      <label for="senha">Confirmar Senha:</label>
+      <input type="password" id="senha_confirm" name="senha" required />
+
+      <input type="submit" value="Cadastrar" />
+
+    </form>
+  </div>
+</body>
+
+</html>
