@@ -1,3 +1,14 @@
+
+<?php
+    include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/SQL_connection.php';
+    $sqlConnection = new SQLconnection();
+    $admUserName = $sqlConnection->callTableBD('administrador',true);
+    
+    function pullAdmName(){
+        echo json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/cad_log_adm.json"), true)[0]["email"];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,16 +16,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_pagina_administrador.css">
     <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/JS/pagina_administrador.js">
-    <title>Adm | DailyGreen</title>
+    <title>Administrador | DailyGreen</title>
 </head>
 <body>
     <div class="container-admPage">
+
         <!-- SIDEBAR DA ESQUERDA -->
         <div class="sidebar_esquerda">
 
             <header class="header_titulo">
-                <h2>DAILYGREEN</h2>
+                <h2>DailyGreen</h2>
             </header>
+
+            <div class="usuario_administrador">
+                <div><?php echo pullAdmName() ?></div>
+            </div>
 
             <div class="titulo_menu_navegacao">
                 <p>MENU DE NAVEGAÇÃO</p>
