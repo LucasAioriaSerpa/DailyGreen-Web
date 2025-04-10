@@ -13,6 +13,18 @@ body{
   font-size: larger;
   padding-left: 20px;
   align-items: center;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.nav_bar_login a{
+  text-decoration: none;
+  color: #51291E;
+  font-size: 10px;
+}
+
+.nav_bar_login a:hover{
+  color: blue;
 }
 
 .login-container{
@@ -24,7 +36,7 @@ body{
 }
 
 .campoInserirDados{
-  width: 96%;
+  width: 97%;
   height: 30px;
   padding: 5px;
   padding-left: 7px;
@@ -45,6 +57,7 @@ body{
   border: none;
   background-color: #EDF4ED;
   font-weight: bold;
+  border-radius: 5px;
 }
 
 .botaoLogar:hover{
@@ -53,4 +66,5 @@ body{
   color: white;
   font-weight: bold;
   cursor: pointer;
+  border-radius: 5px;
 }
