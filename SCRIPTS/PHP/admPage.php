@@ -1,4 +1,4 @@
-
+<!-- NÃO FUNCIONA..... AINDA -->
 <?php
     include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/SQL_connection.php';
     $sqlConnection = new SQLconnection();

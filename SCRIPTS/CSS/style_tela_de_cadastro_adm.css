@@ -22,8 +22,10 @@ body{
 }
 
 .inserir_dados{
-    background-color: #ABD1B5;
+    background-color: #79B791;
+    color: #EDF4ED;
     padding: 25px;
+    border-radius: 20px;
 }
 
 .input_dados_cadastrais{

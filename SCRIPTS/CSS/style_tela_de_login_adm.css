@@ -6,9 +6,18 @@ body{
   transform: translate(-50%,-50%);
 }
 
+.login-container{
+  background-color: #79B791;
+  padding: 20px;
+  width: 150%;
+  height: 400%;
+  transform: translate(-20%,-0%);
+  border-radius: 20px;
+}
+
 .nav_bar_login{
   display: flex;
-  color: #51291E;
+  color: #EDF4ED;
   font-weight: bold;
   font-size: larger;
   padding-left: 20px;
@@ -19,20 +28,12 @@ body{
 
 .nav_bar_login a{
   text-decoration: none;
-  color: #51291E;
+  color: #EDF4ED;
   font-size: 10px;
 }
 
 .nav_bar_login a:hover{
-  color: blue;
-}
-
-.login-container{
-  background-color: #ABD1B5;
-  padding: 20px;
-  width: 150%;
-  height: 400%;
-  transform: translate(-20%,-0%);
+  color: #51291E;
 }
 
 .campoInserirDados{
