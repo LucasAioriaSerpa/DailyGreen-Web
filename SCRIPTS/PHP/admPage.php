@@ -17,7 +17,7 @@
             </header>
 
             <div class="titulo_menu_navegacao">
-                <h3>MENU DE NAVEGAÇÃO</h3>
+                <p>MENU DE NAVEGAÇÃO</p>
             </div>
 
             <div class="menu_navegacao">
