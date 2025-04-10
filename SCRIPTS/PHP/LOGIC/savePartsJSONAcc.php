@@ -1,6 +1,7 @@
 <?php
 include_once 'arrayJSON.php'; // Se você precisa usar funções daí
 include_once 'functions.php';
+include_once 'uploadImage.php';
 
 $filename = "/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json";
 
@@ -27,6 +28,8 @@ switch ($_POST["cad-part"]) {
         break;
     case "1":
         $cadastroSave = updateCadastroSave("1", false);
+        $uploader = new ImageUploader();
+        $cadastroSave['part-2']['file'] = $uploader->upload($_FILES['file']);
         $cadastroSave["cad-part"] = "2";
         $stringJSON = json_encode($cadastroSave, JSON_PRETTY_PRINT);
         file_put_contents($filename, $stringJSON);

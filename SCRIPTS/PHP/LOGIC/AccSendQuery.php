@@ -2,7 +2,6 @@
 <?php
 include_once 'Cypher.php';
 include_once 'SQL_connection.php';
-include_once 'functions.php';
 $encode = new EncodeDecode();
 $sqlConnection = new SQLconnection();
 $cadastroSave = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json"), true);
@@ -37,8 +36,6 @@ if (in_array(null, $cadastroSave['part-1'])) {
         '{$nameOrg}',
         '{$CNPJ}'
     )";
-    debug_var($cadastroSave);
-    debug_var($sqlQuery_org);
     $last_id = $sqlConnection->insertQueryBD($sqlQuery_org);
 }
 header("Location: /DailyGreen-Project/SCRIPTS/HTML/pagina_login.html");

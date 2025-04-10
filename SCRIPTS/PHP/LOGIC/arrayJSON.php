@@ -59,7 +59,7 @@ function updateCadastroSave(string $part, bool $org) {
         "CNPJ" => $_JSON['part-1-org']['CNPJ']
     ],
     "part-2" => [
-        "file" => $_POST["file"],
+        "file" => $_FILES["file"]["name"],
         "genero" => $_POST["genero"]
     ],
     "part-3" => [

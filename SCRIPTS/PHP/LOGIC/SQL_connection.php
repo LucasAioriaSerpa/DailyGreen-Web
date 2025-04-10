@@ -2,11 +2,11 @@
 <?php
 include_once 'Cypher.php';
 class SQLconnection {
-    private EncodeDecode $decode;
+    private EncodeDecode $encodeDecode;
     private array $sqlData;
     private array $serverInfo;
     public function __construct(){
-        $this->decode = new EncodeDecode();
+        $this->encodeDecode = new EncodeDecode();
         $this->sqlData = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/bd_info.json"), true);
         $this->serverInfo = [
             "servername"=>"{$this->sqlData["mySql"]["servername"]}",
@@ -21,7 +21,7 @@ class SQLconnection {
         try {
             $conn = new mysqli( $this->serverInfo['servername'],
                                 $this->serverInfo['username'],
-                                $this->decode->decrypt($this->serverInfo['password']),
+                                $this->encodeDecode->decrypt($this->serverInfo['password']),
                                 $this->serverInfo['database'],
                                 $this->serverInfo['port']);
             return $conn;
@@ -45,7 +45,7 @@ class SQLconnection {
             return false;
         }
     }
-    public function callTableBD(string $table) {
+    public function callTableBD(string $table, bool $password) {
         $data = [];
         $conn = $this->tryConnectBD();
         $table = $conn->real_escape_string($table);
@@ -54,6 +54,14 @@ class SQLconnection {
         if ($result && $result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $data[] = $row;
+            }
+        }
+        if ($password) {
+            $i = 0;
+            foreach ($data as $value) {
+                $passwordEncripted = $this->encodeDecode->encrypt($value["password"]);
+                $data[$i]["password"] = $passwordEncripted;
+                $i++;
             }
         }
         $conn->close();

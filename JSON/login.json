@@ -1,5 +1,9 @@
 {
-    "email": "",
-    "password": "",
-    "org": null
+    "id_participante": "1",
+    "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/67f741f9bc9e2.jpg",
+    "username": "Garudaakuma",
+    "email": "Garudaakuma2013@gmail.com",
+    "password": "xj2LARFPZdS5aT6fraM4ma37TiL6hYhibQgKEYViDD4T4fGDscb6qjalV7VzwJtCXaC8MLYR1iuPkFsQ9kWdXHiIWTfvRMJ5ZB1RO10O2kPFyQ2fnkTU\/tpBqe+9vfIN",
+    "genero": "m",
+    "create_time": "2025-04-10 00:59:17"
 }
