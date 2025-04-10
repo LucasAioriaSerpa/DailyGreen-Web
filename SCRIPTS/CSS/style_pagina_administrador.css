@@ -1,14 +1,19 @@
- body{
+/* CORPO */
+body{
     background-color: #EDF4ED;
     margin: 0%;
  }
 
+/* TODOS OS ITENS DE ADM */
 .container-admPage{
     display: flex;
 }
 
+/* SIDEBAR DA ESQUERDA */
 .sidebar_esquerda{
-    background-color: #ABD1B5;
+    background-color: #4d4d4d;
+    color: white;
+    font-size: 12px;
     width: 15%;
     height: 100vh;
     justify-content: center;
@@ -16,22 +21,29 @@
 
 .header_titulo{
     background-color: #79B791;
-    font-size: 15px;
+    color: black;
     display: flex;
-    margin: 0%;
     justify-content: center;
+    align-items: center;
+    margin: 0%;
     width: 33vb;
     height: 9vh;
+    font-size: 15px;
     overflow: hidden;
+    user-select: none;
 }
 
- .menu_principal{
-    display: flex;
- }
+.titulo_menu_navegacao{
+}
 
- .header_menu_principal{
+/* MENU PRINCIPAL */
+.menu_principal{
+    display: flex;
+}
+
+.header_menu_principal{
     background-color: #79B791;
     display: flex;
     width: 100vb;
     height: 9vh;
- }
+}

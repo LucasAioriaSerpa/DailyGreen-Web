@@ -9,18 +9,24 @@
 </head>
 <body>
     <div class="container-admPage">
-        <!-- -->
+        <!-- SIDEBAR DA ESQUERDA -->
         <div class="sidebar_esquerda">
 
             <header class="header_titulo">
                 <h2>DAILYGREEN</h2>
             </header>
 
+            <div class="titulo_menu_navegacao">
+                <h3>MENU DE NAVEGAÇÃO</h3>
+            </div>
+
             <div class="menu_navegacao">
                 test
             </div>
+
         </div>
 
+        <!-- MENU PRINCIPAL -->
         <div class="menu_principal">
 
             <header class="header_menu_principal">
