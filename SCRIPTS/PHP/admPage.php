@@ -1,12 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_pagina_administrador.css">
+    <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/JS/pagina_administrador.js">
+    <title>Adm DailyGreen</title>
 </head>
 <body>
-    coming soon!
+    <div class="container-admPage">
+        <!-- -->
+
+    </div>
 </body>
 </html>
