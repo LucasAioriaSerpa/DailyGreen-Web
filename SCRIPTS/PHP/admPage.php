@@ -1,11 +1,11 @@
-<!-- NÃO FUNCIONA..... AINDA -->
+
 <?php
     include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/SQL_connection.php';
     $sqlConnection = new SQLconnection();
     $admUserName = $sqlConnection->callTableBD('administrador',true);
     
     function pullAdmName(){
-        echo json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/cad_log_adm.json"), true)[0]["email"];
+        echo json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/cad_log_adm.json"), true)["email"];
     }
 ?>
 
@@ -29,7 +29,7 @@
             </header>
 
             <div class="usuario_administrador">
-                <div><?php echo pullAdmName() ?></div>
+                <div>Bem-vindo, <?php echo pullAdmName() ?></div>
             </div>
 
             <div class="titulo_menu_navegacao">
