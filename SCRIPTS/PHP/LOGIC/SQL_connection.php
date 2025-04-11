@@ -1,6 +1,6 @@
 
 <?php
-use DailyGreenProject\Cypher;
+include_once 'Cypher.php';
 class SQLconnection {
     private EncodeDecode $encodeDecode;
     private array $sqlData;

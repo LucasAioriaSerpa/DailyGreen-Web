@@ -39,6 +39,15 @@ body{
     transition: 2s;
 }
 
+.p_usuario_administrador{
+    margin: 0%;
+    padding: 5%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    user-select: none;
+}
+
 .titulo_menu_navegacao{
     background-color: #1a1a1a;
     color: gray;

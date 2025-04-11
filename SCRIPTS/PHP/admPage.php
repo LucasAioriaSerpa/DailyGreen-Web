@@ -5,8 +5,16 @@
     $admUserName = $sqlConnection->callTableBD('administrador',true);
     
     function pullAdmName(){
-        echo json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/cad_log_adm.json"), true)["email"];
+        // pega o nome do administrador no arquivo .json
+        $data = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/cad_log_adm.json"), true);
+        $emailAdministrador = $data["email"];
+
+        // apaga tudo depois do @
+        $partsEmail = explode("@", $emailAdministrador);
+        $nomeAdministrador = $partsEmail[0];
+        echo "Bem-vindo(a), " . $nomeAdministrador . "!";
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -25,11 +33,11 @@
         <div class="sidebar_esquerda">
 
             <header class="header_titulo">
-                <h2>DailyGreen</h2>
+                <h2>DAILYGREEN</h2>
             </header>
 
             <div class="usuario_administrador">
-                <div>Bem-vindo, <?php echo pullAdmName() ?></div>
+                <div class="p_usuario_administrador"><?php echo pullAdmName()?></div>
             </div>
 
             <div class="titulo_menu_navegacao">
