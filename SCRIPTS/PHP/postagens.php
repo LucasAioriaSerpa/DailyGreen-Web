@@ -1,7 +1,7 @@
 
 <?php
 use DailyGreenProject\SCRIPTS\PHP\LOGIC\SQL_connection;
-use DailyGreenProject\SCRIPTS\PHP\LOGIC\PullUserInfoJson;
+include_once "DailyGreenProject\SCRIPTS\PHP\LOGIC\PullUserInfoJson";
 
 $userInfo = new PullUserInfoJson();
 $sqlConnection = new SQLconnection();
