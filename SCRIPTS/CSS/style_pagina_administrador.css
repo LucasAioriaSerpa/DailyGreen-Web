@@ -1,14 +1,13 @@
-/* CORPO */
 body{
     background-color: #EDF4ED;
     margin: 0%;
  }
 
-/* TODOS OS ITENS DE ADM */
 .container-admPage{
     display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 /* SIDEBAR DA ESQUERDA */
 .sidebar_esquerda{
@@ -60,6 +59,35 @@ body{
     justify-content: center;
     display: flex;
 }
+
+.logout{
+    margin: 0%;
+    padding: 5%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.logout button{
+    background-color: #499767;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    width: 90%;
+    height: 6vh;
+    border-radius: 25px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.logout button:hover{
+    background-color: #79B791;
+    transition: 1s;
+}
+
 
 /* MENU PRINCIPAL */
 .menu_principal{

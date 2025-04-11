@@ -23,8 +23,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_pagina_administrador.css">
-    <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/JS/pagina_administrador.js">
-    <title>Administrador | DailyGreen</title>
+    <title>Adm | DailyGreen</title>
 </head>
 <body>
     <div class="container-admPage">
@@ -48,6 +47,10 @@
                 test
             </div>
 
+            <div class="logout">
+                <button class="btn_logout" id="btn_logout" name="btn_logout" onclick="btnLogout()">LOGOUT</button>
+            </div>
+
         </div>
 
         <!-- MENU PRINCIPAL -->
@@ -58,10 +61,10 @@
             </header>
 
             <div class="navegacao_principal">
-
             </div>
         </div>
 
     </div>
 </body>
+<script src="/DailyGreen-Project/SCRIPTS/JS/pagina_administrador.js"></script>
 </html>
