@@ -1,6 +1,6 @@
 
 <?php
-include_once 'Cypher.php';
+use DailyGreenProject\Cypher;
 class SQLconnection {
     private EncodeDecode $encodeDecode;
     private array $sqlData;
@@ -19,12 +19,11 @@ class SQLconnection {
 
     public function tryConnectBD() {
         try {
-            $conn = new mysqli( $this->serverInfo['servername'],
+            return $conn = new mysqli( $this->serverInfo['servername'],
                                 $this->serverInfo['username'],
                                 $this->encodeDecode->decrypt($this->serverInfo['password']),
                                 $this->serverInfo['database'],
                                 $this->serverInfo['port']);
-            return $conn;
         } catch (mysqli_sql_exception $e) {
             echo $e;
             error_log("Connection Failed: " . $conn->connect_error);

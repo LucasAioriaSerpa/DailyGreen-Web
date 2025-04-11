@@ -1,18 +1,13 @@
 
 <?php
-include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/SQL_connection.php';
+use DailyGreenProject\SCRIPTS\PHP\LOGIC\SQL_connection;
+use DailyGreenProject\SCRIPTS\PHP\LOGIC\PullUserInfoJson;
+
+$userInfo = new PullUserInfoJson();
 $sqlConnection = new SQLconnection();
 $postsArray = $sqlConnection->callTableBD('post',false);
 $usersArray = $sqlConnection->callTableBD('participante',true);
-function pullName() {
-    echo json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/login.json"), true)[0]["username"];
-}
-function pullProfileImage() {
-    return str_replace("/xampp/htdocs", "",json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/login.json"), true)[0]["profile_pic"]);
-}
-function pullID(){
-    return json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/login.json"), true)[0]["id_participante"];
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +33,11 @@ function pullID(){
             <div class="area_perfil">
                 <div class="menu-item">
                     <div class="user-avatar">
-                    <img src="<?php echo pullProfileImage(); ?>" alt="User Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
-                    </div>
+                    <img src="<?php echo $userInfo->pullProfileImage(); ?>" alt="User Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
+                </div>
                     <div style="margin-left: 10px;">
-                        <div><?php pullName();?></div>
-                        <div style="font-size: 0.8rem; color: #71767b;">@<?php pullName();?></div>
+                        <div><?php $userInfo->pullName();?></div>
+                        <div style="font-size: 0.8rem; color: #71767b;">@<?php $userInfo->pullName();?></div>
                     </div>
                 </div>
             </div>
@@ -55,11 +50,11 @@ function pullID(){
             <div class="caixa_postagem">
                 <div class="caixa_postagem-header">
                     <div class="caixa_postagem-avatar">
-                    <img src="<?php echo pullProfileImage(); ?>" alt="User Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
+                    <img src="<?php echo $userInfo->pullProfileImage(); ?>" alt="User Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div class="caixa_postagem-input">
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" method="POST">
-                            <input type="hidden" name="id_participante" value="<?php echo pullID(); ?>">
+                            <input type="hidden" name="id_participante" value="<?php echo $userInfo->pullID(); ?>">
                             <input type="text" name="titulo" placeholder="titulo">
                             <input type="text" name="descricao" placeholder="Poste aqui">
                             <input class="botao_postagem" type="submit" value="Postar">
@@ -74,19 +69,6 @@ function pullID(){
             </div>
 
             <!-- POST EXEMPLO 1 -->
-            <!-- <div class="post">
-                <div class="post-user">
-                    <div class="user-avatar"></div>
-                    <div>
-                        <div><strong>Usuário Exemplo</strong></div>
-                        <div style="color: #71767b;">@exemplo · 2h</div>
-                    </div>
-                </div>
-                <div class="post-content">
-                    Este é um exemplo de postagem que ocupa o feed central. Você pode adicionar quantos posts quiser, e
-                    eles serão exibidos em sequência vertical.
-                </div>
-            </div> -->
             <?php foreach ($postsArray as $post): ?>
             <div class="post">
                 <div class="post-user">
