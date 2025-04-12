@@ -1,19 +1,19 @@
 {
     "cad-part": "0",
     "part-1": {
-        "nome": "Wanderlei Fagundes",
-        "email": "wanderlei@gmail.com",
-        "org": "false"
+        "nome": "a",
+        "email": "b@b.com",
+        "org": null
     },
     "part-1-org": {
-        "org-nome": null,
-        "CNPJ": null
+        "org-nome": "bb",
+        "CNPJ": "123"
     },
     "part-2": {
-        "file": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/67f86e06aada2.jpg",
-        "genero": "masculino"
+        "file": null,
+        "genero": null
     },
     "part-3": {
-        "senha": "qadaxkVGev7QSUbU1aIRghtjrZafSqI6OUeiI4OBAGfjdC8io6peuokLGduI6JsR4Cwk+6roUJsLO52mZBLQgrMcy\/Ip3Xr0LT3KeFsOO5Rfcm25Bk2DE32QQCtGd6Pn"
+        "senha": null
     }
 }
