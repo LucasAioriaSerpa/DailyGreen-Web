@@ -11,7 +11,7 @@
 <body>
   <div class="cadastro-container">
     <div class="nav_bar_cadastro">
-      <h2>Cadastro</h2>
+      <h2>CADASTRO</h2>
       <a href="/DailyGreen-Project/SCRIPTS/HTML/pagina_login.html">Faça o LOGIN aqui!</a>
     </div>
 
@@ -25,13 +25,14 @@
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required />
 
-      <label for="org">Participante</label>
-      <input type="radio" name="org" id="org" value="false">
+      <div class="type-user">
+        <label for="org">Participante</label>
+        <input type="radio" name="org" id="org" value="false" required>
+        <label for="org">Organização</label>
+        <input type="radio" name="org" id="org" value="true" required>
+      </div>
 
-      <label for="org">Organização</label>
-      <input type="radio" name="org" id="org" value="true">
-
-      <div class="next_button"> <input type="submit" value="proximo"> </div>
+      <div class="next_button"> <input type="submit" value="Proximo"> </div>
 
     </form>
   </div>

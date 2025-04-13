@@ -28,7 +28,7 @@ switch ($_POST["cad-part"]) {
         break;
     case "1":
         $cadastroSave = updateCadastroSave("1", false);
-        $uploader = new ImageUploader();
+        $uploader = new ImageUploader('/xampp/htdocs/DailyGreen-Project/IMAGES/PROFILES/');
         $cadastroSave['part-2']['file'] = $uploader->upload($_FILES['file']);
         $cadastroSave["cad-part"] = "2";
         $stringJSON = json_encode($cadastroSave, JSON_PRETTY_PRINT);

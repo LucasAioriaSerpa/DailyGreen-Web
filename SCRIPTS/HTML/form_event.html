@@ -1,0 +1,11 @@
+
+<form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" method="POST">
+    <input type="hidden" name="id_participante" value="<?php echo $userInfo->pullID(); ?>">
+    <input type="text" name="titulo" placeholder="Titulo...">
+    <input type="text" name="descricao" placeholder="Descrição...">
+    <input type="datetime-local" name="dataTimeInicio" placeholder="data e hora de inicio...">
+    <input type="datetime-local" name="dataTimeFim" placeholder="data e hora de fim...">
+    <input type="text" name="local" placeholder="endereço...">
+    <input type="text" name="link" placeholder="link...">
+    <input class="botao_postagem" type="submit" value="Postar">
+</form>

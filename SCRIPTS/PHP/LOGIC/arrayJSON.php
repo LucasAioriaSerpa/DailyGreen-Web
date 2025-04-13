@@ -1,7 +1,7 @@
 <?php
 include_once 'Cypher.php';
 
-function updateCadastroSave(string $part, bool $org) {
+function updateCadastroSave(string $part, bool $org): array {
     $_ENCODE = new EncodeDecode();
     $_JSON = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json"), true);
     switch ($part) {
@@ -88,21 +88,21 @@ function updateCadastroSave(string $part, bool $org) {
             ];
         default:
             echo "cad-part invalid!";
+            return [];
     }
 }
 
-function updateLoginSave()
+function updateLoginSave(): array
 {
     $_ENCODE = new EncodeDecode();
     return [
         "email" => $_POST["email"],
         "password" => $_ENCODE->encrypt($_POST["password"]),
-        "org" => $_POST["org"]
     ];
 }
 
 //* CADASTRO ADM
-function updateCadastroSaveAdm()
+function updateCadastroSaveAdm(): array
 {
     $_ENCODE = new EncodeDecode();
     return [

@@ -1,7 +1,6 @@
 
 <?php
 include_once 'SQL_connection.php';
-include_once 'functions.php';
 $sqlConnection = new SQLconnection();
 $id_autor = $_POST["id_participante"];
 $titulo = $_POST["titulo"];

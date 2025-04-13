@@ -81,7 +81,7 @@ body {
     max-width: 260px;
 }
 
-/* CONTEÚDO CENTRAL (FEED - 50%) */
+/** CONTEÚDO CENTRAL (FEED - 50%) */
 .conteudo_principal {
     width: 50%;
     flex-grow: 1;
@@ -143,7 +143,7 @@ body {
     margin-right: 5px;
 }
 
-/* SIDEBAR DIREITA (30%) */
+/** SIDEBAR DIREITA (30%) */
 .sidebar_direita {
     width: 30%;
     min-width: 350px;
@@ -297,13 +297,20 @@ body {
     flex-grow: 1;
 }
 
+.caixa_postagem-input form {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
 .caixa_postagem-input form input[type="text"] {
     width: 100%;
     border: none;
     background: transparent;
     font-size: 1.1rem;
     color: #51291E;
-    outline: none;
+    outline:#79B791 solid 2px ;
+    border-radius: 2vh;
     padding: 10px;
     height: 60px;
     box-sizing: border-box;

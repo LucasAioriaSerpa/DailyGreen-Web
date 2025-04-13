@@ -1,13 +1,12 @@
 
 <?php
-use DailyGreenProject\SCRIPTS\PHP\LOGIC\SQL_connection;
-include_once "DailyGreenProject\SCRIPTS\PHP\LOGIC\PullUserInfoJson";
-
+include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/SQL_connection.php";
+include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/PullUserInfoJson.php";
+//? DEBUGs = include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/functions.php';
 $userInfo = new PullUserInfoJson();
 $sqlConnection = new SQLconnection();
 $postsArray = $sqlConnection->callTableBD('post',false);
 $usersArray = $sqlConnection->callTableBD('participante',true);
-
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +35,8 @@ $usersArray = $sqlConnection->callTableBD('participante',true);
                     <img src="<?php echo $userInfo->pullProfileImage(); ?>" alt="User Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
                 </div>
                     <div style="margin-left: 10px;">
-                        <div><?php $userInfo->pullName();?></div>
-                        <div style="font-size: 0.8rem; color: #71767b;">@<?php $userInfo->pullName();?></div>
+                        <div><?php echo $userInfo->pullName();?></div>
+                        <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo->pullName();?></div>
                     </div>
                 </div>
             </div>
@@ -53,12 +52,16 @@ $usersArray = $sqlConnection->callTableBD('participante',true);
                     <img src="<?php echo $userInfo->pullProfileImage(); ?>" alt="User Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div class="caixa_postagem-input">
-                        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" method="POST">
-                            <input type="hidden" name="id_participante" value="<?php echo $userInfo->pullID(); ?>">
-                            <input type="text" name="titulo" placeholder="titulo">
-                            <input type="text" name="descricao" placeholder="Poste aqui">
-                            <input class="botao_postagem" type="submit" value="Postar">
-                        </form>
+                        <div class="btns-typePost">
+                            <button class="btn-postMode" onclick="">post</button>
+                            <button class="btn-eventMode" onclick="">evento</button>
+                        </div>
+                        <?php
+                        if ($userInfo->getArray()["org"]){
+                            include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_event.html';
+                        } else {
+                            include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_post.html';
+                        }?>
                     </div>
                 </div>
                 <div class="caixa_postagem-footer">
@@ -70,7 +73,7 @@ $usersArray = $sqlConnection->callTableBD('participante',true);
 
             <!-- POST EXEMPLO 1 -->
             <?php foreach ($postsArray as $post): ?>
-            <div class="post">
+                <div class="post">
                 <div class="post-user">
                     <div class="user-avatar">
                         <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int)$post["id_autor"])-1]['profile_pic'])) ?>" alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">

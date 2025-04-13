@@ -1,11 +1,20 @@
-[
-    {
-        "id_participante": "5",
-        "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/67f86e06aada2.jpg",
-        "username": "Wanderlei Fagundes",
-        "email": "wanderlei@gmail.com",
-        "password": "L8q3o9gjxB5fAiNU6TnMILXLXw\/sZZLkRsWFrnX2D2geQ1QVa1mClipiHT4BdIEjD7TlqYeAOImMmbP1kRPJbQE0nFFkYJcxDKeoX3UrGTYt1oESWs+sqtgy1JguNY9\/",
+{
+    "org": true,
+    "0": {
+        "id_participante": "1",
+        "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/67fafa21f35a1.jpg",
+        "username": "org_org",
+        "email": "org_org@org.br.com",
+        "password": "IW+X5GBQpiqQ+xQsM\/AJTP2KwbAscsfsykhaciZAt3qAS+oGHorVhtmdybVjzA1CHh9NZ2eXAQ7pxNjIMU6C9pMUgVn4PhOm+MSdSuG6My3Q1SXHJMBwAdFM+oalsTkP",
         "genero": "m",
-        "create_time": "2025-04-10 22:19:16"
-    }
-]
+        "create_time": "2025-04-12 20:41:52"
+    },
+    "1": [
+        {
+            "id_organizacao": "1",
+            "id_participante": "1",
+            "nome": "Organizacao organiza",
+            "CNPJ": "123456789"
+        }
+    ]
+}

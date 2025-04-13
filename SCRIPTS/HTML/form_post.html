@@ -1,0 +1,7 @@
+
+<form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" method="POST">
+    <input type="hidden" name="id_participante" value="<?php echo $userInfo->pullID(); ?>">
+    <input type="text" name="titulo" placeholder="Titulo...">
+    <input type="text" name="descricao" placeholder="Descrição...">
+    <input class="botao_postagem" type="submit" value="Postar">
+</form>

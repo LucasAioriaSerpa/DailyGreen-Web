@@ -16,17 +16,16 @@ foreach ($loginTable as $data) {
             switch ($decode->decrypt($data["password"])) {
                 case $decode->decrypt($loginInput["password"]): {
                     echo "<br><br> true - the password is equal";
-                    if ($loginInput["org"] == "true") {
-                        foreach ($orgLogin as $dataOrg) {
-                            if ($dataOrg["id_participante"] == $data["id_participante"]) {
-                                $loginArray = [$data , $orgLogin];
-                                file_put_contents('/xampp/htdocs/DailyGreen-Project/JSON/login.json', json_encode($loginArray, JSON_PRETTY_PRINT));
-                                header('Location: /DailyGreen-Project/SCRIPTS/PHP/postagens.php');
-                                exit();
-                            }
+                    //? verify if the acount is a Organization
+                    foreach ($orgLogin as $dataOrg) {
+                        if ($dataOrg["id_participante"] == $data["id_participante"]) {
+                            $loginArray = ["org"=>true , $data , $orgLogin];
+                            file_put_contents('/xampp/htdocs/DailyGreen-Project/JSON/login.json', json_encode($loginArray, JSON_PRETTY_PRINT));
+                            header('Location: /DailyGreen-Project/SCRIPTS/PHP/postagens.php');
+                            exit();
                         }
                     }
-                    file_put_contents('/xampp/htdocs/DailyGreen-Project/JSON/login.json', json_encode([$data], JSON_PRETTY_PRINT));
+                    file_put_contents('/xampp/htdocs/DailyGreen-Project/JSON/login.json', json_encode(["org"=>false , $data], JSON_PRETTY_PRINT));
                     header('Location: /DailyGreen-Project/SCRIPTS/PHP/postagens.php');
                     exit();
                 }

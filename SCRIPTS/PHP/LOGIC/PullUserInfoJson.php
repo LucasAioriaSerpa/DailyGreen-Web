@@ -22,5 +22,8 @@ class PullUserInfoJson {
     public function pullID() {
         return $this->getUserData()["id_participante"];
     }
+    public function getArray() {
+        return json_decode(file_get_contents($this->stringJSONurl), true);
+    }
 }
 

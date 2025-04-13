@@ -1,13 +1,13 @@
 {
     "cad-part": "0",
     "part-1": {
-        "nome": "a",
-        "email": "b@b.com",
-        "org": null
+        "nome": "da",
+        "email": "org_org@org.br.com",
+        "org": "false"
     },
     "part-1-org": {
-        "org-nome": "bb",
-        "CNPJ": "123"
+        "org-nome": null,
+        "CNPJ": null
     },
     "part-2": {
         "file": null,
