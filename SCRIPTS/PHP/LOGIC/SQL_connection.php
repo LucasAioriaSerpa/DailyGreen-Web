@@ -19,11 +19,11 @@ class SQLconnection {
 
     public function tryConnectBD() {
         try {
-            return $conn = new mysqli( $this->serverInfo['servername'],
-                                $this->serverInfo['username'],
-                                $this->encodeDecode->decrypt($this->serverInfo['password']),
-                                $this->serverInfo['database'],
-                                $this->serverInfo['port']);
+            return $conn = new mysqli(  $this->serverInfo['servername'],
+                                        $this->serverInfo['username'],
+                                        $this->encodeDecode->decrypt($this->serverInfo['password']),
+                                        $this->serverInfo['database'],
+                                            $this->serverInfo['port']);
         } catch (mysqli_sql_exception $e) {
             echo $e;
             error_log("Connection Failed: " . $conn->connect_error);
@@ -67,3 +67,6 @@ class SQLconnection {
         return $data;
     }
 }
+
+$sqlObj = new SQLconnection();
+$sqlObj->tryConnectBD();

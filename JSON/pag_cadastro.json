@@ -1,19 +1,19 @@
 {
     "cad-part": "0",
     "part-1": {
-        "nome": "org_org",
-        "email": "org_org@org.br.com",
-        "org": null
+        "nome": "----",
+        "email": "----",
+        "org": false
     },
     "part-1-org": {
-        "org-nome": "Organizacao organiza",
-        "CNPJ": "0123456789"
+        "org-nome": "----",
+        "CNPJ": "----"
     },
     "part-2": {
-        "file": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/67fc4bf6d39b4.jpg",
-        "genero": "masculino"
+        "file": "----",
+        "genero": "----"
     },
     "part-3": {
-        "senha": "pEyEX7S18MSisoMLutuFqEk0g3XtSwFhRdwwh4apNut5aD\/2yAfx8tsvXEAL1G75+VRGnb2zG6ooZPBQRhDVrp940IVQuxFyX66Uu5qr+KmQ1yxdDjQQESyfUgUDtKr\/"
+        "senha": "----"
     }
 }

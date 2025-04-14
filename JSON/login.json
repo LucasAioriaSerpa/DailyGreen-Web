@@ -1,20 +1,20 @@
 {
     "org": true,
     "0": {
-        "id_participante": "1",
-        "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/67fc4bf6d39b4.jpg",
-        "username": "org_org",
-        "email": "org_org@org.br.com",
-        "password": "0vhOvpp4rmExg7KfCVL6uGUvRN7sf2gMGTzVLMBp2xi\/wcaolHSSS4sOjOl4qtD3OAT9BCoik9fPx73XhZlCQ96qS3uhA1axCSJy89bZk98ExdWoJrv7JPqx7dqtAATq",
-        "genero": "m",
-        "create_time": "2025-04-13 20:42:52"
+        "id_participante": "-",
+        "profile_pic": "----",
+        "username": "----",
+        "email": "----",
+        "password": "----",
+        "genero": "----",
+        "create_time": "----"
     },
     "1": [
         {
-            "id_organizacao": "1",
-            "id_participante": "1",
-            "nome": "Organizacao organiza",
-            "CNPJ": "123456789"
+            "id_organizacao": "----",
+            "id_participante": "----",
+            "nome": "----",
+            "CNPJ": "----"
         }
     ]
 }
