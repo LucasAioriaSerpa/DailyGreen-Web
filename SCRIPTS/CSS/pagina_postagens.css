@@ -143,6 +143,11 @@ body {
     margin-right: 5px;
 }
 
+.event-data {
+    display: flex;
+    justify-content: space-between;
+}
+
 /** SIDEBAR DIREITA (30%) */
 .sidebar_direita {
     width: 30%;
