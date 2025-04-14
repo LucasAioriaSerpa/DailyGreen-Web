@@ -54,8 +54,8 @@ $usersArray = $sqlConnection->callTableBD('participante',true);
                     </div>
                     <div class="caixa_postagem-input">
                         <div class="btns-typePost">
-                            <button class="btn-postMode" onclick="">post</button>
-                            <button class="btn-eventMode" onclick="">evento</button>
+                            <button class="btn-postMode" onclick="">POST</button>
+                            <button class="btn-eventMode" onclick="">EVENTO</button>
                         </div>
                         <?php
                         if ($userInfo->getArray()["org"]){

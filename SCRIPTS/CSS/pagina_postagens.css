@@ -286,20 +286,41 @@ body {
 
 .caixa_postagem-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 15px;
 }
 
 .caixa_postagem-avatar {
+    background-color: #ABD1B5;
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background-color: #ABD1B5;
     margin-right: 10px;
 }
 
 .caixa_postagem-input {
     flex-grow: 1;
+}
+
+.btns-typePost{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.btn-postMode, .btn-eventMode {
+    background-color: #79B791;
+    color: #51291E;
+    outline: #51291E solid 2px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 2vh;
+    padding: 8px 16px;
+} .btn-postMode:hover, .btn-eventMode:hover {
+    background-color: #51291E;
+    color: #EDF4ED;
+    outline: #79B791 solid 2px;
+    transition: 0.2s;
 }
 
 .caixa_postagem-input form {

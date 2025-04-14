@@ -32,10 +32,10 @@ class SQLconnection {
         }
         if ($test) {
             if ($conn->connect_error) {
-                echo "Connection failed: " . $conn->connect_error;
+                //echo "Connection failed: " . $conn->connect_error;
                 return false;
             } else {
-                echo "Connected successfully";
+                //echo "Connected successfully";
                 return true;
             }
         } else {
