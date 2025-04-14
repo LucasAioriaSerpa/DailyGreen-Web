@@ -13,4 +13,3 @@
     $_SQL->insertQueryBD($_SQLQUERY);
 
     header('Location: /DailyGreen-Project/SCRIPTS/HTML/tela_de_login_adm.html');
-?>

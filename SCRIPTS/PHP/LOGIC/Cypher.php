@@ -1,6 +1,5 @@
 
 <?php
-
     class EncodeDecode {
         private string $method = "aes-256-cbc";
         private $iv_length = null;
@@ -28,5 +27,3 @@
             return false;
         }
     }
-
-?>

@@ -26,4 +26,3 @@ class PullUserInfoJson {
         return json_decode(file_get_contents($this->stringJSONurl), true);
     }
 }
-

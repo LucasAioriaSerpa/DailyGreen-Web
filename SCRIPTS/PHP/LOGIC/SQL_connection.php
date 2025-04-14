@@ -13,13 +13,13 @@ class SQLconnection {
             "username"=>"{$this->sqlData["mySql"]["username"]}",
             "password"=>"{$this->sqlData["mySql"]["password"]}",
             "database"=>"{$this->sqlData["mySql"]["database"]}",
-            "port"=>"{$this->sqlData["mySql"]["port"]}"
+            "port"=>(int)$this->sqlData["mySql"]["port"]
         ];
     }
 
-    public function tryConnectBD() {
+    public function tryConnectBD(bool $test) {
         try {
-            return $conn = new mysqli(  $this->serverInfo['servername'],
+            $conn = new mysqli(  $this->serverInfo['servername'],
                                         $this->serverInfo['username'],
                                         $this->encodeDecode->decrypt($this->serverInfo['password']),
                                         $this->serverInfo['database'],
@@ -30,9 +30,20 @@ class SQLconnection {
             header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");
             exit();
         }
+        if ($test) {
+            if ($conn->connect_error) {
+                echo "Connection failed: " . $conn->connect_error;
+                return false;
+            } else {
+                echo "Connected successfully";
+                return true;
+            }
+        } else {
+            return $conn;
+        }
     }
     public function insertQueryBD(string $query) {
-        $conn = $this->tryConnectBD();
+        $conn = $this->tryConnectBD(false);
         if ($conn->query($query) === true) {
             $last_id = $conn->insert_id;
             echo "New recorded created sucessfully. Last ID: " . $last_id;
@@ -46,7 +57,7 @@ class SQLconnection {
     }
     public function callTableBD(string $table, bool $password) {
         $data = [];
-        $conn = $this->tryConnectBD();
+        $conn = $this->tryConnectBD(false);
         $table = $conn->real_escape_string($table);
         $sqlQuery = "SELECT * FROM `$table`";
         $result = $conn->query($sqlQuery);
@@ -69,4 +80,4 @@ class SQLconnection {
 }
 
 $sqlObj = new SQLconnection();
-$sqlObj->tryConnectBD();
+$sqlObj->tryConnectBD(true);

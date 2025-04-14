@@ -1,9 +1,9 @@
 {
     "mySql": {
-        "servername": "----",
-        "username": "----",
-        "password": "----",
-        "database": "----",
-        "port": "----"
+        "servername": "localhost",
+        "username": "root",
+        "password": "PV0jyi5Tr2oKGbxj2awmDqtVFRQY5+24EKg1eVC3SYWc9lJMaZJkzvprT4XlSaoIC8pDKCLUir4nE7rrUg8pxna421PMb2W2VgzWGFO+oDRJ3LrQOzyq7IVfplE002Ly",
+        "database": "db_dailygreen",
+        "port": "3306"
     }
 }

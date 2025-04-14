@@ -45,5 +45,3 @@ switch ($_POST["cad-part"]) {
     default:
         echo "Error cad-part não encontrado";
 }
-
-?>
