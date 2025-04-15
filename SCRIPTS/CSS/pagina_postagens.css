@@ -420,3 +420,16 @@ body {
     outline: none;
     /* remove o contorno ao focar */
 }
+
+.caixa_postagem-input form input[type="datetime-local"] {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 1.1rem;
+    color: #51291E;
+    outline: #79B791 solid 2px;
+    border-radius: 2vh;
+    padding: 10px;
+    height: 60px;
+    
+}

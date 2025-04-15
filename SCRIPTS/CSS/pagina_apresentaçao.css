@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ABD1B5;
+    color: #333333;
+    line-height: 1.6;
+    padding-top: 70px; /* Espaço para a barra fixa */
+}
+
+.top_bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #2e8b57; 
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed; /* Torna a barra fixa */
+    top: 0; /* Fixa no topo */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Largura total */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-buttons .botao_login, .auth-buttons .botao_cadastro {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.botao_cadastro, .botao_login {
+    background-color: white;
+    color: #000000;
+}
+
+.botao_cadastro:hover, .botao_login:hover {
+    background-color: #c7c3c3;
+}
+
+header {
+    background: #ABD1B5;
+    color: #ffffff;
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-bottom: 2rem;
+    margin-top: 20px; 
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid #2e8b57;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 3rem;
+    color: #2e8b57;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.card p {
+    color: #5a5a5a;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .top_bar {
+        padding: 10px 15px;
+    }
+    
+    .auth-buttons {
+        gap: 10px;
+    }
+}
