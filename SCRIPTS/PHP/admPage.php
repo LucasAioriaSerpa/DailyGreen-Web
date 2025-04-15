@@ -40,7 +40,7 @@
             </div>
 
             <div class="titulo_menu_navegacao">
-                <p>MENU DE NAVEGAÇÃO</p>
+                <p class="p_titulo_menu_navegacao">MENU DE NAVEGAÇÃO</p>
             </div>
 
             <div class="menu_navegacao">
