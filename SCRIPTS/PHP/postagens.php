@@ -54,14 +54,15 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
                             style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div class="caixa_postagem-input">
-                        <div class="btns-typePost">
-                            <button class="btn-postMode" onclick="turnORG(false)">POST</button>
-                            <button class="btn-eventMode" onclick="turnORG(true)">EVENTO</button>
-                        </div>
                         <?php
                         if ($userInfo->getArray()["org"]) {
+                            echo "
+                            <div class='btns-typePost'>
+                                <button class='btn-postMode' onclick='turnORG(1)'>POST</button>
+                                <button class='btn-eventMode' onclick='turnORG(true)'>EVENTO</button>
+                            </div>";
                             include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_event.html';
-                        } else {
+                        } elseif ($userInfo->getArray()["org"] == 1) {
                             include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_post.html';
                         } ?>
                     </div>
