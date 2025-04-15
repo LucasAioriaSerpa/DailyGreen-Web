@@ -1,6 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     background-color: #EDF4ED;
     margin: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
  }
 
 .container-admPage{
@@ -19,6 +28,7 @@ body{
     justify-content: center;
 }
 
+/* TITULO DAILYGREEN */
 .header_titulo{
     background-color: #499767;
     color: black;
@@ -38,6 +48,7 @@ body{
     transition: 2s;
 }
 
+/* BOAS VINDAS (NOME DO USUARIO) */
 .p_usuario_administrador{
     margin: 0%;
     padding: 5%;
@@ -47,6 +58,7 @@ body{
     user-select: none;
 }
 
+/* MENU NAVEGAÇÃO */
 .titulo_menu_navegacao{
     background-color: #1a1a1a;
     color: gray;
@@ -60,13 +72,17 @@ body{
     display: flex;
 }
 
+/* BOTÃO LOGOUT */
 .logout{
     margin: 0%;
-    padding: 5%;
     align-items: center;
     justify-content: center;
     text-align: center;
     display: flex;
+    max-width: 100%;
+    width: inherit;
+    position: absolute;
+    bottom: 20px;
 }
 
 .logout button{

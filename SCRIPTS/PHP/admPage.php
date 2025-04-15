@@ -6,8 +6,8 @@
     
     function pullAdmName(){
         // pega o nome do administrador no arquivo .json
-        $data = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/cad_log_adm.json"), true);
-        $emailAdministrador = $data["email"];
+        $data = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/loginAdm.json"), true);
+        $emailAdministrador = $data["0"]["email"];
 
         // apaga tudo depois do @
         $partsEmail = explode("@", $emailAdministrador);

@@ -1,3 +1,8 @@
 {
-    "find": false
+    "find": true,
+    "0": {
+        "id_administrador": "6",
+        "email": "wanderlei@gmail.com",
+        "password": "kqaQcCQekiDb+z\/2fhhut8Mw+tqtkCi1tJJlIO7N8mHSUiRwdZ6T43aNcV9yz4Co8BxP5yEDcJ01nQ5I00j+wRJDoBpbRG1cdLs6eZif95BbKcHg0ZvjVdEH97z+LIfB"
+    }
 }
