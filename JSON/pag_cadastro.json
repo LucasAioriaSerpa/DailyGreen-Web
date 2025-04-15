@@ -1,19 +1,19 @@
 {
     "cad-part": "0",
     "part-1": {
-        "nome": "----",
-        "email": "----",
-        "org": false
+        "nome": "exploda",
+        "email": "exploda@gmail.com",
+        "org": null
     },
     "part-1-org": {
-        "org-nome": "----",
-        "CNPJ": "----"
+        "org-nome": "explodaOrg",
+        "CNPJ": "0123456789"
     },
     "part-2": {
-        "file": "----",
-        "genero": "----"
+        "file": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/67fe49cb5e7da.jpg",
+        "genero": "masculino"
     },
     "part-3": {
-        "senha": "----"
+        "senha": "peby4+LgqHQKLIPTNiYFSVwqI9yZ2m\/pzkgkFwV4RYjIEAKI\/H0e8yD3YyTo3pkOrqFEpaLAhHGHEuD0DdpscJB4\/HKUW912oLqVe1xt+mLshxHJWhJ26VeZ6YOCAchO"
     }
 }

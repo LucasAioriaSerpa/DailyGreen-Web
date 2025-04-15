@@ -2,8 +2,12 @@
     "mySql": {
         "servername": "localhost",
         "username": "root",
+<<<<<<< Updated upstream
         "password": "5XAtI2mtXbKs+J3QdBpCFmeaGTk8iAll7T+63+y+cHJs\/3\/hh8lH5UY0i92+cgeBpxGfx44vCFlHXrL41p5sC5X5c1kdXflNshk2iYmsUag+0itdj5+2TEq8aLw3dyCmfx4TtRAjSE0h44uqFXk8mg==",
+=======
+        "password": "mLFifBH+5MzIrS\/78MmnSecvp0Qku34+bvJ4UIDMBJGFh+NlBWvU9YllGssy4mV6XqSuA4dCrVdPajtnCfTWFw16uezp41RDuv3QJEeKP3VR+00VeQle5Ecyl09JKJDK",
+>>>>>>> Stashed changes
         "database": "db_dailygreen",
-        "port": "3307"
+        "port": "3306"
     }
 }
