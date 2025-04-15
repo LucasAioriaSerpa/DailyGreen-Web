@@ -143,9 +143,51 @@ body {
     margin-right: 5px;
 }
 
-.event-data {
+.event-post {
+    background-color: #EDF4ED;
+    border: 2px solid #ABD1B5;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    gap: 1vw;
+    color: #51291E;
+}
+
+.event-post .dateTime-inicio,
+.event-post .dateTime-fim,
+.event-post .local,
+.event-post .link {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.dateTime {
     display: flex;
-    justify-content: space-between;
+    gap: 1vw;
+}
+
+.event-post .dateTime-inicio {
+    color: #79B791;
+    font-weight: bold;
+}
+
+.event-post .dateTime-fim {
+    color: #79B791;
+}
+
+.event-post .local {
+    color: #51291E;
+    font-style: italic;
+}
+
+.event-post .link a {
+    color: #79B791;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.event-post .link:hover a {
+    color: #51291E;
 }
 
 /** SIDEBAR DIREITA (30%) */
