@@ -61,8 +61,12 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
                                 <button class='btn-postMode' onclick='turnORG(1)'>POST</button>
                                 <button class='btn-eventMode' onclick='turnORG(true)'>EVENTO</button>
                             </div>";
-                            include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_event.html';
-                        } elseif ($userInfo->getArray()["org"] == 1) {
+                            if ($userInfo->getArray()["org"] === 1) {
+                                include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_post.html';
+                            } if ($userInfo->getArray()["org"] === true) {
+                                include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_event.html';
+                            }
+                        } else {
                             include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_post.html';
                         } ?>
                     </div>

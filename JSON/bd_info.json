@@ -2,8 +2,8 @@
     "mySql": {
         "servername": "localhost",
         "username": "root",
-        "password": "7Vw9sJHJJrzE1o20Ghln5vFyCSzsEv\/gIVLzrPbrUW9EUn1heB9ZeCBTZtJtxCCps1iuRDghw7Apmvjg70Xn9CGT0wlcDpNa14QAzl2hh4Cy1HQp1iYDQmGoXkEv7Qxu",
+        "password": "w9lGiwEERXXi+W6ie7gbTkl7G\/tJd9oJc6b+6r510o3bRDzwzmXSz\/AorFiP6Lfys7Nmq7VpPA0GB61yYiIaLPRMcTk8JVAveY9k1RUqqW\/x2\/WXLkhi6lh986wcIrdd3danM+QcKVbP51MGFUwzfw==",
         "database": "db_dailygreen",
-        "port": "3306"
+        "port": "3307"
     }
 }
