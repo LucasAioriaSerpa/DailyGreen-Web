@@ -1,20 +1,12 @@
 {
+    "org": false,
     "0": {
         "id_participante": "1",
-        "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/67fc4bf6d39b4.jpg",
-        "username": "org_org",
-        "email": "org_org@org.br.com",
-        "password": "0+FC01T29mpBhE9MSAMuw54NRzSRz5l8NGBBIt9g0snuT4KM5VF0KVeG\/AY3R2SSLlS9v9evTbf0yoqCkeAKD4gQNR5D81KqBaXN0K1WACRlbfYFRj+CquEs+MmbQH\/0",
-        "genero": "m",
-        "create_time": "2025-04-13 20:42:52"
-    },
-    "1": [
-        {
-            "id_organizacao": "1",
-            "id_participante": "1",
-            "nome": "Organizacao organiza",
-            "CNPJ": "123456789"
-        }
-    ],
-    "org": 1
+        "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/67f7c27aeee2f.png",
+        "username": "Flavia Cristina Fagundes",
+        "email": "flavia@gmail.com",
+        "password": "TBiEaSK5kH2SoW3xJ0ByONjUSpS6w57Bo8nftnlBx2wjRYlGqT2IXmdZYlTmyFXMPB4TArMYei+zsCGqGMEFSyXn08CtZPwPa95f3SagJF7El03ck1CSCoty8zaYmxV3",
+        "genero": "f",
+        "create_time": "2025-04-10 10:07:23"
+    }
 }

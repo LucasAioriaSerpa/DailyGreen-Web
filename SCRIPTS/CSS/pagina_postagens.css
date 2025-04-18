@@ -68,6 +68,38 @@ body {
     max-width: 260px;
 }
 
+.logout_button {
+    position: absolute;
+    bottom: 90px;
+    left: 15px;
+    width: calc(100% - 30px);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+    pointer-events: none;
+}
+
+.logout_button.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.logout_button button {
+    padding: 20px 80px;
+    margin: 5px 0;
+    border-radius: 9999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #51291E;
+    background-color: #ABD1B5;
+    border: none;
+    font-weight: bold;
+}
+
 /** CONTEÚDO CENTRAL (FEED - 50%) */
 .conteudo_principal {
     width: 50%;

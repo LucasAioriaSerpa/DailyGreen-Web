@@ -30,7 +30,7 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
             </div>
 
             <div class="area_perfil">
-                <div class="menu-item">
+                <div class="menu-item" onclick="btnLogout()">
                     <div class="user-avatar">
                         <img src="<?php echo $userInfo->pullProfileImage(); ?>" alt="User Avatar"
                             style="width: 50px; height: 50px; border-radius: 50%;">
@@ -38,6 +38,11 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
                     <div style="margin-left: 10px;">
                         <div><?php echo $userInfo->pullName(); ?></div>
                         <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo->pullName(); ?></div>
+                    </div>
+                    <div id="logoutBtn" class="logout_button">
+                        <form method="POST" action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/logoutPostagens.php">
+                            <button type="submit">LOGOUT</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -172,5 +177,5 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
     </div>
     </div>
 </body>
-
+<script src="/DailyGreen-Project/SCRIPTS/JS/pagina_postagens.js"></script>
 </html>
