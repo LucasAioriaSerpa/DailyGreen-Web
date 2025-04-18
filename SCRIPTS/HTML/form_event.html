@@ -2,11 +2,18 @@
 <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendEvent.php" method="POST">
     <input type="hidden" name="id_participante" value="<?php echo $userInfo->pullID(); ?>">
     <input type="hidden" name="id_organizacao" value='<?php echo $userInfo->getArray()[1][0]["id_organizacao"]; ?>'>
-    <input type="text" name="titulo" placeholder="Titulo...">
-    <input type="text" name="descricao" placeholder="Descrição...">
-    <input type="datetime-local" name="dataTimeInicio" placeholder="data e hora de inicio...">
-    <input type="datetime-local" name="dataTimeFim" placeholder="data e hora de fim...">
-    <input type="text" name="local" placeholder="endereço...">
-    <input type="text" name="link" placeholder="link...">
-    <input class="botao_postagem" type="submit" value="Postar">
+    <input type="text" name="titulo" placeholder="Titulo..." required>
+    <input type="text" name="descricao" placeholder="Descrição..." required>
+    <div class="datas">
+        <label for="dataTimeInicio" class="dataIncio">Inicio: <input type="datetime-local" name="dataTimeInicio" id="dataTimeInicio" placeholder="data e hora de inicio..." required></label>
+        <label for="dataTimeFim" class="dataFim"     >Fim: <input type="datetime-local" name="dataTimeFim" id="dataTimeFim" placeholder="data e hora de fim..." required></label>
+    </div>
+    <input type="text" name="local" placeholder="endereço..." required>
+    <input type="text" name="link" placeholder="link..." required>
+    <div class="caixa_postagem-footer">
+        <div class="caixa_postagem-actions">
+            <div class="caixa_postagem-action"><i class="far fa-image"></i></div>
+        </div>
+        <input class="botao_postagem" type="submit" value="Postar">
+    </div>
 </form>

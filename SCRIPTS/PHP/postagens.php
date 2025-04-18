@@ -71,11 +71,6 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
                         } ?>
                     </div>
                 </div>
-                <div class="caixa_postagem-footer">
-                    <div class="caixa_postagem-actions">
-                        <div class="caixa_postagem-action"><i class="far fa-image"></i></div>
-                    </div>
-                </div>
             </div>
 
             <!-- POST EXEMPLO 1 -->
@@ -126,39 +121,51 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
 
             <div class="eventos_anuncio">
                 <?php foreach ($postsArray as $post): ?>
-                    <div class="post">
-                        <div class="post-user">
-                            <div class="user-avatar">
-                                <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
-                                    alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
-                            </div>
-                            <div style="margin-left: 10px;">
-                                <div>
-                                    <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
+                    <?php
+                    // ? Verifica se o post tem um evento associado
+                    $hasEvent = false;
+                    foreach ($eventArray as $evento) {
+                        if ($evento['id_post'] == $post['id_post']) {
+                            $hasEvent = true;
+                            break;
+                        }
+                    }
+                    ?>
+                    <?php if ($hasEvent): ?> <!-- //? Exibe apenas posts com evento  -->
+                        <div class="post">
+                            <div class="post-user">
+                                <div class="user-avatar">
+                                    <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
+                                        alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
                                 </div>
-                                <div style="color: #71767b;">
-                                    @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></div>
+                                <div style="margin-left: 10px;">
+                                    <div>
+                                        <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
+                                    </div>
+                                    <div style="color: #71767b;">
+                                        @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></div>
+                                </div>
+                            </div>
+                            <div class="post-titulo">
+                                <h1><?= htmlspecialchars($post['titulo']) ?></h1>
+                            </div>
+                            <div class="post-content">
+                                <?= nl2br(htmlspecialchars($post['descricao'])) ?>
+                            </div>
+                            <div class="event-post">
+                                <?php foreach ($eventArray as $evento): ?>
+                                    <?php if ($evento['id_post'] == $post['id_post']): ?>
+                                        <div class="dateTime">
+                                            <div class="dateTime-inicio">Inicio: <?php echo $evento['data_hora_inicio'] ?></div>
+                                            <div class="dateTime-fim">Fim: <?php echo $evento['data_hora_fim'] ?></div>
+                                        </div>
+                                        <div class="local">Local: <?php echo $evento['local'] ?></div>
+                                        <div class="link">Link: <?php echo "<a href='{$evento["link"]}'>{$evento['link']}</a>" ?></div>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
                             </div>
                         </div>
-                        <div class="post-titulo">
-                            <h1><?= htmlspecialchars($post['titulo']) ?></h1>
-                        </div>
-                        <div class="post-content">
-                            <?= nl2br(htmlspecialchars($post['descricao'])) ?>
-                        </div>
-                        <div class="event-post">
-                            <?php foreach ($eventArray as $evento): ?>
-                                <?php if ($evento['id_post'] == $post['id_post']): ?>
-                                    <div class="dateTime">
-                                        <div class="dateTime-inicio">Inicio: <?php echo $evento['data_hora_inicio'] ?></div>
-                                        <div class="dateTime-fim">Fim: <?php echo $evento['data_hora_fim'] ?></div>
-                                    </div>
-                                    <div class="local">Local: <?php echo $evento['local'] ?></div>
-                                    <div class="link">Link: <?php echo "<a>{$evento['link']}</a>" ?></div>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </div>
         </div>

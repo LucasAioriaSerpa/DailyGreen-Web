@@ -61,19 +61,6 @@ body {
     font-size: 1.5rem;
 }
 
-.botao_postagem {
-    background-color: #51291E;
-    color: #EDF4ED;
-    border: none;
-    border-radius: 9999px;
-    padding: 15px;
-    width: fit-content;
-    font-weight: bold;
-    margin-top: 15px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
 .area_perfil {
     position: absolute;
     bottom: 20px;
@@ -197,7 +184,7 @@ body {
     padding: 20px;
     height: 100vh;
     overflow-y: auto;
-    background-color: #ABD1B5;
+    background-color: #79B791;
 }
 
 .barra_pesquisa {
@@ -387,28 +374,36 @@ body {
 .caixa_postagem-footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-left: 58px;
 }
 
 .caixa_postagem-actions {
     display: flex;
-    gap: 15px;
 }
 
 .caixa_postagem-action {
     color: #79B791;
+} .caixa_postagem-action i {
     cursor: pointer;
+    transition: 0.2s;
+} .caixa_postagem-action i:hover {
+    color: #51291E;
+    transition: 0.2s;
 }
 
-.caixa_postagem-button {
+.botao_postagem {
     background-color: #51291E;
     color: #EDF4ED;
     border: none;
-    border-radius: 9999px;
-    padding: 8px 16px;
+    border-radius: 5vh;
+    padding: 15px;
     font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
+} .botao_postagem:hover {
+    background-color: #79B791;
+    color: #51291E;
+    border: #51291E solid 0.2vh;
+    transition: 0.2s;
 }
 
 #invisivel {
@@ -421,6 +416,21 @@ body {
     /* remove o contorno ao focar */
 }
 
+.datas {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2vw;
+}
+
+.caixa_postagem-input form label {
+    display:  flex;
+    align-items: center;
+    gap: 0.5vw;
+    font-size: 1.1rem;
+    color: #51291E;
+}
+
 .caixa_postagem-input form input[type="datetime-local"] {
     width: 100%;
     border: none;
@@ -431,5 +441,4 @@ body {
     border-radius: 2vh;
     padding: 10px;
     height: 60px;
-    
 }
