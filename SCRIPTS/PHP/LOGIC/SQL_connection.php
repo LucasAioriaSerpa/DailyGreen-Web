@@ -78,6 +78,3 @@ class SQLconnection {
         return $data;
     }
 }
-
-$sqlObj = new SQLconnection();
-$sqlObj->tryConnectBD(true);

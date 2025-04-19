@@ -63,7 +63,8 @@ body {
 }
 
 .cadastro-container input[type="submit"]:hover {
-  background-color: #ccc;
+  background-color: #51291E;
+  color: #EDF4ED;
 }
 
 .nav_bar_cadastro {
