@@ -10,7 +10,7 @@ body{
     height: 100%;
     width: 100%;
     overflow: hidden;
- }
+}
 
 .container-admPage{
     display: flex;
@@ -21,7 +21,7 @@ body{
 /* SIDEBAR DA ESQUERDA */
 .sidebar_esquerda{
     background-color: #282727;
-    color: white;
+    color: #ffffff;
     font-size: 12px;
     width: 15%;
     height: 100vh;
@@ -44,7 +44,7 @@ body{
 }
 
 .header_titulo h2:hover{
-    color: white;
+    color: #ffffff;
     transition: 2s;
 }
 
@@ -61,7 +61,7 @@ body{
 /* MENU NAVEGAÇÃO */
 .titulo_menu_navegacao{
     background-color: #1a1a1a;
-    color: gray;
+    color: #808080;
 }
 
 .p_titulo_menu_navegacao{
@@ -70,6 +70,42 @@ body{
     align-items: center;
     justify-content: center;
     display: flex;
+}
+
+.menu_navegacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0%;
+    padding: 5%;
+    gap: 1vh;
+}
+
+.btn-listaAcc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+    color: #808080;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    width: 90%;
+    height: 6vh;
+    border-radius: 25px;
+    cursor: pointer;
+    overflow: hidden;
+} .btn-listaAcc:hover {
+    background-color: #79B791;
+    color: #51291E;
+    transition: 0.5s;
+}
+.btn-listaAcc:active {
+    background-color: #357d3a;
+    transition: 0.3s;
 }
 
 /* BOTÃO LOGOUT */
@@ -108,6 +144,7 @@ body{
 /* MENU PRINCIPAL */
 .menu_principal{
     display: flex;
+    flex-direction: column;
 }
 
 .header_menu_principal{
@@ -115,4 +152,40 @@ body{
     display: flex;
     width: 100vw;
     height: 9vh;
+}
+
+.lista-usuarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0%;
+    padding: 5%;
+    gap: 1vh;
+    width: 100%;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    background-color: #ABD1B5;
+    color: #EDF4ED;
+    gap: 1vw;
+    font-size: 2vh;
+    padding: 1vh;
+    border-radius: 10px;
+    width: 100%;
+} .user:hover {
+    background-color: #79B791;
+    color: #51291E;
+    transition: 0.5s;
+} .user:active {
+    background-color: #357d3a;
+    transition: 0.3s;
+}
+
+.user-info {
+    display: flex;
+    gap: 5vw;
 }
