@@ -40,7 +40,7 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
                         <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo->pullName(); ?></div>
                     </div>
                     <div id="logoutBtn" class="logout_button">
-                        <form method="POST" action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/logoutPostagens.php">
+                        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/logoutPostagens.php">
                             <button type="submit">LOGOUT</button>
                         </form>
                     </div>

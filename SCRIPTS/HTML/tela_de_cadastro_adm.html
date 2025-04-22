@@ -10,8 +10,10 @@
     <div class="container-cadastro-adm">
 
         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsJSONCadastroAdm.php" method="post" class="inserir_dados" id="form_cadastro">
-            <p class="titulo_cadastro_adm">CADASTRO NOVO ADMINISTRADOR</p><br>
-
+            <div class="titulo-link-login">
+                <h1 class="titulo_cadastro_adm">CADASTRO NOVO ADMINISTRADOR</h1><br>
+                <a href="/DailyGreen-Project/SCRIPTS/PHP/loginAdm.php">Fazer login</a>
+            </div>
             <div class="cadastro_email_adm">
                 <input type="text" class="input_dados_cadastrais" id="email" name="email" placeholder="Email de acesso" required>
             </div><br>
@@ -22,7 +24,7 @@
                     <span class="status" id="status_password" value="0"></span>
                 </div>
             </div><br>
-            
+
             <div class="confirmacao_senha_adm">
                 <div class="senha_status">
                     <input type="password" class="input_dados_cadastrais input-wrapper" id="input_confirmacao_password" placeholder="Digite novamente a senha" required>

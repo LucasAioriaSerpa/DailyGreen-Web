@@ -1,4 +1,4 @@
 <?php
-    header("Location: /DailyGreen-Project/SCRIPTS/HTML/pagina_login.html");
+    header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAcc.php");
     exit();
 ?>

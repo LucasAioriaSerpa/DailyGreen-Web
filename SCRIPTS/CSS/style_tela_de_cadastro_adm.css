@@ -6,12 +6,6 @@ body{
     transform: translate(-50%,-50%);
 }
 
-.titulo_cadastro_adm{
-    font-weight: bold;
-    font-size: larger;
-    padding: 5px;
-}
-
 .container-cadastro-adm{
     display: flex;
     justify-content: center;
@@ -19,6 +13,28 @@ body{
     align-items: center;
     font-family: Arial, sans-serif;
     font-size: 17px;
+}
+
+
+.titulo-link-login{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+.titulo_cadastro_adm{
+    font-weight: bold;
+    font-size: 1em;
+    padding: 5px;
+}
+
+.titulo-link-login a{
+    text-decoration: none;
+    color: #EDF4ED;
+    font-size: 0.8em;
+} .titulo-link-login a:hover{
+    transition: 0.2s;
+    color: #51291E;
 }
 
 .inserir_dados{
