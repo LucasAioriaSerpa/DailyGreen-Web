@@ -32,9 +32,7 @@
         <!-- SIDEBAR DA ESQUERDA -->
         <div class="sidebar_esquerda">
 
-            <header class="header_titulo">
-                <h2>DAILYGREEN</h2>
-            </header>
+            <header class="header_titulo" id="title"></header>
 
             <div class="usuario_administrador">
                 <div class="p_usuario_administrador"><?php echo pullAdmName()?></div>

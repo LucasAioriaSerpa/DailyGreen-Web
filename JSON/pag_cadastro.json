@@ -1,19 +1,19 @@
 {
     "cad-part": "0",
     "part-1": {
-        "nome": "orgOrg",
-        "email": "Org@org.com.br",
+        "nome": "Vivo",
+        "email": "vivo@gmail.com",
         "org": null
     },
     "part-1-org": {
-        "org-nome": "Org - organiza\u00e7\u00e3o",
-        "CNPJ": "0123456789"
+        "org-nome": "Vivo Telefonica",
+        "CNPJ": "12345678910"
     },
     "part-2": {
-        "file": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/67fe7a0be49bc.jpg",
+        "file": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/680a9eb70c031.jpg",
         "genero": "outro"
     },
     "part-3": {
-        "senha": "vzoXduRiLjoP7js6USWRg3Usa6h9Ekz4A6YskEL9yCjvx3NrPK0ZW9PPaUCRYRE+uRV7rmg31tDI4Hf60gHNVPK+ORIOzwaWRoO9lJyIO37304imyUV0bFCPgd7iaXGD"
+        "senha": "bb2D23J2MB04QW5Nkcv06pfUEG\/wMRFl0fVBhMpncOiX8+PWReEBLhs5Z+tN1BWpjjfDdkeCJ2TYxDMIETV3RO2l\/x2j1LYtRon+NL+RZ1PBIBUa7+FF8FdAtmNyXobI"
     }
 }

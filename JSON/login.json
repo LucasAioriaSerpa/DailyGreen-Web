@@ -1,12 +1,27 @@
 {
-    "org": false,
     "0": {
-        "id_participante": "1",
-        "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/67f7c27aeee2f.png",
-        "username": "Flavia Cristina Fagundes",
-        "email": "flavia@gmail.com",
-        "password": "TBiEaSK5kH2SoW3xJ0ByONjUSpS6w57Bo8nftnlBx2wjRYlGqT2IXmdZYlTmyFXMPB4TArMYei+zsCGqGMEFSyXn08CtZPwPa95f3SagJF7El03ck1CSCoty8zaYmxV3",
-        "genero": "f",
-        "create_time": "2025-04-10 10:07:23"
-    }
+        "id_participante": "7",
+        "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/680a9eb70c031.jpg",
+        "username": "Vivo",
+        "email": "vivo@gmail.com",
+        "password": "WgsNulCKdpTHnFwQMF9W8ypyhW5JGjoiY5XoU5lrG\/qFdwH\/4jKq69vIDD9gNSJ0ApsDSD0by1mzNkX5UdjulfdNjH4UZEtVtQezb7TKUQa\/aXRumSzF5GBXn2ile54K",
+        "genero": "o",
+        "create_time": "2025-04-24 17:27:43"
+    },
+    "1": [
+        {
+            "id_organizacao": "1",
+            "id_participante": "3",
+            "nome": "Organiza\u00e7\u00e3o organizacao",
+            "CNPJ": "123456789"
+        },
+        {
+            "id_organizacao": "2",
+            "id_participante": "7",
+            "nome": "Vivo Telefonica",
+            "CNPJ": "2147483647"
+        }
+    ],
+    "find": true,
+    "org": 1
 }
