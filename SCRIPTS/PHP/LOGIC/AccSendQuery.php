@@ -2,6 +2,7 @@
 <?php
 include_once 'Cypher.php';
 include_once 'SQL_connection.php';
+include_once 'functions.php';
 $encode = new EncodeDecode();
 $sqlConnection = new SQLconnection();
 $cadastroSave = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json"), true);
@@ -10,6 +11,7 @@ $username = $cadastroSave["part-1"]["nome"];
 $email = $cadastroSave["part-1"]["email"];
 $password = $encode->decrypt($cadastroSave["part-3"]["senha"]);
 $genero = $cadastroSave["part-2"]["genero"][0];
+debug_var($cadastroSave);
 $sqlQuery = "INSERT INTO participante(
     profile_pic,
     username,
@@ -30,7 +32,7 @@ if (in_array(null, $cadastroSave['part-1'])) {
     $sqlQuery_org = "INSERT INTO organizacao(
         id_participante,
         nome,
-        cnpj
+        CNPJ
     ) VALUES (
         '{$last_id}',
         '{$nameOrg}',

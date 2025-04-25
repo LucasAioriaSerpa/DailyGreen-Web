@@ -1,19 +1,19 @@
 {
     "cad-part": "0",
     "part-1": {
-        "nome": "Vivo",
-        "email": "vivo@gmail.com",
+        "nome": "Apple",
+        "email": "apple@org.com",
         "org": null
     },
     "part-1-org": {
-        "org-nome": "Vivo Telefonica",
-        "CNPJ": "12345678910"
+        "org-nome": "Apple",
+        "CNPJ": "98751894896"
     },
     "part-2": {
-        "file": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/680a9eb70c031.jpg",
+        "file": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/680ba3bbbdc85.jpeg",
         "genero": "outro"
     },
     "part-3": {
-        "senha": "bb2D23J2MB04QW5Nkcv06pfUEG\/wMRFl0fVBhMpncOiX8+PWReEBLhs5Z+tN1BWpjjfDdkeCJ2TYxDMIETV3RO2l\/x2j1LYtRon+NL+RZ1PBIBUa7+FF8FdAtmNyXobI"
+        "senha": "UTfjhB6YawHZrO9pBqkHr8jBZe56Ksthl+uB5cn3pF9MJ1b857mpQp+x9WWQlnNJlXoNL0375DHObGo8u0tWu9pK2HcrULXV9z6yiyjaNCvfDsGwKpsSa2iY\/sY7B3Ax"
     }
 }
