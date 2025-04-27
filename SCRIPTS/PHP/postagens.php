@@ -79,7 +79,7 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
             </div>
 
             <!-- POST EXEMPLO 1 -->
-            <?php foreach ($postsArray as $post): ?>
+            <?php foreach (array_reverse($postsArray) as $post): ?> 
                 <div class="post">
                     <div class="post-user">
                         <div class="user-avatar">
@@ -125,7 +125,7 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
             </div>
 
             <div class="eventos_anuncio">
-                <?php foreach ($postsArray as $post): ?>
+            <?php foreach (array_reverse($postsArray) as $post): ?>
                     <?php
                     // ? Verifica se o post tem um evento associado
                     $hasEvent = false;
