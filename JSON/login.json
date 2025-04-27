@@ -1,12 +1,21 @@
 {
-    "org": false,
+    "find": true,
+    "org": true,
     "0": {
-        "id_participante": "1",
-        "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/67f7c27aeee2f.png",
-        "username": "Flavia Cristina Fagundes",
-        "email": "flavia@gmail.com",
-        "password": "TBiEaSK5kH2SoW3xJ0ByONjUSpS6w57Bo8nftnlBx2wjRYlGqT2IXmdZYlTmyFXMPB4TArMYei+zsCGqGMEFSyXn08CtZPwPa95f3SagJF7El03ck1CSCoty8zaYmxV3",
-        "genero": "f",
-        "create_time": "2025-04-10 10:07:23"
-    }
+        "id_participante": "4",
+        "profile_pic": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/680ba09aacd56.png",
+        "username": "Super Muffato",
+        "email": "supermuffato@org.com",
+        "password": "gyc81KRtfMT3QUmm4b6tEdYi9TXYNGcMwTN60+TtSs4mCJFNqHNm48IdSw50A7wCVOsmC5XfzNkApXHzmZVbVNvLQXaRyKoyCzoVZyFF7HLYOfU9SPaNlv2DmhZGVAiVL7YYC4o+xQSpnrTSm94Yzw==",
+        "genero": "o",
+        "create_time": "2025-04-25 11:48:19"
+    },
+    "1": [
+        {
+            "id_organizacao": "1",
+            "id_participante": "4",
+            "nome": "Muffato",
+            "CNPJ": "2147483647"
+        }
+    ]
 }

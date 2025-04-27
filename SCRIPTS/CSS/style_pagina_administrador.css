@@ -43,9 +43,22 @@ body{
     user-select: none;
 }
 
-.header_titulo h2:hover{
-    color: #ffffff;
-    transition: 2s;
+.letter{
+    font-weight: bold;
+    font-size: 25px;
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.letter.visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.letter.out{
+    opacity: 0;
+    transform: translateY(100px);
 }
 
 /* BOAS VINDAS (NOME DO USUARIO) */
@@ -56,6 +69,7 @@ body{
     justify-content: center;
     display: flex;
     user-select: none;
+    font-size: 13px;
 }
 
 /* MENU NAVEGAÇÃO */
