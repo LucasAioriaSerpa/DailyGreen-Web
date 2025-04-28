@@ -35,7 +35,7 @@ class SQLconnection {
                 echo "Connection failed: " . $conn->connect_error;
                 //return false;
             } else {
-                //echo "Connected successfully";
+                echo "Connected successfully";
                 return true;
             }
         } else {
