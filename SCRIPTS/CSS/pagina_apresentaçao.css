@@ -9,7 +9,7 @@ body {
     background-color: #ABD1B5;
     color: #333333;
     line-height: 1.6;
-    padding-top: 70px; /* Espaço para a barra fixa */
+    padding-top: 70px; 
 }
 
 .top_bar {
@@ -20,11 +20,11 @@ body {
     background-color: #2e8b57; 
     color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: fixed; /* Torna a barra fixa */
-    top: 0; /* Fixa no topo */
-    left: 0; /* Alinha à esquerda */
-    width: 100%; /* Largura total */
-    z-index: 1000; /* Garante que fique acima de outros elementos */
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    width: 100%; 
+    z-index: 1000; 
 }
 
 .logo {
