@@ -1,6 +1,7 @@
 
 <?php
 include_once 'Cypher.php';
+session_start();
 class SQLconnection {
     private EncodeDecode $encodeDecode;
     private array $sqlData;

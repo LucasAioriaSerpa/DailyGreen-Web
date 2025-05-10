@@ -1,10 +1,1 @@
-.qodo
-DailyGreen-Project\JSON\bd_info.json
-DailyGreen-Project\JSON\cad_log_adm.json
-DailyGreen-Project\JSON\cypher_data.json
-DailyGreen-Project\JSON\login_input.json
-DailyGreen-Project\JSON\login.json
-DailyGreen-Project\JSON\loginAdm.json
-DailyGreen-Project\JSON\pag_cadastro.json
-DailyGreen-Project\JSON\postagem.json
 *.json
