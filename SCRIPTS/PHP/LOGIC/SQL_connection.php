@@ -1,6 +1,7 @@
 
 <?php
 include_once 'Cypher.php';
+session_start();
 class SQLconnection {
     private EncodeDecode $encodeDecode;
     private array $sqlData;
@@ -33,9 +34,9 @@ class SQLconnection {
         if ($test) {
             if ($conn->connect_error) {
                 echo "Connection failed: " . $conn->connect_error;
-                //return false;
+                return false;
             } else {
-                //echo "Connected successfully";
+                echo "Connected successfully";
                 return true;
             }
         } else {
