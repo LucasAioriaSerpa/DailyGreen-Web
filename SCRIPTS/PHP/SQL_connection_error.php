@@ -1,6 +1,7 @@
 
 <?php
-session_start();
+include_once 'LOGIC/session.php';
+include_once 'LOGIC/functions.php';
 $sqlData = $_SESSION['mySql'];
 ?>
 
@@ -15,10 +16,11 @@ $sqlData = $_SESSION['mySql'];
 </head>
 
 <body>
+    <?php debug_var($_SESSION) ?>
     <section class="error-connection">
         <h1>✖ Falha na conexão! ✖</h1>
         <div class="forms">
-            <form id="formBD" name="formBD" action="LOGIC/update_SQLbd_info" method="post">
+            <form id="formBD" name="formBD" action="LOGIC/update_SQLbd_info.php" method="post">
                 <div class="forms-inputs">
                     <div class="data-input">
                         <label for="servername">Server name:</label>

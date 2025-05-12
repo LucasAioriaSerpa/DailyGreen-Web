@@ -1,10 +1,13 @@
 
 <?php
-session_start();
+include_once 'session.php';
 include_once 'Cypher.php';
 include_once 'SQL_connection.php';
+include_once 'functions.php';
 $objEncode = new EncodeDecode();
 //! to get a file to read needs to add "/xampp/htdocs/[folder-site]..."
+debug_var($_POST);
+debug_var($_SESSION['mySql']);
 if (empty($_POST)) {
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");
     exit;

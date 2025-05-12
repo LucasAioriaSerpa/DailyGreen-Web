@@ -10,11 +10,11 @@ class SQLconnection {
         $this->encodeDecode = new EncodeDecode();
         $this->sqlData = $_SESSION['mySql'];
         $this->serverInfo = [
-            "servername"=>"{$this->sqlData["mySql"]["servername"]}",
-            "username"=>"{$this->sqlData["mySql"]["username"]}",
-            "password"=>"{$this->sqlData["mySql"]["password"]}",
-            "database"=>"{$this->sqlData["mySql"]["database"]}",
-            "port"=>(int)$this->sqlData["mySql"]["port"]
+            "servername"=>"{$this->sqlData["servername"]}",
+            "username"=>"{$this->sqlData["username"]}",
+            "password"=>"{$this->sqlData["password"]}",
+            "database"=>"{$this->sqlData["database"]}",
+            "port"=>(int)$this->sqlData["port"]
         ];
     }
 
