@@ -1,6 +1,7 @@
 
 <?php
 include_once 'Cypher.php';
+session_start(); // ! REMOVE this 'session_start();' after the integration of all files JSON with SESSION
 class SQLconnection {
     private EncodeDecode $encodeDecode;
     private array $sqlData;
