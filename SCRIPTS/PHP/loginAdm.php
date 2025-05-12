@@ -1,33 +1,13 @@
 
 <?php
-    include_once 'LOGIC/functions.php';
-    session_start();
-    if (!isset($_SESSION['initialized']) || $_SESSION['initialized'] === false) {
-        $_SESSION['user'] = [
-            'type' => 'ADM',
-            'loged' => false,
-            'account' => null
-        ];
-        $_SESSION['mySql'] = [
-            'servername' => 'localhost',
-            'username' => 'root',
-            'password' => '',
-            'database' => 'db_dailygreen',
-            'port' => 3306
-        ];
-        $_SESSION['adm-user'] = [
-            'loged' => false,
-            'find' => null,
-            'account' => null
-        ];
-        $_SESSION['initialized'] = true;
-    }
-    if ($_SESSION['user']['USER'] === true) {
-        header("Location: /DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php");
-        exit();
-    }
-    if ($_SESSION['adm-user']['find'] === false) {
-        echo "<script type='text/javascript'> alert('Email ou senha incorretos!') </script>";
-    }
-    include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/tela_de_login_adm.html";
+include_once 'LOGIC/session.php';
+if ($_SESSION['user']['type'] === null){
+    $_SESSION['user']['type'] = 'ADM';
+} else if ($_SESSION['user']['type'] === 'USER') {
+    $_SESSION['user']['type'] = 'ADM';
+}
+if ($_SESSION['adm-user']['find'] === false) {
+    echo "<script type='text/javascript'> alert('Email ou senha incorretos!') </script>";
+}
+include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/tela_de_login_adm.html";
 

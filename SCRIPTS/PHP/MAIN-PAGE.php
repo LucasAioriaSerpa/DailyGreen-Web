@@ -1,45 +1,10 @@
 
 <?php
-session_start();
-if (!isset($_SESSION['initialized']) || !$_SESSION['initialized']) {
-    $_SESSION['user'] = [
-        'type' => 'USER',
-        'loged' => false,
-        'account' => null
-    ];
-    $_SESSION['mySql'] = [
-        'servername' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'database' => 'db_dailygreen',
-        'port' => 3306
-    ];
-    $_SESSION['inputs'] = [
-        'login' => [
-            'email' => null,
-            'password' => null
-        ],
-        'cadastro' => [
-            'cad-part' => '0',
-            'part-1' => [
-                'nome' => null,
-                'email' => null,
-                'org' => null
-            ],
-            'part-1-org' => [
-                'org-nome' => null,
-                'CNPJ' => null
-            ],
-            'part-2' => [
-                'file' => null,
-                'genero' => null
-            ],
-            'part-3' => [
-                'senha' => null
-            ]
-        ]
-    ];
-    $_SESSION['initialized'] = true;
+include_once 'LOGIC/session.php';
+if ($_SESSION['user']['type'] === null){
+    $_SESSION['user']['type'] = 'USER';
+} else if ($_SESSION['user']['type'] === 'ADM') {
+    $_SESSION['user']['type'] = 'USER';
 }
 ?>
 
@@ -51,6 +16,6 @@ if (!isset($_SESSION['initialized']) || !$_SESSION['initialized']) {
     <title>DailyGreen - HOME</title>
 </head>
 <body>
-    
+    <?php include_once '../HTML/pagina_apresentaçao.html' ?> <!--//? place holder por enquanto, dps deve ser desenvolvido uma home page mais completo @joao-au @Nikolas2606-->
 </body>
 </html>

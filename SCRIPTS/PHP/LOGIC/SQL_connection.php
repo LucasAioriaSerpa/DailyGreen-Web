@@ -1,20 +1,20 @@
 
 <?php
 include_once 'Cypher.php';
-session_start();
+session_start(); // ! REMOVE this 'session_start();' after the integration of all files JSON with SESSION
 class SQLconnection {
     private EncodeDecode $encodeDecode;
     private array $sqlData;
     private array $serverInfo;
     public function __construct(){
         $this->encodeDecode = new EncodeDecode();
-        $this->sqlData = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/bd_info.json"), true);
+        $this->sqlData = $_SESSION['mySql'];
         $this->serverInfo = [
-            "servername"=>"{$this->sqlData["mySql"]["servername"]}",
-            "username"=>"{$this->sqlData["mySql"]["username"]}",
-            "password"=>"{$this->sqlData["mySql"]["password"]}",
-            "database"=>"{$this->sqlData["mySql"]["database"]}",
-            "port"=>(int)$this->sqlData["mySql"]["port"]
+            "servername"=>"{$this->sqlData["servername"]}",
+            "username"=>"{$this->sqlData["username"]}",
+            "password"=>"{$this->sqlData["password"]}",
+            "database"=>"{$this->sqlData["database"]}",
+            "port"=>(int)$this->sqlData["port"]
         ];
     }
 

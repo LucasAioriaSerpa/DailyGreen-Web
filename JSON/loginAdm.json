@@ -1,8 +1,3 @@
 {
-    "find": true,
-    "0": {
-        "id_administrador": "12",
-        "email": "jerema@gmail.com",
-        "password": "mEJ\/9AJytvt4fA0OFyjVXlLlzQLlwz1xOwfAbFs\/0VD0R8f+Bvw5sv2KP7dY9Nu4pZiFmfESvPA7noe5AQ6T8LpuXB2\/lqI0Or07gOe4EbKYeGu2DGo2vY3JNaBcubJX"
-    }
+    "find": false
 }

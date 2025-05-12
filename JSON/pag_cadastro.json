@@ -1,19 +1,19 @@
 {
     "cad-part": "0",
     "part-1": {
-        "nome": "Apple",
-        "email": "apple@org.com",
+        "nome": "aaa",
+        "email": "aaa@bbb.com",
         "org": null
     },
     "part-1-org": {
-        "org-nome": "Apple",
-        "CNPJ": "98751894896"
+        "org-nome": "AAAAAA",
+        "CNPJ": "1234567891012"
     },
     "part-2": {
-        "file": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/680ba3bbbdc85.jpeg",
+        "file": "\/xampp\/htdocs\/DailyGreen-Project\/IMAGES\/PROFILES\/680ba7edad651.jpg",
         "genero": "outro"
     },
     "part-3": {
-        "senha": "UTfjhB6YawHZrO9pBqkHr8jBZe56Ksthl+uB5cn3pF9MJ1b857mpQp+x9WWQlnNJlXoNL0375DHObGo8u0tWu9pK2HcrULXV9z6yiyjaNCvfDsGwKpsSa2iY\/sY7B3Ax"
+        "senha": "Qndtk7r6ttAUza7CkuldzpwKrpfslIxD1+6+UHux4Z+KM6xYrFLn3ESgpqisE2A0XoqsZpFDeINXFNkmoQaOl1MYFk9WB69YiZd9HuApvGLQsGGcx4fP1JsvrIx9cQon"
     }
 }
