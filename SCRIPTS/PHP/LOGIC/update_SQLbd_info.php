@@ -13,4 +13,10 @@ $_SESSION['mySql'] = $_POST; //* UPDATES DECODED DATA
 $_SESSION['mySql']["password"] = $objEncode->encrypt($_SESSION['mySql']["password"]);
 $connection = new SQLconnection();
 $connection->tryConnectBD(true); //? TEST CONNECTION
-header("Location: /DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php"); //? REDIRECT TO HOME PAGE
+if ($_SESSION['user']['type'] === 'USER') {
+    header("Location: /DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php");
+    exit;
+} else if ($_SESSION['user']['type'] === 'ADM') {
+    header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
+    exit;
+}
