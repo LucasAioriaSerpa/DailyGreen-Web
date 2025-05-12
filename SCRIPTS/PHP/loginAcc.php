@@ -5,4 +5,3 @@
         echo "<script type='text/javascript'> alert('Email ou senha incorretos!') </script>";
     }
     include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/pagina_login.html";
-?>

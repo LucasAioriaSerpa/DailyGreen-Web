@@ -1,14 +1,13 @@
 
 <?php
 include_once 'Cypher.php';
-session_start();
 class SQLconnection {
     private EncodeDecode $encodeDecode;
     private array $sqlData;
     private array $serverInfo;
     public function __construct(){
         $this->encodeDecode = new EncodeDecode();
-        $this->sqlData = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/bd_info.json"), true);
+        $this->sqlData = $_SESSION['mySql'];
         $this->serverInfo = [
             "servername"=>"{$this->sqlData["mySql"]["servername"]}",
             "username"=>"{$this->sqlData["mySql"]["username"]}",

@@ -1,7 +1,7 @@
 
 <?php
-    include_once 'LOGIC/functions.php';
     session_start();
+    include_once 'LOGIC/functions.php';
     if (!isset($_SESSION['initialized']) || $_SESSION['initialized'] === false) {
         $_SESSION['user'] = [
             'type' => 'ADM',
@@ -21,10 +21,6 @@
             'account' => null
         ];
         $_SESSION['initialized'] = true;
-    }
-    if ($_SESSION['user']['USER'] === true) {
-        header("Location: /DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php");
-        exit();
     }
     if ($_SESSION['adm-user']['find'] === false) {
         echo "<script type='text/javascript'> alert('Email ou senha incorretos!') </script>";
