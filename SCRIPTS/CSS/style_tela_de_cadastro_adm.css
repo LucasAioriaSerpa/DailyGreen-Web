@@ -25,18 +25,18 @@ body{
 
 .titulo_cadastro_adm{
     font-weight: bold;
-    font-size: 1em;
+    font-size: 20px;
     padding: 5px;
 }
 
 .titulo-link-login a{
     font-weight: bold;
     text-decoration: none;
-    color: #EDF4ED;
+    color: #51291E;
     font-size: 0.8em;
 } .titulo-link-login a:hover{
     transition: 0.2s;
-    color: #51291E;
+    color: #EDF4ED; 
 }
 
 .inserir_dados{
