@@ -24,7 +24,7 @@ class SQLconnection {
                                         $this->serverInfo['username'],
                                         $this->encodeDecode->decrypt($this->serverInfo['password']),
                                         $this->serverInfo['database'],
-                                            $this->serverInfo['port']);
+                                        $this->serverInfo['port']);
         } catch (mysqli_sql_exception $e) {
             echo $e;
             error_log("Connection Failed: " . $conn->connect_error);

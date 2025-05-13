@@ -87,6 +87,9 @@ body {
   display: flex;
 }
 
+input[type="file"]{
+  font-size: 12px;
+}
 
 .next_button,
 input[type="submit"] {
