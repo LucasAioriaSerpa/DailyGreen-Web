@@ -1,8 +1,6 @@
 
 <?php
-include_once 'LOGIC/session.php';
 include_once 'LOGIC/functions.php';
-$sqlData = $_SESSION['mySql'];
 ?>
 
 <!DOCTYPE html>
@@ -24,26 +22,26 @@ $sqlData = $_SESSION['mySql'];
                 <div class="forms-inputs">
                     <div class="data-input">
                         <label for="servername">Server name:</label>
-                        <input type="text" id="servername" name="servername" value="localhost" value="<?php $sqlData['servername'] ?>" required>
+                        <input type="text" id="servername" name="servername" value="localhost" required>
                     </div>
                     <div class="data-input">
                         <label for="username">User name:</label>
-                        <input type="text" id="username" name="username" value="root" value="<?php $sqlData['username'] ?>" required>
+                        <input type="text" id="username" name="username" value="root" required>
                     </div>
                     <div class="data-input">
                         <label for="password">Password:</label>
                         <div class="password-input">
-                            <input type="password" id="password" name="password" value="<?php $sqlData['password'] ?>" required>
+                            <input type="password" id="password" name="password" required>
                             <input type="checkbox" onclick="togglePasswordInput()" onkeypress="togglePasswordInput()">
                         </div>
                     </div>
                     <div class="data-input">
                         <label for="database">Database:</label>
-                        <input type="text" id="database" name="database" value="<?php $sqlData['database'] ?>" required>
+                        <input type="text" id="database" name="database" required>
                     </div>
                     <div class="data-input">
                         <label for="port">Port:</label>
-                        <input type="text" id="port" name="port" value="<?php $sqlData['port'] ?>" required>
+                        <input type="text" id="port" name="port" required>
                     </div>
                 </div>
                 <div class="btn-connect"><input type="submit" value="Conectar"></div>
