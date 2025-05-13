@@ -4,6 +4,7 @@ body{
   top: 40%;
   left: 50%;
   transform: translate(-50%,-50%);
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .login-container{
@@ -29,7 +30,7 @@ body{
 .nav_bar_login a{
   text-decoration: none;
   color: #EDF4ED;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .nav_bar_login a:hover{

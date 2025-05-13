@@ -4,6 +4,7 @@ body{
     top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .container-cadastro-adm{
@@ -29,6 +30,7 @@ body{
 }
 
 .titulo-link-login a{
+
     text-decoration: none;
     color: #EDF4ED;
     font-size: 0.8em;
