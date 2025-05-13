@@ -3,7 +3,7 @@
 include_once 'LOGIC/session.php';
 if ($_SESSION['user']['type'] === null){
     $_SESSION['user']['type'] = 'ADM';
-} else if ($_SESSION['user']['type'] === 'USER') {
+} elseif ($_SESSION['user']['type'] === 'USER') {
     $_SESSION['user']['type'] = 'ADM';
 }
 if ($_SESSION['adm-user']['find'] === false) {

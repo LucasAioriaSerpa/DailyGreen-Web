@@ -1,13 +1,12 @@
 
 <?php
-    session_start();
+    include_once 'LOGIC/session.php';
+    include_once 'LOGIC/SQL_connection.php';
+    include_once 'LOGIC/functions.php';
     if ($_SESSION['adm-user']['loged'] === false) {
-        echo "<script type='text/javascript'> alert('Você não está logado!') </script>";
         header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
         exit();
     }
-    include_once 'LOGIC/SQL_connection.php';
-    include_once 'LOGIC/functions.php';
     $sqlConnection = new SQLconnection();
     $admUserName = $sqlConnection->callTableBD('administrador',true);
     $usersArray = $sqlConnection->callTableBD('participante',true);

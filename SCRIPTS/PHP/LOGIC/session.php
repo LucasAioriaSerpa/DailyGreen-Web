@@ -12,7 +12,8 @@ $session_array['mySql'] = [
     'username' => 'root',
     'password' => '',
     'database' => 'db_dailygreen',
-    'port' => 3306
+    'port' => 3306,
+    'flag-connection' => false
 ];
 $session_array['inputs'] = [
     'login' => [
@@ -39,19 +40,11 @@ $session_array['inputs'] = [
         ]
     ]
 ];
-$session_array['adm-user'] = [
-    'loged' => false,
-    'find' => null,
-    'account' => null
-];
 $session_array['initialized'] = true;
 if (!isset($_SESSION['initialized']) || !$_SESSION['initialized']) {
     $_SESSION = $session_array;
-} else if ($_SESSION['mySql']['password'] === '') {
+} elseif ($_SESSION['mySql']['password'] === '' && $_SESSION['mySql']['flag-connection'] === false) {
+    $_SESSION['mySql']['flag-connection'] = true;
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");
     exit;
-}
-
-function update_session(string $key, mixed $value) {
-    $_SESSION[$key] = $value;
 }
