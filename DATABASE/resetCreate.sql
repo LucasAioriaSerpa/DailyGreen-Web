@@ -1,3 +1,10 @@
+-- Apaga o banco se já existir
+DROP DATABASE IF EXISTS db_dailygreen;
+
+-- Cria o banco novamente
+CREATE DATABASE db_dailygreen;
+USE db_dailygreen;
+
 CREATE TABLE administrador (
     id_administrador INT NOT NULL AUTO_INCREMENT,
     email VARCHAR(100) UNIQUE NOT NULL,
