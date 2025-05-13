@@ -9,19 +9,25 @@ USE db_dailygreen;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS lista (
     id_lista INT NOT NULL AUTO_INCREMENT,
-    id_participante_lista INT NOT NULL,
-    descricao VARCHAR(255),
-    data_inclusao DATETIME,
+    tipo_lista VARCHAR(20),
     PRIMARY KEY (id_lista),
-    CONSTRAINT fk_participanteLista FOREIGN KEY (id_participante_lista) REFERENCES participante (id_participante)
 );
+
+INSERT INTO lista (tipo_lista)
+VALUES ("blackList");
+
+INSERT INTO lista (tipo_lista)
+VALUES ("grayList");
+
+INSERT INTO lista (tipo_lista)
+VALUES ("whiteList");
 
 -- -----------------------------------------------------
 -- Tabela db_dailygreen.participante
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS participante (
     id_participante INT NOT NULL AUTO_INCREMENT,
-    id_lista INT,
+    id_lista INT NOT NULL DEFAULT 1,
     profile_pic VARCHAR(255),
     banner_pic VARCHAR(255),
     biografia VARCHAR(255),

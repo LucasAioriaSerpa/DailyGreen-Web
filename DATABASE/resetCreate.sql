@@ -15,7 +15,7 @@ CREATE TABLE administrador (
 -- Tabela participante
 CREATE TABLE participante (
     id_participante INT NOT NULL AUTO_INCREMENT,
-    id_lista INT,
+    id_lista INT NOT NULL DEFAULT 1,
     profile_pic VARCHAR(255),
     banner_pic VARCHAR(255),
     biografia VARCHAR(255),
@@ -24,18 +24,26 @@ CREATE TABLE participante (
     password VARCHAR(100) NOT NULL,
     genero CHAR(1) NOT NULL,
     create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id_participante)
+    PRIMARY KEY (id_participante),
+    CONSTRAINT fk_listaParticipante FOREIGN KEY (id_lista) REFERENCES lista(id_lista)
 );
 
 -- Tabela lista
-CREATE TABLE lista (
+CREATE TABLE IF NOT EXISTS lista (
     id_lista INT NOT NULL AUTO_INCREMENT,
-    id_participante_lista INT NOT NULL,
-    descricao VARCHAR(255),
-    data_inclusao DATETIME,
+    tipo_lista VARCHAR(20),
     PRIMARY KEY (id_lista),
-    FOREIGN KEY (id_participante_lista) REFERENCES participante(id_participante)
 );
+
+INSERT INTO lista (tipo_lista)
+VALUES ("blackList");
+
+INSERT INTO lista (tipo_lista)
+VALUES ("grayList");
+
+INSERT INTO lista (tipo_lista)
+VALUES ("whiteList");
+
 
 -- Atualiza FK da tabela participante
 ALTER TABLE participante
