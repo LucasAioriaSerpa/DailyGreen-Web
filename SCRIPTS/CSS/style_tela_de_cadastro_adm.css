@@ -30,7 +30,7 @@ body{
 }
 
 .titulo-link-login a{
-
+    font-weight: bold;
     text-decoration: none;
     color: #EDF4ED;
     font-size: 0.8em;

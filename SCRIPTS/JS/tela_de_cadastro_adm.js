@@ -36,11 +36,15 @@ forms_cadastro.addEventListener("submit", function(validarEmail){
         Swal.fire({
             title: "Erro!",
             text: "Email incorreto, favor verificar!",
-            icon: "faild"
+            icon: "error"
         });
         emailInput.focus();
     } else if (senha.value != confirmacaoSenha.value){
         validarEmail.preventDefault()
-        alert('As senhas estão diferentes!');
+        Swal.fire({
+            title: "Erro!",
+            text: "As senhas estão diferentes, favor verificar!",
+            icon: "error"
+        });
     }
 })
