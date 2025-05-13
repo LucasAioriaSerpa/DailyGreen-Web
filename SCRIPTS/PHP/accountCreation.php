@@ -10,7 +10,7 @@ $pagCadastroDATA = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Proje
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Cadastro | Dailygreen</title>
 </head>
 <body>
     <?php

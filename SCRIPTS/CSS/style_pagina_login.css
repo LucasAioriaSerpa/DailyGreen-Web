@@ -74,7 +74,8 @@ body {
 .nav_bar_login a {
   color: #edf4ed;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .nav_bar_login a:hover{

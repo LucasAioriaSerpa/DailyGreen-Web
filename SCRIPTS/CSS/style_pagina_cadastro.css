@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 body {
@@ -24,8 +24,6 @@ body {
 }
 
 .cadastro-container h2 {
-  text-align: center;
-  margin-bottom: 30px;
   font-size: 28px;
   color: #51291E;
 }
@@ -76,12 +74,19 @@ body {
 .nav_bar_cadastro a {
   color: #fff;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.nav_bar_cadastro a:hover{
+  transition: 1s;
+  color: #51291E;
 }
 
 .type-user {
   display: flex;
 }
+
 
 .next_button,
 input[type="submit"] {
