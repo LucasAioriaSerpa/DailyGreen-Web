@@ -33,7 +33,11 @@ forms_cadastro.addEventListener("submit", function(validarEmail){
 
     if (!regex.test(email)){
         validarEmail.preventDefault();
-        alert('Email inválido, favor verificar!');
+        Swal.fire({
+            title: "Erro!",
+            text: "Email incorreto, favor verificar!",
+            icon: "faild"
+        });
         emailInput.focus();
     } else if (senha.value != confirmacaoSenha.value){
         validarEmail.preventDefault()
