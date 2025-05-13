@@ -1,6 +1,6 @@
 
 <?php
-include_once 'session.php';
+session_start();
 include_once 'Cypher.php';
 include_once 'SQL_connection.php';
 include_once 'functions.php';

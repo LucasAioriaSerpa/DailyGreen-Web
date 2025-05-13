@@ -1,6 +1,7 @@
 
 <?php
 include_once 'LOGIC/functions.php';
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +15,9 @@ include_once 'LOGIC/functions.php';
 </head>
 
 <body>
+    <?php
+        debug_var($_SESSION);
+    ?>
     <section class="error-connection">
         <h1>✖ Falha na conexão! ✖</h1>
         <div class="forms">
