@@ -142,7 +142,8 @@ body {
 }
 
 .post-content {
-    margin-left: 58px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     line-height: 1.4;
 }
 
