@@ -1,5 +1,6 @@
 
 <?php
+include_once 'session.php';
 include_once 'SQL_connection.php';
 $sqlConnection = new SQLconnection();
 $id_autor = $_POST["id_participante"];

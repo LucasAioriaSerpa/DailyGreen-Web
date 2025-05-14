@@ -64,28 +64,31 @@ CREATE TABLE IF NOT EXISTS administrador (
 );
 
 -- -----------------------------------------------------
--- Tabela reacaoPost
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS reacaoPost (
-    id_reacaoPost INT NOT NULL AUTO_INCREMENT,
-    id_autor_reacao INT NOT NULL,
-    tipo_reacao INT NOT NULL,
-    PRIMARY KEY (id_reacaoPost),
-    CONSTRAINT fk_autorReacaoPost FOREIGN KEY (id_autor_reacao) REFERENCES participante(id_participante)
-);
-
--- -----------------------------------------------------
 -- Tabela post
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS post (
     id_post INT NOT NULL AUTO_INCREMENT,
-    id_reacaoPost INT NOT NULL,
     id_autor INT NOT NULL,
     titulo VARCHAR(50) NOT NULL,
     descricao VARCHAR(255),
     PRIMARY KEY (id_post),
-    CONSTRAINT fk_reacaoPost FOREIGN KEY (id_reacaoPost) REFERENCES reacaoPost(id_reacaoPost),
     CONSTRAINT fk_participantePost FOREIGN KEY (id_autor) REFERENCES participante (id_participante)
+);
+
+-- -----------------------------------------------------
+-- Tabela reacaoPost
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS reacaoPost (
+    id_reacaoPost INT NOT NULL,
+    id_autor_reacao INT NOT NULL,
+    tipo_gostei INT NOT NULL DEFAULT 0,
+    tipo_parabens INT NOT NULL DEFAULT 0,
+    tipo_apoio INT NOT NULL DEFAULT 0,
+    tipo_amei INT NOT NULL DEFAULT 0,
+    tipo_genial INT NOT NULL DEFAULT 0,
+    tipo_divertido INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (id_reacaoPost),
+    CONSTRAINT fk_autorReacaoPost FOREIGN KEY (id_autor_reacao) REFERENCES participante(id_participante)
 );
 
 -- -----------------------------------------------------
@@ -116,30 +119,33 @@ CREATE TABLE IF NOT EXISTS evento (
 );
 
 -- -----------------------------------------------------
--- Tabela reacaoComentario
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS reacaoComentario (
-    id_reacaoComentario INT NOT NULL AUTO_INCREMENT,
-    id_autor_reacao INT NOT NULL,
-    tipo_reacao INT NOT NULL,
-    PRIMARY KEY (id_reacaoComentario),
-    CONSTRAINT fk_autorReacaoComentario FOREIGN KEY (id_autor_reacao) REFERENCES participante(id_participante)
-);
-
--- -----------------------------------------------------
 -- Tabela comentario
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS comentario (
     id_comentario INT NOT NULL AUTO_INCREMENT,
-    id_reacaoComentario INT NOT NULL,
     id_post INT NOT NULL,
     id_autor_comentario INT NOT NULL,
     titulo_comentario VARCHAR(50),
     descricao_comentario VARCHAR(225),
     PRIMARY KEY (id_comentario),
-    CONSTRAINT fk_reacaoComentario FOREIGN KEY (id_reacaoComentario) REFERENCES reacaoComentario(id_reacaoComentario),
     CONSTRAINT fk_postComentario FOREIGN KEY (id_post) REFERENCES post(id_post),
     CONSTRAINT fk_autorComentario FOREIGN KEY (id_autor_comentario) REFERENCES participante(id_participante)
+);
+
+-- -----------------------------------------------------
+-- Tabela reacaoComentario
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS reacaoComentario (
+    id_reacaoComentario INT NOT NULL AUTO_INCREMENT,
+    id_autor_reacao INT NOT NULL DEFAULT 0,
+    tipo_gostei INT NOT NULL DEFAULT 0,
+    tipo_parabens INT NOT NULL DEFAULT 0,
+    tipo_apoio INT NOT NULL DEFAULT 0,
+    tipo_amei INT NOT NULL DEFAULT 0,
+    tipo_genial INT NOT NULL DEFAULT 0,
+    tipo_divertido INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (id_reacaoComentario),
+    CONSTRAINT fk_autorReacaoComentario FOREIGN KEY (id_autor_reacao) REFERENCES participante(id_participante)
 );
 
 -- -----------------------------------------------------
