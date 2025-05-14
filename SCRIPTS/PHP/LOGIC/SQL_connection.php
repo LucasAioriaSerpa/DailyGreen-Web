@@ -19,10 +19,10 @@ class SQLconnection {
 
     public function tryConnectBD(bool $test) {
         try {
-            $conn = new mysqli(  $this->serverInfo['servername'],
-                                        $this->serverInfo['username'],
-                                        $this->encodeDecode->decrypt($this->serverInfo['password']),
-                                        $this->serverInfo['database'],
+            $conn = new mysqli(     $this->serverInfo['servername'],
+                                    $this->serverInfo['username'],
+                                    $this->encodeDecode->decrypt($this->serverInfo['password']),
+                                    $this->serverInfo['database'],
                                         $this->serverInfo['port']);
         } catch (mysqli_sql_exception $e) {
             echo $e;

@@ -1,6 +1,6 @@
 
 <?php
-session_start();
+include_once 'session.php';
 include_once 'Cypher.php';
 include_once 'SQL_connection.php';
 include_once 'functions.php';
@@ -21,5 +21,8 @@ if ($_SESSION['user']['type'] === 'USER') {
     exit;
 } else if ($_SESSION['user']['type'] === 'ADM') {
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
+    exit;
+} else {
+    header("Location: /DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php");
     exit;
 }

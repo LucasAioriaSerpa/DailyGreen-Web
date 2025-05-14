@@ -7,42 +7,39 @@ $decode = new EncodeDecode();
 $sqlConnection = new SQLconnection();
 $loginTable = $sqlConnection->callTableBD("participante", true);
 $orgLogin = $sqlConnection->callTableBD("organizacao", false);
-$loginInput = json_decode(file_get_contents('/xampp/htdocs/DailyGreen-Project/JSON/login_input.json'), true);
-
 $urlLogin = "Location: /DailyGreen-Project/SCRIPTS/PHP/loginAcc.php";
 
 //? verify if the login exists and verify if the password is correct
 foreach ($loginTable as $data) {
     switch ($data["email"]) {
-        case $loginInput["email"]: {
-            echo "<br><br> true - the email is equal";
-            if ($decode->decrypt($data["password"]) == $decode->decrypt($loginInput["password"])) {
-                echo "<br><br> true - the password is equal";
+        case $_SESSION['inputs']['login']["email"]: {
+            if ($decode->decrypt($data["password"]) == $decode->decrypt($_SESSION['inputs']['login']["password"])) {
                 //? verify if the acount is a Organization
                 foreach ($orgLogin as $dataOrg) {
                     if ($dataOrg["id_participante"] == $data["id_participante"]) {
-                        $loginArray = ["find"=>true,"org"=>true , $data , $orgLogin];
-                        file_put_contents('/xampp/htdocs/DailyGreen-Project/JSON/login.json', json_encode($loginArray, JSON_PRETTY_PRINT));
+                        $_SESSION['user']['find'] = true;
+                        $_SESSION['user']['org'] = true;
+                        $_SESSION['user']['account'] = [$data, $dataOrg];
                         header('Location: /DailyGreen-Project/SCRIPTS/PHP/postagens.php');
                         exit();
                     }
                 }
-                file_put_contents('/xampp/htdocs/DailyGreen-Project/JSON/login.json', json_encode(["find"=>true, "org"=>false , $data], JSON_PRETTY_PRINT));
+                $_SESSION['user']['find'] = true;
+                $_SESSION['user']['org'] = false;
+                $_SESSION['user']['account'] = [$data];
                 header('Location: /DailyGreen-Project/SCRIPTS/PHP/postagens.php');
                 exit();
             } else {
-                echo "<br><br> false - the password is not equal";
-                file_put_contents('/xampp/htdocs/DailyGreen-Project/JSON/login.json', json_encode(["find"=>false], JSON_PRETTY_PRINT));
+                $_SESSION['user']['find'] = false;
                 header($urlLogin);
             }
             break;
         }
         default: {
-            echo "<br><br> false - the email is not equal";
-            file_put_contents('/xampp/htdocs/DailyGreen-Project/JSON/login.json', json_encode(["find"=>false], JSON_PRETTY_PRINT));
+            $_SESSION['user']['find'] = false;
             header($urlLogin);
         }
     }
 }
-file_put_contents('/xampp/htdocs/DailyGreen-Project/JSON/login.json', json_encode(["find"=>false], JSON_PRETTY_PRINT));
+$_SESSION['user']['find'] = false;
 header($urlLogin);

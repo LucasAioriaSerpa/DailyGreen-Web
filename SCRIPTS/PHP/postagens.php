@@ -1,9 +1,8 @@
 <?php
 include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/session.php";
 include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/SQL_connection.php";
-include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/PullUserInfoJson.php";
 include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/functions.php';
-$userInfo = new PullUserInfoJson();
+$userInfo = $_SESSION['user']['account'];
 $sqlConnection = new SQLconnection();
 $postsArray = $sqlConnection->callTableBD('post', false);
 $eventArray = $sqlConnection->callTableBD('evento', false);
@@ -33,12 +32,12 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
             <div class="area_perfil">
                 <div class="menu-item" onclick="btnLogout()">
                     <div class="user-avatar">
-                        <img src="<?php echo $userInfo->pullProfileImage(); ?>" alt="User Avatar"
+                        <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
                             style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div style="margin-left: 10px;">
-                        <div><?php echo $userInfo->pullName(); ?></div>
-                        <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo->pullName(); ?></div>
+                        <div><?php echo $userInfo[0]['username'] ?></div>
+                        <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo[0]['username']; ?></div>
                     </div>
                     <div id="logoutBtn" class="logout_button">
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/logoutPostagens.php">
@@ -56,20 +55,20 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
             <div class="caixa_postagem">
                 <div class="caixa_postagem-header">
                     <div class="caixa_postagem-avatar">
-                        <img src="<?php echo $userInfo->pullProfileImage(); ?>" alt="User Avatar"
+                        <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
                             style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div class="caixa_postagem-input">
                         <?php
-                        if ($userInfo->getArray()["org"]) {
+                        if ($_SESSION['user']['org'] === true) {
                             echo "
                             <div class='btns-typePost'>
                                 <button class='btn-postMode' onclick='turnORG(1)'>POST</button>
                                 <button class='btn-eventMode' onclick='turnORG(true)'>EVENTO</button>
                             </div>";
-                            if ($userInfo->getArray()["org"] === 1) {
+                            if ($_SESSION['user']['org'] === 1) {
                                 include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_post.html';
-                            } if ($userInfo->getArray()["org"] === true) {
+                            } if ($_SESSION['user']['org'] === true) {
                                 include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_event.html';
                             }
                         } else {
@@ -80,7 +79,7 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
             </div>
 
             <!-- POST EXEMPLO 1 -->
-            <?php foreach (array_reverse($postsArray) as $post): ?> 
+            <?php foreach (array_reverse($postsArray) as $post): ?>
                 <div class="post">
                     <div class="post-user">
                         <div class="user-avatar">

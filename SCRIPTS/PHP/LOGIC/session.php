@@ -5,8 +5,9 @@ $session_array = [];
 $session_array['user'] = [
     'type' => null,
     'loged' => false,
+    'find' => null,
     'account' => null,
-    'find' => null
+    'org' => null
 ];
 $session_array['mySql'] = [
     'servername' => 'localhost',
@@ -42,8 +43,7 @@ $session_array['inputs'] = [
     ]
 ];
 $session_array['initialized'] = true;
-if (!isset($_SESSION['initialized']) || !$_SESSION['initialized']) {
-    $_SESSION = $session_array;
+if (!isset($_SESSION['initialized']) || !$_SESSION['initialized']) {$_SESSION = $session_array;
 } elseif ($_SESSION['mySql']['password'] === '' && $_SESSION['mySql']['flag-connection'] === false) {
     $_SESSION['mySql']['flag-connection'] = true;
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");

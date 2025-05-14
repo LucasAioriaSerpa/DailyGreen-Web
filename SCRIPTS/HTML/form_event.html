@@ -1,7 +1,7 @@
 
 <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendEvent.php" method="POST">
-    <input type="hidden" name="id_participante" value="<?php echo $userInfo->pullID(); ?>">
-    <input type="hidden" name="id_organizacao" value='<?php echo $userInfo->getArray()[1][0]["id_organizacao"]; ?>'>
+    <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
+    <input type="hidden" name="id_organizacao" value='<?php echo $userInfo[1]["id_organizacao"]; ?>'>
     <input type="text" name="titulo" placeholder="Titulo..." required>
     <input type="text" name="descricao" placeholder="Descrição..." required>
     <div class="datas">
