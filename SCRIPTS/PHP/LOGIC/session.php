@@ -5,7 +5,8 @@ $session_array = [];
 $session_array['user'] = [
     'type' => null,
     'loged' => false,
-    'account' => null
+    'account' => null,
+    'find' => null
 ];
 $session_array['mySql'] = [
     'servername' => 'localhost',

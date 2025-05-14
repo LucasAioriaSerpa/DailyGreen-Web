@@ -1,10 +1,13 @@
+*{
+  font-family: 'Times New Roman', Times, serif;
+}
+
 body{
   background-color: #EDF4ED;
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%,-50%);
-  font-family: 'Times New Roman', Times, serif;
 }
 
 .login-container{

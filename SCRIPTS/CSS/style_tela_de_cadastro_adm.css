@@ -1,10 +1,13 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
 body{
     background-color: #EDF4ED;
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .container-cadastro-adm{
@@ -12,8 +15,6 @@ body{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, sans-serif;
-    font-size: 17px;
 }
 
 
@@ -21,22 +22,24 @@ body{
     display: flex;
     align-items: center;
     gap: 1vw;
+    padding-bottom: 15px;
 }
 
 .titulo_cadastro_adm{
     font-weight: bold;
     font-size: 20px;
-    padding: 5px;
+    padding-bottom: 10px;
 }
 
 .titulo-link-login a{
+    padding-bottom: 10px;
     font-weight: bold;
     text-decoration: none;
-    color: #51291E;
+    color: #EDF4ED;
     font-size: 0.8em;
 } .titulo-link-login a:hover{
     transition: 0.2s;
-    color: #EDF4ED; 
+    color: #51291E; 
 }
 
 .inserir_dados{
