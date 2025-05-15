@@ -10,7 +10,7 @@
             $key = base64_decode(json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/cypher_data.json"), true)["key"]);
             $iv = openssl_random_pseudo_bytes($this->iv_length);
             $encryptedData = openssl_encrypt($data,$this->method,$key, OPENSSL_RAW_DATA, $iv);
-            $encryptedData_hashMask = hash_hmac('sha3-512',$encryptedData, $key, TRUE);
+            $encryptedData_hashMask = hash_hmac('sha3-512',$encryptedData, $key, true);
             $output = base64_encode($iv.$encryptedData_hashMask.$encryptedData);
             return $output;
         }
@@ -21,9 +21,9 @@
             $hashMask_encrypt = substr($mix,$this->iv_length,64);
             $encrypt = substr($mix,$this->iv_length+64);
             $data = openssl_decrypt($encrypt,$this->method,$key, OPENSSL_RAW_DATA,$iv);
-            $data_hashMask = hash_hmac('sha3-512',$encrypt,$key,TRUE);
+            $data_hashMask = hash_hmac('sha3-512',$encrypt,$key,true);
             if (hash_equals($hashMask_encrypt,$data_hashMask)) {return $data;}
-            echo "something wrong happened!";
+            echo "Cypher.php - something wrong happened!";
             return false;
         }
     }

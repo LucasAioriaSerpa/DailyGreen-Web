@@ -55,7 +55,7 @@ class SQLconnection {
             return false;
         }
     }
-    public function callTableBD(string $table, bool $password) { // ! later remove "bool $password"
+    public function callTableBD(string $table) {
         $data = [];
         $conn = $this->tryConnectBD(false);
         $table = $conn->real_escape_string($table);

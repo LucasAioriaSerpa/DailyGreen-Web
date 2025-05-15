@@ -39,4 +39,23 @@ if ($_SESSION['inputs']['cadastro']['part-1']['org']) {
     )";
     $last_id = $sqlConnection->insertQueryBD($sqlQuery_org);
 }
+$_SESSION['inputs']['cadastro'] = [
+    'cad-part' => '0',
+    'part-1' => [
+        'nome' => null,
+        'email' => null,
+        'org' => null
+    ],
+    'part-1-org' => [
+        'org-nome' => null,
+        'CNPJ' => null
+    ],
+    'part-2' => [
+        'file' => null,
+        'genero' => null
+    ],
+    'part-3' => [
+        'senha' => null
+    ]
+];
 header("Location: /DailyGreen-Project/SCRIPTS/HTML/pagina_login.html");

@@ -5,8 +5,8 @@ include_once 'SQL_connection.php';
 include_once 'Cypher.php';
 $decode = new EncodeDecode();
 $sqlConnection = new SQLconnection();
-$loginTable = $sqlConnection->callTableBD("participante", true);
-$orgLogin = $sqlConnection->callTableBD("organizacao", false);
+$loginTable = $sqlConnection->callTableBD("participante");
+$orgLogin = $sqlConnection->callTableBD("organizacao");
 $urlLogin = "Location: /DailyGreen-Project/SCRIPTS/PHP/loginAcc.php";
 
 //? verify if the login exists and verify if the password is correct
