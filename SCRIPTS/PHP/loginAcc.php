@@ -1,6 +1,7 @@
 
 <?php
 include_once 'LOGIC/session.php';
+include_once 'LOGIC/Cypher.php';
 include_once 'LOGIC/functions.php';
 if ($_SESSION['user']['find'] === false){
     echo "<script type='text/javascript'> Swal.fire({title: 'Erro!', text: 'Email ou senha incorretos.', icon: 'error'}) </script>";

@@ -17,6 +17,7 @@ foreach ($loginTable as $data) {
                 //? verify if the acount is a Organization
                 foreach ($orgLogin as $dataOrg) {
                     if ($dataOrg["id_participante"] == $data["id_participante"]) {
+                        $_SESSION['user']['loged'] = true;
                         $_SESSION['user']['find'] = true;
                         $_SESSION['user']['org'] = true;
                         $_SESSION['user']['account'] = [$data, $dataOrg];
@@ -24,6 +25,7 @@ foreach ($loginTable as $data) {
                         exit();
                     }
                 }
+                $_SESSION['user']['loged'] = true;
                 $_SESSION['user']['find'] = true;
                 $_SESSION['user']['org'] = false;
                 $_SESSION['user']['account'] = [$data];

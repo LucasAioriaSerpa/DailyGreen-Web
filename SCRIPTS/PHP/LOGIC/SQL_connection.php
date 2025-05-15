@@ -55,7 +55,7 @@ class SQLconnection {
             return false;
         }
     }
-    public function callTableBD(string $table, bool $password) {
+    public function callTableBD(string $table, bool $password) { // ! later remove "bool $password"
         $data = [];
         $conn = $this->tryConnectBD(false);
         $table = $conn->real_escape_string($table);
@@ -64,14 +64,6 @@ class SQLconnection {
         if ($result && $result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $data[] = $row;
-            }
-        }
-        if ($password) {
-            $i = 0;
-            foreach ($data as $value) {
-                $passwordEncripted = $this->encodeDecode->encrypt($value["password"]);
-                $data[$i]["password"] = $passwordEncripted;
-                $i++;
             }
         }
         $conn->close();

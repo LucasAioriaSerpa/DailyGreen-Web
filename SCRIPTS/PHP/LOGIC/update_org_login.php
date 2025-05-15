@@ -1,18 +1,17 @@
 
 <?php
-// Get the raw POST data
+session_start(); // Inicia a sessão
+
+// Obtém os dados enviados via POST
 $data = json_decode(file_get_contents('php://input'), true);
 
-if ($data) {
-    // Path to the JSON file
-    $filePath = '/xampp/htdocs/DailyGreen-Project/JSON/login.json';
+if ($data && isset($data['org'])) {
+    // Atualiza o valor de 'org' na sessão
+    $_SESSION['user']['org'] = $data['org'];
 
-    // Write the data to the JSON file
-    if (file_put_contents($filePath, json_encode($data, JSON_PRETTY_PRINT))) {
-        echo json_encode(['status' => 'success', 'message' => 'Data saved successfully']);
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'Failed to write to file']);
-    }
+    // Retorna uma resposta de sucesso
+    echo json_encode(['status' => 'success', 'message' => 'Session updated successfully']);
 } else {
+    // Retorna uma resposta de erro
     echo json_encode(['status' => 'error', 'message' => 'Invalid data']);
 }

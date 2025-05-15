@@ -2,6 +2,10 @@
 include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/session.php";
 include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/SQL_connection.php";
 include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/functions.php';
+if ($_SESSION['user']['loged'] === false) {
+    header('Location: /DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php');
+    exit();
+}
 $userInfo = $_SESSION['user']['account'];
 $sqlConnection = new SQLconnection();
 $postsArray = $sqlConnection->callTableBD('post', false);
@@ -60,15 +64,16 @@ $usersArray = $sqlConnection->callTableBD('participante', true);
                     </div>
                     <div class="caixa_postagem-input">
                         <?php
-                        if ($_SESSION['user']['org'] === true) {
+                        if ($_SESSION['user']['org'] === true || $_SESSION['user']['org'] === 1) {
                             echo "
                             <div class='btns-typePost'>
-                                <button class='btn-postMode' onclick='turnORG(1)'>POST</button>
-                                <button class='btn-eventMode' onclick='turnORG(true)'>EVENTO</button>
+                                <button class='btn-postMode' onclick='updateOrgSession(1)'>POST</button>
+                                <button class='btn-eventMode' onclick='updateOrgSession(true)'>EVENTO</button>
                             </div>";
                             if ($_SESSION['user']['org'] === 1) {
                                 include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_post.html';
-                            } if ($_SESSION['user']['org'] === true) {
+                            }
+                            if ($_SESSION['user']['org'] === true) {
                                 include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_event.html';
                             }
                         } else {

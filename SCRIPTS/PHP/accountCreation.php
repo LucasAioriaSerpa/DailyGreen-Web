@@ -1,12 +1,12 @@
 
 <?php
+include_once 'LOGIC/session.php';
 include_once 'LOGIC/functions.php';
-$pagCadastroDATA = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/pag_cadastro.json"), true);
-
+$pagCadastroDATA = $_SESSION['inputs']['cadastro']['cad-part'];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@ $pagCadastroDATA = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Proje
 </head>
 <body>
     <?php
-    switch ($pagCadastroDATA["cad-part"]) {
+    switch ($pagCadastroDATA) {
         case "0":
             return include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/pagina_cadastro.html";
         case "1-1":
