@@ -15,20 +15,27 @@
       <a href="/DailyGreen-Project/SCRIPTS/PHP/loginAcc.php">FAÇA O LOGIN AQUI</a>
     </div>
 
-    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsJSONAcc.php" method="POST">
+    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsAcc.php"id="form_cadastro"  method="POST">
 
       <input type="hidden" name="cad-part" value="2">
 
       <label for="senha">Senha:</label>
-      <input type="password" id="senha" name="senha" required />
+      <input type="password" class="input_dados_cadastrais input-wrapper" id="senha" name="senha" required />
+      <span class="status" id="status_password" value="0"></span>
 
       <label for="senha">Confirmar Senha:</label>
-      <input type="password" id="senha_confirm" name="senha" required />
+      <input type="password" class="input_dados_cadastrais input-wrapper" id="senha_confirm" name="senha" required />
+      <span class="status" id="status_senha_confirm" value="0"></span>
 
-      <input type="submit" value="CADASTRAR" />
+      <input type="hidden" id="confirmarStatus" value="0">
+
+      <input type="submit" class="botao_cadastrar" value="CADASTRAR" />
 
     </form>
   </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/DailyGreen-Project/SCRIPTS/JS/pagina_cadastro.js"></script>
+
 </body>
 
 </html>

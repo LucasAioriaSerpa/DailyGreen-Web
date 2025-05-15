@@ -1,8 +1,9 @@
+
 const form = document.getElementById('form_cadastro');
-const senha = document.getElementById('password');
-const confirmacaoSenha = document.getElementById('input_confirmacao_password');
+const senha = document.getElementById('senha');
+const confirmacaoSenha = document.getElementById('senha_confirm');
 const statusSenha = document.getElementById('status_password');
-const statusConfirmacao = document.getElementById('status_confirmacao_password');
+const statusConfirmacao = document.getElementById('status_senha_confirm');
 
 // Atualiza ícones em tempo real
 function atualizarStatusSenhas() {
@@ -19,10 +20,10 @@ function atualizarStatusSenhas() {
   }
 }
 
-// Verifica as senhas no envio
+
 form.addEventListener('submit', function (event) {
   if (senha.value !== confirmacaoSenha.value) {
-    event.preventDefault(); // Impede o envio do formulário
+    event.preventDefault(); 
 
     Swal.fire({
       icon: 'warning',
@@ -33,4 +34,4 @@ form.addEventListener('submit', function (event) {
 });
 
 senha.addEventListener("input", atualizarStatusSenhas);
-confirmacaoSenha.addEventListener("input", atualizarStatusSenhas);
+confirmacaoSenha.addEventListener("input", atualizarStatusSenhas);  
