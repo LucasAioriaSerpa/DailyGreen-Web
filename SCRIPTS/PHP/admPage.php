@@ -1,26 +1,24 @@
 
 <?php
-    include_once 'LOGIC/session.php';
-    include_once 'LOGIC/SQL_connection.php';
-    include_once 'LOGIC/functions.php';
-    if ($_SESSION['adm-user']['loged'] === false) {
-        header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
-        exit();
-    }
-    $sqlConnection = new SQLconnection();
-    $admUserName = $sqlConnection->callTableBD('administrador',true);
-    $usersArray = $sqlConnection->callTableBD('participante',true);
-    function pullAdmName(){
-        // pega o nome do administrador no arquivo .json
-        $data = json_decode(file_get_contents("/xampp/htdocs/DailyGreen-Project/JSON/loginAdm.json"), true);
-        $emailAdministrador = $data["0"]["email"];
+include_once 'LOGIC/session.php';
+include_once 'LOGIC/SQL_connection.php';
+include_once 'LOGIC/functions.php';
+if ($_SESSION['user']['loged'] === false) {
+    header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
+    exit();
+}
+$sqlConnection = new SQLconnection();
+$admUserName = $sqlConnection->callTableBD('administrador');
+$usersArray = $sqlConnection->callTableBD('participante');
+function pullAdmName(){
+    // pega o nome do administrador no arquivo .json
+    $emailAdministrador = $_SESSION['user']['account']['email'];
 
-        // apaga tudo depois do @
-        $partsEmail = explode("@", $emailAdministrador);
-        $nomeAdministrador = $partsEmail[0];
-        echo "Bem-vindo(a), " . $nomeAdministrador . "!";
-    }
-
+    // apaga tudo depois do @
+    $partsEmail = explode("@", $emailAdministrador);
+    $nomeAdministrador = $partsEmail[0];
+    echo "Bem-vindo(a), " . $nomeAdministrador . "!";
+}
 ?>
 
 <!DOCTYPE html>

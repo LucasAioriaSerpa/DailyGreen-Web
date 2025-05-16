@@ -8,9 +8,9 @@ if ($_SESSION['user']['loged'] === false) {
 }
 $userInfo = $_SESSION['user']['account'];
 $sqlConnection = new SQLconnection();
-$postsArray = $sqlConnection->callTableBD('post', false);
-$eventArray = $sqlConnection->callTableBD('evento', false);
-$usersArray = $sqlConnection->callTableBD('participante', true);
+$postsArray = $sqlConnection->callTableBD('post');
+$eventArray = $sqlConnection->callTableBD('evento');
+$usersArray = $sqlConnection->callTableBD('participante');
 ?>
 
 <!DOCTYPE html>
