@@ -10,6 +10,6 @@ $seguindo = "183";
 $seguidores = "181.9 milhões";
 
 // Inclui o HTML e insere as variáveis
-include 'perfil_template.html';
+include '../HTML/pagina_perfil.html';
 ?>
 
