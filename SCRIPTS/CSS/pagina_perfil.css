@@ -152,7 +152,7 @@ body {
     display: flex;
     align-items: center;
     padding: 12px 16px;
-    border-bottom: 1px solid #2f2f2f;
+     border-bottom: 1px solid #2f2f2f;
 }
 
 .back-button {
