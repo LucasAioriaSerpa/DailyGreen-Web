@@ -25,7 +25,7 @@ $sqlQuery = "INSERT INTO participante(
     '{$genero}'
 )";
 $last_id = $sqlConnection->insertQueryBD($sqlQuery);
-if ($_SESSION['inputs']['cadastro']['part-1']['org']) {
+if ($_SESSION['inputs']['cadastro']['part-1']['org'] === 'true') {
     $nameOrg = $_SESSION['inputs']['cadastro']["part-1-org"]["org-nome"];
     $CNPJ = (int) $_SESSION['inputs']['cadastro']["part-1-org"]["CNPJ"];
     $sqlQuery_org = "INSERT INTO organizacao(
