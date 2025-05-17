@@ -113,7 +113,7 @@ $usersArray = $sqlConnection->callTableBD('participante');
                                     <div class="dateTime-fim">Fim: <?php echo $evento['data_hora_fim'] ?></div>
                                 </div>
                                 <div class="local">Local: <?php echo $evento['local'] ?></div>
-                                <div class="link">Link: <?php echo "<a href='{$evento["link"]}'>{$evento['link']}</a>" ?></div>
+                                <div class="link">Link: <?php echo "<a href='https://{$evento["link"]}'>{$evento['link']}</a>" ?></div>
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </div>
@@ -170,7 +170,7 @@ $usersArray = $sqlConnection->callTableBD('participante');
                                             <div class="dateTime-fim">Fim: <?php echo $evento['data_hora_fim'] ?></div>
                                         </div>
                                         <div class="local">Local: <?php echo $evento['local'] ?></div>
-                                        <div class="link">Link: <?php echo "<a href='{$evento["link"]}'>{$evento['link']}</a>" ?></div>
+                                        <div class="link">Link: <?php echo "<a href='https://{$evento["link"]}'>{$evento['link']}</a>" ?></div>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
