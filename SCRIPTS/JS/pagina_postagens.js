@@ -4,16 +4,6 @@ function btnLogout(){
     logoutBtn.classList.toggle("show");
 }
 
-function fetchJsonFile(filePath) {
-    return fetch(filePath)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        });
-}
-
 function updateOrgSession(newOrgValue) {
     fetch('/DailyGreen-Project/SCRIPTS/PHP/LOGIC/update_org_login.php', {
         method: 'POST',

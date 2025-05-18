@@ -1,11 +1,17 @@
-
 <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" method="POST">
     <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
     <input type="text" name="titulo" placeholder="Titulo..." required>
     <input type="text" name="descricao" placeholder="Descrição..." required>
     <div class="caixa_postagem-footer">
-        <div class="caixa_postagem-actions">
-            <div class="caixa_postagem-action"><i class="far fa-image"></i></div>
+        <script>
+            function btnMedia() {
+                const mediaBtn = document.getElementById("media_btn");
+                mediaBtn.classList.toggle("show");
+                mediaBtn.classList.toggle("active");
+            }
+        </script>
+        <div class="media-btn" id="media_btn" onclick="btnMedia()">
+            <i class="far fa-image"></i>
         </div>
         <input class="botao_postagem" type="submit" value="Postar">
     </div>

@@ -409,17 +409,24 @@ body {
     justify-content: space-between;
 }
 
-.caixa_postagem-actions {
-    display: flex;
-}
-
-.caixa_postagem-action {
+.media-btn {
+    outline: #79B791 solid 2px;
     color: #79B791;
-} .caixa_postagem-action i {
-    cursor: pointer;
+    border-radius: 1vw;
+    padding: 1vh;
+    height: fit-content;
     transition: 0.2s;
-} .caixa_postagem-action i:hover {
+} .media-btn:hover {
+    outline: #51291E solid 2px;
+    background-color: #79B791;
     color: #51291E;
+    padding: 1.3vh;
+    transition: 0.2s;
+} .media-btn.active {
+    outline: #51291E solid 2px;
+    background-color: #51291E;
+    color: #EDF4ED;
+    padding: 1.5vh;
     transition: 0.2s;
 }
 

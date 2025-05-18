@@ -26,7 +26,7 @@ $usersArray = $sqlConnection->callTableBD('participante');
 <script src="/DailyGreen-Project/SCRIPTS/JS/org_post_flip.js"></script>
 <body>
     <div class="container">
-        <!-- SIDEBAR ESQUERDA -->
+        <!-- //* SIDEBAR ESQUERDA -->
         <div class="sidebar_esquerda">
             <div class="menu-item">
                 <i class="fas fa-home"></i>
@@ -52,16 +52,19 @@ $usersArray = $sqlConnection->callTableBD('participante');
             </div>
         </div>
 
-        <!-- CONTEÚDO CENTRAL (FEED) -->
+        <!-- //* CONTEÚDO CENTRAL (FEED) -->
+        <!-- //?  INPUT: POST / EVENTO   -->
         <div class="conteudo_principal">
             <div class="feed-header">Para você</div>
 
             <div class="caixa_postagem">
                 <div class="caixa_postagem-header">
+
                     <div class="caixa_postagem-avatar">
                         <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
                             style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
+
                     <div class="caixa_postagem-input">
                         <?php
                         if ($_SESSION['user']['org'] === true || $_SESSION['user']['org'] === 1) {
@@ -80,11 +83,16 @@ $usersArray = $sqlConnection->callTableBD('participante');
                             include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_post.html';
                         } ?>
                     </div>
+
                 </div>
+
             </div>
 
-            <!-- POST EXEMPLO 1 -->
+            <!-- //* POST EXEMPLO 1 -->
+            <!-- //? Filters post and events. only POSTs pass thourth -->
             <?php foreach (array_reverse($postsArray) as $post): ?>
+                <?php foreach ($eventArray as $evento): if ($evento['id_post'] == $post['id_post']): $_event = true; endif; endforeach;?>
+                <?php if ($_event): $_event = false; continue; endif; ?>
                 <div class="post">
                     <div class="post-user">
                         <div class="user-avatar">
@@ -105,24 +113,12 @@ $usersArray = $sqlConnection->callTableBD('participante');
                     <div class="post-content">
                         <?= nl2br(htmlspecialchars($post['descricao'])) ?>
                     </div>
-                    <div class="event-post">
-                        <?php foreach ($eventArray as $evento): ?>
-                            <?php if ($evento['id_post'] == $post['id_post']): ?>
-                                <div class="dateTime">
-                                    <div class="dateTime-inicio">Inicio: <?php echo $evento['data_hora_inicio'] ?></div>
-                                    <div class="dateTime-fim">Fim: <?php echo $evento['data_hora_fim'] ?></div>
-                                </div>
-                                <div class="local">Local: <?php echo $evento['local'] ?></div>
-                                <div class="link">Link: <?php echo "<a href='https://{$evento["link"]}'>{$evento['link']}</a>" ?></div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </div>
                 </div>
             <?php endforeach; ?>
 
         </div>
 
-        <!-- SIDEBAR DIREITA -->
+        <!-- //* SIDEBAR DIREITA -->
         <div class="sidebar_direita">
             <div class="barra_pesquisa">
                 <i class="fas fa-search"></i>
