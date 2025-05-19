@@ -1,16 +1,17 @@
-<form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendEvent.php" method="POST" enctype="multipart/form-data">
+<form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendEvent.php" id="formPostOrg" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
     <input type="hidden" name="id_organizacao" value='<?php echo $userInfo[1]["id_organizacao"]; ?>'>
-    <input type="text" name="titulo" placeholder="Titulo..." required>
-    <input type="text" name="descricao" placeholder="Descrição..." required>
+    <input type="text" name="titulo" placeholder="Titulo..." id="tituloOrg" >
+    <input type="text" name="descricao" placeholder="Descrição..." id="descricaoOrg" >
+
     <div class="datas">
         <label for="dataTimeInicio" class="dataIncio">Inicio: <input type="datetime-local" name="dataTimeInicio"
                 id="dataTimeInicio" placeholder="data e hora de inicio..." required></label>
         <label for="dataTimeFim" class="dataFim">Fim: <input type="datetime-local" name="dataTimeFim" id="dataTimeFim"
                 placeholder="data e hora de fim..." required></label>
     </div>
-    <input type="text" name="local" placeholder="endereço..." required>
-    <input type="text" name="link" placeholder="link..." required>
+    <input type="text" name="local" placeholder="endereço..." id="endereco" required>
+    <input type="text" name="link" placeholder="link..." id="link" required>
     <div class="caixa_postagem-footer">
         <div class="media-btn" id="media_btn">
             <label for="insert_media" class="insert-media">
@@ -23,4 +24,6 @@
         <input class="botao_postagem" type="submit" value="Postar">
     </div>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/DailyGreen-Project/SCRIPTS/JS/form_midia.js"></script>
+<script src="/DailyGreen-Project/SCRIPTS/JS/form_midia_org.js"></script>
