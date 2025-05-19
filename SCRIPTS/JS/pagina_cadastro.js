@@ -5,7 +5,8 @@ const confirmacaoSenha = document.getElementById('senha_confirm');
 const statusSenha = document.getElementById('status_password');
 const statusConfirmacao = document.getElementById('status_senha_confirm');
 
-// Atualiza ícones em tempo real
+
+// atualiza os icones
 function atualizarStatusSenhas() {
   if (senha.value === confirmacaoSenha.value && senha.value !== "") {
     statusSenha.textContent = "✔️";
@@ -20,10 +21,22 @@ function atualizarStatusSenhas() {
   }
 }
 
-
 form.addEventListener('submit', function (event) {
+  const senhaRegex = /^.{8,50}$/;
+
+  if (!senhaRegex.test(senha.value)) {
+    event.preventDefault();
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Senha inválida',
+      text: 'A senha deve ter no mínimo 8 e no máximo 50 caracteres.',
+    });
+    return;
+  }
+
   if (senha.value !== confirmacaoSenha.value) {
-    event.preventDefault(); 
+    event.preventDefault();
 
     Swal.fire({
       icon: 'warning',
@@ -34,4 +47,4 @@ form.addEventListener('submit', function (event) {
 });
 
 senha.addEventListener("input", atualizarStatusSenhas);
-confirmacaoSenha.addEventListener("input", atualizarStatusSenhas);  
+confirmacaoSenha.addEventListener("input", atualizarStatusSenhas);
