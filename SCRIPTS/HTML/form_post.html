@@ -1,18 +1,17 @@
-<form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" method="POST">
+<form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
     <input type="text" name="titulo" placeholder="Titulo..." required>
     <input type="text" name="descricao" placeholder="Descrição..." required>
     <div class="caixa_postagem-footer">
-        <script>
-            function btnMedia() {
-                const mediaBtn = document.getElementById("media_btn");
-                mediaBtn.classList.toggle("show");
-                mediaBtn.classList.toggle("active");
-            }
-        </script>
-        <div class="media-btn" id="media_btn" onclick="btnMedia()">
-            <i class="far fa-image"></i>
+        <div class="media-btn" id="media_btn">
+            <label for="insert_media" class="insert-media">
+                <i class="far fa-image"></i>
+            </label>
+            <input type="file" name="insert_media[]" id="insert_media" class="insert-media" accept="image/*,video/*"
+                multiple onchange="loadFiles(event)">
         </div>
+        <div id="preview-container"></div>
         <input class="botao_postagem" type="submit" value="Postar">
     </div>
 </form>
+<script src="/DailyGreen-Project/SCRIPTS/JS/form_midia.js"></script>

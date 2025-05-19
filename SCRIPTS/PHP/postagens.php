@@ -8,9 +8,20 @@ if ($_SESSION['user']['loged'] === false) {
 }
 $userInfo = $_SESSION['user']['account'];
 $sqlConnection = new SQLconnection();
+$userArray = $sqlConnection->callTableBD('participante');
+if (sizeof($userArray) == 0) {
+    $_SESSION['user']['loged'] = false;
+    $_SESSION['user']['find'] = null;
+    $_SESSION['user']['account'] = null;
+    $_SESSION['user']['org'] = null;
+    header('Location: /DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php');
+    exit();
+}
 $postsArray = $sqlConnection->callTableBD('post');
 $eventArray = $sqlConnection->callTableBD('evento');
+$midiaArray = $sqlConnection->callTableBD('midia');
 $usersArray = $sqlConnection->callTableBD('participante');
+$_event = null;
 ?>
 
 <!DOCTYPE html>
@@ -113,6 +124,32 @@ $usersArray = $sqlConnection->callTableBD('participante');
                     <div class="post-content">
                         <?= nl2br(htmlspecialchars($post['descricao'])) ?>
                     </div>
+                    <div class="post-midia">
+                        <div class="column-midia">
+                            <?php
+                            $postMidias = [];
+                            foreach ($midiaArray as $midia) {
+                                if ($midia['id_post'] == $post['id_post']) {
+                                    $postMidias[] = $midia;
+                                }
+                            }
+                            $imgCount = count($postMidias);
+                            foreach ($postMidias as $idx => $midia):
+                            ?>
+                                <img
+                                    src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
+                                    alt="Post Image"
+                                    class="post-img img-count-<?= $imgCount ?>"
+                                    onclick="openModal(this.src)"
+                                >
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <!-- Modal para ampliar imagem -->
+                    <div id="imgModal" class="img-modal" onclick="closeModal()">
+                        <span class="img-modal-close" onclick="closeModal(event)">&times;</span>
+                        <img class="img-modal-content" id="imgModalContent">
+                    </div>
                 </div>
             <?php endforeach; ?>
 
@@ -169,6 +206,32 @@ $usersArray = $sqlConnection->callTableBD('participante');
                                         <div class="link">Link: <?php echo "<a href='https://{$evento["link"]}'>{$evento['link']}</a>" ?></div>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
+                            </div>
+                            <div class="post-midia">
+                                <div class="column-midia">
+                                    <?php
+                                    $postMidias = [];
+                                    foreach ($midiaArray as $midia) {
+                                        if ($midia['id_post'] == $post['id_post']) {
+                                            $postMidias[] = $midia;
+                                        }
+                                    }
+                                    $imgCount = count($postMidias);
+                                    foreach ($postMidias as $idx => $midia):
+                                    ?>
+                                        <img
+                                            src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
+                                            alt="Post Image"
+                                            class="post-img img-count-<?= $imgCount ?>"
+                                            onclick="openModal(this.src)"
+                                        >
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                            <!-- Modal para ampliar imagem -->
+                            <div id="imgModal" class="img-modal" onclick="closeModal()">
+                                <span class="img-modal-close" onclick="closeModal(event)">&times;</span>
+                                <img class="img-modal-content" id="imgModalContent">
                             </div>
                         </div>
                     <?php endif; ?>
