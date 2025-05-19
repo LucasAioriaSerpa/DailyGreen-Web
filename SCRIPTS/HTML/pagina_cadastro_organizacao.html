@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cadastro | DailyGreen</title>
   <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_pagina_cadastro.css">
+  
 </head>
 
 <body>
@@ -15,20 +16,22 @@
       <a href="/DailyGreen-Project/SCRIPTS/PHP/loginAcc.php">FAÇA O LOGIN AQUI</a>
     </div>
 
-    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsAcc.php" method="post">
-
+    <form id="form-cadastro" action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/savePartsAcc.php" method="post">
       <input type="hidden" name="cad-part" value="1-1">
 
       <label for="nome">Nome da Organização:</label>
       <input type="text" id="nome" name="org-nome" required />
 
-      <label for="email">CNPJ (Opcional):</label>
+      <label for="cnpj">CNPJ (Opcional):</label>
       <input type="text" id="cnpj" name="CNPJ" />
 
-      <div class="next_button"> <input type="submit" value="PRÓXIMO"> </div>
-
+      <div class="next_button">
+        <input type="submit" value="PRÓXIMO">
+      </div>
     </form>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/DailyGreen-Project/SCRIPTS/JS/pagina_cadastro_organizacao.js"></script>
 </body>
 
 </html>
