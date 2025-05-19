@@ -38,3 +38,17 @@ function updateOrgSession(newOrgValue) {
             console.error('Error updating session:', error);
         });
 }
+
+function btnDenuncia(denuncia){
+    const userAvatar = denuncia.closest('.user-avatar');
+    const btnDenuncia = userAvatar.querySelector('.btn-denuncia');
+
+    // Faz com que os outros itens da lista não habilitem o botão quando clicado
+    document.querySelectorAll('.btn-denuncia').forEach(btn => {
+        if (btn !== btnDenuncia){
+            btn.style.display = 'none';
+        }
+    });
+
+    btnDenuncia.style.display = (btnDenuncia.style.display == 'flex') ? 'none' : 'flex';
+}

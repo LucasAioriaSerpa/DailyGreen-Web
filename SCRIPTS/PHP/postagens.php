@@ -21,6 +21,7 @@ $postsArray = $sqlConnection->callTableBD('post');
 $eventArray = $sqlConnection->callTableBD('evento');
 $midiaArray = $sqlConnection->callTableBD('midia');
 $usersArray = $sqlConnection->callTableBD('participante');
+$denunciaArray = $sqlConnection->callTableBD('denuncia');
 $_event = null;
 ?>
 
@@ -33,6 +34,7 @@ $_event = null;
     <title>Postagens | DailyGreen</title>
     <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/pagina_postagens.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/JS/btn_denuncia.js">
 </head>
 <script src="/DailyGreen-Project/SCRIPTS/JS/org_post_flip.js"></script>
 <body>
@@ -107,8 +109,13 @@ $_event = null;
                 <div class="post">
                     <div class="post-user">
                         <div class="user-avatar">
-                            <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
+                            <button class="btn-user-img" id="btn-user-img" name="btn-user-img" onclick="btnDenuncia(this)">
+                                <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
                                 alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
+                            </button>
+                            <button class="btn-denuncia" id="btn-denuncia" name="btn-denuncia">
+                                <span class="alert-icon">⚠️</span>Denunciar
+                            </button>
                         </div>
                         <div style="margin-left: 10px;">
                             <div>
