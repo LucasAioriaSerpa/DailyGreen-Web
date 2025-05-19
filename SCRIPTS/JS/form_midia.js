@@ -50,3 +50,74 @@ function renderPreview() {
         reader.readAsDataURL(file);
     });
 }
+
+document.getElementById('formPost').addEventListener('submit', function(e) {
+const titulo = document.getElementById('titulo').value.trim();
+const descricao = document.getElementById('descricao').value.trim();
+
+const regexTitulo = /^.{2,50}$/;
+const regexDescricao = /^.{2,250}$/;
+
+if (!regexTitulo.test(titulo)) {
+    e.preventDefault();
+    Swal.fire({
+        icon: 'error',
+        title: 'Erro no Título',
+        text: 'O TÍTULO deve ter entre 2 e 50 caracteres.'
+    });
+    return;
+}
+
+if (!regexDescricao.test(descricao)) {
+    e.preventDefault();
+    Swal.fire({
+        icon: 'error',
+        title: 'Erro na Descrição',
+        text: 'A DESCRIÇÃO deve ter entre 2 e 250 caracteres.'
+    });
+    return;
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

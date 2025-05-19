@@ -1,7 +1,7 @@
-<form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" method="POST" enctype="multipart/form-data">
+<form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" id="formPost" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
-    <input type="text" name="titulo" placeholder="Titulo..." required>
-    <input type="text" name="descricao" placeholder="Descrição..." required>
+    <input type="text" name="titulo" placeholder="Titulo..." id="titulo" required>
+    <input type="text" name="descricao" placeholder="Descrição..." id="descricao" required>
     <div class="caixa_postagem-footer">
         <div class="media-btn" id="media_btn">
             <label for="insert_media" class="insert-media">
@@ -14,4 +14,5 @@
         <input class="botao_postagem" type="submit" value="Postar">
     </div>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/DailyGreen-Project/SCRIPTS/JS/form_midia.js"></script>
