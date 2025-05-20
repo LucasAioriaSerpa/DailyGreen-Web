@@ -55,17 +55,10 @@ function btnDenuncia(denuncia){
 
 function formDenuncia(){
     const formularioDenuncia = document.getElementById('formulario-denuncia');
+    formularioDenuncia.style.display = (formularioDenuncia.style.display == 'flex') ? 'none' : 'flex';
+}
 
-    if(formularioDenuncia.innerHTML.trim() === ""){
-        fetch("/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html")
-        .then(response = response.text())
-        .then(formulario => {
-            formularioDenuncia.innerHTML = formulario;
-        })
-        .catch(error => {
-            formularioDenuncia.innerHTML = "<p>Erro para carregar o formulário! \nTente novamente mais tarde.</p>"
-        })
-    } else{
-        formularioDenuncia.innerHTML = "";
-    }
+function btnCloseDenuncia(){
+    const formularioDenuncia = document.getElementById('formulario-denuncia');
+    formularioDenuncia.style.display = 'none';
 }

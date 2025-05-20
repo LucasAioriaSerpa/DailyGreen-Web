@@ -126,7 +126,9 @@ $_event = null;
                             <button class="btn-denuncia" id="btn-denuncia" name="btn-denuncia" onclick="formDenuncia()">
                                 <span class="alert-icon">⚠️</span>Denunciar</button>
                         </div>
-                        <div class="formulario-denuncia"></div>
+                        <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia">
+                            <?php include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html" ?>
+                        </div>
                         <div style="margin-left: 10px;">
                             <div>
                                 <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>

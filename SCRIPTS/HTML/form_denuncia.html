@@ -1,12 +1,14 @@
-<div class="form_denuncia">
-    <button class="btn-close-formDenuncia">X</button>
-    <h3>DENUNCIAR</h3>
-    <form action="" method="POST">
+<div class="modal_denuncia">
+    <div class="header_denuncia">
+        <button class="btn-close-denuncia" onclick="btnCloseDenuncia()">X</button>
+        <h3>DENUNCIAR</h3>
+    </div>
+    <form action="" method="POST" class="form_denuncia">
         <label for="titulo">Titulo:</label><br>
-        <input type="text" id="titulo" name="titulo" required><br><br>
+        <input type="text" class="titulo" id="titulo" name="titulo" required><br><br>
 
         <label for="motivo">Motivo da Denuncia:</label><br>
-        <textarea name="motivo" id="motivo" rows="4" cols="40" required></textarea><br><br>
+        <textarea class="motivo" id="motivo" name="motivo" rows="4" cols="40" required></textarea><br><br>
 
         <input type="hidden" name="id_relator" value="<?php echo $userInfo[0]['id_participante']; ?>">
         <input type="hidden" name="id_relatado">
@@ -14,4 +16,3 @@
         <input class="enviar-denuncia" type="submit" value="ENVIAR">
     </form>
 </div>
-<script src="/DailyGreen-Project/SCRIPTS/JS/pagina_postagens.js"></script>
