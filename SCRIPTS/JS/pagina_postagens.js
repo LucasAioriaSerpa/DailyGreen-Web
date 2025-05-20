@@ -38,3 +38,34 @@ function updateOrgSession(newOrgValue) {
             console.error('Error updating session:', error);
         });
 }
+
+function btnDenuncia(denuncia){
+    const userAvatar = denuncia.closest('.user-avatar');
+    const btnDenuncia = userAvatar.querySelector('.btn-denuncia');
+
+    // Faz com que os outros itens da lista não habilitem o botão quando clicado
+    document.querySelectorAll('.btn-denuncia').forEach(btn => {
+        if (btn !== btnDenuncia){
+            btn.style.display = 'none';
+        }
+    });
+
+    btnDenuncia.style.display = (btnDenuncia.style.display == 'flex') ? 'none' : 'flex';
+}
+
+function formDenuncia(){
+    const formularioDenuncia = document.getElementById('formulario-denuncia');
+
+    if(formularioDenuncia.innerHTML.trim() === ""){
+        fetch("/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html")
+        .then(response = response.text())
+        .then(formulario => {
+            formularioDenuncia.innerHTML = formulario;
+        })
+        .catch(error => {
+            formularioDenuncia.innerHTML = "<p>Erro para carregar o formulário! \nTente novamente mais tarde.</p>"
+        })
+    } else{
+        formularioDenuncia.innerHTML = "";
+    }
+}
