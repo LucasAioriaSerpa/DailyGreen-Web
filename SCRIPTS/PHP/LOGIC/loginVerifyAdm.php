@@ -7,12 +7,13 @@ include_once 'Cypher.php';
 $decode = new EncodeDecode();
 $sqlConnection = new SQLconnection();
 $loginTable = $sqlConnection->callTableBD("administrador");
-echo $_POST['email'] . '<br>';
-echo $_POST['password'];
+echo '_POST: ' . $_POST['email'] . '<br>';
+echo '_POST: ' . $_POST['password'] . '<br>';
 foreach ($loginTable as $data) {
     echo $data['email'] . '<br>';
     echo $data['password'] . '<br>';
-    if ($data["email"] == $_POST["email"] && $decode->decrypt($data["password"]) == $_POST["password"]) {
+    if ($data["email"] == $_POST["email"] && $decode->decrypt($data['password']) == $_POST["password"]) {
+        echo 'entrou';
         $_SESSION['user'] = [
             'loged' => true,
             'find' => true,
@@ -22,5 +23,6 @@ foreach ($loginTable as $data) {
         exit();
     }
 }
+echo 'não entrou';
 $_SESSION["adm-user"]["find"] = false;
 header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");

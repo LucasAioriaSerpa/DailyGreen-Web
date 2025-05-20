@@ -14,9 +14,8 @@ switch ($_POST["cad-part"]) {
             "email" => $_POST["email"],
             "org" => $_POST["org"]
         ];
-        if (in_array("true", $_SESSION['inputs']['cadastro']['part-1'])) {
+        if ($_SESSION['inputs']['cadastro']['part-1']['org'] === 'true') {
             $_SESSION['inputs']['cadastro']["cad-part"] = "1-1";
-            $_SESSION['inputs']['cadastro']['part-1']['org'] = true;
         } else {
             $_SESSION['inputs']['cadastro']["cad-part"] = "1";
         }

@@ -8,9 +8,21 @@ if ($_SESSION['user']['loged'] === false) {
 }
 $userInfo = $_SESSION['user']['account'];
 $sqlConnection = new SQLconnection();
+$userArray = $sqlConnection->callTableBD('participante');
+if (sizeof($userArray) == 0) {
+    $_SESSION['user']['loged'] = false;
+    $_SESSION['user']['find'] = null;
+    $_SESSION['user']['account'] = null;
+    $_SESSION['user']['org'] = null;
+    header('Location: /DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php');
+    exit();
+}
 $postsArray = $sqlConnection->callTableBD('post');
 $eventArray = $sqlConnection->callTableBD('evento');
+$midiaArray = $sqlConnection->callTableBD('midia');
 $usersArray = $sqlConnection->callTableBD('participante');
+$denunciaArray = $sqlConnection->callTableBD('denuncia');
+$_event = null;
 ?>
 
 <!DOCTYPE html>
@@ -22,16 +34,27 @@ $usersArray = $sqlConnection->callTableBD('participante');
     <title>Postagens | DailyGreen</title>
     <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/pagina_postagens.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/JS/btn_denuncia.js">
 </head>
 <script src="/DailyGreen-Project/SCRIPTS/JS/org_post_flip.js"></script>
 <body>
     <div class="container">
-        <!-- SIDEBAR ESQUERDA -->
+        <!-- //* SIDEBAR ESQUERDA -->
         <div class="sidebar_esquerda">
+
             <div class="menu-item">
                 <i class="fas fa-home"></i>
-                <span>Página Inicial</span>
+                <span>Página Inicial</span>   
             </div>
+            <div class="menu-item">
+                
+                <span><a href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php"><i class="fas fa-user"></i>Perfil</a></span>
+                  
+            </div>
+
+
+            
+
 
             <div class="area_perfil">
                 <div class="menu-item" onclick="btnLogout()">
@@ -52,16 +75,19 @@ $usersArray = $sqlConnection->callTableBD('participante');
             </div>
         </div>
 
-        <!-- CONTEÚDO CENTRAL (FEED) -->
+        <!-- //* CONTEÚDO CENTRAL (FEED) -->
+        <!-- //?  INPUT: POST / EVENTO   -->
         <div class="conteudo_principal">
             <div class="feed-header">Para você</div>
 
             <div class="caixa_postagem">
                 <div class="caixa_postagem-header">
+
                     <div class="caixa_postagem-avatar">
                         <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
                             style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
+
                     <div class="caixa_postagem-input">
                         <?php
                         if ($_SESSION['user']['org'] === true || $_SESSION['user']['org'] === 1) {
@@ -80,16 +106,28 @@ $usersArray = $sqlConnection->callTableBD('participante');
                             include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_post.html';
                         } ?>
                     </div>
+
                 </div>
+
             </div>
 
-            <!-- POST EXEMPLO 1 -->
+            <!-- //* POST EXEMPLO 1 -->
+            <!-- //? Filters post and events. only POSTs pass thourth -->
             <?php foreach (array_reverse($postsArray) as $post): ?>
+                <?php foreach ($eventArray as $evento): if ($evento['id_post'] == $post['id_post']): $_event = true; endif; endforeach;?>
+                <?php if ($_event): $_event = false; continue; endif; ?>
                 <div class="post">
                     <div class="post-user">
                         <div class="user-avatar">
-                            <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
+                            <button class="btn-user-img" id="btn-user-img" name="btn-user-img" onclick="btnDenuncia(this)">
+                                <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
                                 alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
+                            </button>
+                            <button class="btn-denuncia" id="btn-denuncia" name="btn-denuncia" onclick="formDenuncia()">
+                                <span class="alert-icon">⚠️</span>Denunciar</button>
+                        </div>
+                        <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia">
+                            <?php include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html" ?>
                         </div>
                         <div style="margin-left: 10px;">
                             <div>
@@ -105,24 +143,42 @@ $usersArray = $sqlConnection->callTableBD('participante');
                     <div class="post-content">
                         <?= nl2br(htmlspecialchars($post['descricao'])) ?>
                     </div>
-                    <div class="event-post">
-                        <?php foreach ($eventArray as $evento): ?>
-                            <?php if ($evento['id_post'] == $post['id_post']): ?>
-                                <div class="dateTime">
-                                    <div class="dateTime-inicio">Inicio: <?php echo $evento['data_hora_inicio'] ?></div>
-                                    <div class="dateTime-fim">Fim: <?php echo $evento['data_hora_fim'] ?></div>
-                                </div>
-                                <div class="local">Local: <?php echo $evento['local'] ?></div>
-                                <div class="link">Link: <?php echo "<a href='{$evento["link"]}'>{$evento['link']}</a>" ?></div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
+                    <div class="post-midia">
+                        <div class="column-midia">
+                            <?php
+                            $postMidias = [];
+                            foreach ($midiaArray as $midia) {
+                                if ($midia['id_post'] == $post['id_post']) {
+                                    $postMidias[] = $midia;
+                                }
+                            }
+                            $imgCount = count($postMidias);
+                            foreach ($postMidias as $idx => $midia):
+                            ?>
+                                <img
+                                    src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
+                                    alt="Post Image"
+                                    class="post-img img-count-<?= $imgCount ?>"
+                                    onclick="openModal(this.src)"
+                                >
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <!-- Modal para ampliar imagem -->
+                    <div id="imgModal" class="img-modal" onclick="closeModal()">
+                        <span class="img-modal-close" onclick="closeModal(event)">&times;</span>
+                        <img class="img-modal-content" id="imgModalContent">
+                    </div>
+                    <div class="post-footer">
+                        <div id="btnReaction" class="btn-content-footer"><i class="fa-solid fa-heart"> Reaja</i></div>
+                        <div id="btnComment" class="btn-content-footer"><i class="fa-solid fa-comment"> Comente</i></div>
                     </div>
                 </div>
             <?php endforeach; ?>
 
         </div>
 
-        <!-- SIDEBAR DIREITA -->
+        <!-- //* SIDEBAR DIREITA -->
         <div class="sidebar_direita">
             <div class="barra_pesquisa">
                 <i class="fas fa-search"></i>
@@ -170,9 +226,34 @@ $usersArray = $sqlConnection->callTableBD('participante');
                                             <div class="dateTime-fim">Fim: <?php echo $evento['data_hora_fim'] ?></div>
                                         </div>
                                         <div class="local">Local: <?php echo $evento['local'] ?></div>
-                                        <div class="link">Link: <?php echo "<a href='{$evento["link"]}'>{$evento['link']}</a>" ?></div>
+                                        <div class="link">Link: <?php echo "<a href='https://{$evento["link"]}'>{$evento['link']}</a>" ?></div>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
+                            </div>
+                            <div class="post-midia">
+                                <div class="column-midia">
+                                    <?php
+                                    $postMidias = [];
+                                    foreach ($midiaArray as $midia) {
+                                        if ($midia['id_post'] == $post['id_post']) {
+                                            $postMidias[] = $midia;
+                                        }
+                                    }
+                                    foreach ($postMidias as $idx => $midia):
+                                    ?>
+                                        <img
+                                            src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
+                                            alt="Post Image"
+                                            class="post-img"
+                                            onclick="openModal(this.src)"
+                                        >
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                            <!-- Modal para ampliar imagem -->
+                            <div id="imgModal" class="img-modal" onclick="closeModal()">
+                                <span class="img-modal-close" onclick="closeModal(event)">&times;</span>
+                                <img class="img-modal-content" id="imgModalContent">
                             </div>
                         </div>
                     <?php endif; ?>
@@ -182,5 +263,6 @@ $usersArray = $sqlConnection->callTableBD('participante');
     </div>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/DailyGreen-Project/SCRIPTS/JS/pagina_postagens.js"></script>
 </html>

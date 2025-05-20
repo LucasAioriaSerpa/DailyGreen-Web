@@ -1,19 +1,29 @@
-
-<form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendEvent.php" method="POST">
+<form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendEvent.php" id="formPostOrg" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
     <input type="hidden" name="id_organizacao" value='<?php echo $userInfo[1]["id_organizacao"]; ?>'>
-    <input type="text" name="titulo" placeholder="Titulo..." required>
-    <input type="text" name="descricao" placeholder="Descrição..." required>
+    <input type="text" name="titulo" placeholder="Escreva um titulo..." id="tituloOrg" required>
+    <input type="text" name="descricao" placeholder="Escreva uma descrição..." id="descricaoOrg" required>
+
     <div class="datas">
-        <label for="dataTimeInicio" class="dataIncio">Inicio: <input type="datetime-local" name="dataTimeInicio" id="dataTimeInicio" placeholder="data e hora de inicio..." required></label>
-        <label for="dataTimeFim" class="dataFim"     >Fim: <input type="datetime-local" name="dataTimeFim" id="dataTimeFim" placeholder="data e hora de fim..." required></label>
+        <label for="dataTimeInicio" class="dataIncio">Inicio: <input type="datetime-local" name="dataTimeInicio"
+                id="dataTimeInicio" placeholder="data e hora de inicio..." required></label>
+        <label for="dataTimeFim" class="dataFim">Fim: <input type="datetime-local" name="dataTimeFim" id="dataTimeFim"
+                placeholder="data e hora de fim..." required></label>
     </div>
-    <input type="text" name="local" placeholder="endereço..." required>
-    <input type="text" name="link" placeholder="link..." required>
+    <input type="text" name="local" placeholder="Escreva um endereço..." id="endereco" required>
+    <input type="text" name="link" placeholder="Escreva um link..." id="link" required>
     <div class="caixa_postagem-footer">
-        <div class="caixa_postagem-actions">
-            <div class="caixa_postagem-action"><i class="far fa-image"></i></div>
+        <div class="media-btn" id="media_btn">
+            <label for="insert_media" class="insert-media">
+                <i class="far fa-image"> <p>inserir imagem</p></i>
+            </label>
+            <input type="file" name="insert_media[]" id="insert_media" class="insert-media" accept="image/*,video/*"
+                multiple onchange="loadFiles(event)">
         </div>
+        <div id="preview-container"></div>
         <input class="botao_postagem" type="submit" value="Postar">
     </div>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/DailyGreen-Project/SCRIPTS/JS/form_midia.js"></script>
+<script src="/DailyGreen-Project/SCRIPTS/JS/form_midia_org.js"></script>

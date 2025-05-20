@@ -1,36 +1,48 @@
-const form = document.getElementById('form_cadastro');
-const senha = document.getElementById('password');
-const confirmacaoSenha = document.getElementById('input_confirmacao_password');
-const statusSenha = document.getElementById('status_password');
-const statusConfirmacao = document.getElementById('status_confirmacao_password');
 
-// Atualiza ícones em tempo real
-function atualizarStatusSenhas() {
-  if (senha.value === confirmacaoSenha.value && senha.value !== "") {
-    statusSenha.textContent = "✔️";
-    statusSenha.className = "check";
-    statusConfirmacao.textContent = "✔️";
-    statusConfirmacao.className = "check";
-  } else {
-    statusSenha.textContent = "❌";
-    statusSenha.className = "error";
-    statusConfirmacao.textContent = "❌";
-    statusConfirmacao.className = "error";
+  const form = document.getElementById('form_cadastro');
+  const senha = document.getElementById('password');
+  const confirmacaoSenha = document.getElementById('input_confirmacao_password');
+  const statusSenha = document.getElementById('status_password');
+  const statusConfirmacao = document.getElementById('status_senha_confirm');
+
+  function atualizarStatusSenhas() {
+    if (senha.value === confirmacaoSenha.value && senha.value !== "") {
+      statusSenha.textContent = "✔️";
+      statusSenha.className = "check";
+      statusConfirmacao.textContent = "✔️";
+      statusConfirmacao.className = "check";
+    } else {
+      statusSenha.textContent = "❌";
+      statusSenha.className = "error";
+      statusConfirmacao.textContent = "❌";
+      statusConfirmacao.className = "error";
+    }
   }
-}
 
-// Verifica as senhas no envio
-form.addEventListener('submit', function (event) {
-  if (senha.value !== confirmacaoSenha.value) {
-    event.preventDefault(); // Impede o envio do formulário
+  form.addEventListener('submit', function (event) {
+    const senhaRegex = /^.{8,50}$/;
 
-    Swal.fire({
-      icon: 'warning',
-      title: 'Senhas diferentes',
-      text: 'As senhas não coincidem. Verifique e tente novamente.',
-    });
-  }
-});
+    if (!senhaRegex.test(senha.value)) {
+      event.preventDefault();
 
-senha.addEventListener("input", atualizarStatusSenhas);
-confirmacaoSenha.addEventListener("input", atualizarStatusSenhas);
+      Swal.fire({
+        icon: 'error',
+        title: 'Senha inválida',
+        text: 'A senha deve ter no mínimo 8 e no máximo 50 caracteres.',
+      });
+      return;
+    }
+
+    if (senha.value !== confirmacaoSenha.value) {
+      event.preventDefault();
+
+      Swal.fire({
+        icon: 'warning',
+        title: 'Senhas diferentes',
+        text: 'As senhas não coincidem. Verifique e tente novamente.',
+      });
+    }
+  });
+
+  senha.addEventListener("input", atualizarStatusSenhas);
+  confirmacaoSenha.addEventListener("input", atualizarStatusSenhas);
