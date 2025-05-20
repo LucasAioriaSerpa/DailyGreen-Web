@@ -918,3 +918,29 @@ body {
 .sidebar_direita .post:last-child {
     border-bottom: none;
 }
+.reacoes-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.reacao {
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+  color: white;
+}
+
+.reacao:hover {
+  transform: scale(1.1);
+}
+
+.gostei { background-color: #0a66c2; }
+.parabens { background-color: #8854d0; }
+.apoio { background-color: #20bf6b; }
+.amei { background-color: #eb3b5a; }
+.genial { background-color: #f7b731; }
+.elogio { background-color: #fa8231; }

@@ -174,6 +174,15 @@ $_event = null;
                     <div class="post-footer">
                         <div id="btnReaction" class="btn-content-footer"><i class="fa-solid fa-heart"> Reaja</i></div>
                         <div id="btnComment" class="btn-content-footer"><i class="fa-solid fa-comment"> Comente</i></div>
+                        <div class="reacoes-container">
+                        <button class="reacao gostei" title="Gostei"><i class="fa-solid fa-thumbs-up"></i></button>
+                        <button class="reacao parabens" title="Parabéns"><i class="fa-solid fa-hands-clapping"></i></button>
+                        <button class="reacao apoio" title="Apoio"><i class="fa-solid fa-hands-holding-circle"></i></button>
+                        <button class="reacao amei" title="Amei"><i class="fa-solid fa-heart"></i></button>
+                        <button class="reacao genial" title="Genial"><i class="fa-solid fa-lightbulb"></i></button>
+                        <button class="reaçao elogio" title="elogio"><i class="fa solid fa_face-laugh"></i></button>
+                        
+                    </div>               
                     </div>
                 </div>
             <?php endforeach; ?>
