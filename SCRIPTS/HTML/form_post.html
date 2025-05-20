@@ -1,11 +1,11 @@
 <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" id="formPost" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
-    <input type="text" name="titulo" placeholder="Titulo..." id="titulo" required>
-    <input type="text" name="descricao" placeholder="Descrição..." id="descricao" required>
+    <input type="text" name="titulo" placeholder="Escreva um titulo..." required>
+    <input type="text" name="descricao" placeholder="Escreva uma descrição..." required>
     <div class="caixa_postagem-footer">
         <div class="media-btn" id="media_btn">
             <label for="insert_media" class="insert-media">
-                <i class="far fa-image"></i>
+                <i class="far fa-image"> <p>inserir imagem</p></i>
             </label>
             <input type="file" name="insert_media[]" id="insert_media" class="insert-media" accept="image/*,video/*"
                 multiple onchange="loadFiles(event)">

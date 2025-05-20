@@ -150,6 +150,10 @@ $_event = null;
                         <span class="img-modal-close" onclick="closeModal(event)">&times;</span>
                         <img class="img-modal-content" id="imgModalContent">
                     </div>
+                    <div class="post-footer">
+                        <div id="btnReaction" class="btn-content-footer"><i class="fa-solid fa-heart"> Reaja</i></div>
+                        <div id="btnComment" class="btn-content-footer"><i class="fa-solid fa-comment"> Comente</i></div>
+                    </div>
                 </div>
             <?php endforeach; ?>
 
@@ -216,13 +220,12 @@ $_event = null;
                                             $postMidias[] = $midia;
                                         }
                                     }
-                                    $imgCount = count($postMidias);
                                     foreach ($postMidias as $idx => $midia):
                                     ?>
                                         <img
                                             src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
                                             alt="Post Image"
-                                            class="post-img img-count-<?= $imgCount ?>"
+                                            class="post-img"
                                             onclick="openModal(this.src)"
                                         >
                                     <?php endforeach; ?>
