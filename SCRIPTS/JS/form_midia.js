@@ -26,11 +26,6 @@ function renderPreview() {
                 element = document.createElement('img');
                 element.src = e.target.result;
                 element.className = 'preview-media-img';
-            } else if (file.type.startsWith('video/')) {
-                element = document.createElement('video');
-                element.src = e.target.result;
-                element.controls = true;
-                element.className = 'preview-media-video';
             }
             if (element) {
                 const wrapper = document.createElement('div');
