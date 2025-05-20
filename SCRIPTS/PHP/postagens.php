@@ -41,10 +41,20 @@ $_event = null;
     <div class="container">
         <!-- //* SIDEBAR ESQUERDA -->
         <div class="sidebar_esquerda">
+
             <div class="menu-item">
                 <i class="fas fa-home"></i>
-                <span>Página Inicial</span>
+                <span>Página Inicial</span>   
             </div>
+            <div class="menu-item">
+                
+                <span><a href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php"><i class="fas fa-user"></i>Perfil</a></span>
+                  
+            </div>
+
+
+            
+
 
             <div class="area_perfil">
                 <div class="menu-item" onclick="btnLogout()">
