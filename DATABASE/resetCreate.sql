@@ -24,7 +24,7 @@ VALUES ("whiteList");
 -- Tabela participante
 CREATE TABLE participante (
     id_participante INT NOT NULL AUTO_INCREMENT,
-    id_lista INT NOT NULL DEFAULT 1,
+    id_lista INT NOT NULL DEFAULT 3,
     profile_pic VARCHAR(255),
     banner_pic VARCHAR(255),
     biografia VARCHAR(255),
@@ -135,7 +135,7 @@ CREATE TABLE denuncia (
     id_administrador INT NULL,
     titulo VARCHAR(50) NOT NULL,
     motivo VARCHAR(255) NOT NULL,
-    status VARCHAR(45) NOT NULL,
+    status VARCHAR(45) NOT NULL DEFAULT 'Pendente',
     PRIMARY KEY (id_denuncia),
     FOREIGN KEY (id_relator) REFERENCES participante(id_participante),
     FOREIGN KEY (id_relatado) REFERENCES participante(id_participante),
