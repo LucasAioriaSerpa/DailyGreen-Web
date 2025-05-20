@@ -1,7 +1,7 @@
 <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" id="formPost" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
-    <input type="text" name="titulo" placeholder="Escreva um titulo..." required>
-    <input type="text" name="descricao" placeholder="Escreva uma descrição..." required>
+    <input type="text" name="titulo" placeholder="Escreva um titulo..." id="titulo" required>
+    <input type="text" name="descricao" placeholder="Escreva uma descrição..." id="descricao" required>
     <div class="caixa_postagem-footer">
         <div class="media-btn" id="media_btn">
             <label for="insert_media" class="insert-media">

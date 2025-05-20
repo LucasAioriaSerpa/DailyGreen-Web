@@ -1,8 +1,8 @@
 <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendEvent.php" id="formPostOrg" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
     <input type="hidden" name="id_organizacao" value='<?php echo $userInfo[1]["id_organizacao"]; ?>'>
-    <input type="text" name="titulo" placeholder="Escreva um titulo..." required>
-    <input type="text" name="descricao" placeholder="Escreva uma descrição..." required>
+    <input type="text" name="titulo" placeholder="Escreva um titulo..." id="tituloOrg" required>
+    <input type="text" name="descricao" placeholder="Escreva uma descrição..." id="descricaoOrg" required>
 
     <div class="datas">
         <label for="dataTimeInicio" class="dataIncio">Inicio: <input type="datetime-local" name="dataTimeInicio"

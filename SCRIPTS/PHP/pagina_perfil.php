@@ -79,8 +79,10 @@ $_event = null;
                 <div class="profile-info">
                     <h2><strong><?= htmlspecialchars($userInfo[0]['username']) ?></strong></h2>
                     <p>@<?= htmlspecialchars($userInfo[0]['username']) ?></p>
-                    <p>📅 Joined April 2025</p>
-                    <p>3 Following · 0 Followers</p>
+                    <p>📅 Entrou em: <?= htmlspecialchars($userInfo[0]['create_time']) ?></p>
+                    <p>  Biografia: <?= htmlspecialchars($userInfo[0]['biografia']) ?></p>
+                    <?php echo $userInfo[0]['biografia'] ?>
+                    
                 </div>
                 <button class="edit-btn">Set up profile</button>
             </div>
