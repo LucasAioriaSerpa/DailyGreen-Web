@@ -223,7 +223,7 @@ body {
 }
 
 .btn-denuncia:hover{
-    background-color: #f3c4c4;
+    background-color: #efcbcb;
 }
 
 /* --- Formulário de Denuncia --- */
@@ -247,7 +247,7 @@ body {
     align-items: center;
     flex-direction: column;
     width: 25vw;
-    height: 45vh;
+    height: 55vh;
     gap: 10%;
     border-radius: 5px;
     box-sizing: border-box;
@@ -264,14 +264,14 @@ body {
     border: none;
     outline: none;
     padding: 2% 7%;
-    background-color: #f67373;
-    border-color: #ff0000;
+    background-color: #51291E;
     color: white;
+    font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
 } .btn-close-denuncia:hover{
-    transform: 2s;
-    background-color: #f65e5e;
+    transition: 1s;
+    background-color: #f24b4b;
 }
 
 .form_denuncia{
@@ -296,10 +296,8 @@ body {
     border: 1.5px solid #ABD1B5;
     outline: none;
     width: 100%;
-    max-width: 100%;
     padding: 5px;
-    box-sizing: border-box;
-    resize: vertical;
+    resize: none;
     border-radius: 5px;
 } .motivo:focus{
     outline: none;
@@ -315,11 +313,12 @@ body {
     padding: 7px;
     background-color: #51291E;
     color: #EDF4ED;
+    font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
 } .enviar-denuncia:hover{
-    transition: 1s;
-    background-color: #79B791;
+    transition: 0.5s;
+    background-color: #f24b4b;
     color: #51291E;
 }
 
