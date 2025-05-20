@@ -123,7 +123,7 @@ $_event = null;
                                 <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
                                 alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
                             </button>
-                            <?php if($userInfo[0]['id_participante'] != $post['id_post']):  ?>
+                            <?php if($userInfo[0]['id_participante'] != ($post['id_post']-1)): ?>
                             <button class="btn-denuncia" id="btn-denuncia" name="btn-denuncia" onclick="formDenuncia()">
                                 <span class="alert-icon">⚠️</span>Denunciar</button>
                             <?php endif; ?>
