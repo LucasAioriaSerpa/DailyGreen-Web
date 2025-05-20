@@ -3,15 +3,17 @@
         <button class="btn-close-denuncia" onclick="btnCloseDenuncia()">X</button>
         <h3>DENUNCIAR</h3>
     </div>
-    <form action="" method="POST" class="form_denuncia">
+    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendReport.php" method="POST" class="form_denuncia">
+        <input type="hidden" name="id_relator" value="<?php echo $userInfo[0]['id_participante']; ?>">
+        <input type="hidden" name="id_relatado" value="<?php echo $post['id_autor'] ?>">
+        
         <label for="titulo">Titulo:</label><br>
         <input type="text" class="titulo" id="titulo" name="titulo" required><br><br>
 
         <label for="motivo">Motivo da Denuncia:</label><br>
         <textarea class="motivo" id="motivo" name="motivo" rows="4" cols="40" required></textarea><br><br>
 
-        <input type="hidden" name="id_relator" value="<?php echo $userInfo[0]['id_participante']; ?>">
-        <input type="hidden" name="id_relatado">
+        <input type="hidden" name="status" value="Pendente">
 
         <input class="enviar-denuncia" type="submit" value="ENVIAR">
     </form>
