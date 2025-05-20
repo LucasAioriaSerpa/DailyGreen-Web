@@ -52,3 +52,20 @@ function btnDenuncia(denuncia){
 
     btnDenuncia.style.display = (btnDenuncia.style.display == 'flex') ? 'none' : 'flex';
 }
+
+function formDenuncia(){
+    const formularioDenuncia = document.getElementById('formulario-denuncia');
+
+    if(formularioDenuncia.innerHTML.trim() === ""){
+        fetch("/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html")
+        .then(response = response.text())
+        .then(formulario => {
+            formularioDenuncia.innerHTML = formulario;
+        })
+        .catch(error => {
+            formularioDenuncia.innerHTML = "<p>Erro para carregar o formulário! \nTente novamente mais tarde.</p>"
+        })
+    } else{
+        formularioDenuncia.innerHTML = "";
+    }
+}

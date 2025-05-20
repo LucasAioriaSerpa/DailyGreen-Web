@@ -182,13 +182,17 @@ body {
     background-color: #fff0f0;
     border: 1px solid #ff4d4d;
     color: #ff1a1a;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     align-items: center;
     gap: 6px;
     box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-denuncia:hover{
+    background-color: #f3c4c4;
 }
 
 .btn-denuncia::after{
