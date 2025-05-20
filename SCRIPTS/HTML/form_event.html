@@ -12,18 +12,23 @@
     </div>
     <input type="text" name="local" placeholder="Escreva um endereço..." id="endereco" required>
     <input type="text" name="link" placeholder="Escreva um link..." id="link" required>
+   
+   
     <div class="caixa_postagem-footer">
         <div class="media-btn" id="media_btn">
             <label for="insert_media" class="insert-media">
                 <i class="far fa-image"> <p>inserir imagem</p></i>
             </label>
-            <input type="file" name="insert_media[]" id="insert_media" class="insert-media" accept="image/*,video/*"
+            <input type="file" name="insert_media[]" id="insert_media" class="insert-media" accept="image/*"
                 multiple onchange="loadFiles(event)">
         </div>
         <div id="preview-container"></div>
         <input class="botao_postagem" type="submit" value="Postar">
     </div>
+
+
 </form>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/DailyGreen-Project/SCRIPTS/JS/form_midia.js"></script>
 <script src="/DailyGreen-Project/SCRIPTS/JS/form_midia_org.js"></script>
+

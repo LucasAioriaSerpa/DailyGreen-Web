@@ -47,6 +47,20 @@ function renderPreview() {
 }
 
 document.getElementById('formPost').addEventListener('submit', function(e) {
+    if (selectedFiles.length > 5) {
+        e.preventDefault();
+        Swal.fire({
+            icon: 'error',
+            title: 'Limite excedido',
+            text: 'Você só pode enviar no máximo 5 imagens!',
+            confirmButtonColor: '#3085d6'
+        });
+    }
+    
+});
+
+
+document.getElementById('formPost').addEventListener('submit', function(e) {
 const titulo = document.getElementById('titulo').value.trim();
 const descricao = document.getElementById('descricao').value.trim();
 
