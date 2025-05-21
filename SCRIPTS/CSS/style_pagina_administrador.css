@@ -7,7 +7,7 @@
 body{
     background-color: #EDF4ED;
     margin: 0%;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     overflow: hidden;
 }
@@ -23,9 +23,10 @@ body{
     background-color: #2d2c2c;
     color: #ffffff;
     font-size: 12px;
-    width: 15%;
+    width: 15vw;
     height: 100vh;
     justify-content: center;
+
 }
 
 /* Titulo DailyGreen */
@@ -73,6 +74,7 @@ body{
     display: flex;
     user-select: none;
     font-size: 13px;
+    gap: 2px;
 }
 
 /* Menu Navegação */
@@ -88,6 +90,7 @@ body{
     display: flex;
     cursor: pointer;
     box-sizing: border-box;
+    gap: 5px;
 }
 
 .menu_navegacao {
@@ -103,9 +106,12 @@ body{
 .btn-list button{
     background-color: #1a1a1a;
     color: #808080;
-    border: none;
+    border-top: 0.5px solid #79B791;
+    border-bottom: 0.5px solid #79B791;
+    border-left: none;
+    border-right: none;
     outline: none;
-    width: 100%;
+    width: 15vw;
     padding: 10px;
     justify-content: center;
     display: flex;
@@ -121,7 +127,6 @@ body{
     transition: 0.3s;
 }
 
-
 /* Botão Logout */
 .logout{
     margin: 0%;
@@ -136,12 +141,15 @@ body{
 }
 
 .logout button{
+    display: flex;
     background-color: #499767;
     color: black;
     font-size: 15px;
     font-weight: bold;
     border: none;
     outline: none;
+    align-items: center;
+    justify-content: center;
     width: 90%;
     height: 6vh;
     border-radius: 25px;
@@ -166,6 +174,7 @@ body{
     display: flex;
     width: 100vw;
     height: 9.2vh;
+    z-index: 1000;
 }
 
 .lista-usuarios {
@@ -176,9 +185,11 @@ body{
     margin: 0%;
     padding: 2%;
     gap: 1vh;
-    width: 150%;
-    overflow-y: auto;
-    flex: 1;
+    width: 100vw;
+    list-style-type: none;
+    max-height: calc(100vh - 9.2vh);
+    overflow-y: auto; 
+    padding-top: 190px;
 }
 
 .user {
@@ -203,4 +214,31 @@ body{
 .user-info {
     display: flex;
     gap: 5vw;
+}
+
+.lista-reports{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0%;
+    padding: 2%;
+    gap: 1vh;
+    width: 100vw;
+    list-style-type: none;
+    max-height: calc(100vh - 9.2vh);
+    overflow-y: auto; 
+    padding-top: 190px;
+}
+
+.report-info{
+    display: flex;
+    align-items: center;
+    background-color: rgb(244, 140, 140);
+    color: #EDF4ED;
+    gap: 1vw;
+    font-size: 2vh;
+    padding: 1vh;
+    border-radius: 10px;
+    width: 100%;
 }
