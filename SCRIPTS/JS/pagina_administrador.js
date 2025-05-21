@@ -63,3 +63,8 @@ function loadPage(page) {
             document.getElementById('menu_principal').innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
         });
 }
+
+function showButtons(){
+    const btnShowList = document.getElementById('menu_navegacao');
+    btnShowList.style.display = btnShowList.style.display === 'flex' ? 'none' : 'flex';
+}

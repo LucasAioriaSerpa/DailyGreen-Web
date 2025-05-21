@@ -28,7 +28,7 @@ body{
     justify-content: center;
 }
 
-/* TITULO DAILYGREEN */
+/* Titulo DailyGreen */
 .header_titulo{
     background-color: #499767;
     color: black;
@@ -61,10 +61,13 @@ body{
     transform: translateY(100px);
 }
 
-/* BOAS VINDAS (NOME DO USUARIO) */
-.p_usuario_administrador{
+/* Boas-vindas (Nome do Usuario) */
+.name_user_adm{
     margin: 0%;
-    padding: 5%;
+    padding-top: 7%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 7%;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -72,57 +75,54 @@ body{
     font-size: 13px;
 }
 
-/* MENU NAVEGAÇÃO */
-.titulo_menu_navegacao{
+/* Menu Navegação */
+.btn_menu{
     background-color: #1a1a1a;
     color: #808080;
-}
-
-.p_titulo_menu_navegacao{
-    margin: 0%;
-    padding: 5%;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 7%;
     align-items: center;
     justify-content: center;
     display: flex;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
 .menu_navegacao {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 0%;
-    padding: 5%;
-    gap: 1vh;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-.btn-listaAcc {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.btn-list button{
     background-color: #1a1a1a;
     color: #808080;
-    font-size: 15px;
-    font-weight: bold;
     border: none;
     outline: none;
-    width: 90%;
-    height: 6vh;
-    border-radius: 25px;
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+    display: flex;
     cursor: pointer;
-    overflow: hidden;
-} .btn-listaAcc:hover {
+    box-sizing: border-box;
+} .btn-list button:hover {
     background-color: #79B791;
     color: #51291E;
     transition: 0.5s;
 }
-.btn-listaAcc:active {
+.btn-list button:active {
     background-color: #357d3a;
     transition: 0.3s;
 }
 
-/* BOTÃO LOGOUT */
+
+/* Botão Logout */
 .logout{
     margin: 0%;
     align-items: center;
@@ -165,7 +165,7 @@ body{
     background-color: #79B791;
     display: flex;
     width: 100vw;
-    height: 9vh;
+    height: 9.2vh;
 }
 
 .lista-usuarios {

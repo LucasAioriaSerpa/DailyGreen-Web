@@ -226,7 +226,7 @@ body {
     background-color: #efcbcb;
 }
 
-/* --- Formulário de Denuncia --- */
+/* --- FORMULARIO DENUNCIA --- */
 .formulario-denuncia{
     display: none;
     position: fixed;
@@ -469,15 +469,25 @@ body {
     border: none;
     color: #51291E;
     width: 100%;
+    padding-left: 7px;
     font-size: 1rem;
     outline: none;
 }
 
-.eventos_anuncio,
-.who-to-follow {
+.title_evento{
+    background-color: #51291E;
+    color: #EDF4ED;
+    padding: 10px;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.eventos_anuncio {
     background-color: #EDF4ED;
-    border-radius: 15px;
     padding: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     margin-bottom: 20px;
     border: 1px solid #79B791;
 }
@@ -897,7 +907,6 @@ body {
 /* Sidebar direita ajustes */
 .sidebar_direita .eventos_anuncio {
     background-color: #EDF4ED;
-    border-radius: 15px;
     padding: 0;
     overflow: hidden;
 }

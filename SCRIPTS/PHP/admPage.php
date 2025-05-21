@@ -1,24 +1,24 @@
 
 <?php
-include_once 'LOGIC/session.php';
-include_once 'LOGIC/SQL_connection.php';
-include_once 'LOGIC/functions.php';
-if ($_SESSION['user']['loged'] === false) {
-    header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
-    exit();
-}
-$sqlConnection = new SQLconnection();
-$admUserName = $sqlConnection->callTableBD('administrador');
-$usersArray = $sqlConnection->callTableBD('participante');
-function pullAdmName(){
-    // pega o nome do administrador no arquivo .json
-    $emailAdministrador = $_SESSION['user']['account']['email'];
+    include_once 'LOGIC/session.php';
+    include_once 'LOGIC/SQL_connection.php';
+    include_once 'LOGIC/functions.php';
+    if ($_SESSION['user']['loged'] === false) {
+        header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
+        exit();
+    }
+    $sqlConnection = new SQLconnection();
+    $admUserName = $sqlConnection->callTableBD('administrador');
+    $usersArray = $sqlConnection->callTableBD('participante');
+    function pullAdmName(){
+        // pega o nome do administrador no arquivo .json
+        $emailAdministrador = $_SESSION['user']['account']['email'];
 
-    // apaga tudo depois do @
-    $partsEmail = explode("@", $emailAdministrador);
-    $nomeAdministrador = $partsEmail[0];
-    echo "Bem-vindo(a), " . $nomeAdministrador . "!";
-}
+        // apaga tudo depois do @
+        $partsEmail = explode("@", $emailAdministrador);
+        $nomeAdministrador = $partsEmail[0];
+        echo "Bem-vindo(a), " . $nomeAdministrador . "!";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -34,33 +34,28 @@ function pullAdmName(){
 
         <!-- SIDEBAR DA ESQUERDA -->
         <div class="sidebar_esquerda">
-
             <header class="header_titulo" id="title"></header>
-
             <div class="usuario_administrador">
-                <div class="p_usuario_administrador"><?php echo pullAdmName()?></div>
+                <div class="name_user_adm"><?php echo pullAdmName()?></div>
             </div>
-
-            <div class="titulo_menu_navegacao">
-                <p class="p_titulo_menu_navegacao">MENU DE NAVEGAÇÃO</p>
+            <div class="btn_menu_navegacao">
+                <button class="btn_menu" onclick="showButtons()">MENU DE NAVEGAÇÃO</button>
+                <div class="menu_navegacao" id="menu_navegacao" name="menu_navegacao">
+                    <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listButtonsAdm.php')">Página Principal</button> </div>
+                    <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">Lista de Contas</button> </div>
+                    <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listReport.php')">Lista de Denuncias</button> </div>
+                    <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/.php')">Lista de Suspensos</button> </div>
+                    <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/.php')">Lista de Banidos</button> </div>
+                </div>
             </div>
-
-            <div class="menu_navegacao">
-                <div class="btn-listaAcc"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">Lista de contas</button> </div>
-            </div>
-
-            <div class="menu_navegacao">
-                <div class="btn-listaAcc"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listReport.php')">Lista de Denuncias</button> </div>
-            </div>
-
             <div class="logout">
                 <button class="btn_logout" id="btn_logout" name="btn_logout" onclick="btnLogout()">LOGOUT</button>
             </div>
-
         </div>
 
         <!-- MENU PRINCIPAL -->
-         <div class="menu_principal">
+        <div class="menu_principal">
+            <header class="header_menu_principal"></header>
             <div class="menu_principal" id="menu_principal" name="menu_principal">
                 <div class="button-row">
                     <button class="btn-users-list" id="btn-users-list" name="btn-users-list">Lista de Usuários</button>

@@ -15,14 +15,16 @@
 
 <div class="menu_principal">
     <div class="navegacao_principal">
-        <div class="lista-usuarios">
+        <div class="lista-reports">
             <?php foreach ($denunciaArray as $denuncia): ?>
-                <div class="user">
-                    <div class="user-info">
-                        <div class="username"> Relator: <div class="user-name"><?= htmlspecialchars($denuncia['id_relator']) ?></div> </div>
-                        <div class="username"> Relatado: <div class="user-name"><?= htmlspecialchars($denuncia['id_relatado']) ?></div> </div>
-                        <div class="username"> Titulo: <div class="user-name"><?= htmlspecialchars($denuncia['titulo']) ?></div> </div>
-                        <div class="email"> Motivo: <div class="user-email"><?= htmlspecialchars($denuncia['motivo']) ?></div> </div>
+                <div class="report">
+                    <div class="report-info">
+                        <div class="relator"> Relator: <div class="relator-name"><?= htmlspecialchars($denuncia['id_relator']) ?></div> </div>
+                        <div class="relatado"> Relatado: <div class="relatado-name"><?= htmlspecialchars($denuncia['id_relatado']) ?></div> </div>
+                        <div class="titulo"> Titulo: <div class="titulo-report"><?= htmlspecialchars($denuncia['titulo']) ?></div> </div>
+                        <div class="motivo"> Motivo: <div class="motivo-report"><?= htmlspecialchars($denuncia['motivo']) ?></div> </div>
+                        <div class="status"> Status: <div class="status-report"><?= htmlspecialchars($denuncia['status']) ?></div> </div>
+                        <div class="status"> Data de Regitro: <div class="data-report"><?= htmlspecialchars($denuncia['data_registro']) ?></div> </div>
                     </div>
                 </div>
             <?php endforeach; ?>

@@ -136,6 +136,7 @@ CREATE TABLE denuncia (
     titulo VARCHAR(50) NOT NULL,
     motivo VARCHAR(255) NOT NULL,
     status VARCHAR(45) NOT NULL DEFAULT 'Pendente',
+    data_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_denuncia),
     FOREIGN KEY (id_relator) REFERENCES participante(id_participante),
     FOREIGN KEY (id_relatado) REFERENCES participante(id_participante),

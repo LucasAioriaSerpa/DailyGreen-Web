@@ -22,7 +22,7 @@
         '{$motivo}'
     )";
 
-    $sqlConnection->insertQueryBD($sqlQuery);
+    //$sqlConnection->insertQueryBD($sqlQuery);
 
-    header("Location: /DailyGreen-Project/SCRIPTS/PHP/postagens.php");
+    //header("Location: /DailyGreen-Project/SCRIPTS/PHP/postagens.php");
 ?>
