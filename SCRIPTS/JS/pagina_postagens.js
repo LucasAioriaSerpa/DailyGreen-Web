@@ -62,3 +62,27 @@ function btnCloseDenuncia(){
     const formularioDenuncia = document.getElementById('formulario-denuncia');
     formularioDenuncia.style.display = 'none';
 }
+
+function confirmSendDenuncia(){
+    Swal.fire({
+        title: "Confirma a denúncia desta conta?",
+        text: "Após confirmada, a denúncia não poderá ser desfeita.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Confirmar",
+        cancelButtonText: "Cancelar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Denúncia enviada com sucesso!",
+                    icon: "success",
+                    draggable: true
+                }).then((result) => {
+                    document.querySelector(".form_denuncia").submit();
+                })
+            }
+        }
+    );
+}

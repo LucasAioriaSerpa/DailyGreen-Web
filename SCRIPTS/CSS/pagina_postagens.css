@@ -230,7 +230,7 @@ body {
 .formulario-denuncia{
     display: none;
     position: fixed;
-    z-index: 10000;
+    z-index: 999;
     left: 0; top: 0;
     width: 100vw;
     height: 100vh;
@@ -241,7 +241,7 @@ body {
 
 .modal_denuncia{
     display: flex;
-    background-color: #EDF4ED;
+    background-color: #f4eded;
     border: 20px;
     padding: 20px;
     align-items: center;
@@ -281,7 +281,7 @@ body {
 }
 
 .titulo{
-    border: 1.5px solid #ABD1B5;
+    border: 1.5px solid #d1abab;
     outline: none;
     width: 100%;
     height: 15%;
@@ -289,11 +289,11 @@ body {
     border-radius: 5px;
 } .titulo:focus{
     outline: none;
-    border: 3px solid #79B791;
+    border: 3px solid #b77979;
 }
 
 .motivo{
-    border: 1.5px solid #ABD1B5;
+    border: 1.5px solid #d1abab;
     outline: none;
     width: 100%;
     padding: 5px;
@@ -301,7 +301,7 @@ body {
     border-radius: 5px;
 } .motivo:focus{
     outline: none;
-    border: 3px solid #79B791;
+    border: 3px solid #b77979;
 }
 
 .enviar-denuncia{

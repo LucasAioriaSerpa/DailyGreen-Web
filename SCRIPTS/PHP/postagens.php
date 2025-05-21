@@ -34,7 +34,6 @@ $_event = null;
     <title>Postagens | DailyGreen</title>
     <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/pagina_postagens.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/JS/btn_denuncia.js">
 </head>
 <script src="/DailyGreen-Project/SCRIPTS/JS/org_post_flip.js"></script>
 <body>

@@ -45,3 +45,21 @@ function animationOut(){
 
 createLetters();
 setTimeout(animationIn, 1000);
+
+// BOTÕES SIDEBAR ESQUERDA
+function loadPage(page) {
+    fetch(page)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao carregar a página');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('menu_principal').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            document.getElementById('menu_principal').innerHTML = '<p>Erro ao carregar o conteúdo.</p>';
+        });
+}

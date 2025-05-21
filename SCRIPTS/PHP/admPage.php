@@ -46,8 +46,11 @@ function pullAdmName(){
             </div>
 
             <div class="menu_navegacao">
-                <div class="btn-listaAcc">Lista de contas</div>
-                more to come soon...
+                <div class="btn-listaAcc"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">Lista de contas</button> </div>
+            </div>
+
+            <div class="menu_navegacao">
+                <div class="btn-listaAcc"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listReport.php')">Lista de Denuncias</button> </div>
             </div>
 
             <div class="logout">
@@ -57,29 +60,17 @@ function pullAdmName(){
         </div>
 
         <!-- MENU PRINCIPAL -->
-        <div class="menu_principal">
-
-            <header class="header_menu_principal">
-                lista de usuarios
-            </header>
-            <div class="navegacao_principal">
-                <div class="lista-usuarios">
-                <?php foreach ($usersArray as $user): ?>
-                    <div class="user">
-                        <div class="user-avatar">
-                            <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($user['profile_pic'])) ?>"
-                                alt="Avatar" style="width: 100px; height: 100px; border-radius: 50%;">
-                        </div>
-                        <div class="user-info">
-                            <div class="username"> Username: <div class="user-name"><?= htmlspecialchars($user['username']) ?></div> </div>
-                            <div class="email"> Email: <div class="user-email"><?= htmlspecialchars($user['email']) ?></div> </div>
-                            <div class="create-time"> Creation time: <div class="user-creation-time"><?= htmlspecialchars($user['create_time']) ?></div> </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+         <div class="menu_principal">
+            <div class="menu_principal" id="menu_principal" name="menu_principal">
+                <div class="button-row">
+                    <button class="btn-users-list" id="btn-users-list" name="btn-users-list">Lista de Usuários</button>
+                    <button class="btn-report-list" id="btn-report-list" name="btn-report-list">Lista de Denúncias</button>
+                </div>
+                <div class="button-row">
+                    <button class="btn-suspenso-list" id="btn-suspenso-list" name="btn-suspenso-list">Lista de Suspensos</button>
+                    <button class="btn-banido-list" id="btn-banido-list" name="btn-banido-list">Lista de Banidos</button>
                 </div>
             </div>
-
         </div>
 
     </div>

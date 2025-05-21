@@ -20,7 +20,7 @@ body{
 
 /* SIDEBAR DA ESQUERDA */
 .sidebar_esquerda{
-    background-color: #282727;
+    background-color: #2d2c2c;
     color: #ffffff;
     font-size: 12px;
     width: 15%;
@@ -36,7 +36,7 @@ body{
     justify-content: center;
     align-items: center;
     margin: 0%;
-    width: 33vb;
+    width: 32vb;
     height: 9vh;
     font-size: 15px;
     overflow: hidden;
@@ -173,11 +173,12 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
     margin: 0%;
-    padding: 5%;
+    padding: 2%;
     gap: 1vh;
-    width: 100%;
+    width: 150%;
+    overflow-y: auto;
+    flex: 1;
 }
 
 .user {
