@@ -164,10 +164,6 @@ body{
 
 
 /* MENU PRINCIPAL */
-.menu_principal{
-    display: flex;
-    flex-direction: column;
-}
 
 .header_menu_principal{
     background-color: #79B791;
@@ -177,6 +173,68 @@ body{
     z-index: 1000;
 }
 
+/* Botões Menu Principal */
+.menu_principal{
+    display: flex;
+    flex-direction: column;
+}
+
+.button-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.btn_users_report,
+.btn_suspenso_banido{
+    display: flex;
+    gap: 20px;
+}
+
+.btn_users_report button,
+.btn_suspenso_banido button{
+    padding: 30px 40px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.btn-users-list{
+    background-color: rgb(107, 107, 255);
+} .btn-users-list:hover {
+    transition: 1s;
+    background-color:  rgb(71, 71, 255);
+    font-size: 18px;
+}
+
+.btn-report-list{
+    background-color: rgb(255, 123, 123);
+} .btn-report-list:hover {
+    transition: 1s;
+    background-color:  rgb(255, 71, 71);
+    font-size: 18px;
+}
+
+.btn-suspenso-list{
+    background-color: #969595;
+} .btn-suspenso-list:hover {
+    transition: 1s;
+    background-color:  rgb(84, 84, 84);
+    font-size: 18px;
+}
+
+.btn-banido-list{
+    background-color: #1a1a1a;
+    color: white;
+} .btn-banido-list:hover {
+    transition: 1s;
+    background-color:  rgb(0, 0, 0);
+    font-size: 18px;
+}
+
+/* User List */
 .lista-usuarios {
     display: flex;
     flex-direction: column;
@@ -219,7 +277,7 @@ body{
 .lista-reports{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     margin: 0%;
     padding: 2%;
@@ -227,18 +285,19 @@ body{
     width: 100vw;
     list-style-type: none;
     max-height: calc(100vh - 9.2vh);
-    overflow-y: auto; 
-    padding-top: 190px;
+    overflow-y: auto;
 }
 
 .report-info{
     display: flex;
     align-items: center;
-    background-color: rgb(244, 140, 140);
-    color: #EDF4ED;
+    background-color: #d1abab;
+    color: black;
     gap: 1vw;
     font-size: 2vh;
     padding: 1vh;
     border-radius: 10px;
-    width: 100%;
+    width: 80vw;
+    height: 5vh;
+    padding: 2%;
 }
