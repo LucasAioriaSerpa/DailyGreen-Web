@@ -43,12 +43,10 @@ $_event = null;
 
             <div class="menu-item">
                 <i class="fas fa-home"></i>
-                <span>Página Inicial</span>   
+                <span>Página Inicial</span>
             </div>
             <div class="menu-item">
-                
                 <span><a href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php"><i class="fas fa-user"></i>Perfil</a></span>
-                  
             </div>
 
 
@@ -108,16 +106,6 @@ $_event = null;
             </div>
 
             <!-- //* POST EXEMPLO 1 -->
-                    <!-- 
-                        For -→  0 (post-ID unico)
-                                1
-                                2
-                                3
-                                .
-                                .
-                                .
-                                10 -> $post["id_autor"];
-                    -->
             <!-- //? Filters post and events. only POSTs pass thourth -->
             <?php foreach (array_reverse($postsArray) as $post): ?>
                 <?php foreach ($eventArray as $evento): if ($evento['id_post'] == $post['id_post']): $_event = true; endif; endforeach;?>
@@ -128,16 +116,17 @@ $_event = null;
                             <button class="btn-user-img" id="btn-user-img" name="btn-user-img" onclick="btnDenuncia(this)">
                                 <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
                                 alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
-                                <?php $relator = $post["id_autor"]; echo $relator ?>
                             </button>
-                            <?php if($userInfo[0]['id_participante'] != ($post['id_post']-1)): ?>
+                            <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
                             <button class="btn-denuncia" id="btn-denuncia" name="btn-denuncia" onclick="formDenuncia()">
                                 <span class="alert-icon">⚠️</span>Denunciar</button>
                             <?php endif; ?>
                         </div>
+                        <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
                         <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia">
-                            <?php include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html" ?>
+                            <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html"; ?>
                         </div>
+                        <?php endif; ?>
                         <div style="margin-left: 10px;">
                             <div>
                                 <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
@@ -162,15 +151,22 @@ $_event = null;
                                 }
                             }
                             $imgCount = count($postMidias);
-                            foreach ($postMidias as $idx => $midia):
-                            ?>
-                                <img
-                                    src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
-                                    alt="Post Image"
-                                    class="post-img img-count-<?= $imgCount ?>"
-                                    onclick="openModal(this.src)"
+                            foreach ($postMidias as $idx => $midia) { ?>
+                                <button
+                                    type="button"
+                                    class="img-btn"
+                                    tabindex="0"
+                                    onclick="openModal(this.querySelector('img').src)"
+                                    onkeydown="if(event.key==='Enter'||event.key===' '){openModal(this.querySelector('img').src);}"
+                                    style="background:none;border:none;padding:0;cursor:pointer;"
                                 >
-                            <?php endforeach; ?>
+                                    <img
+                                        src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
+                                        alt="Post-midia"
+                                        class="post-img img-count-<?= $imgCount ?>"
+                                    >
+                                </button>
+                            <?php } ?>
                         </div>
                     </div>
                     <!-- Modal para ampliar imagem -->
@@ -181,15 +177,14 @@ $_event = null;
                     <div class="post-footer">
                         <div id="btnReaction" class="btn-content-footer"><i class="fa-solid fa-heart"> Reaja</i></div>
                         <div id="btnComment" class="btn-content-footer"><i class="fa-solid fa-comment"> Comente</i></div>
-                        <div class="reacoes-container">
-                        <button class="reacao gostei" title="Gostei"><i class="fa-solid fa-thumbs-up"></i></button>
-                        <button class="reacao parabens" title="Parabéns"><i class="fa-solid fa-hands-clapping"></i></button>
-                        <button class="reacao apoio" title="Apoio"><i class="fa-solid fa-hands-holding-circle"></i></button>
-                        <button class="reacao amei" title="Amei"><i class="fa-solid fa-heart"></i></button>
-                        <button class="reacao genial" title="Genial"><i class="fa-solid fa-lightbulb"></i></button>
-                        <button class="reaçao elogio" title="elogio"><i class="fa solid fa_face-laugh"></i></button>
-                        
-                    </div>               
+                        <div class="reacoes-container" style="display:none;">
+                            <button class="reacao gostei" title="Gostei"><i class="fa-solid fa-thumbs-up"></i></button>
+                            <button class="reacao parabens" title="Parabéns"><i class="fa-solid fa-hands-clapping"></i></button>
+                            <button class="reacao apoio" title="Apoio"><i class="fa-solid fa-hands-holding-circle"></i></button>
+                            <button class="reacao amei" title="Amei"><i class="fa-solid fa-heart"></i></button>
+                            <button class="reacao genial" title="Genial"><i class="fa-solid fa-lightbulb"></i></button>
+                            <button class="reaçao elogio" title="elogio"><i class="fa solid fa_face-laugh"></i></button>
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -224,16 +219,17 @@ $_event = null;
                                     <button class="btn-user-img" id="btn-user-img" name="btn-user-img" onclick="btnDenuncia(this)">
                                         <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
                                         alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
-                                        <?php $relator = $post["id_autor"]; echo $relator ?>
                                     </button>
-                                    <?php if($userInfo[0]['id_participante'] != ($post['id_post']-1)): ?>
+                                    <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
                                     <button class="btn-denuncia" id="btn-denuncia" name="btn-denuncia" onclick="formDenuncia()">
                                         <span class="alert-icon">⚠️</span>Denunciar</button>
                                     <?php endif; ?>
                                 </div>
+                                <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
                                 <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia">
-                                    <?php include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html" ?>
+                                    <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html"; ?>
                                 </div>
+                                <?php endif; ?>
                                 <div style="margin-left: 10px;">
                                     <div>
                                         <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
@@ -269,15 +265,22 @@ $_event = null;
                                             $postMidias[] = $midia;
                                         }
                                     }
-                                    foreach ($postMidias as $idx => $midia):
-                                    ?>
-                                        <img
-                                            src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
-                                            alt="Post Image"
-                                            class="post-img"
-                                            onclick="openModal(this.src)"
+                                    foreach ($postMidias as $idx => $midia) { ?>
+                                        <button
+                                            type="button"
+                                            class="img-btn"
+                                            tabindex="0"
+                                            onclick="openModal(this.querySelector('img').src)"
+                                            onkeydown="if(event.key==='Enter'||event.key===' '){openModal(this.querySelector('img').src);}"
+                                            style="background:none;border:none;padding:0;cursor:pointer;"
                                         >
-                                    <?php endforeach; ?>
+                                            <img
+                                                src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
+                                                alt="Post-midia"
+                                                class="post-img img-count-<?= $imgCount ?>"
+                                            >
+                                        </button>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <!-- Modal para ampliar imagem -->
