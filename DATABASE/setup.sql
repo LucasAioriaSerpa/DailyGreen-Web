@@ -151,19 +151,21 @@ CREATE TABLE IF NOT EXISTS reacaoComentario (
 -- -----------------------------------------------------
 -- Tabela denuncia
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS denuncia (
+CREATE TABLE denuncia (
     id_denuncia INT NOT NULL AUTO_INCREMENT,
     id_relator INT NOT NULL,
     id_relatado INT NOT NULL,
     id_administrador INT NULL,
+    id_post INT NULL,
     titulo VARCHAR(50) NOT NULL,
     motivo VARCHAR(255) NOT NULL,
     status VARCHAR(45) NOT NULL DEFAULT 'Pendente',
     data_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_denuncia),
-    CONSTRAINT fk_relatorDenuncia FOREIGN KEY (id_relator) REFERENCES participante (id_participante),
-    CONSTRAINT fk_relatadoDenuncia FOREIGN KEY (id_relatado) REFERENCES participante (id_participante),
-    CONSTRAINT fk_admDenuncia FOREIGN KEY (id_administrador) REFERENCES administrador (id_administrador)
+    FOREIGN KEY (id_relator) REFERENCES participante(id_participante),
+    FOREIGN KEY (id_relatado) REFERENCES participante(id_participante),
+    FOREIGN KEY (id_administrador) REFERENCES administrador(id_administrador),
+    FOREIGN KEY (id_post) REFERENCES post(id_post)
 );
 
 -- -----------------------------------------------------
