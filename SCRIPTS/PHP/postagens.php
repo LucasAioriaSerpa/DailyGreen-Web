@@ -108,6 +108,16 @@ $_event = null;
             </div>
 
             <!-- //* POST EXEMPLO 1 -->
+                    <!-- 
+                        For -→  0 (post-ID unico)
+                                1
+                                2
+                                3
+                                .
+                                .
+                                .
+                                10 -> $post["id_autor"];
+                    -->
             <!-- //? Filters post and events. only POSTs pass thourth -->
             <?php foreach (array_reverse($postsArray) as $post): ?>
                 <?php foreach ($eventArray as $evento): if ($evento['id_post'] == $post['id_post']): $_event = true; endif; endforeach;?>
