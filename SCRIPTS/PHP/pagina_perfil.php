@@ -91,18 +91,32 @@ $_event = null;
                 <a href="#">Posts</a>
             </nav>
 
-            <!-- Aqui viriam os posts do usuário -->
+            <!-- posts do usuário -->
             <?php foreach (array_reverse($postsArray) as $post): ?>
                 <?php if ($post['id_autor'] == $userInfo[0]['id_participante']): ?>
                     <div class="post">
                         <div class="post-user">
                             <div class="user-avatar">
-                                <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($userInfo[0]['profile_pic'])) ?>"
+                                <button class="btn-user-img" id="btn-user-img" name="btn-user-img" onclick="btnDenuncia(this)">
+                                    <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
                                     alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
+                                </button>
+                                <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
+                                <button class="btn-denuncia" id="btn-denuncia" name="btn-denuncia" onclick="formDenuncia()">
+                                    <span class="alert-icon">⚠️</span>Denunciar</button>
+                                <?php endif; ?>
                             </div>
+                            <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
+                            <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia">
+                                <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html"; ?>
+                            </div>
+                            <?php endif; ?>
                             <div style="margin-left: 10px;">
-                                <div><strong><?= htmlspecialchars($userInfo[0]['username']) ?></strong></div>
-                                <div style="color: #71767b;">@<?= htmlspecialchars($userInfo[0]['username']) ?></div>
+                                <div>
+                                    <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
+                                </div>
+                                <div style="color: #71767b;">
+                                    @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></div>
                             </div>
                         </div>
                         <div class="post-titulo">
@@ -113,7 +127,7 @@ $_event = null;
                         </div>
                         <div class="post-midia">
                             <div class="column-midia">
-                                <?php
+                            <?php
                                 $postMidias = [];
                                 foreach ($midiaArray as $midia) {
                                     if ($midia['id_post'] == $post['id_post']) {
@@ -129,7 +143,7 @@ $_event = null;
                                         class="post-img img-count-<?= $imgCount ?>"
                                         onclick="openModal(this.src)"
                                     >
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
