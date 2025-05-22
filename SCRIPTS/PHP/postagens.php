@@ -151,22 +151,15 @@ $_event = null;
                                 }
                             }
                             $imgCount = count($postMidias);
-                            foreach ($postMidias as $idx => $midia) { ?>
-                                <button
-                                    type="button"
-                                    class="img-btn"
-                                    tabindex="0"
-                                    onclick="openModal(this.querySelector('img').src)"
-                                    onkeydown="if(event.key==='Enter'||event.key===' '){openModal(this.querySelector('img').src);}"
-                                    style="background:none;border:none;padding:0;cursor:pointer;"
+                            foreach ($postMidias as $idx => $midia):
+                            ?>
+                                <img
+                                    src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
+                                    alt="Post Image"
+                                    class="post-img img-count-<?= $imgCount ?>"
+                                    onclick="openModal(this.src)"
                                 >
-                                    <img
-                                        src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
-                                        alt="Post-midia"
-                                        class="post-img img-count-<?= $imgCount ?>"
-                                    >
-                                </button>
-                            <?php } ?>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                     <!-- Modal para ampliar imagem -->
@@ -175,8 +168,8 @@ $_event = null;
                         <img class="img-modal-content" id="imgModalContent">
                     </div>
                     <div class="post-footer">
-                        <div id="btnReaction" class="btn-content-footer"><i class="fa-solid fa-heart"> Reaja</i></div>
-                        <div id="btnComment" class="btn-content-footer"><i class="fa-solid fa-comment"> Comente</i></div>
+                        <div id="btnReaction" class="btn-content-footer"><i class="fa-solid fa-heart"> <p>Reaja</p></i></div>
+                        <div id="btnComment" class="btn-content-footer"><i class="fa-solid fa-comment"> <p>Comente</p></i></div>
                         <div class="reacoes-container" style="display:none;">
                             <button class="reacao gostei" title="Gostei"><i class="fa-solid fa-thumbs-up"></i></button>
                             <button class="reacao parabens" title="Parabéns"><i class="fa-solid fa-hands-clapping"></i></button>
@@ -201,6 +194,11 @@ $_event = null;
             <div class="title_evento"><h2>Eventos</h2></div>
 
             <div class="eventos_anuncio">
+            <?php if (count($eventArray) === 0):?>
+            <div class="no-event">
+                <h4>Ainda não há eventos!</h4>
+            </div>
+            <?php endif; ?>
             <?php foreach (array_reverse($postsArray) as $post): ?>
                     <?php
                     // ? Verifica se o post tem um evento associado
@@ -265,22 +263,16 @@ $_event = null;
                                             $postMidias[] = $midia;
                                         }
                                     }
-                                    foreach ($postMidias as $idx => $midia) { ?>
-                                        <button
-                                            type="button"
-                                            class="img-btn"
-                                            tabindex="0"
-                                            onclick="openModal(this.querySelector('img').src)"
-                                            onkeydown="if(event.key==='Enter'||event.key===' '){openModal(this.querySelector('img').src);}"
-                                            style="background:none;border:none;padding:0;cursor:pointer;"
+                                    $imgCount = count($postMidias);
+                                    foreach ($postMidias as $idx => $midia):
+                                    ?>
+                                        <img
+                                            src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
+                                            alt="Post Image"
+                                            class="post-img img-count-<?= $imgCount ?>"
+                                            onclick="openModal(this.src)"
                                         >
-                                            <img
-                                                src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
-                                                alt="Post-midia"
-                                                class="post-img img-count-<?= $imgCount ?>"
-                                            >
-                                        </button>
-                                    <?php } ?>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                             <!-- Modal para ampliar imagem -->

@@ -339,6 +339,13 @@ body {
     outline: transparent;
     background-color: #51291E;
     transition: 0.2s;
+} .btn-content-footer i {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+} .btn-content-footer i p {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1rem;
 }
 
 /* ? Grid dinâmico para imagens do post */
@@ -681,9 +688,12 @@ body {
     height: 5vh;
     cursor: pointer;
 } .insert-media i {
-    font-size: 1rem;
-} .insert-media i p{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+} .insert-media i p {
     font-family:'Times New Roman', Times, serif;
+    font-size: 1rem;
 }
 
 #preview-container {
@@ -905,6 +915,18 @@ body {
 }
 
 /* Sidebar direita ajustes */
+
+.no-event {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 15%;
+    background-color: #EDF4ED;
+    color: #51291E;
+    font-size: 1.2rem;
+}
+
 .sidebar_direita .eventos_anuncio {
     background-color: #EDF4ED;
     padding: 0;
