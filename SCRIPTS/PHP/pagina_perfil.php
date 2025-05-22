@@ -40,15 +40,16 @@ $_event = null;
     <div class="container">
         <!-- //* SIDEBAR ESQUERDA -->
         <div class="sidebar_esquerda">
-            <div class="menu-item">
-
-
-                <span><a href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php"><i class="fas fa-home"></i>Página Inicial</a></span>   
-            </div>
-            <div class="menu-item">
-                <span><a href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php"><i class="fas fa-user"></i>Perfil</a></span>
-            </div>
-
+            <a style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php"> 
+                <div class="menu-item">
+                    <span><i class="fas fa-home"></i>Página Inicial</span>   
+                </div>
+            </a>
+            <a href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
+                <div class="menu-item">
+                    <span><i class="fas fa-user"></i> Perfil</a></span>
+                </div>
+            </a>
             <div class="area_perfil">
                 <div class="menu-item" onclick="btnLogout()">
                     <div class="user-avatar">
