@@ -15,6 +15,11 @@
 
 <div class="menu_principal">
     <div class="navegacao_principal">
+        <?php if (count($denunciaArray) === 0):?>
+            <div class="no-reports">
+                <h4>Ainda não há denúncias registradas!</h4>
+            </div>
+        <?php endif; ?>
         <div class="lista-reports">
             <?php foreach ($denunciaArray as $denuncia): ?>
                 <div class="report">
