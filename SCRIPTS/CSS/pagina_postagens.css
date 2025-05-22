@@ -125,7 +125,7 @@ body {
 .feed-header {
     position: sticky;
     top: 0;
-    background-color: rgba(237, 244, 237, 0.9);
+    background-color: #edf4ede6;
     backdrop-filter: blur(10px);
     z-index: 10;
     padding: 15px 20px;
@@ -208,7 +208,7 @@ body {
     font-weight: bold;
     align-items: center;
     gap: 6px;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 5px #00000033;
 }
 
 .btn-denuncia::after{
@@ -376,7 +376,7 @@ body {
     z-index: 9999;
     left: 0; top: 0;
     width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.8);
+    background: #000000cc;
     align-items: center;
     justify-content: center;
 }
@@ -818,8 +818,6 @@ body {
 .banner {
     height: 150px;
     background-color: #79B791;
-    
-    
 }
 
 .avatar-large {
@@ -885,7 +883,7 @@ body {
 }
 
 .tabs a:hover {
-    background-color: rgba(171, 209, 181, 0.2);
+    background-color: #abd1b533;
 }
 
 .tabs a:first-child {
@@ -898,7 +896,7 @@ body {
     background-color: #FFFFFF;
     border-radius: 15px;
     margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px #0000000d;
     border: 1px solid #ABD1B5;
 }
 
@@ -949,29 +947,90 @@ body {
 .sidebar_direita .post:last-child {
     border-bottom: none;
 }
-.reacoes-container {
-  display: flex;
-  gap: 8px;
-  margin-top: 5px;
+
+.react-container {
+    display: flex; /* ? flex later */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 4vh;
+    left: -5vw;
+    padding: 0 10px;
+    border-radius: 10rem;
+    background-color: #79B791;
+    outline: #51291E solid 2px;
 }
 
-.reacao {
-  border: none;
-  padding: 8px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 16px;
-  transition: transform 0.2s;
-  color: white;
+.form-reaction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
 }
 
-.reacao:hover {
-  transform: scale(1.1);
+.btn-reaction {
+    position: relative;
+    bottom: 0.5vh;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 38px;
+    height: 38px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #79B791 60%, #ABD1B5 100%);
+    box-shadow: 0 2px 8px #0002;
+    transition: 
+        transform 0.2s,
+        box-shadow 0.2s,
+        filter 0.2s;
+    outline: 2px solid transparent;
+    border: 2px solid #fff;
+}
+.btn-reaction:hover, .btn-reaction:focus {
+    bottom: 1vh;
+    transform: scale(1.25) rotate(-8deg);
+    box-shadow: 0 6px 18px #0004;
+    filter: brightness(1.1) saturate(1.2);
+    outline: 2px solid #51291E;
+    z-index: 2;
+}
+.btn-reaction:active {
+    transform: scale(1.1) rotate(0deg);
+    filter: brightness(0.95);
 }
 
-.gostei { background-color: #0a66c2; }
-.parabens { background-color: #8854d0; }
-.apoio { background-color: #20bf6b; }
-.amei { background-color: #eb3b5a; }
-.genial { background-color: #f7b731; }
-.elogio { background-color: #fa8231; }
+.btn-reaction.gostei   { background: linear-gradient(135deg, #0a66c2 70%, #79B791 100%); }
+.btn-reaction.parabens { background: linear-gradient(135deg, #8854d0 70%, #79B791 100%); }
+.btn-reaction.apoio    { background: linear-gradient(135deg, #20bf6b 70%, #79B791 100%); }
+.btn-reaction.amei     { background: linear-gradient(135deg, #eb3b5a 70%, #79B791 100%); }
+.btn-reaction.genial   { background: linear-gradient(135deg, #f7b731 70%, #79B791 100%); color: #51291E; }
+
+.btn-reaction i {
+    pointer-events: none;
+    font-size: 1.2em;
+    filter: drop-shadow(0 1px 2px #0003);
+}
+
+/* Aumenta o espaçamento entre os botões */
+.form-reaction {
+    gap: 14px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    .btn-reaction {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        padding: 7px;
+    }
+    .form-reaction {
+        gap: 8px;
+    }
+}

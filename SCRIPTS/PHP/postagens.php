@@ -172,15 +172,19 @@ $_event = null;
                     </div>
                     <div class="post-footer">
                         <div id="btnReaction" class="btn-content-footer"><i class="fa-solid fa-heart"> <p>Reaja</p></i></div>
-                        <div id="btnComment" class="btn-content-footer"><i class="fa-solid fa-comment"> <p>Comente</p></i></div>
-                        <div class="reacoes-container" style="display:none;">
-                            <button class="reacao gostei" title="Gostei"><i class="fa-solid fa-thumbs-up"></i></button>
-                            <button class="reacao parabens" title="Parabéns"><i class="fa-solid fa-hands-clapping"></i></button>
-                            <button class="reacao apoio" title="Apoio"><i class="fa-solid fa-hands-holding-circle"></i></button>
-                            <button class="reacao amei" title="Amei"><i class="fa-solid fa-heart"></i></button>
-                            <button class="reacao genial" title="Genial"><i class="fa-solid fa-lightbulb"></i></button>
-                            <button class="reaçao elogio" title="elogio"><i class="fa solid fa_face-laugh"></i></button>
+                        <div class="react-container">
+                            <form action="/xampp/htdocs/DailyGreen-Project/SCRIPTS/LOGIC/.php" method="post" class="form-reaction">
+                                <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
+                                <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
+                                <input type="hidden" name="id_autor_reaction" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">
+                                <button type="submit" name="reaction-post" value="gostei"   class="btn-reaction gostei"   title="Gostei"><i class="fa-solid fa-thumbs-up"></i></button>
+                                <button type="submit" name="reaction-post" value="parabens" class="btn-reaction parabens" title="Parabéns"><i class="fa-solid fa-hands-clapping"></i></button>
+                                <button type="submit" name="reaction-post" value="apoio"    class="btn-reaction apoio"    title="Apoio"><i class="fa-solid fa-handshake"></i></button>
+                                <button type="submit" name="reaction-post" value="amei"     class="btn-reaction amei"     title="Amei"><i class="fa-solid fa-heart"></i></button>
+                                <button type="submit" name="reaction-post" value="genial"   class="btn-reaction genial"   title="Genial"><i class="fa-solid fa-lightbulb"></i></button>
+                            </form>
                         </div>
+                        <div id="btnComment" class="btn-content-footer"><i class="fa-solid fa-comment"> <p>Comente</p></i></div>
                     </div>
                 </div>
             <?php endforeach; ?>
