@@ -133,6 +133,7 @@ CREATE TABLE denuncia (
     id_relator INT NOT NULL,
     id_relatado INT NOT NULL,
     id_administrador INT NULL,
+    id_post INT NULL,
     titulo VARCHAR(50) NOT NULL,
     motivo VARCHAR(255) NOT NULL,
     status VARCHAR(45) NOT NULL DEFAULT 'Pendente',
@@ -140,7 +141,8 @@ CREATE TABLE denuncia (
     PRIMARY KEY (id_denuncia),
     FOREIGN KEY (id_relator) REFERENCES participante(id_participante),
     FOREIGN KEY (id_relatado) REFERENCES participante(id_participante),
-    FOREIGN KEY (id_administrador) REFERENCES administrador(id_administrador)
+    FOREIGN KEY (id_administrador) REFERENCES administrador(id_administrador),
+    FOREIGN KEY (id_post) REFERENCES post(id_post)
 );
 
 -- Tabela banido
