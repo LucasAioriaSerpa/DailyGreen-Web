@@ -39,6 +39,7 @@ function updateOrgSession(newOrgValue) {
         });
 }
 
+
 function btnDenuncia(denuncia){
     const userAvatar = denuncia.closest('.user-avatar');
     const btnDenuncia = userAvatar.querySelector('.btn-denuncia');
@@ -63,6 +64,7 @@ function btnCloseDenuncia(){
     formularioDenuncia.style.display = 'none';
 }
 
+// LISTA DE MOTIVOS DE DENUNCIAS
 const arrayMotivos = {
     Spam:[
         "Divulgação de links repetitivos e irrelevantes.",
@@ -110,14 +112,22 @@ const arrayMotivos = {
     ]
 }
 
-function updateMotivo(){
+function updateTitulo(){
+    const enviarDenuncuia = document.getElementById("enviar_denuncia");
     const titulo = document.getElementById("titulo").value;
     const motivo = document.getElementById("motivo");
 
     console.log("Título selecionado:", titulo);
+    console.log("Motivo selecionado:", motivo.value);
     console.log("Existe no arrayMotivos?", arrayMotivos.hasOwnProperty(titulo));
 
     motivo.innerHTML = "";
+
+    if (titulo == "" && motivo.value == "") {
+        enviarDenuncuia.classList.add("disabled");
+    } else {
+        enviarDenuncuia.classList.remove("disabled");
+    }
 
     if (titulo && arrayMotivos[titulo]) {
         // Adiciona um option padrão
@@ -136,7 +146,29 @@ function updateMotivo(){
     }
 }
 
+function updateMotivo(){
+    const enviarDenuncuia = document.getElementById("enviar_denuncia");
+    const motivo = document.getElementById("motivo").value;
+
+    console.log("Motivo selecionado:", motivo);
+
+    if (motivo == "") {
+        enviarDenuncuia.classList.add("disabled");
+    } else {
+        enviarDenuncuia.classList.remove("disabled");
+    }
+}
+
 function confirmSendDenuncia(){
+    const enviar_denuncia = document.getElementById("enviar_denuncia");
+    if (enviar_denuncia.classList.contains("disabled")) {
+        Swal.fire({
+            title: "Selecione um motivo para a denúncia.",
+            icon: "warning",
+            draggable: true
+        });
+        return;
+    }
     Swal.fire({
         title: "Confirma a denúncia desta conta?",
         text: "Após confirmada, a denúncia não poderá ser desfeita.",
@@ -158,4 +190,41 @@ function confirmSendDenuncia(){
             }
         }
     );
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const editBtn = document.querySelector('.edit-btn');
+    const editModal = document.getElementById('editModal');
+    const bioForm = document.getElementById('bioForm');
+    const cancelBtn = document.getElementById('cancelBtn');
+    // Abre o modal quando clicar no botão de editar
+    editBtn.addEventListener('click', function() {
+        editModal.style.display = 'flex';
+    });
+    // Fecha o modal quando enviar o formulário
+    bioForm.addEventListener('submit', function(e) {
+        // Aqui você pode adicionar a lógica para salvar a biografia
+        const novaBiografia = document.getElementById('biografia').value;
+        console.log('Nova biografia:', novaBiografia);
+        // Fecha o modal
+        editModal.style.display = 'none';
+    });
+    // Fecha o modal quando clicar no botão cancelar
+    cancelBtn.addEventListener('click', function() {
+        editModal.style.display = 'none';
+    });
+    // Fecha o modal se clicar fora do formulário
+    editModal.addEventListener('click', function(e) {
+        if (e.target === editModal) {
+            editModal.style.display = 'none';
+        }
+    });
+});
+
+function btnReaction(){
+    const btnReaction = document.getElementById('btnReaction');
+    btnReaction.addEventListener('hover', function() {
+        const contentReact = document.getElementById('contentReact');
+        contentReact.classList.toggle('show');
+    })
 }

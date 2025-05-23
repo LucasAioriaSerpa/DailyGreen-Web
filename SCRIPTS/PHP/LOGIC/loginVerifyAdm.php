@@ -24,5 +24,5 @@ foreach ($loginTable as $data) {
     }
 }
 echo 'não entrou';
-$_SESSION["adm-user"]["find"] = false;
+$_SESSION["user"]["find"] = false;
 header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");

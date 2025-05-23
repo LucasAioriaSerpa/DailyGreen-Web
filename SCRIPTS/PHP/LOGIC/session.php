@@ -26,6 +26,7 @@ $session_array['inputs'] = [
         'cad-part' => '0',
         'part-1' => [
             'nome' => null,
+            'biografia' => null,
             'email' => null,
             'org' => null
         ],
