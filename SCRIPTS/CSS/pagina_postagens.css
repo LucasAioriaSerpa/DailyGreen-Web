@@ -871,6 +871,9 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .edit-btn:hover {
@@ -1047,4 +1050,95 @@ body {
     .form-reaction {
         gap: 8px;
     }
+}
+
+
+/* PARTE DA BIOGRAFIA*/
+
+.edit-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000cc;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.edit-form-container {
+    background-color: #EDF4ED;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    animation: fadeIn 0.3s;
+    border: 1px solid #79B791;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #51291E;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #79B791;
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 150px;
+    background-color: #F8FBF8;
+    color: #51291E;
+    font-size: 16px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.submit-btn, .cancel-btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid;
+}
+
+.submit-btn {
+    background-color: #79B791;
+    color: #EDF4ED;
+    border-color: #79B791;
+}
+
+.submit-btn:hover {
+    background-color: #5A9E6E;
+}
+
+.cancel-btn {
+    background-color: transparent;
+    color: #51291E;
+    border-color: #51291E;
+}
+
+.cancel-btn:hover {
+    background-color: #51291E;
+    color: #EDF4ED;
 }

@@ -39,6 +39,7 @@ function updateOrgSession(newOrgValue) {
         });
 }
 
+
 function btnDenuncia(denuncia){
     const userAvatar = denuncia.closest('.user-avatar');
     const btnDenuncia = userAvatar.querySelector('.btn-denuncia');
@@ -159,3 +160,40 @@ function confirmSendDenuncia(){
         }
     );
 }
+
+//------------------------------------------------
+
+document.addEventListener('DOMContentLoaded', function() {
+    const editBtn = document.querySelector('.edit-btn');
+    const editModal = document.getElementById('editModal');
+    const bioForm = document.getElementById('bioForm');
+    const cancelBtn = document.getElementById('cancelBtn');
+    
+    // Abre o modal quando clicar no botão de editar
+    editBtn.addEventListener('click', function() {
+        editModal.style.display = 'flex';
+    });
+    
+    // Fecha o modal quando enviar o formulário
+    bioForm.addEventListener('submit', function(e) {
+        
+        // Aqui você pode adicionar a lógica para salvar a biografia
+        const novaBiografia = document.getElementById('biografia').value;
+        console.log('Nova biografia:', novaBiografia);
+        
+        // Fecha o modal
+        editModal.style.display = 'none';
+    });
+    
+    // Fecha o modal quando clicar no botão cancelar
+    cancelBtn.addEventListener('click', function() {
+        editModal.style.display = 'none';
+    });
+    
+    // Fecha o modal se clicar fora do formulário
+    editModal.addEventListener('click', function(e) {
+        if (e.target === editModal) {
+            editModal.style.display = 'none';
+        }
+    });
+});

@@ -69,24 +69,45 @@ $_event = null;
             </div>
         </div>
 
-        <!-- //* CONTEÚDO CENTRAL (PERFIL) -->
+        <!-- CONTEÚDO CENTRAL (PERFIL) -->
         <div class="conteudo_principal">
             <div class="profile-header">
                 <div class="banner"></div>
                 <div class="avatar-large">
                     <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar" 
-                         style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid #EDF4ED;">
-                </div>
+                        style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid #EDF4ED;">
+                </div>  
                 <div class="profile-info">
                     <h2><strong><?= htmlspecialchars($userInfo[0]['username']) ?></strong></h2>
                     <p>@<?= htmlspecialchars($userInfo[0]['username']) ?></p>
                     <p>📅 Entrou em: <?= htmlspecialchars($userInfo[0]['create_time']) ?></p>
-                    <p>  Biografia: <?= htmlspecialchars($userInfo[0]['biografia']) ?></p>
-                    <?php echo $userInfo[0]['biografia'] ?>
-                    
+                    <p id="user-biography">Biografia: <?= htmlspecialchars($userInfo[0]['biografia']) ?></p>  
                 </div>
-                <button class="edit-btn">Set up profile</button>
+                
+                <button class="edit-btn">
+                    <i class="fas fa-edit"></i> Editar Biografia
+                </button>
+                
+                <!-- Modal de Edição -->
+                <div class="edit-modal" id="editModal">
+                    
+                    <div class="edit-form-container">
+                        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileAcc.php" method="POST" id="bioForm">
+                            <div class="form-group">
+                                <label for="biografia">Biografia:</label>
+                                <input id="biografia" name="biografia" placeholder="Escreva sua biografia aqui...">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="cancel-btn" id="cancelBtn">Cancelar</button>
+                                <input type="submit" class="submit-btn" value="Salvar"> 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
             </div>
+            
 
             <nav class="tabs">
                 <a href="#">Posts</a>
@@ -98,20 +119,9 @@ $_event = null;
                     <div class="post">
                         <div class="post-user">
                             <div class="user-avatar">
-                                <button class="btn-user-img" id="btn-user-img" name="btn-user-img" onclick="btnDenuncia(this)">
                                     <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
-                                    alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
-                                </button>
-                                <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
-                                <button class="btn-denuncia" id="btn-denuncia" name="btn-denuncia" onclick="formDenuncia()">
-                                    <span class="alert-icon">⚠️</span>Denunciar</button>
-                                <?php endif; ?>
+                                    alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">    
                             </div>
-                            <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
-                            <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia">
-                                <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html"; ?>
-                            </div>
-                            <?php endif; ?>
                             <div style="margin-left: 10px;">
                                 <div>
                                     <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
@@ -260,6 +270,8 @@ $_event = null;
         <span class="img-modal-close" onclick="closeModal(event)">&times;</span>
         <img class="img-modal-content" id="imgModalContent">
     </div>
+
+    
 
     <script src="/DailyGreen-Project/SCRIPTS/JS/pagina_postagens.js"></script>
 </body>
