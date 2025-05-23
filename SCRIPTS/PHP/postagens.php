@@ -43,7 +43,7 @@ $_event = null;
 
             <a style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php"> 
                 <div class="menu-item">
-                    <span><i class="fas fa-home"></i>Página Inicial</span>   
+                    <span><i class="fas fa-home"></i>Página Inicial</span>
                 </div>
             </a>
             <a href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
@@ -166,13 +166,15 @@ $_event = null;
                         </div>
                     </div>
                     <!-- Modal para ampliar imagem -->
-                    <div id="imgModal" class="img-modal" onclick="closeModal()">
+                    <button id="imgModal" class="img-modal" onclick="closeModal()"> <!-- //TODO: Adicionar Styles e aparecer e desaparecer -->
                         <span class="img-modal-close" onclick="closeModal(event)">&times;</span>
                         <img class="img-modal-content" id="imgModalContent">
-                    </div>
+                    </button>
                     <div class="post-footer">
-                        <div id="btnReaction" class="btn-content-footer"><i class="fa-solid fa-heart"> <p>Reaja</p></i></div>
-                        <div class="react-container">
+                        <button id="btnReaction" class="btn-content-footer" type="button" onclick="btnReaction()">
+                            <i class="fa-solid fa-heart"> <p>Reaja</p></i>
+                        </button>
+                        <div id="contentReact" class="react-container">
                             <form action="/xampp/htdocs/DailyGreen-Project/SCRIPTS/LOGIC/.php" method="post" class="form-reaction">
                                 <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
                                 <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">

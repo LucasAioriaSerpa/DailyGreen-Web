@@ -6,9 +6,9 @@
     <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendReport.php" method="POST" class="form_denuncia">
         <input type="hidden" name="id_relator" value="<?php echo $userInfo[0]['id_participante']; ?>">
         <input type="hidden" name="id_relatado" value="<?php echo $post['id_autor']; ?>">
-             
-        <label for="titulo">Titulo:</label><br>
-        <select class="titulo" name="titulo" id="titulo" onchange="updateMotivo()">
+
+        <label for="titulo">Titulo:</label>
+        <select class="titulo" name="titulo" id="titulo" required onchange="updateTitulo()">
             <option value="">--- Selecione ---</option>
             <option value="Spam">Spam</option>
             <option value="Conteudo_fora_do_tema">Conteúdo fora do tema</option>
@@ -21,11 +21,11 @@
             <option value="Conteudo_improprio_ou_explicito">Conteúdo impróprio ou explícito</option>
         </select>
 
+        <br><br><label for="motivo">Motivo da Denuncia:</label>
+        <select class="motivo" name="motivo" id="motivo" required onchange="updateMotivo()"></select> <br><br>
 
-        <label for="motivo">Motivo da Denuncia:</label><br>
-        <select class="motivo" name="motivo" id="motivo" required></select> <br>
 
-
-        <input class="enviar-denuncia" type="button" value="ENVIAR" onclick="confirmSendDenuncia()">
+        <input class="enviar-denuncia disabled" type="button" value="ENVIAR" id="enviar_denuncia"
+            onclick="confirmSendDenuncia()">
     </form>
 </div>
