@@ -26,7 +26,8 @@ body{
     width: 15vw;
     height: 100vh;
     justify-content: center;
-
+    z-index: 2000;
+    position: fixed;
 }
 
 /* Titulo DailyGreen */
@@ -168,6 +169,7 @@ body{
 .header_menu_principal{
     background-color: #79B791;
     display: flex;
+    position: fixed;
     width: 100vw;
     height: 9.2vh;
     z-index: 1000;
@@ -177,6 +179,9 @@ body{
 .menu_principal{
     display: flex;
     flex-direction: column;
+    margin-top: 9.2vh;
+    margin-left: 15vw;
+    padding: 20px;
 }
 
 .all-buttons{
@@ -279,10 +284,8 @@ body{
     gap: 1vh;
     width: 100vw;
     list-style-type: none;
-    max-height: calc(100vh - 9.2vh);
-    overflow-y: auto; 
-    padding-top: 30%;
-}
+    overflow-y: auto;
+}    
 
 .user {
     display: flex;

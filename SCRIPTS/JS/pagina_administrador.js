@@ -56,7 +56,10 @@ function loadPage(page) {
             return response.text();
         })
         .then(data => {
-            document.getElementById('menu_principal').innerHTML = data;
+            const mainPage = document.getElementById('menu_principal');
+            mainPage.innerHTML = data;
+            mainPage.style.marginLeft = '0';
+            mainPage.style.marginTop = '0';
         })
         .catch(error => {
             console.error('Erro:', error);
