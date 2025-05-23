@@ -8,10 +8,23 @@
         <input type="hidden" name="id_relatado" value="<?php echo $post['id_autor']; ?>">
              
         <label for="titulo">Titulo:</label><br>
-        <input type="text" class="titulo" id="titulo" name="titulo" required><br><br>
+        <select class="titulo" name="titulo" id="titulo" onchange="updateMotivo()">
+            <option value="">--- Selecione ---</option>
+            <option value="Spam">Spam</option>
+            <option value="Conteudo_fora_do_tema">Conteúdo fora do tema</option>
+            <option value="Linguagem_inadequada">Linguagem inadequada</option>
+            <option value="Publicacao_duplicada">Publicação duplicada</option>
+            <option value="Informacoes_incorretas">Informações incorretas</option>
+            <option value="Discurso_de_odio">Discurso de ódio</option>
+            <option value="Assedio_ou_perseguicao">Assédio ou perseguição</option>
+            <option value="Incitacao_a_praticas_ilegais">Incitação a práticas ilegais</option>
+            <option value="Conteudo_improprio_ou_explicito">Conteúdo impróprio ou explícito</option>
+        </select>
+
 
         <label for="motivo">Motivo da Denuncia:</label><br>
-        <textarea class="motivo" id="motivo" name="motivo" rows="4" cols="40" required></textarea><br><br>
+        <select class="motivo" name="motivo" id="motivo" required></select> <br>
+
 
         <input class="enviar-denuncia" type="button" value="ENVIAR" onclick="confirmSendDenuncia()">
     </form>

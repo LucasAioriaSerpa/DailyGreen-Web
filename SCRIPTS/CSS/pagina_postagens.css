@@ -183,7 +183,8 @@ body {
     margin-top: 10px;
 }
 
-/* Botão Denúncia */
+
+/* BOTÃO DENUNNCIA */
 .btn-user-img{
     width: 50px;
     height: 50px;
@@ -195,35 +196,47 @@ body {
 .btn-denuncia{
     display: none;
     position: absolute;
+    align-items: center;
     bottom: 100%;
     left: 0;
     margin-bottom: 5px;
     background-color: #fff0f0;
-    border: 1px solid #ff4d4d;
-    color: #ff1a1a;
-    padding: 10px;
-    font-size: 17px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    align-items: center;
-    gap: 6px;
     box-shadow: 0px 2px 5px #00000033;
+    border: none;
+    color: #ff1a1a;
+    padding: 12px 15px;
+    font-size: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    gap: 6px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.btn-denuncia p{
+    transform: translateX(-15px);
+    font-size: 1.5em;
+    transition-duration: 0.3s;
 }
 
 .btn-denuncia::after{
     content: "";
     position: absolute;
     top: 100%;
-    left: 25px;
-    margin-left: -5px;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid #ff4d4d;
 }
 
-.btn-denuncia:hover{
-    background-color: #efcbcb;
+.alert-icon {
+  transform: translateY(35px);
+  transition-duration: 0.3s;
+  font-size: 15px;
+}
+
+.btn-denuncia:hover p {
+    transform: translateX(0px);
+}
+
+.btn-denuncia:hover .alert-icon {
+  transform: translateY(0px);
 }
 
 /* --- FORMULARIO DENUNCIA --- */
@@ -284,7 +297,7 @@ body {
     border: 1.5px solid #d1abab;
     outline: none;
     width: 100%;
-    height: 15%;
+    height: 20%;
     padding: 5px;
     border-radius: 5px;
 } .titulo:focus{
@@ -296,6 +309,7 @@ body {
     border: 1.5px solid #d1abab;
     outline: none;
     width: 100%;
+    height: 20%;
     padding: 5px;
     resize: none;
     border-radius: 5px;

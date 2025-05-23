@@ -122,7 +122,7 @@ $_event = null;
                             </button>
                             <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
                             <button class="btn-denuncia" id="btn-denuncia" name="btn-denuncia" onclick="formDenuncia()">
-                                <span class="alert-icon">⚠️</span>Denunciar</button>
+                                <span class="alert-icon">⚠️</span><p>Denunciar</p></button>
                             <?php endif; ?>
                         </div>
                         <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
@@ -227,7 +227,7 @@ $_event = null;
                                     </button>
                                     <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
                                     <button class="btn-denuncia" id="btn-denuncia" name="btn-denuncia" onclick="formDenuncia()">
-                                        <span class="alert-icon">⚠️</span>Denunciar</button>
+                                        <span class="alert-icon">⚠️</span><p>Denunciar</p></button>
                                     <?php endif; ?>
                                 </div>
                                 <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>

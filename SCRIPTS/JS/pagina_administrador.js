@@ -60,6 +60,7 @@ function loadPage(page) {
             mainPage.innerHTML = data;
             mainPage.style.marginLeft = '0';
             mainPage.style.marginTop = '0';
+            mainPage.style.padding = '0';
         })
         .catch(error => {
             console.error('Erro:', error);
