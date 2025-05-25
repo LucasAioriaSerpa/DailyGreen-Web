@@ -58,9 +58,6 @@ function loadPage(page) {
         .then(data => {
             const mainPage = document.getElementById('menu_principal');
             mainPage.innerHTML = data;
-            mainPage.style.marginLeft = '0';
-            mainPage.style.marginTop = '0';
-            mainPage.style.padding = '0';
         })
         .catch(error => {
             console.error('Erro:', error);
@@ -69,6 +66,40 @@ function loadPage(page) {
 }
 
 function showButtons(){
+    const btnMenu = document.getElementById('btn-menu');
     const btnShowList = document.getElementById('menu_navegacao');
     btnShowList.style.display = btnShowList.style.display === 'flex' ? 'none' : 'flex';
+    btnMenu.style.color = btnMenu.style.color === 'white' ? '#808080' : 'white';
+}
+
+
+// BOTÕES DOS FORMULARIOS
+function formDiscard(){
+    const formularioDenuncia = document.getElementById('formulario-discard');
+    formularioDenuncia.style.display = (formularioDenuncia.style.display == 'flex') ? 'none' : 'flex';
+}
+
+function btnCloseDiscard(){
+    const formularioDenuncia = document.getElementById('formulario-discard');
+    formularioDenuncia.style.display = 'none';
+}
+
+function formSuspend(){
+    const formularioDenuncia = document.getElementById('formulario-suspenso');
+    formularioDenuncia.style.display = (formularioDenuncia.style.display == 'flex') ? 'none' : 'flex';
+}
+
+function btnCloseSuspend(){
+    const formularioDenuncia = document.getElementById('formulario-suspenso');
+    formularioDenuncia.style.display = 'none';
+}
+
+function formBan(){
+    const formularioDenuncia = document.getElementById('formulario-banido');
+    formularioDenuncia.style.display = (formularioDenuncia.style.display == 'flex') ? 'none' : 'flex';
+}
+
+function btnCloseBan(){
+    const formularioDenuncia = document.getElementById('formulario-banido');
+    formularioDenuncia.style.display = 'none';
 }

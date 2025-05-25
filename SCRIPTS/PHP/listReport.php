@@ -7,34 +7,48 @@
         exit();
     }
     $sqlConnection = new SQLconnection();
-    $admUserName = $sqlConnection->callTableBD('administrador');
-    $usersArray = $sqlConnection->callTableBD('participante');
     $denunciaArray = $sqlConnection->callTableBD('denuncia');
 
 ?>
 
-<div class="menu_principal">
-    <div class="navegacao_principal">
-        <?php if (count($denunciaArray) === 0):?>
-            <div class="no-reports">
-                <h4>Ainda não há denúncias registradas!</h4>
-            </div>
-        <?php endif; ?>
-        <div class="lista-reports">
-            <?php foreach ($denunciaArray as $denuncia): ?>
-                <div class="report">
-                    <div class="report-info">
-                        <button class="btn-denuncia">
-                            <div class="relator"> Relator: <div class="relator-name"><?= htmlspecialchars($denuncia['id_relator']) ?></div> </div>
-                            <div class="relatado"> Relatado: <div class="relatado-name"><?= htmlspecialchars($denuncia['id_relatado']) ?></div> </div>
-                            <div class="titulo"> Titulo: <div class="titulo-report"><?= htmlspecialchars($denuncia['titulo']) ?></div> </div>
-                            <div class="motivo"> Motivo: <div class="motivo-report"><?= htmlspecialchars($denuncia['motivo']) ?></div> </div>
-                            <div class="status"> Status: <div class="status-report"><?= htmlspecialchars($denuncia['status']) ?></div> </div>
-                            <div class="status"> Data de Regitro: <div class="data-report"><?= htmlspecialchars($denuncia['data_registro']) ?></div> </div>
-                        </button>
+<div class="navegacao_principal">
+    <?php if (count($denunciaArray) === 0):?>
+        <div class="no-reports">
+            <h4>Ainda não há denúncias registradas!</h4>
+        </div>
+    <?php endif; ?>
+    <div class="lista-reports">
+        <?php foreach ($denunciaArray as $denuncia): ?>
+            <div class="report">
+                <div class="report-info">
+                    <div class="container-report">
+                        <div class="report-row report-row-titulo-motivo">
+                            <div class="denuncia-titulo">
+                                <div class="titulo"> Titulo: <div class="titulo-report"><?= htmlspecialchars($denuncia['titulo']) ?></div> </div>
+                            </div>
+                            <div class="denuncia-motivo">
+                                <div class="motivo"> Motivo: <div class="motivo-report"><?= htmlspecialchars($denuncia['motivo']) ?></div> </div>
+                            </div>
+                            <div class="denuncia-id">
+                                <div class="id"> ID: <div class="id-report"><?= htmlspecialchars($denuncia['id_denuncia']) ?></div> </div>
+                            </div>
+                        </div>
+                        <div class="report-row report-row-status-data">
+                            <div class="denuncia-status">
+                                <div class="status"> Status: <div class="status-report"><?= htmlspecialchars($denuncia['status']) ?></div> </div>
+                            </div>
+                            <div class="denuncia-data">
+                                <div class="status"> Data de Regitro: <div class="data-report"><?= htmlspecialchars($denuncia['data_registro']) ?></div> </div>
+                            </div>
+                        </div>
+                        <div class="button-analyse">
+                            <!-- o id da denuncia está setado no onclick em data-id  -->
+                            <div class="analyse"> <input type="submit" class="btn-analyse" data-id="<?= htmlspecialchars($denuncia['id_denuncia']) ?>" name="btn-analyse" id="btn-analyse"
+                            onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/form_analyse_report.php?id='+this.getAttribute('data-id'))" value="ANALISAR"></input> </div>
+                        </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
-        </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>

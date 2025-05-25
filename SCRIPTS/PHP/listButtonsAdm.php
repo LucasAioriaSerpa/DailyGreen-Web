@@ -8,7 +8,7 @@
     }
 ?>
 
-<div class="menu_principal" id="menu_principal" name="menu_principal">
+<div class="navegacao_principal">
     <div class="all-buttons">
         <div class="button-row">
             <div class="btn_users">

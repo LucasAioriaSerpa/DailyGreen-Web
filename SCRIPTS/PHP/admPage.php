@@ -39,7 +39,7 @@
                 <div class="name_user_adm"><?php echo pullAdmName()?></div>
             </div>
             <div class="btn_menu_navegacao">
-                <button class="btn_menu" onclick="showButtons()">MENU DE NAVEGAÇÃO<span class="triangle">&#9660;</span> </button>
+                <button class="btn_menu" id="btn-menu" onclick="showButtons()">MENU DE NAVEGAÇÃO<span class="triangle">&#9660;</span> </button>
                 <div class="menu_navegacao" id="menu_navegacao" name="menu_navegacao">
                     <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listButtonsAdm.php')">Página Principal</button> </div>
                     <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">Lista de Contas</button> </div>

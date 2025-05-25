@@ -4,19 +4,17 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: #EDF4ED;
-    margin: 0%;
     height: 100vh;
     width: 100%;
     overflow: hidden;
-}
-
-.container-admPage{
-    display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.container-admPage {
+    display: flex;
+}
 
 /* SIDEBAR DA ESQUERDA */
 .sidebar_esquerda{
@@ -30,7 +28,7 @@ body{
     position: fixed;
 }
 
-/* Titulo DailyGreen */
+/* TITULO DAILYGREEN */
 .header_titulo{
     background-color: #499767;
     color: black;
@@ -63,7 +61,7 @@ body{
     transform: translateY(100px);
 }
 
-/* Boas-vindas (Nome do Usuario) */
+/* BOAS-VINDAS (NOME DO ADM) */
 .name_user_adm{
     margin: 0%;
     padding-top: 7%;
@@ -78,7 +76,7 @@ body{
     gap: 2px;
 }
 
-/* Menu Navegação */
+/* MENU NAVEGAÇÃO */
 .btn_menu{
     background-color: #1a1a1a;
     color: #808080;
@@ -98,13 +96,13 @@ body{
     display: none;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
     box-sizing: border-box;
     width: 100%;
     height: 100vh;
 }
 
+/* BOTÕES MENU NAVEGAÇÃO */
 .btn-list button{
     background-color: #1a1a1a;
     color: #808080;
@@ -123,13 +121,11 @@ body{
     background-color: #79B791;
     color: #51291E;
     transition: 0.5s;
-}
-.btn-list button:active {
+} .btn-list :active {
     background-color: #357d3a;
-    transition: 0.3s;
 }
 
-/* Botão Logout */
+/* BOTÃO LOGOUT */
 .logout{
     margin: 0%;
     align-items: center;
@@ -167,21 +163,27 @@ body{
 
 /* MENU PRINCIPAL */
 
-.header_menu_principal{
-    background-color: #79B791;
-    display: flex;
-    position: fixed;
-    width: 100vw;
+.header_menu_principal {
     height: 9.2vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #79B791;
     z-index: 1000;
 }
 
-/* Botões Menu Principal */
-.menu_principal{
-    display: flex;
-    flex-direction: column;
-    margin-top: 9.2vh;
-    margin-left: 15vw;
+/* BOTOES PAGINA INICIAL */
+.menu_principal {
+    position: absolute;
+    top: 9.2vh;
+    left: 15vw;
+    width: calc(100vw - 15vw);
+    height: calc(100vh - 9.2vh); 
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 2%;
+    box-sizing: border-box;
 }
 
 .all-buttons{
@@ -272,26 +274,19 @@ body{
 }
 
 
-/* User List */
+/* LISTA DE USUARIOS */
 .navegacao_principal{
-    overflow: hidden;
-    height: 100vh;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 100%;
 }
 
 .lista-usuarios {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0%;
-    padding: 2%;
-    padding-bottom: 6%;
     gap: 1vh;
-    width: 100vw;
-    height: 100%;
-    list-style-type: none;
-    overflow-y: auto;
-}    
+    width: 100%;
+}
 
 .user {
     display: flex;
@@ -317,37 +312,124 @@ body{
     gap: 5vw;
 }
 
-/* Lista de Reports */
+
+
+/* LISTA DE DENUNCIAS */
 .no-reports{
     display: flex;
     padding-left: 500px;
     padding-top: 250px;
 }
 
-.lista-reports{
+.lista-reports {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    margin: 0%;
-    padding: 2%;
     gap: 1vh;
-    width: 100vw;
-    list-style-type: none;
-    max-height: calc(100vh - 9.2vh);
-    overflow-y: auto;
+    width: 100%;
 }
 
-.report-info{
+.container-report {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
     background-color: #d1abab;
     color: black;
     gap: 1vw;
     font-size: 2vh;
-    padding: 1vh;
+    padding: 1%;
     border-radius: 10px;
-    width: 80vw;
-    height: 5vh;
+    width: 60vw;
+    height: auto;
+}
+
+.report-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1vw;
+} .report-row > div {
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.report-row-titulo-motivo,
+.report-row-status-data {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.report-row-id-analyse {
+    display: flex;
+    width: 100%;
+}
+
+.denuncia-titulo, 
+.denuncia-motivo,
+.denuncia-status, 
+.denuncia-data, 
+.button-analyse {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    word-wrap: break-word; 
+}
+
+.denuncia-titulo,
+.denuncia-status,
+.denuncia-id {
+    width: 30%;
+}
+
+.denuncia-motivo,
+.denuncia-data {
+    width: 70%;
+}
+
+.btn-analyse {
+    flex-shrink: 0;
+}
+
+/* LISTA SUSPENSOS */
+
+
+/* LISTA BANIDOS */
+
+
+/* ANALISE DENUNCIAS */
+
+
+/* FORM DISCARTAR DENUNCIA */
+.formulario-discard,
+.formulario-suspenso,
+.formulario-banido{
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000cc;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px
+}
+
+.modal_decisao{
+    display: flex;
+    background-color: #f4eded;
+    border: 20px;
     padding: 2%;
+    align-items: center;
+    flex-direction: column;
+    width: 50vw;
+    height: 70vh;
+    gap: 10%;
+    border-radius: 5px;
+    box-sizing: border-box;
 }

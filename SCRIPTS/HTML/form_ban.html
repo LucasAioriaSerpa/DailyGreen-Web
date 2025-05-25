@@ -1,0 +1,30 @@
+<div class="modal_decisao">
+    <div class="header_decisao">
+        <button class="btn-close-modal" onclick="btnCloseBan()">X</button>
+        <h3>SUSPENDER</h3>
+    </div>
+    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendBanido.php" method="POST" class="form_ban">
+        <input type="hidden" name="id_denuncia" value="<?php echo $id_denuncia; ?>">
+        <input type="hidden" name="id_administrador" value="1">
+        <input type="hidden" name="id_participante_banido" value="<?php echo $relatado_id  ?>">
+
+        <label for="motivo-decisao">Motivo:</label>
+        <select class="motivo-decisao" name="motivo" id="motivo-ban" required onchange="">
+            <option value="">--- Selecione ---</option>
+            <option value="Discurso_de_odio_contra_grupos_ou_minorias">
+                Comentários contendo preconceito explícito ou incitação à discriminação.
+            </option>
+            <option value="Ameacas_intimidacao_ou_perseguicao_grave_a_outros_membros">
+                Comportamento abusivo com intenção clara de ferir ou constranger.
+            </option>
+            <option value="Apologia_a_crimes_ambientais_ou_praticas_ilegais">
+                Incentivo direto à violação de leis ambientais ou promoção de atividades ilícitas.
+            </option>
+            <option value="Publicacao_de_conteudo_improprio_ou_explicito">
+                Compartilhamento de imagens ou vídeos com nudez, violência ou material gráfico ofensivo.
+            </option>
+        </select>
+
+        <input class="banir-usuario" type="submit" value="BANIR" id="banir_usuario">
+    </form>
+</div>
