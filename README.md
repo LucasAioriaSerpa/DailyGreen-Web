@@ -1,11 +1,99 @@
 
-# DAILYGREEN
+# DailyGreen
 
-Site do tipo rede social / Forum onde as pessoas compartilham, aprendem sobre sustentabilidade e participam de eventos sustentaveis
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![Unlicense License][license-shield]][license-url]
+
+![Logo do projeto](DOCUMENT/README/doc/logo.png)
+
+**Plataforma social e fórum onde pessoas compartilham experiências, aprendem sobre sustentabilidade e participam de eventos sustentáveis!**
+
+---
+
+## Sobre o Projeto
+
+DailyGreen é uma plataforma colaborativa para promover práticas sustentáveis, conectar pessoas e divulgar eventos relacionados ao meio ambiente.
+
+---
+
+### Tecnologias Utilizadas
+
+- [![PHP][PHP.php]][PHP-url]
+- [![MySQL][MySQL.sql]][MySQL-url]
+- [![HTML5][HTML5.html]][HTML5-url] [![CSS3][CSS3.css]][CSS3-url]
+- [![JS][JS.js]][JS-url]
+
+---
+
+## Funcionalidades
+
+- Cadastro e login de usuários
+- Fórum para discussões
+- Compartilhamento de experiências
+- Divulgação de eventos sustentáveis
+- Sistema de comentários
+
+---
+
+## Como rodar o projeto
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/Garudaakuma/DailyGreen-Project.git
+   ```
+
+2. Coloque a pasta do projeto em `c:/xampp/htdocs/`
+3. Inicie o Apache e o MySQL pelo XAMPP.
+4. Importe o banco de dados em `/DataBase/setup.sql`.
+5. Acesse [http://localhost/DailyGreen-Project/SCRIPTS/PHP/main-page.php](http://localhost/DailyGreen-Project/SCRIPTS/PHP/main-page.php) no navegador.
+
+---
 
 ## Membros
 
-- [@LucasSerpa](https://www.github.com/Garudaakuma)
-- [@FlaviaFagundes](https://github.com/flaviacfagundes)
-- [@NikolasDePedro](https://www.github.com/Nikolas2606)
-- [@JoãoAugusto](https://github.com/joao-au)
+<a href="https://github.com/LucasAioriaSerpa/DailyGreen-Project/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=LucasAioriaSerpa/DailyGreen-Project" />
+</a>
+
+### Contato
+
+- [LucasAioriaSerpa](https://github.com/LucasAioriaSerpa)
+- [flaviacfagundes](https://github.com/flaviacfagundes)
+- [Nikolas2606](https://github.com/Nikolas2606)
+- [joao-au](https://github.com/joao-au)
+
+---
+
+<!-- ## Licença
+
+Este projeto está sob a licença Unlicense. Veja mais em [LICENSE.txt](https://github.com/Garudaakuma/DailyGreen-Project/blob/master/LICENSE.txt).
+
+--- -->
+
+<!-- //? LINKS & IMAGES ?// -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/Garudaakuma/DailyGreen-Project.svg?style=for-the-badge
+[contributors-url]: https://github.com/Garudaakuma/DailyGreen-Project/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Garudaakuma/DailyGreen-Project.svg?style=for-the-badge
+[forks-url]: https://github.com/Garudaakuma/DailyGreen-Project/network/members
+[stars-shield]: https://img.shields.io/github/stars/Garudaakuma/DailyGreen-Project.svg?style=for-the-badge
+[stars-url]: https://github.com/Garudaakuma/DailyGreen-Project/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Garudaakuma/DailyGreen-Project.svg?style=for-the-badge
+[issues-url]: https://github.com/Garudaakuma/DailyGreen-Project/issues
+[license-shield]: https://img.shields.io/github/license/Garudaakuma/DailyGreen-Project.svg?style=for-the-badge
+[license-url]: https://github.com/Garudaakuma/DailyGreen-Project/blob/master/LICENSE.txt
+
+[PHP.php]: https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white
+[PHP-url]: https://www.php.net/
+[MySQL.sql]: https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white
+[MySQL-url]: https://www.mysql.com/
+[HTML5.html]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[HTML5-url]: https://developer.mozilla.org/docs/Web/HTML
+[CSS3.css]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[CSS3-url]: https://developer.mozilla.org/docs/Web/CSS
+[JS.js]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+[JS-url]: https://developer.mozilla.org/docs/Web/JavaScript
