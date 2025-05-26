@@ -24,6 +24,10 @@ body {
     width: 100vw;
 }
 
+.sidebar_esquerda, .sidebar_direita {
+    background-image: url('/DailyGreen-Project/IMAGES/background_dailygreen.png');
+}
+
 /* SIDEBAR ESQUERDA (20%) */
 .sidebar_esquerda {
     width: 20%;
