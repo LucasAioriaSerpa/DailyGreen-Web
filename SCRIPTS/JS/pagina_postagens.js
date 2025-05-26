@@ -192,6 +192,24 @@ function confirmSendDenuncia(){
     );
 }
 
+function toggleReact(btn) {
+    const wrapper = btn.closest('.reaction-wrapper');
+    const reactContainer = wrapper.querySelector('.react-container');
+    reactContainer.classList.toggle('show');
+    // Fecha ao clicar fora
+    if (reactContainer.classList.contains('show')) {
+        setTimeout(() => {
+            document.addEventListener('click', closeOnClickOutside);
+        }, 0);
+        function closeOnClickOutside(e) {
+            if (!wrapper.contains(e.target)) {
+                reactContainer.classList.remove('show');
+                document.removeEventListener('click', closeOnClickOutside);
+            }
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const editBtn = document.querySelector('.edit-btn');
     const editModal = document.getElementById('editModal');
@@ -220,11 +238,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-function btnReaction(){
-    const btnReaction = document.getElementById('btnReaction');
-    btnReaction.addEventListener('hover', function() {
-        const contentReact = document.getElementById('contentReact');
-        contentReact.classList.toggle('show');
-    })
-}

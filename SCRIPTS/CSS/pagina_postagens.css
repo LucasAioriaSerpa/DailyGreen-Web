@@ -355,30 +355,6 @@ body {
 
 /* ------------------------------ */
 
-.btn-content-footer {
-    outline: #79B791 solid 2px;
-    color: #51291E;
-    border-radius: 10px;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-} .btn-content-footer:hover {
-    background-color: #79B791;
-    transition: 0.2s;
-} .btn-content-footer:active {
-    outline: transparent;
-    background-color: #51291E;
-    transition: 0.2s;
-} .btn-content-footer i {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-} .btn-content-footer i p {
-    font-family:'Times New Roman', Times, serif;
-    font-size: 1rem;
-}
-
 /* ? Grid dinâmico para imagens do post */
 .column-midia {
     display: flex;
@@ -982,31 +958,69 @@ body {
     border-bottom: none;
 }
 
+.btn-content-footer {
+    outline: #79B791 solid 2px;
+    color: #51291E;
+    background-color: #EDF4ED;
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+} .btn-content-footer:hover {
+    background-color: #79B791;
+    transition: 0.2s;
+} .btn-content-footer:active {
+    outline: transparent;
+    background-color: #51291E;
+    transition: 0.2s;
+} .btn-content-footer i {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+} .btn-content-footer i p {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1rem;
+}
+
+.reaction-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
 .react-container {
-    display: none; /* ? flex later */
-    bottom: 4vh;
-    left: -5vw;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    pointer-events: none;
+    overflow: hidden;
+    left: 0;
+    bottom: 110%;
+    opacity: 0;
     padding: 0 10px;
     border-radius: 10rem;
     background-color: #79B791;
     outline: #51291E solid 2px;
-} .react-container.show {
-    display: flex;
-    position: absolute;
-    z-index: 9999;
-    transition: all 0.3s ease-in-out;
+    transform: translateY(10px) scale(0.95);
+    transition: opacity 0.3s, transform 0.3s;
+}.react-container.show {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .form-reaction {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    margin-top: 10px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    gap: 10px;
 }
 
 .btn-reaction {
-    position: relative;
     bottom: 0.5vh;
     border: none;
     padding: 10px;
@@ -1051,11 +1065,6 @@ body {
     pointer-events: none;
     font-size: 1.2em;
     filter: drop-shadow(0 1px 2px #0003);
-}
-
-/* Aumenta o espaçamento entre os botões */
-.form-reaction {
-    gap: 14px;
 }
 
 /* Responsividade para telas menores */
