@@ -258,8 +258,8 @@ $_event = null;
                                 <?php foreach ($eventArray as $evento): ?>
                                     <?php if ($evento['id_post'] == $post['id_post']): ?>
                                         <div class="dateTime">
-                                            <div class="dateTime-inicio">Inicio: <?php echo $evento['data_hora_inicio'] ?></div>
-                                            <div class="dateTime-fim">Fim: <?php echo $evento['data_hora_fim'] ?></div>
+                                            <div class="dateTime-inicio">Início: <?= date('d/m/Y H:i', strtotime($evento['data_hora_inicio'])) ?></div>
+                                            <div class="dateTime-inicio">Início: <?= date('d/m/Y H:i', strtotime($evento['data_hora_fim'])) ?></div>
                                         </div>
                                         <div class="local">Local: <?php echo $evento['local'] ?></div>
                                         <div class="link">Link: <?php echo "<a href='https://{$evento["link"]}'>{$evento['link']}</a>" ?></div>

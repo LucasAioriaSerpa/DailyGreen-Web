@@ -244,3 +244,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+//Contador do numero de caracteres em biografia
+document.getElementById('biografia').addEventListener('input', function() {
+    const charCount = this.value.length;
+    document.getElementById('charCounter').textContent = charCount + '/250';
+});
+
+

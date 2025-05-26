@@ -80,7 +80,7 @@ $_event = null;
                 <div class="profile-info">
                     <h2><strong><?= htmlspecialchars($userInfo[0]['username']) ?></strong></h2>
                     <p>@<?= htmlspecialchars($userInfo[0]['username']) ?></p>
-                    <p>📅 Entrou em: <?= htmlspecialchars($userInfo[0]['create_time']) ?></p>
+                    <p>📅 Entrou em: <?= date('d/m/Y', strtotime($userInfo[0]['create_time'])) ?></p>
                     <p id="user-biography">Biografia: <?= htmlspecialchars($userInfo[0]['biografia']) ?></p>  
                 </div>
                 
@@ -99,10 +99,11 @@ $_event = null;
                                     id="biografia" 
                                     name="biografia" 
                                     placeholder="Escreva sua biografia aqui..."
-                                    pattern=".{0,250}" 
+                                    pattern=".{0,250}" x
                                     maxlength="250"
                                     title="A biografia deve ter no máximo 250 caracteres."
                                 >
+                                <span id="charCounter">0/250</span>
                             </div>
                             
                             <div class="form-actions">
@@ -231,8 +232,8 @@ $_event = null;
                                 <?php foreach ($eventArray as $evento): ?>
                                     <?php if ($evento['id_post'] == $post['id_post']): ?>
                                         <div class="dateTime">
-                                            <div class="dateTime-inicio">Inicio: <?php echo $evento['data_hora_inicio'] ?></div>
-                                            <div class="dateTime-fim">Fim: <?php echo $evento['data_hora_fim'] ?></div>
+                                            <div class="dateTime-inicio">Início: <?= date('d/m/Y H:i', strtotime($evento['data_hora_inicio'])) ?></div>
+                                            <div class="dateTime-inicio">Início: <?= date('d/m/Y H:i', strtotime($evento['data_hora_fim'])) ?></div>
                                         </div>
                                         <div class="local">Local: <?php echo $evento['local'] ?></div>
                                         <div class="link">Link: <?php echo "<a href='https://{$evento["link"]}'>{$evento['link']}</a>" ?></div>
