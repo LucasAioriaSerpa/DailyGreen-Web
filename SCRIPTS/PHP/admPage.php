@@ -3,13 +3,16 @@
     include_once 'LOGIC/session.php';
     include_once 'LOGIC/SQL_connection.php';
     include_once 'LOGIC/functions.php';
+
     if ($_SESSION['user']['loged'] === false) {
         header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
         exit();
     }
+
     $sqlConnection = new SQLconnection();
     $admUserName = $sqlConnection->callTableBD('administrador');
     $usersArray = $sqlConnection->callTableBD('participante');
+    $id_administrador = ((int) $_SESSION['user']['account']);
     function pullAdmName(){
         // pega o nome do administrador no arquivo .json
         $emailAdministrador = $_SESSION['user']['account']['email'];
@@ -44,8 +47,8 @@
                     <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listButtonsAdm.php')">Página Principal</button> </div>
                     <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">Lista de Contas</button> </div>
                     <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listReport.php')">Lista de Denuncias</button> </div>
-                    <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/.php')">Lista de Suspensos</button> </div>
-                    <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/.php')">Lista de Banidos</button> </div>
+                    <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listSuspend.php')">Lista de Suspensos</button> </div>
+                    <div class="btn-list"> <button onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listBan.php')">Lista de Banidos</button> </div>
                 </div>
             </div>
             <div class="logout">

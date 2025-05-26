@@ -13,7 +13,7 @@
 
 <div class="navegacao_principal">
     <?php if (count($denunciaArray) === 0):?>
-        <div class="no-reports">
+        <div class="no-records">
             <h4>Ainda não há denúncias registradas!</h4>
         </div>
     <?php endif; ?>

@@ -318,11 +318,7 @@ body {
 
 
 /* LISTA DE DENUNCIAS */
-.no-reports{
-    display: flex;
-    padding-left: 500px;
-    padding-top: 250px;
-}
+
 
 .lista-reports {
     display: flex;
