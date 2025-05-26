@@ -6,6 +6,7 @@
     <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendReport.php" method="POST" class="form_denuncia">
         <input type="hidden" name="id_relator" value="<?php echo $userInfo[0]['id_participante']; ?>">
         <input type="hidden" name="id_relatado" value="<?php echo $post['id_autor']; ?>">
+        <input type="hidden" name="id_post" value="<?php echo $post['id_post']; ?>">
 
         <label for="titulo">Titulo:</label>
         <select class="titulo" name="titulo" id="titulo" required onchange="updateTitulo()">

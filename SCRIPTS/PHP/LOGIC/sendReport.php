@@ -7,17 +7,20 @@
     $sqlConnection = new SQLconnection();
     $id_relator = $_POST['id_relator'];
     $id_relatado = $_POST['id_relatado'];
+    $id_post = $_POST['id_post'];
     $titulo = $_POST['titulo'];
     $motivo = $_POST['motivo'];
 
     $sqlQuery = "INSERT INTO denuncia(
         id_relator,
         id_relatado,
+        id_post,
         titulo,
         motivo
     ) VALUES (
         '{$id_relator}',
         '{$id_relatado}',
+        '{$id_post}',
         '{$titulo}',
         '{$motivo}'
     )";
