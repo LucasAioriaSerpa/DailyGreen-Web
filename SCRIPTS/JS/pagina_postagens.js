@@ -114,8 +114,8 @@ const arrayMotivos = {
 
 function updateTitulo(){
     const enviarDenuncuia = document.getElementById("enviar_denuncia");
-    const titulo = document.getElementById("titulo").value;
-    const motivo = document.getElementById("motivo");
+    const titulo = document.getElementById("titulo_opt").value;
+    const motivo = document.getElementById("motivo_opt");
 
     console.log("Título selecionado:", titulo);
     console.log("Motivo selecionado:", motivo.value);
@@ -123,10 +123,12 @@ function updateTitulo(){
 
     motivo.innerHTML = "";
 
-    if (titulo == "" && motivo.value == "") {
-        enviarDenuncuia.classList.add("disabled");
-    } else {
+    if (titulo != "" && motivo.value != "") {
         enviarDenuncuia.classList.remove("disabled");
+        console.log("update OFF - Titulo!")
+    } else {
+        enviarDenuncuia.classList.add("disabled");
+        console.log("update ON - Titulo!")
     }
 
     if (titulo && arrayMotivos[titulo]) {
@@ -148,14 +150,17 @@ function updateTitulo(){
 
 function updateMotivo(){
     const enviarDenuncuia = document.getElementById("enviar_denuncia");
-    const motivo = document.getElementById("motivo").value;
+    const titulo = document.getElementById("titulo_opt").value;
+    const motivo = document.getElementById("motivo_opt").value;
 
     console.log("Motivo selecionado:", motivo);
 
-    if (motivo == "") {
-        enviarDenuncuia.classList.add("disabled");
-    } else {
+    if (titulo != "" && motivo != "") {
         enviarDenuncuia.classList.remove("disabled");
+        console.log("update OFF - Titulo!")
+    } else {
+        enviarDenuncuia.classList.add("disabled");
+        console.log("update ON - Titulo!")
     }
 }
 
