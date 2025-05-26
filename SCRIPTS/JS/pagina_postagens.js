@@ -114,8 +114,8 @@ const arrayMotivos = {
 
 function updateTitulo(){
     const enviarDenuncuia = document.getElementById("enviar_denuncia");
-    const titulo = document.getElementById("titulo").value;
-    const motivo = document.getElementById("motivo");
+    const titulo = document.getElementById("titulo_opt").value;
+    const motivo = document.getElementById("motivo_opt");
 
     console.log("Título selecionado:", titulo);
     console.log("Motivo selecionado:", motivo.value);
@@ -123,10 +123,12 @@ function updateTitulo(){
 
     motivo.innerHTML = "";
 
-    if (titulo == "" && motivo.value == "") {
-        enviarDenuncuia.classList.add("disabled");
-    } else {
+    if (titulo != "" && motivo.value != "") {
         enviarDenuncuia.classList.remove("disabled");
+        console.log("update OFF - Titulo!")
+    } else {
+        enviarDenuncuia.classList.add("disabled");
+        console.log("update ON - Titulo!")
     }
 
     if (titulo && arrayMotivos[titulo]) {
@@ -148,14 +150,17 @@ function updateTitulo(){
 
 function updateMotivo(){
     const enviarDenuncuia = document.getElementById("enviar_denuncia");
-    const motivo = document.getElementById("motivo").value;
+    const titulo = document.getElementById("titulo_opt").value;
+    const motivo = document.getElementById("motivo_opt").value;
 
     console.log("Motivo selecionado:", motivo);
 
-    if (motivo == "") {
-        enviarDenuncuia.classList.add("disabled");
-    } else {
+    if (titulo != "" && motivo != "") {
         enviarDenuncuia.classList.remove("disabled");
+        console.log("update OFF - Titulo!")
+    } else {
+        enviarDenuncuia.classList.add("disabled");
+        console.log("update ON - Titulo!")
     }
 }
 
@@ -215,26 +220,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const editModal = document.getElementById('editModal');
     const bioForm = document.getElementById('bioForm');
     const cancelBtn = document.getElementById('cancelBtn');
-    // Abre o modal quando clicar no botão de editar
+
     editBtn.addEventListener('click', function() {
         editModal.style.display = 'flex';
     });
-    // Fecha o modal quando enviar o formulário
+    
     bioForm.addEventListener('submit', function(e) {
-        // Aqui você pode adicionar a lógica para salvar a biografia
+        
         const novaBiografia = document.getElementById('biografia').value;
         console.log('Nova biografia:', novaBiografia);
-        // Fecha o modal
+        
         editModal.style.display = 'none';
     });
-    // Fecha o modal quando clicar no botão cancelar
+    
     cancelBtn.addEventListener('click', function() {
         editModal.style.display = 'none';
     });
-    // Fecha o modal se clicar fora do formulário
+    
     editModal.addEventListener('click', function(e) {
         if (e.target === editModal) {
             editModal.style.display = 'none';
         }
     });
 });
+

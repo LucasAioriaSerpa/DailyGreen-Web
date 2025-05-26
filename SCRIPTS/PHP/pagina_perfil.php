@@ -95,7 +95,14 @@ $_event = null;
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileAcc.php" method="POST" id="bioForm">
                             <div class="form-group">
                                 <label for="biografia">Biografia:</label>
-                                <input id="biografia" name="biografia" placeholder="Escreva sua biografia aqui...">
+                                <input 
+                                    id="biografia" 
+                                    name="biografia" 
+                                    placeholder="Escreva sua biografia aqui..."
+                                    pattern=".{0,250}" 
+                                    maxlength="250"
+                                    title="A biografia deve ter no máximo 250 caracteres."
+                                >
                             </div>
                             
                             <div class="form-actions">
