@@ -63,56 +63,62 @@
 <div class="navegacao_principal">
     <div class="form-analyse-report">
         <div class="container-dados-denuncia">
-            <fieldset class="dados-report">
-                <legend>Relatado</legend>
+            <fieldset>
+                <legend>RELATADO</legend>
                 <div class="dados-relatado">
-                    <div><?php echo "Nome: ".$relatado; ?></div>
-                    <div><?php echo "Email: ".$relatado_email ?></div>
-                    <div><img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($relatado_pic)) ?>"
-                            alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;"></div>
-                    <div><?php echo "Data de criação da conta: ".$relatado_creation_date ?></div>
-                </div>
+                    <div class="img-relatado">
+                        <div><img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($relatado_pic)) ?>"
+                            alt="Avatar" style="width: 70px; height: 70px; border-radius: 50%;"></div>
+                    </div>
+                    <div class="info-relatado">
+                        <div><?php echo "<b>Nome: </b>".$relatado; ?></div>
+                        <div><?php echo "<b>Email: </b>".$relatado_email ?></div>
+                        <div><?php echo "<b>Conta criada em: </b>".$relatado_creation_date ?></div>
+                    </div>
+                </div> <br>
                 <fieldset>
-                    <legend>Relator</legend>
+                    <legend>RELATOR</legend>
                     <div class="dados-relator">
-                        <div><?php echo "Nome: ".$relator; ?></div>
-                        <div><?php echo "Email: ".$relator_email ?></div>
-                        <div><img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($relator_pic)) ?>"
-                            alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;"></div>
+                        <div class="img-relator">
+                            <div><img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($relator_pic)) ?>"
+                                alt="Avatar" style="width: 70px; height: 70px; border-radius: 50%;"></div>
                         </div>
-                        <div><?php echo "Data de criação da conta: ".$relator_creation_date ?></div>
+                        <div class="info-relator">
+                            <div><?php echo "<b>Nome: </b>".$relator; ?></div>
+                            <div><?php echo "<b>Email: </b>".$relator_email ?></div>
+                            <div><?php echo "<b>Conta criada em: </b>".$relator_creation_date ?></div>
+                        </div>
+                    </div> <br>
                     <fieldset>
-                        <legend>Data da Denuncia</legend>
-                        <div><?php echo $denuncia_data; ?></div>
+                        <legend>INFORMAÇÕES DA DENÚNCIA</legend>
+                        <div class="dados-denuncia">
+                            <div><?php echo "<b>Motivo da Denúncia: </b>".$denuncia_motivo; ?></div>
+                            <div><?php echo "<b>Descrição da Denúncia: </b>".$denuncia_descricao; ?></div>
+                            <div><?php echo "<b>Data de Registro: </b>".$denuncia_data; ?></div>
+                        </div> <br>
                         <fieldset>
-                            <legend>Motivo da Denuncia</legend>
-                            <div><?php echo $denuncia_motivo; ?></div>
+                            <legend>POST DENUNCIADO</legend>
+                            <div class="dados-post">
+                                <div><?php echo "<b>Titulo do Post: </b>".$post_titulo ?></div>
+                                <div><?php echo "<b>Descrição do Post: </b>".$post_descricao ?></div>
+                            </div> <br>
                             <fieldset>
-                                <legend>Descrição da Denuncia</legend>
-                                <div><?php echo $denuncia_descricao; ?></div>
-                                <fieldset>
-                                    <legend>Post Denunciado</legend>
-                                    <div><?php echo "Titulo do Post:".$post_titulo ?></div>
-                                    <div><?php echo "Descrição do Post:".$post_descricao ?></div>
-                                    <fieldset>
-                                        <legend>Decisão</legend>
-                                        <div class="decision">
-                                            <button class="back-to-listReport" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listReport.php')">VOLTAR</button>
-                                            <input type="submit" value="DESCARTAR" id="discard" name="discard" onclick="formDiscard()">
-                                            <input type="submit" value="SUSPENDER" id="suspend" name="suspend" onclick="formSuspend()">
-                                            <input type="submit" value="BANIR" id="ban" name="ban" onclick="formBan()">
-                                        </div>
-                                            <div class="formulario-discard" id="formulario-discard" name="formulario-discard">
-                                                <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_discard.html"; ?>
-                                            </div>
-                                            <div class="formulario-suspenso" id="formulario-suspenso" name="formulario-suspenso">
-                                                <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_suspend.html"; ?>
-                                            </div>
-                                            <div class="formulario-banido" id="formulario-banido" name="formulario-banido">
-                                                <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_ban.html"; ?>
-                                            </div>
-                                    </fieldset>
-                                </fieldset>
+                                <legend>DECISÃO</legend>
+                                <div class="decision">
+                                    <button class="back-to-listReport" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listReport.php')">VOLTAR</button>
+                                    <input type="submit" value="DESCARTAR" class="discard" id="discard" name="discard" onclick="formDiscard()">
+                                    <input type="submit" value="SUSPENDER" class="suspend" id="suspend" name="suspend" onclick="formSuspend()">
+                                    <input type="submit" value="BANIR" class="ban" id="ban" name="ban" onclick="formBan()">
+                                </div> <br>
+                                <div class="formulario-discard" id="formulario-discard" name="formulario-discard">
+                                    <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_discard.html"; ?>
+                                </div>
+                                <div class="formulario-suspenso" id="formulario-suspenso" name="formulario-suspenso">
+                                    <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_suspend.html"; ?>
+                                </div>
+                                <div class="formulario-banido" id="formulario-banido" name="formulario-banido">
+                                    <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_ban.html"; ?>
+                                </div>
                             </fieldset>
                         </fieldset>
                     </fieldset>

@@ -8,23 +8,43 @@
     }
 ?>
 
-<div class="navegacao_principal">
-    <div class="all-buttons">
-        <div class="button-row">
-            <div class="btn_users">
-                <button class="btn-users-list" id="btn-users-list" name="btn-users-list" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">Lista de Usuários</button>
-            </div>
-            <div class="btn-report">
-                <button class="btn-report-list" id="btn-report-list" name="btn-report-list" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listReport.php')">Lista de Denúncias</button>
-            </div>
+<div class="all-buttons">
+    <div class="button-row">
+        <div class="btn_users">
+            <button class="btn-users-list" id="btn-users-list" name="btn-users-list" 
+                onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">
+                <div class="background-card"></div>
+                <div class="card-content">
+                    <div class="card-title">Lista de Usuários</div>
+                </div>
+            </button>
         </div>
-        <div class="button-row">
-            <div class="btn_suspenso">
-                <button class="btn-suspenso-list" id="btn-suspenso-list" name="btn-suspenso-list">Lista de Suspensos</button>
-            </div>
-            <div class="btn_banido">
-                <button class="btn-banido-list" id="btn-banido-list" name="btn-banido-list">Lista de Banidos</button>
-            </div>
+        <div class="btn_report">
+            <button class="btn-report-list" id="btn-report-list" name="btn-report-list" 
+                onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listReport.php')">
+                <div class="background-card"></div>
+                <div class="card-content">
+                    <div class="card-title">Lista de Denúncias</div>
+                </div>
+            </button>
+        </div>
+    </div>
+    <div class="button-row">
+        <div class="btn_suspenso">
+            <button class="btn-suspenso-list" id="btn-suspenso-list" name="btn-suspenso-list">
+                <div class="background-card"></div>
+                <div class="card-content">
+                    <div class="card-title">Lista de Suspensos</div>
+                </div>
+            </button>
+        </div>
+        <div class="btn_banido">
+            <button class="btn-banido-list" id="btn-banido-list" name="btn-banido-list">
+                <div class="background-card"></div>
+                <div class="card-content">
+                    <div class="card-title">Lista de Banidos</div>
+                </div>
+            </button>
         </div>
     </div>
 </div>

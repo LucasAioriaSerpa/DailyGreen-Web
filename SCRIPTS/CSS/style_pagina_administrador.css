@@ -202,76 +202,79 @@ body {
 .btn-users-list,
 .btn-report-list,
 .btn-suspenso-list,
-.btn-banido-list{
-  position: relative;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  width: 500px;
-  height: 200px;
-  padding-block: 0.5rem;
-  padding-inline: 1.25rem;
-  background-color: rgb(0 107 179);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #ffff;
-  gap: 10px;
-  font-weight: bold;
-  border: 5px solid #ffffff4d;
-  outline: none;
-  overflow: hidden;
-  font-size: 20px;
+.btn-banido-list {
+    border: none;
+    position: relative;
+    width: 350px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #b3bbb6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
 .btn-users-list:hover,
 .btn-report-list:hover,
 .btn-suspenso-list:hover,
 .btn-banido-list:hover {
-  transform: scale(1.05);
-  border-color: #fff9;
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.btn-users-list:hover::before,
-.btn-report-list:hover::before,
-.btn-suspenso-list:hover::before,
-.btn-banido-list:hover::before {
-  animation: shine 1.5s ease-out infinite;
+.card-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #888;
+    z-index: 2;
+    transition: color 0.3s;
 }
 
-.btn-users-list::before,
-.btn-report-list::before,
-.btn-suspenso-list::before,
-.btn-banido-list::before {
-  content: "";
-  position: absolute;
-  width: 100px;
-  height: 100%;
-  background-image: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 30%,
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0) 70%
-  );
-  top: 0;
-  left: -100px;
-  opacity: 0.6;
+.btn-users-list:hover .card-content{
+    color: #73b7fc;
 }
 
-@keyframes shine {
-  0% {
-    left: -100px;
-  }
-
-  60% {
-    left: 100%;
-  }
-
-  to {
-    left: 100%;
-  }
+.btn-report-list:hover .card-content{
+    color: #ffe25f;
 }
+
+.btn-suspenso-list:hover .card-content{
+    color: #ffa45f;
+}
+
+.btn-banido-list:hover .card-content {
+    color: #fa6c6c;
+}
+
+.background-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(52, 73, 94, 0.7);
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.btn-users-list:hover .background-card,
+.btn-report-list:hover .background-card,
+.btn-suspenso-list:hover .background-card,
+.btn-banido-list:hover .background-card {
+    opacity: 1;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 
 
 /* LISTA DE USUARIOS */
@@ -330,42 +333,92 @@ body {
 
 .container-report {
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
-    justify-content: center;
-    background-color: #d1abab;
-    color: black;
-    gap: 1vw;
-    font-size: 2vh;
-    padding: 1%;
-    border-radius: 10px;
-    width: 60vw;
-    height: auto;
+    isolation: isolate;
+    position: relative;
+    width: 60rem;
+    height: 10rem;
+    background: #29292c;
+    border-radius: 1rem;
+    overflow: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    --gradient: linear-gradient(to bottom, #77ff2e, #58ca32, #41a53a);
+    --color: #32a6ff
 }
 
-.report-row {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 1vw;
-} .report-row > div {
-    flex-grow: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+.container-report:before {
+    position: absolute;
+    content: "";
+    inset: 0.0625rem;
+    border-radius: 0.9375rem;
+    background: rgba(52, 73, 94, 0.7);
+    z-index: 2
 }
 
-.report-row-titulo-motivo,
-.report-row-status-data {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.container-report:after {
+    position: absolute;
+    content: "";
+    width: 0.25rem;
+    inset: 0.65rem auto 0.65rem 0.5rem;
+    border-radius: 0.125rem;
+    background: var(--gradient);
+    transition: transform 300ms ease;
+    z-index: 4;
 }
 
-.report-row-id-analyse {
+.container-report:hover:after {
+    transform: translateX(0.15rem)
+}
+
+.report-titulo-motivo {
     display: flex;
-    width: 100%;
+    padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #29d26a;
+    transition: transform 300ms ease;
+    z-index: 5;
+}
+
+.container-report:hover .report-titulo-motivo {
+    transform: translateX(0.15rem);
+}
+
+.report-status-data {
+    display: flex;
+    color: #EDF4ED;
+    padding: 0 1.25rem;
+    transition: transform 300ms ease;
+    z-index: 5;
+}
+
+.container-report:hover .report-status-data {
+    transform: translateX(0.25rem);
+}
+
+.efect-report,
+.border-report {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle closest-side at center, white, transparent);
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.efect-report {
+    z-index: 3;
+}
+
+.border-report {
+    z-index: 1;
+}
+
+.container-report:hover .efect-report,
+.container-report:hover .border-report {
+    opacity: 0.1
 }
 
 .denuncia-titulo, 
@@ -383,16 +436,38 @@ body {
 .denuncia-titulo,
 .denuncia-status,
 .denuncia-id {
-    width: 30%;
+    width: 35%;
 }
-
-.denuncia-motivo,
-.denuncia-data {
-    width: 70%;
-}
-
+ 
 .btn-analyse {
+    width: 100px;
+    height: 30px;
+    font-size: 10px;
+    cursor: pointer;
+    background-color: #171717;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: all .4s;
+    margin-top: 1rem;
+    margin-left: 50rem;
     flex-shrink: 0;
+}
+
+.btn-analyse:hover {
+    border-radius: 5px;
+    transform: translateY(-10px);
+    box-shadow: 0 7px 0 -2px #79b791,
+    0 15px 0 -4px #51291E,
+    0 16px 10px -3px #EDF4ED;
+}
+
+.btn-analyse:active {
+    transition: all 0.2s;
+    transform: translateY(-5px);
+    box-shadow: 0 2px 0 -2px #79b791,
+    0 8px 0 -4px #51291E,
+    0 12px 10px -3px #EDF4ED;
 }
 
 /* LISTA SUSPENSOS */
@@ -402,9 +477,85 @@ body {
 
 
 /* ANALISE DENUNCIAS */
+legend{
+    background-color: #79b791;
+    border: 2px solid #51291E;
+    padding: 0.5em;
+    border: none;
+    border-radius: .6rem;
+    font-size: 13px;
+    font-weight: bold;
+}
 
+fieldset{
+    padding: 10px;
+    background-color: #EDF4ED;
+}
 
-/* FORM DISCARTAR DENUNCIA */
+.dados-relatado,
+.dados-relator{
+    display: flex;
+}
+
+.img-relatado,
+.img-relator{
+    margin: 4px;
+}
+
+.info-relatado,
+.info-relator{
+    margin-left: 4%;
+}
+
+.decision{
+    margin: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.back-to-listReport,
+.discard,
+.suspend,
+.ban{
+    border: none;
+    outline: none;
+    width: 20%;
+    height: 40px;
+    background-color: rgba(52, 73, 94, 0.7);
+    color: #EDF4ED;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.back-to-listReport:hover{
+    transition: 1s;
+    background-color: #79b791;
+    color: #171717;
+}
+
+.discard:hover{
+    transition: 1s;
+    background-color: #ffe25f;
+    color: #171717;
+}
+
+.suspend:hover{
+    transition: 1s;
+    background-color: #ffa45f;
+    color: #171717;
+}
+
+.ban:hover{
+    transition: 1s;
+    background-color: #fa6c6c;
+    color: #171717;
+}
+
+/* FORM DECISÕES DA DENUNCIA */
 .formulario-discard,
 .formulario-suspenso,
 .formulario-banido{
