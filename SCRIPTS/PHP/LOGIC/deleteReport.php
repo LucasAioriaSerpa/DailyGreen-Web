@@ -6,7 +6,7 @@
 
     $sqlConnection = new SQLconnection();
     $id_denuncia = $_POST['id_denuncia'];
-    $sqlConnection->deleteReport($id_denuncia);
+    
 
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/admPage.php");
 ?>

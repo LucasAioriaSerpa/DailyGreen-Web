@@ -191,7 +191,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 9vh;
+    max-width: calc(100vw - 15vw);
+    max-height: calc(100vh - 9.2vh); 
     gap: 3vw;
 }
 
@@ -206,8 +207,8 @@ body {
 .btn-banido-list {
     border: none;
     position: relative;
-    width: 450px;
-    height: 300px;
+    width: 400px;
+    height: 250px;
     overflow: hidden;
     border-radius: 15px;
     background-color: #b3bbb6;

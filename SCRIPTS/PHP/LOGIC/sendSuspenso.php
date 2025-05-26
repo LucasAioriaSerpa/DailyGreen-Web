@@ -2,7 +2,6 @@
     include_once 'session.php';
     include_once 'SQL_connection.php';
     include_once 'functions.php';
-    include_once 'deleteReport.php';
     debug_var($_POST);
 
     $sqlConnection = new SQLconnection();
@@ -28,6 +27,5 @@
     )";
 
     $sqlConnection->insertQueryBD($sqlQuery);
-    $sqlConnection->deleteReport($id_denuncia);
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/admPage.php");
 ?>

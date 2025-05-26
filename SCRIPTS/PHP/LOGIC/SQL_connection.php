@@ -86,19 +86,4 @@ class SQLconnection {
             return false;
         }
     }
-
-    public function deleteReport(int $id_denuncia) {
-        $conn = $this->tryConnectBD(false);
-        $id_denuncia = $conn->real_escape_string($id_denuncia);
-        $sqlQuery = "DELETE FROM denuncia WHERE id_denuncia = {$id_denuncia}";
-        if ($conn->query($sqlQuery) === true) {
-            echo "Denuncia deletada com sucesso.";
-            $conn->close();
-            return true;
-        } else {
-            echo "Erro ao deletar denuncia: " . $conn->error;
-            $conn->close();
-            return false;
-        }
-    }
 }
