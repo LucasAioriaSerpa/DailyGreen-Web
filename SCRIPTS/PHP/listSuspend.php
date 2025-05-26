@@ -15,7 +15,7 @@
 <div class="container-suspensos">
     <?php if (count($suspensoArray) === 0):?>
         <div class="no-reports">
-            <h4>Ainda não há denúncias registradas!</h4>
+            <h4>Ainda não há usuários suspensos!</h4>
         </div>
     <?php endif; ?>
     <div class="list-suspends">

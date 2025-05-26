@@ -31,7 +31,8 @@
     </div>
     <div class="button-row">
         <div class="btn_suspenso">
-            <button class="btn-suspenso-list" id="btn-suspenso-list" name="btn-suspenso-list">
+            <button class="btn-suspenso-list" id="btn-suspenso-list" name="btn-suspenso-list"
+                onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listSuspend.php')">
                 <div class="background-card"></div>
                 <div class="card-content">
                     <div class="card-title">Lista de Suspensos</div>
@@ -39,7 +40,8 @@
             </button>
         </div>
         <div class="btn_banido">
-            <button class="btn-banido-list" id="btn-banido-list" name="btn-banido-list">
+            <button class="btn-banido-list" id="btn-banido-list" name="btn-banido-list"
+                onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listBan.php')">
                 <div class="background-card"></div>
                 <div class="card-content">
                     <div class="card-title">Lista de Banidos</div>

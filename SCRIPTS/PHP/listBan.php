@@ -15,7 +15,7 @@
 <div class="container-banido">
     <?php if (count($banidoArray) === 0):?>
         <div class="no-reports">
-            <h4>Ainda não há denúncias registradas!</h4>
+            <h4>Ainda não há usuários banidos!</h4>
         </div>
     <?php endif; ?>
     <div class="list-bans">
