@@ -2,6 +2,7 @@
     include_once 'LOGIC/session.php';
     include_once 'LOGIC/SQL_connection.php';
     include_once 'LOGIC/functions.php';
+    include_once 'LOGIC/functions.php';
     if ($_SESSION['user']['loged'] === false) {
         header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
         exit();
@@ -14,16 +15,16 @@
     $id_denuncia = $_GET['id'];
 
     // JOIN para pegar os dados do relator, relatado e post
-    $join = "SELECT denuncia.*, 
-		relator.username AS relator_username, 
-        relator.email AS relator_email, 
-        relator.profile_pic AS relator_profile_pic, 
-        relator.create_time AS relator_creation_date, 
+    $join = "SELECT denuncia.*,
+		relator.username AS relator_username,
+        relator.email AS relator_email,
+        relator.profile_pic AS relator_profile_pic,
+        relator.create_time AS relator_creation_date,
         relatado.username AS relatado_username,
         relatado.email AS relatado_email,
-        relatado.profile_pic AS relatado_profile_pic, 
+        relatado.profile_pic AS relatado_profile_pic,
         relatado.create_time AS relatado_creation_date,
-        post.titulo AS post_titulo, 
+        post.titulo AS post_titulo,
         post.descricao AS post_descricao
         FROM denuncia
         JOIN participante AS relator ON denuncia.id_relator = relator.id_participante
@@ -62,6 +63,7 @@
 
 <div class="navegacao_principal">
     <div class="form-analyse-report">
+        <?php ?>
         <div class="container-dados-denuncia">
             <fieldset>
                 <legend>RELATADO</legend>
