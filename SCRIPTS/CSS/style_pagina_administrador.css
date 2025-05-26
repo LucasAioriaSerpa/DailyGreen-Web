@@ -173,6 +173,7 @@ body {
     z-index: 1000;
 }
 
+
 /* BOTOES PAGINA INICIAL */
 .menu_principal {
     position: absolute;
@@ -189,8 +190,8 @@ body {
 .all-buttons{
     display: flex;
     flex-direction: column;
-    padding-top: 5%;
-    padding-left: 8%;
+    align-items: center;
+    padding-top: 9vh;
     gap: 3vw;
 }
 
@@ -205,8 +206,8 @@ body {
 .btn-banido-list {
     border: none;
     position: relative;
-    width: 350px;
-    height: 200px;
+    width: 450px;
+    height: 300px;
     overflow: hidden;
     border-radius: 15px;
     background-color: #b3bbb6;
@@ -247,7 +248,7 @@ body {
 }
 
 .btn-banido-list:hover .card-content {
-    color: #fa6c6c;
+    color: #f95b5b;
 }
 
 .background-card {
@@ -262,6 +263,7 @@ body {
     transition: opacity 0.3s;
 }
 
+
 .btn-users-list:hover .background-card,
 .btn-report-list:hover .background-card,
 .btn-suspenso-list:hover .background-card,
@@ -270,7 +272,7 @@ body {
 }
 
 .card-title {
-    font-size: 24px;
+    font-size: 35px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -316,13 +318,20 @@ body {
 }
 
 
+.no-records{
+    width: 100%;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
 
 /* LISTA DE DENUNCIAS */
-
-
 .lista-reports {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1vh;
     width: 100%;
 }
@@ -332,7 +341,7 @@ body {
     flex-direction: column;
     isolation: isolate;
     position: relative;
-    width: 60rem;
+    width: 70rem;
     height: 10rem;
     background: #29292c;
     border-radius: 1rem;
@@ -434,19 +443,18 @@ body {
 .denuncia-id {
     width: 35%;
 }
- 
+
 .btn-analyse {
-    width: 100px;
-    height: 30px;
-    font-size: 10px;
+    width: 150px;
+    height: 40px;
+    font-size: 12px;
     cursor: pointer;
     background-color: #171717;
     color: #fff;
     border: none;
     border-radius: 5px;
     transition: all .4s;
-    margin-top: 1rem;
-    margin-left: 50rem;
+    margin-left: 55rem;
     flex-shrink: 0;
 }
 
@@ -491,16 +499,18 @@ fieldset{
 .dados-relatado,
 .dados-relator{
     display: flex;
+    align-items: center;
 }
 
 .img-relatado,
 .img-relator{
-    margin: 4px;
+    margin: 5px;
+    margin-left: 5px;
 }
 
 .info-relatado,
 .info-relator{
-    margin-left: 4%;
+    margin-left: 3%;
 }
 
 .decision{
@@ -547,7 +557,7 @@ fieldset{
 
 .ban:hover{
     transition: 1s;
-    background-color: #fa6c6c;
+    background-color: #f95b5b;
     color: #171717;
 }
 

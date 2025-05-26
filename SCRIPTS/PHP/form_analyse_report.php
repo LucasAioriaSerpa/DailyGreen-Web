@@ -10,6 +10,8 @@
 
     $sqlConnection = new SQLconnection();
     $denunciaArray = $sqlConnection->callTableBD('denuncia');
+    $midiaArray = $sqlConnection->callTableBD('midia');
+    $id_administrador = ((int) $_SESSION['user']['account']);
 
     // Chamando o id da denuncia ele foi passado pelo onclick no botão de analisar
     $id_denuncia = $_GET['id'];
@@ -49,15 +51,23 @@
         $relator_pic = $joinQuery[0]['relator_profile_pic'];
         $relator_creation_date = $joinQuery[0]['relator_creation_date'];
         // Post
+        $post_id = $joinQuery[0]['id_post'];
         $post_titulo = $joinQuery[0]['post_titulo'];
         $post_descricao = $joinQuery[0]['post_descricao'];
         // Denuncia
+        $denuncia_id = $joinQuery[0]['id_denuncia'];
         $denuncia_data = $joinQuery[0]['data_registro'];
         $denuncia_motivo = $joinQuery[0]['titulo'];
         $denuncia_descricao = $joinQuery[0]['motivo'];
         $denuncia_status = $joinQuery[0]['status'];
     } else {
         echo "Nenhum resultado encontrado.";
+    }
+
+    if ($post_id === $midiaArray[$post_id]['id_post']){
+        $midia = $midiaArray[$post_id]['midia_ref'];
+    } else {
+        $midia = "Nenhuma mídia associada ao post.";
     }
 ?>
 
@@ -70,7 +80,7 @@
                 <div class="dados-relatado">
                     <div class="img-relatado">
                         <div><img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($relatado_pic)) ?>"
-                            alt="Avatar" style="width: 70px; height: 70px; border-radius: 50%;"></div>
+                            alt="Avatar" style="width: 90px; height: 90px; border-radius: 50%;"></div>
                     </div>
                     <div class="info-relatado">
                         <div><?php echo "<b>Nome: </b>".$relatado; ?></div>
@@ -83,7 +93,7 @@
                     <div class="dados-relator">
                         <div class="img-relator">
                             <div><img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($relator_pic)) ?>"
-                                alt="Avatar" style="width: 70px; height: 70px; border-radius: 50%;"></div>
+                                alt="Avatar" style="width: 90px; height: 90px; border-radius: 50%;"></div>
                         </div>
                         <div class="info-relator">
                             <div><?php echo "<b>Nome: </b>".$relator; ?></div>
@@ -103,7 +113,11 @@
                             <div class="dados-post">
                                 <div><?php echo "<b>Titulo do Post: </b>".$post_titulo ?></div>
                                 <div><?php echo "<b>Descrição do Post: </b>".$post_descricao ?></div>
-                            </div> <br>
+                                <div class="midia-post"><?php echo "<b>Imagens do Post: </b>" ?></div><br>
+                                <div class="img-post">
+                                    <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia)) ?>"
+                                        alt="Avatar" style="border-radius: 10px;"></div>
+                            </div><br>
                             <fieldset>
                                 <legend>DECISÃO</legend>
                                 <div class="decision">
