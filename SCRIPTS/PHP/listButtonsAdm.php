@@ -11,7 +11,7 @@
 <div class="all-buttons">
     <div class="button-row">
         <div class="btn_users">
-            <button class="btn-users-list" id="btn-users-list" name="btn-users-list" 
+            <button class="btn-users-list" id="btn-users-list" name="btn-users-list"
                 onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">
                 <div class="background-card"></div>
                 <div class="card-content">
@@ -20,7 +20,7 @@
             </button>
         </div>
         <div class="btn_report">
-            <button class="btn-report-list" id="btn-report-list" name="btn-report-list" 
+            <button class="btn-report-list" id="btn-report-list" name="btn-report-list"
                 onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listReport.php')">
                 <div class="background-card"></div>
                 <div class="card-content">

@@ -388,6 +388,8 @@ body {
     left: 0; top: 0;
     width: 100vw; height: 100vh;
     background: #000000cc;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     align-items: center;
     justify-content: center;
 }
@@ -994,6 +996,23 @@ body {
     display: inline-block;
 }
 
+.btn-reaction-toggle.active {
+    background-color: #79B791;
+    color: #51291E;
+    outline: #51291E solid 2px;
+    transition: background-color 0.2s, color 0.2s, outline 0.2s;
+}.btn-reaction-toggle.active:hover {
+    background-color: #ABD1B5;
+    color: #51291E;
+    outline: #79B791 solid 2px;
+    transition: background-color 0.2s, color 0.2s, outline 0.2s;
+}.btn-reaction-toggle.active:active {
+    background-color: #51291E;
+    color: #EDF4ED;
+    outline: #79B791 solid 2px;
+    transition: background-color 0.2s, color 0.2s, outline 0.2s;
+}
+
 .react-container {
     display: flex;
     align-items: center;
@@ -1038,7 +1057,7 @@ body {
     align-items: center;
     justify-content: center;
     background: linear-gradient(145deg, #79B791 60%, #ABD1B5 100%);
-    box-shadow: 0 2px 8px #0002;
+    box-shadow: 0 2px 8px #00000022;
     transition:
         transform 0.2s,
         box-shadow 0.2s,
@@ -1084,6 +1103,10 @@ body {
     }
 }
 
+.comment-wrapper {
+    position: relative;
+    display: inline-block
+}
 
 /* PARTE DA BIOGRAFIA*/
 

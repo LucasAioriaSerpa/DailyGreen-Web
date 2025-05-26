@@ -199,7 +199,9 @@ function confirmSendDenuncia(){
 
 function toggleReact(btn) {
     const wrapper = btn.closest('.reaction-wrapper');
+    const btnReactionToggle = wrapper.querySelector('.btn-reaction-toggle');
     const reactContainer = wrapper.querySelector('.react-container');
+    btnReactionToggle.classList.toggle('active');
     reactContainer.classList.toggle('show');
     // Fecha ao clicar fora
     if (reactContainer.classList.contains('show')) {
@@ -208,6 +210,7 @@ function toggleReact(btn) {
         }, 0);
         function closeOnClickOutside(e) {
             if (!wrapper.contains(e.target)) {
+                btnReactionToggle.classList.remove('active');
                 reactContainer.classList.remove('show');
                 document.removeEventListener('click', closeOnClickOutside);
             }

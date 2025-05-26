@@ -1,3 +1,4 @@
+
 <?php
 include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/session.php";
 include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/SQL_connection.php";
@@ -173,11 +174,12 @@ $_event = null;
                     </button>
                     <div class="post-footer">
                         <div class="reaction-wrapper">
-                            <button class="btn-content-footer btn-reaction-toggle" onclick="toggleReact(this)">
+                            <button class="btn-content-footer btn-reaction-toggle" title="Reaja neste post!" onclick="toggleReact(this)">
                                 <i class="fa-solid fa-heart"> <p>Reaja</p></i>
                             </button>
                             <div class="react-container">
-                                <form action="/xampp/htdocs/DailyGreen-Project/SCRIPTS/LOGIC/.php" method="post" class="form-reaction">
+                                <!--//TODO: action="/xampp/htdocs/DailyGreen-Project/SCRIPTS/LOGIC/.php" -->
+                                <form  method="post" class="form-reaction">
                                     <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
                                     <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
                                     <input type="hidden" name="id_autor_reaction" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">
@@ -189,7 +191,21 @@ $_event = null;
                                 </form>
                             </div>
                         </div>
-                        <button id="btnComment" class="btn-content-footer btn-comment-toggle"><i class="fa-solid fa-comment"> <p>Comente</p></i></button>
+                        <div class="comment-wrapper">
+                            <button id="btnComment" class="btn-content-footer btn-comment-toggle" title="Comente neste post!">
+                                <i class="fa-solid fa-comment"><p>Comente</p></i>
+                            </button>
+                            <div class="comment-modal-content">
+                                <div class="post-comment">
+                                    post in this
+                                </div>
+                                <div class="comment-container">
+                                    <form action="" class="form-comment">
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>
