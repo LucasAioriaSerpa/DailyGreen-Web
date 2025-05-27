@@ -141,6 +141,14 @@ body {
 .post {
     padding: 15px 20px;
     border-bottom: 1px solid #ABD1B5;
+}.post:hover {
+    background-color: #e5ebe7;
+    transition: background-color 0.2s ease;
+}.post:last-child {
+    border-bottom: none;
+}.post:active {
+    background-color: #d1d8d4;
+    transition: background-color 0.2s ease;
 }
 
 .post-user {
@@ -1196,6 +1204,7 @@ body {
     padding: 10px;
     height: 60px;
     resize: vertical;
+    margin-top: 1vh;
 } .form-comment textarea:focus {
     outline: #51291E solid 2px;
 } .form-comment button {
@@ -1207,7 +1216,7 @@ body {
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 1vh;
 } .form-comment button:hover {
     background-color: #79B791;
     color: #51291E;

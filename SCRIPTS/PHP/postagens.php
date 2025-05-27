@@ -1,4 +1,3 @@
-
 <?php
 include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/session.php";
 include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/SQL_connection.php";
@@ -114,7 +113,7 @@ $_event = null;
             <?php foreach (array_reverse($postsArray) as $post): ?>
                 <?php foreach ($eventArray as $evento): if ($evento['id_post'] == $post['id_post']): $_event = true; endif; endforeach;?>
                 <?php if ($_event): $_event = false; continue; endif; ?>
-                <div class="post">
+                <article class="post" id="post-<?= htmlspecialchars($post['id_post']) ?>" onclick="openPostModal(this)">
                     <div class="post-user">
                         <div class="user-avatar">
                             <button class="btn-user-img" id="btn-user-img" name="btn-user-img" onclick="btnDenuncia(this)">
@@ -239,12 +238,8 @@ $_event = null;
                                             <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
                                             <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
                                             <input type="hidden" name="id_autor_comment" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">
-                                            <label for="comment_title">Titulo:
-                                                <input type="text" id="comment_title" name="comment-title" placeholder="título do comentário.." required>
-                                            </label>
-                                            <label for="comment_text">Comente:
-                                                <textarea id="comment_text" name="comment-text" placeholder="comentario.." required></textarea>
-                                            </label>
+                                            <input type="text" id="comment_title" name="comment-title" placeholder="título do comentário.." required>
+                                            <textarea id="comment_text" name="comment-text" placeholder="comentario.." required></textarea>
                                             <button type="submit" name="comment-post">Comentar</button>
                                         </form>
                                     </div>
@@ -252,7 +247,7 @@ $_event = null;
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
             <?php endforeach; ?>
 
         </div>
