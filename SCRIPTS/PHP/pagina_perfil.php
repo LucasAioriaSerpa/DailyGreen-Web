@@ -51,7 +51,7 @@ $_event = null;
                 </div>
             </a>
             <div class="area_perfil">
-                <div class="menu-item" onclick="btnLogout()">
+                <div class="menu-item2" onclick="btnLogout()">
                     <div class="user-avatar">
                         <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
                             style="width: 50px; height: 50px; border-radius: 50%;">

@@ -41,12 +41,12 @@ $_event = null;
         <!-- //* SIDEBAR ESQUERDA -->
         <div class="sidebar_esquerda">
 
-            <a style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php">
+            <a class="btnlateral" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php">
                 <div class="menu-item">
                     <span><i class="fas fa-home"></i>Página Inicial</span>
                 </div>
             </a>
-            <a href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
+            <a class="btnlateral" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
                 <div class="menu-item">
                     <span><i class="fas fa-user"></i> Perfil</a></span>
                 </div>
@@ -54,7 +54,7 @@ $_event = null;
 
 
             <div class="area_perfil">
-                <div class="menu-item" onclick="btnLogout()">
+                <div class="menu-item2" onclick="btnLogout()">
                     <div class="user-avatar">
                         <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
                             style="width: 50px; height: 50px; border-radius: 50%;">

@@ -60,7 +60,21 @@ body {
     color: #51291E;
 }
 
+
+
 .menu-item {
+    padding: 12px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 9999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    background-color: rgba(193, 238, 212, 0.811);
+    color: #51291E;
+}
+
+.menu-item2 {
     padding: 12px 15px;
     border-radius: 9999px;
     cursor: pointer;
@@ -70,12 +84,16 @@ body {
     color: #51291E;
 }
 
-.sidebar_esquerda .menu-item {
+.menu-item{
+    margin-top: 20px;
+}
+
+.sidebar_esquerda .menu-item, .menu-item2 {
     transition: background-color 0.2s ease; 
 }
 
 
-.sidebar_esquerda .menu-item a {
+.sidebar_esquerda .menu-item a, .menu-item2 {
     text-decoration: none;
     color: inherit;
     display: flex;
@@ -85,20 +103,20 @@ body {
     height: 100%;
 }
 
-.sidebar_esquerda .menu-item:hover {
+.sidebar_esquerda .menu-item:hover, .menu-item2:hover {
     background-color: #ABD1B5;
 }
 
-.menu-item i {
+.menu-item i, .menu-item2 {
     margin-right: 15px;
     font-size: 1.5rem;
 }
 
 .area_perfil {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(193, 238, 212, 0.474);
     backdrop-filter: blur(10px);
     border-radius: 9999px;
-   border: 1px solid rgba(255, 255, 255, 0.3); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
     margin: 5px 0;
     position: absolute;
     bottom: 20px;
