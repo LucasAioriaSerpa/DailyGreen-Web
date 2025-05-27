@@ -40,13 +40,13 @@ function updateOrgSession(newOrgValue) {
 }
 
 
-function btnDenuncia(denuncia){
+function btnDenuncia(denuncia) {
     const userAvatar = denuncia.closest('.user-avatar');
     const btnDenuncia = userAvatar.querySelector('.btn-denuncia');
 
     // Faz com que os outros itens da lista não habilitem o botão quando clicado
     document.querySelectorAll('.btn-denuncia').forEach(btn => {
-        if (btn !== btnDenuncia){
+        if (btn !== btnDenuncia) {
             btn.style.display = 'none';
         }
     });
@@ -54,65 +54,65 @@ function btnDenuncia(denuncia){
     btnDenuncia.style.display = (btnDenuncia.style.display == 'flex') ? 'none' : 'flex';
 }
 
-function formDenuncia(){
+function formDenuncia() {
     const formularioDenuncia = document.getElementById('formulario-denuncia');
     formularioDenuncia.style.display = (formularioDenuncia.style.display == 'flex') ? 'none' : 'flex';
 }
 
-function btnCloseDenuncia(){
+function btnCloseDenuncia() {
     const formularioDenuncia = document.getElementById('formulario-denuncia');
     formularioDenuncia.style.display = 'none';
 }
 
 // LISTA DE MOTIVOS DE DENUNCIAS
 const arrayMotivos = {
-    Spam:[
+    Spam: [
         "Divulgação de links repetitivos e irrelevantes.",
         "Envio de mensagens em massa nos comentários.",
         "Promoção não autorizada de produtos ou serviços."
     ],
-    Conteudo_fora_do_tema:[
+    Conteudo_fora_do_tema: [
         "Postagens que não se relacionam com os tópicos do fórum.",
         "Comentários que desviam do foco da discussão.",
         "Publicações com assuntos pessoais ou irrelevantes."
     ],
-    Linguagem_inadequada:[
+    Linguagem_inadequada: [
         "Uso excessivo de palavrões.",
         "Comentários sarcásticos ou provocativos.",
         "Mensagens com tom agressivo sem ofensas diretas."
     ],
-    Publicacao_duplicada:[
+    Publicacao_duplicada: [
         "Repetição do mesmo post em diferentes categorias.",
         "Comentários copiados e colados em várias discussões.",
         "Reenvio de conteúdo já removido/moderado anteriormente."
     ],
-    Informacoes_incorretas:[
+    Informacoes_incorretas: [
         "Disseminação de dados ambientais sem fonte confiável.",
         "Distorção de fatos sobre temas sustentáveis.",
         "Compartilhamento de dicas ou práticas prejudiciais ao meio ambiente."
     ],
-    Discurso_de_odio:[
+    Discurso_de_odio: [
         "Comentários com preconceito racial, religioso, de gênero ou orientação sexual.",
         "Ofensas a minorias ou grupos sociais.",
         "Uso de termos discriminatórios ou incitação à violência."
     ],
-    Assedio_ou_perseguicao:[
+    Assedio_ou_perseguicao: [
         "Ataques direcionados a um ou mais usuários.",
         "Envio repetido de mensagens indesejadas com teor ofensivo.",
         "Tentativas de intimidar ou humilhar alguém na plataforma."
     ],
-    Incitacao_a_praticas_ilegais:[
+    Incitacao_a_praticas_ilegais: [
         "Apologia ao crime ambiental (como desmatamento ou caça ilegal).",
         "Incentivo ao descumprimento de leis de proteção ambiental.",
         "Compartilhamento de conteúdo sobre atividades ilegais."
     ],
-    Conteudo_improprio_ou_explicito:[
+    Conteudo_improprio_ou_explicito: [
         "Imagens ou vídeos com nudez ou violência.",
         "Divulgação de material gráfico que fere a política da plataforma."
     ]
 }
 
-function updateTitulo(){
+function updateTitulo() {
     const enviarDenuncuia = document.getElementById("enviar_denuncia");
     const titulo = document.getElementById("titulo_opt").value;
     const motivo = document.getElementById("motivo_opt");
@@ -139,7 +139,7 @@ function updateTitulo(){
         motivo.appendChild(defaultOption);
 
         // Adiciona os novos motivos
-        arrayMotivos[titulo].forEach(function(op) {
+        arrayMotivos[titulo].forEach(function (op) {
             const option = document.createElement("option");
             option.value = op;
             option.text = op;
@@ -148,7 +148,7 @@ function updateTitulo(){
     }
 }
 
-function updateMotivo(){
+function updateMotivo() {
     const enviarDenuncuia = document.getElementById("enviar_denuncia");
     const titulo = document.getElementById("titulo_opt").value;
     const motivo = document.getElementById("motivo_opt").value;
@@ -164,7 +164,7 @@ function updateMotivo(){
     }
 }
 
-function confirmSendDenuncia(){
+function confirmSendDenuncia() {
     const enviar_denuncia = document.getElementById("enviar_denuncia");
     if (enviar_denuncia.classList.contains("disabled")) {
         Swal.fire({
@@ -183,17 +183,17 @@ function confirmSendDenuncia(){
         cancelButtonColor: "#d33",
         confirmButtonText: "Confirmar",
         cancelButtonText: "Cancelar"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Denúncia enviada com sucesso!",
-                    icon: "success",
-                    draggable: true
-                }).then((result) => {
-                    document.querySelector(".form_denuncia").submit();
-                })
-            }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Denúncia enviada com sucesso!",
+                icon: "success",
+                draggable: true
+            }).then((result) => {
+                document.querySelector(".form_denuncia").submit();
+            })
         }
+    }
     );
 }
 
@@ -218,38 +218,62 @@ function toggleReact(btn) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+function toggleComment(btn) {
+    const wrapper = btn.closest('.comment-wrapper');
+    const commentModalContent = wrapper.querySelector('.comment-modal-content');
+    commentModalContent.classList.toggle('show');
+    // Fecha ao clicar fora
+    if (commentModalContent.classList.contains('show')) {
+        setTimeout(() => {
+            document.addEventListener('click', closeOnClickOutside);
+        }, 0);
+        function closeOnClickOutside(e) {
+            if (!wrapper.contains(e.target)) {
+                commentModalContent.classList.remove('show');
+                document.removeEventListener('click', closeOnClickOutside);
+            }
+        }
+    }
+}
+
+function closeCommentModal(e) {
+    const commentModalContent = e.target.closest('.comment-modal-content');
+    if (commentModalContent) {
+        commentModalContent.classList.remove('show');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     const editBtn = document.querySelector('.edit-btn');
     const editModal = document.getElementById('editModal');
     const bioForm = document.getElementById('bioForm');
     const cancelBtn = document.getElementById('cancelBtn');
 
-    editBtn.addEventListener('click', function() {
+    editBtn.addEventListener('click', function () {
         editModal.style.display = 'flex';
     });
-    
-    bioForm.addEventListener('submit', function(e) {
-        
+
+    bioForm.addEventListener('submit', function (e) {
+
         const novaBiografia = document.getElementById('biografia').value;
         console.log('Nova biografia:', novaBiografia);
-        
+
         editModal.style.display = 'none';
     });
-    
-    cancelBtn.addEventListener('click', function() {
+
+    cancelBtn.addEventListener('click', function () {
         editModal.style.display = 'none';
     });
-    
-    editModal.addEventListener('click', function(e) {
+
+    editModal.addEventListener('click', function (e) {
         if (e.target === editModal) {
             editModal.style.display = 'none';
         }
     });
 });
 
-
 //Contador do numero de caracteres em biografia
-document.getElementById('biografia').addEventListener('input', function() {
+document.getElementById('biografia').addEventListener('input', function () {
     const charCount = this.value.length;
     document.getElementById('charCounter').textContent = charCount + '/250';
 });

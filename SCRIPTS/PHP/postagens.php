@@ -42,7 +42,7 @@ $_event = null;
         <!-- //* SIDEBAR ESQUERDA -->
         <div class="sidebar_esquerda">
 
-            <a style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php"> 
+            <a style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php">
                 <div class="menu-item">
                     <span><i class="fas fa-home"></i>Página Inicial</span>
                 </div>
@@ -168,7 +168,7 @@ $_event = null;
                         </div>
                     </div>
                     <!-- Modal para ampliar imagem -->
-                    <button id="imgModal" class="img-modal" onclick="closeModal()"> <!-- //TODO: Adicionar Styles e aparecer e desaparecer -->
+                    <button id="imgModal" class="img-modal" onclick="closeModal()">
                         <span class="img-modal-close" onclick="closeModal(event)">&times;</span>
                         <img class="img-modal-content" id="imgModalContent">
                     </button>
@@ -192,17 +192,62 @@ $_event = null;
                             </div>
                         </div>
                         <div class="comment-wrapper">
-                            <button id="btnComment" class="btn-content-footer btn-comment-toggle" title="Comente neste post!">
+                            <button id="btnComment" class="btn-content-footer btn-comment-toggle" title="Comente neste post!" onclick="toggleComment(this)">
                                 <i class="fa-solid fa-comment"><p>Comente</p></i>
                             </button>
                             <div class="comment-modal-content">
-                                <div class="post-comment">
-                                    post in this
-                                </div>
-                                <div class="comment-container">
-                                    <form action="" class="form-comment">
-
-                                    </form>
+                                <div class="comment-content">
+                                    <button id="btn_exit_modal_comment" onclick="closeCommentModal(event)">X</button>
+                                    <div class="post-comment">
+                                        <div class="post-user">
+                                            <div class="user-avatar">
+                                                <div class="btn-user-img" id="btn-user-img" name="btn-user-img" style="cursor: auto;">
+                                                    <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
+                                                    alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
+                                                </div>
+                                            </div>
+                                            <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
+                                            <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia">
+                                                <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html"; ?>
+                                            </div>
+                                            <?php endif; ?>
+                                            <div style="margin-left: 10px;">
+                                                <div>
+                                                    <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
+                                                </div>
+                                                <div style="color: #71767b;">
+                                                    @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></div>
+                                            </div>
+                                        </div>
+                                        <div class="post-titulo">
+                                            <h1><?= htmlspecialchars($post['titulo']) ?></h1>
+                                        </div>
+                                        <div class="post-content">
+                                            <?= nl2br(htmlspecialchars($post['descricao'])) ?>
+                                        </div>
+                                    </div>
+                                    <div class="comment-container">
+                                        <div class="user-avatar avatar-info-comment">
+                                            <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
+                                                style="width: 50px; height: 50px; border-radius: 50%;">
+                                            <div style="margin-left: 1vh;">
+                                                <div><?php echo $userInfo[0]['username'] ?></div>
+                                                <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo[0]['username']; ?></div>
+                                            </div>
+                                        </div>
+                                        <form action="" class="form-comment">
+                                            <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
+                                            <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
+                                            <input type="hidden" name="id_autor_comment" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">
+                                            <label for="comment_title">Titulo:
+                                                <input type="text" id="comment_title" name="comment-title" placeholder="título do comentário.." required>
+                                            </label>
+                                            <label for="comment_text">Comente:
+                                                <textarea id="comment_text" name="comment-text" placeholder="comentario.." required></textarea>
+                                            </label>
+                                            <button type="submit" name="comment-post">Comentar</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
