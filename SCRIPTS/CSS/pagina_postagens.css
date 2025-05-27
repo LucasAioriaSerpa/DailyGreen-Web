@@ -25,7 +25,20 @@ body {
 }
 
 .sidebar_esquerda, .sidebar_direita {
-    background-image: url('/DailyGreen-Project/IMAGES/background_dailygreen.png');
+    width: 100%;
+    height: 200px;
+    background: url("/DailyGreen-Project/IMAGES/background_dailygreen.png") repeat-x; /* Imagem que se repete horizontalmente */
+    background-size: auto 100%; /* Mantém a altura original */
+    animation: moveBg 20s linear infinite;
+}
+
+@keyframes moveBg {
+    from {
+        background-position: 0 0; /* Começa no início */
+    }
+    to {
+        background-position: -100% 0; /* Move a imagem para a esquerda (criando o efeito de movimento para a direita) */
+    }
 }
 
 /* SIDEBAR ESQUERDA (20%) */
@@ -49,7 +62,6 @@ body {
 
 .menu-item {
     padding: 12px 15px;
-    margin: 5px 0;
     border-radius: 9999px;
     cursor: pointer;
     display: flex;
@@ -57,6 +69,11 @@ body {
     font-size: 1.1rem;
     color: #51291E;
 }
+
+.sidebar_esquerda .menu-item {
+    transition: background-color 0.2s ease; 
+}
+
 
 .sidebar_esquerda .menu-item a {
     text-decoration: none;
@@ -68,7 +85,7 @@ body {
     height: 100%;
 }
 
-.menu-item:hover {
+.sidebar_esquerda .menu-item:hover {
     background-color: #ABD1B5;
 }
 
@@ -78,6 +95,11 @@ body {
 }
 
 .area_perfil {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 9999px;
+   border: 1px solid rgba(255, 255, 255, 0.3); 
+    margin: 5px 0;
     position: absolute;
     bottom: 20px;
     width: inherit;
