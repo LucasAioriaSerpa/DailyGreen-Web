@@ -64,17 +64,29 @@
         echo "Nenhum resultado encontrado.";
     }
 
-    if ($post_id === $midiaArray[$post_id]['id_post']){
+    if (in_array($post_id, $midiaArray)) {
         $midia = $midiaArray[$post_id]['midia_ref'];
-    } else {
-        $midia = "Nenhuma mídia associada ao post.";
-    }
+    } else {$midia = null;}
 ?>
 
 <div class="navegacao_principal">
     <div class="form-analyse-report">
         <?php ?>
         <div class="container-dados-denuncia">
+            <fieldset>
+                <legend>RELATOR</legend>
+                <div class="dados-relator">
+                    <div class="img-relator">
+                        <div><img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($relator_pic)) ?>"
+                            alt="Avatar" style="width: 90px; height: 90px; border-radius: 50%;"></div>
+                    </div>
+                    <div class="info-relator">
+                        <div><?php echo "<b>Nome: </b>".$relator; ?></div>
+                        <div><?php echo "<b>Email: </b>".$relator_email ?></div>
+                        <div><?php echo "<b>Conta criada em: </b>".$relator_creation_date ?></div>
+                    </div>
+                </div> <br>
+            </fieldset><br>
             <fieldset>
                 <legend>RELATADO</legend>
                 <div class="dados-relatado">
@@ -87,57 +99,46 @@
                         <div><?php echo "<b>Email: </b>".$relatado_email ?></div>
                         <div><?php echo "<b>Conta criada em: </b>".$relatado_creation_date ?></div>
                     </div>
-                </div> <br>
+                </div><br>
                 <fieldset>
-                    <legend>RELATOR</legend>
-                    <div class="dados-relator">
-                        <div class="img-relator">
-                            <div><img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($relator_pic)) ?>"
-                                alt="Avatar" style="width: 90px; height: 90px; border-radius: 50%;"></div>
-                        </div>
-                        <div class="info-relator">
-                            <div><?php echo "<b>Nome: </b>".$relator; ?></div>
-                            <div><?php echo "<b>Email: </b>".$relator_email ?></div>
-                            <div><?php echo "<b>Conta criada em: </b>".$relator_creation_date ?></div>
-                        </div>
+                    <legend>INFORMAÇÕES DA DENÚNCIA</legend>
+                    <div class="dados-denuncia">
+                        <div><?php echo "<b>Motivo da Denúncia: </b>".$denuncia_motivo; ?></div>
+                        <div><?php echo "<b>Descrição da Denúncia: </b>".$denuncia_descricao; ?></div>
+                        <div><?php echo "<b>Data de Registro: </b>".$denuncia_data; ?></div>
                     </div> <br>
-                    <fieldset>
-                        <legend>INFORMAÇÕES DA DENÚNCIA</legend>
-                        <div class="dados-denuncia">
-                            <div><?php echo "<b>Motivo da Denúncia: </b>".$denuncia_motivo; ?></div>
-                            <div><?php echo "<b>Descrição da Denúncia: </b>".$denuncia_descricao; ?></div>
-                            <div><?php echo "<b>Data de Registro: </b>".$denuncia_data; ?></div>
-                        </div> <br>
-                        <fieldset>
-                            <legend>POST DENUNCIADO</legend>
-                            <div class="dados-post">
-                                <div><?php echo "<b>Titulo do Post: </b>".$post_titulo ?></div>
-                                <div><?php echo "<b>Descrição do Post: </b>".$post_descricao ?></div>
-                                <div class="midia-post"><?php echo "<b>Imagens do Post: </b>" ?></div><br>
-                                <div class="img-post">
-                                    <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia)) ?>"
-                                        alt="Avatar" style="border-radius: 10px;"></div>
-                            </div><br>
-                            <fieldset>
-                                <legend>DECISÃO</legend>
-                                <div class="decision">
-                                    <button class="back-to-listReport" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listReport.php')">VOLTAR</button>
-                                    <input type="submit" value="DESCARTAR" class="discard" id="discard" name="discard" onclick="formDiscard()">
-                                    <input type="submit" value="SUSPENDER" class="suspend" id="suspend" name="suspend" onclick="formSuspend()">
-                                    <input type="submit" value="BANIR" class="ban" id="ban" name="ban" onclick="formBan()">
-                                </div> <br>
-                                <div class="formulario-discard" id="formulario-discard" name="formulario-discard">
-                                    <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_discard.html"; ?>
-                                </div>
-                                <div class="formulario-suspenso" id="formulario-suspenso" name="formulario-suspenso">
-                                    <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_suspend.html"; ?>
-                                </div>
-                                <div class="formulario-banido" id="formulario-banido" name="formulario-banido">
-                                    <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_ban.html"; ?>
-                                </div>
-                            </fieldset>
-                        </fieldset>
-                    </fieldset>
+                </fieldset><br>
+                <fieldset>
+                    <legend>POST DENUNCIADO</legend>
+                    <div class="dados-post">
+                        <div><?php echo "<b>Titulo do Post: </b>".$post_titulo ?></div>
+                        <div><?php echo "<b>Descrição do Post: </b>".$post_descricao ?></div>
+                        <?php if($midia != null): ?>
+                        <div class="midia-post"><?php echo "<b>Imagens do Post: </b>" ?></div><br>
+                        <div class="img-post">
+                            <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia)) ?>"
+                                alt="Avatar" style="border-radius: 10px;">
+                        </div>
+                        <?php endif; ?>
+                    </div><br>
+                </fieldset><br>
+                <fieldset>
+                    <legend>DECISÃO</legend>
+                    <div class="decision">
+                        <button class="back-to-listReport" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listReport.php')">VOLTAR</button>
+                        <input type="submit" value="DESCARTAR" class="discard" id="discard" name="discard" onclick="formDiscard()">
+                        <input type="submit" value="SUSPENDER" class="suspend" id="suspend" name="suspend" onclick="formSuspend()">
+                        <input type="submit" value="BANIR" class="ban" id="ban" name="ban" onclick="formBan()">
+                    </div> <br>
+                    <div class="formulario-discard" id="formulario-discard" name="formulario-discard">
+                        <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_discard.html"; ?>
+                    </div>
+                    <div class="formulario-suspenso" id="formulario-suspenso" name="formulario-suspenso">
+                        <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_suspend.html"; ?>
+                    </div>
+                    <div class="formulario-banido" id="formulario-banido" name="formulario-banido">
+                        <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_ban.html"; ?>
+                    </div>
                 </fieldset>
             </fieldset>
         </div>

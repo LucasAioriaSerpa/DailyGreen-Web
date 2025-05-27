@@ -280,6 +280,8 @@ body {
 
 
 
+
+
 /* LISTA DE USUARIOS */
 .navegacao_principal{
     flex-grow: 1;
@@ -349,7 +351,7 @@ body {
     overflow: hidden;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
-    --gradient: linear-gradient(to bottom, #77ff2e, #58ca32, #41a53a);
+    --gradient: linear-gradient(to bottom, #fcff31, #fff200, #ffc831);
     --color: #32a6ff
 }
 
@@ -382,7 +384,7 @@ body {
     padding: 0.65rem 0.25rem 0.4rem 1.25rem;
     font-weight: 500;
     font-size: 1.1rem;
-    color: #29d26a;
+    color: #f6f62e;
     transition: transform 300ms ease;
     z-index: 5;
 }
@@ -452,6 +454,7 @@ body {
     cursor: pointer;
     background-color: #171717;
     color: #fff;
+    font-weight: bold;
     border: none;
     border-radius: 5px;
     transition: all .4s;
@@ -462,7 +465,7 @@ body {
 .btn-analyse:hover {
     border-radius: 5px;
     transform: translateY(-10px);
-    box-shadow: 0 7px 0 -2px #79b791,
+    box-shadow: 0 7px 0 -2px #f2e85d,
     0 15px 0 -4px #51291E,
     0 16px 10px -3px #EDF4ED;
 }
@@ -470,7 +473,7 @@ body {
 .btn-analyse:active {
     transition: all 0.2s;
     transform: translateY(-5px);
-    box-shadow: 0 2px 0 -2px #79b791,
+    box-shadow: 0 2px 0 -2px #f2e644,
     0 8px 0 -4px #51291E,
     0 12px 10px -3px #EDF4ED;
 }
