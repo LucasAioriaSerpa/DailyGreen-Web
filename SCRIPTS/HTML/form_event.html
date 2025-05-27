@@ -2,7 +2,9 @@
     <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
     <input type="hidden" name="id_organizacao" value='<?php echo $userInfo[1]["id_organizacao"]; ?>'>
     <input type="text" name="titulo" placeholder="Escreva um titulo..." id="tituloOrg" required>
+    <span id="charCounter1" class="char-counter">0/50</span>
     <input type="text" name="descricao" placeholder="Escreva uma descrição..." id="descricaoOrg" required>
+    <span id="charCounter2" class="char-counter">0/50</span>
 
     <div class="datas">
         <label for="dataTimeInicio" class="dataIncio">Inicio: <input type="datetime-local" name="dataTimeInicio"
@@ -11,7 +13,9 @@
                 placeholder="data e hora de fim..." required></label>
     </div>
     <input type="text" name="local" placeholder="Escreva um endereço..." id="endereco" required>
+    <span id="charCounter3" class="char-counter">0/50</span>
     <input type="text" name="link" placeholder="Escreva um link..." id="link" required>
+    <span id="charCounter4" class="char-counter">0/250</span>
    
    
     <div class="caixa_postagem-footer">
@@ -31,4 +35,24 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/DailyGreen-Project/SCRIPTS/JS/form_midia.js"></script>
 <script src="/DailyGreen-Project/SCRIPTS/JS/form_midia_org.js"></script>
+<script>
+    document.getElementById('tituloOrg').addEventListener('input', function () {
+    const charCount1 = this.value.length;
+    document.getElementById('charCounter1').textContent = charCount1 + '/50';
+});
+document.getElementById('descricaoOrg').addEventListener('input', function () {
+    const charCount2 = this.value.length;
+    document.getElementById('charCounter2').textContent = charCount2 + '/250';
+});
+
+document.getElementById('endereco').addEventListener('input', function () {
+    const charCount3 = this.value.length;
+    document.getElementById('charCounter3').textContent = charCount3 + '/50';
+});
+    document.getElementById('link').addEventListener('input', function () {
+    const charCount4 = this.value.length;
+    document.getElementById('charCounter4').textContent = charCount4 + '/250';
+});
+
+</script>
 

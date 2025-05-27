@@ -1,20 +1,37 @@
 <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" id="formPost" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
-    <input type="text" name="titulo" placeholder="Escreva um titulo..." id="titulo" required>
-    <input type="text" name="descricao" placeholder="Escreva uma descrição..." id="descricao" required>
-
+    
+    <div class="input-container">
+        <input type="text" name="titulo" placeholder="Escreva um título..." id="titulo" required>
+        <span id="charCounter1" class="char-counter">0/50</span>
+    </div>
+    
+    <div class="input-container">
+        <input type="text" name="descricao" placeholder="Escreva uma descrição..." id="descricao" required>
+        <span id="charCounter2" class="char-counter">0/250</span>
+    </div>
 
     <div class="caixa_postagem-footer">
         <div class="media-btn" id="media_btn">
             <label for="insert_media" class="insert-media">
-                <i class="far fa-image"> <p>inserir imagem</p></i>
+                <i class="far fa-image"><p>inserir imagem</p></i>
             </label>
-            <input type="file" name="insert_media[]" id="insert_media" class="insert-media" accept="image/*"
-                multiple onchange="loadFiles(event)">
+            <input type="file" name="insert_media[]" id="insert_media" class="insert-media" accept="image/*" multiple onchange="loadFiles(event)">
         </div>
         <div id="preview-container"></div>
         <input class="botao_postagem" type="submit" value="Postar">
     </div>
 </form>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/DailyGreen-Project/SCRIPTS/JS/form_midia.js"></script>
+<script>
+    document.getElementById('titulo').addEventListener('input', function () {
+    const charCount1 = this.value.length;
+    document.getElementById('charCounter1').textContent = charCount1 + '/50';
+});
+document.getElementById('descricao').addEventListener('input', function () {
+    const charCount2 = this.value.length;
+    document.getElementById('charCounter2').textContent = charCount2 + '/250';
+});
+</script>

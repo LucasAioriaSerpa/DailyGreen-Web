@@ -1,3 +1,5 @@
+
+
 let selectedFiles = [];
 
 function loadFiles(event) {
@@ -87,6 +89,7 @@ if (!regexDescricao.test(descricao)) {
     return;
 }
 });
+
 
 
 

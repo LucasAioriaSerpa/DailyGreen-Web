@@ -142,8 +142,13 @@ $_event = null;
                             <h1><?= htmlspecialchars($post['titulo']) ?></h1>
                         </div>
                         <div class="post-content">
-                            <?= nl2br(htmlspecialchars($post['descricao'])) ?>
-                        </div>
+                        <?php
+                        if (isset($post['descricao'])) {
+                            $descricao = htmlspecialchars($post['descricao']);
+                            echo nl2br(wordwrap($descricao, 80, "\n", true));
+                        }
+                        ?>
+                    </div>
                         <div class="post-midia">
                             <div class="column-midia">
                             <?php

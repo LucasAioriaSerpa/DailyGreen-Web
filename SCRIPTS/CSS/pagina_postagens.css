@@ -27,17 +27,17 @@ body {
 .sidebar_esquerda, .sidebar_direita {
     width: 100%;
     height: 200px;
-    background: url("/DailyGreen-Project/IMAGES/background_dailygreen.png") repeat-x; /* Imagem que se repete horizontalmente */
+    background: url("/DailyGreen-Project/IMAGES/background_dailygreen.png") repeat-x; 
     background-size: auto 100%; /* Mantém a altura original */
-    animation: moveBg 20s linear infinite;
+    animation: moveBg 90s linear infinite;
 }
 
 @keyframes moveBg {
     from {
-        background-position: 0 0; /* Começa no início */
+        background-position: 0 0; 
     }
     to {
-        background-position: -100% 0; /* Move a imagem para a esquerda (criando o efeito de movimento para a direita) */
+        background-position: -100% 0; 
     }
 }
 
@@ -1334,4 +1334,8 @@ body {
 .cancel-btn:hover {
     background-color: #51291E;
     color: #EDF4ED;
+}
+
+.post-titulo h1 {
+    font-size: 1.5em;
 }
