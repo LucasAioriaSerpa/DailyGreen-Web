@@ -9,7 +9,6 @@
     }
 
     $sqlConnection = new SQLconnection();
-    $midiaArray = $sqlConnection->callTableBD('midia');
     $id_administrador = ((int) $_SESSION['user']['account']);
     $id_adm = ((int) $_SESSION['user']['account']['id_administrador']);
     $id_denuncia = (int) $_GET['id'];

@@ -121,13 +121,14 @@ $_event = null;
                                 alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
                             </button>
                             <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
-                            <button class="btn-denuncia" id="btn-denuncia" name="btn-denuncia" onclick="formDenuncia()">
+                            <button class="btn-denuncia" onclick="formDenuncia(this)">
                                 <span class="alert-icon">⚠️</span><p>Denunciar</p>
                             </button>
                             <?php endif; ?>
                         </div>
                         <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
-                        <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia">
+                        <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia" id="formulario-denuncia-<?= $post['id_post'] ?>
+                            style="display: none;>
                             <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html"; ?>
                         </div>
                         <?php endif; ?>

@@ -15,20 +15,8 @@
     $id_adm = ((int) $_SESSION['user']['account']['id_administrador']);
     $id_denuncia = (int) $_GET['id'];
 
-    $checkAndUpdate = "UPDATE denuncia
-        SET 
-            id_administrador = {$id_adm}, 
-            status = 'Em Análise', 
-            data_inicio_analise = NOW()
-        WHERE 
-            id_denuncia = {$id_denuncia}
-            AND id_administrador IS NULL
-            AND status = 'Pendente';
-    ";
 
-    $sqlConnection->rawQueryBD($checkAndUpdate);
-
-    // JOIN para pegar os dados do relator, relatado e post
+    // JOIN para pegar os dados do relator, relatado, post, midia e adm
     $join = "SELECT denuncia.*,
 		relator.username AS relator_username,
         relator.email AS relator_email,
@@ -46,9 +34,11 @@
         JOIN participante AS relatado ON denuncia.id_relatado = relatado.id_participante
         JOIN administrador ON denuncia.id_administrador = administrador.id_administrador
         JOIN post ON denuncia.id_post = post.id_post
+        JOIN midia ON post.id_post = midia.id_post
         WHERE denuncia.id_denuncia = {$id_denuncia};";
 
     $joinQuery = $sqlConnection->joinQueryBD($join);
+
 
     // Setando as variáveis do JOIN para exibir os dados
     if ($joinQuery && count($joinQuery) > 0) {
@@ -86,5 +76,18 @@
     if (in_array($post_id, $midiaArray)) {
         $midia = $midiaArray[$post_id]['midia_ref'];
     } else {$midia = null;}
+
+    $checkAndUpdate = "UPDATE denuncia
+        SET 
+            id_administrador = {$id_adm}, 
+            status = 'Em Análise', 
+            data_inicio_analise = NOW()
+        WHERE 
+            id_denuncia = {$id_denuncia}
+            AND id_administrador IS NULL
+            AND status = 'Pendente';
+    ";
+
+    $sqlConnection->rawQueryBD($checkAndUpdate);
 
 ?>

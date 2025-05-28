@@ -203,19 +203,3 @@ CREATE TABLE IF NOT EXISTS suspenso (
     CONSTRAINT fk_denunciaSuspenso FOREIGN KEY (id_denuncia) REFERENCES denuncia(id_denuncia)
 );
 
-
--- -----------------------------------------------------
--- Tabela denunciaArquivada
--- -----------------------------------------------------
-CREATE TABLE arquivada(
-	id_arquivada INT NOT NULL AUTO_INCREMENT,
-    id_administrador INT NOT NULL,
-    id_participante_denunciado INT NOT NULL,
-    id_denuncia INT NOT NULL,
-    motivo VARCHAR(100) NOT NULL,
-    create_time TIMESTAMP NOT NULL,
-    PRIMARY KEY (id_arquivada),
-    CONSTRAINT fk_administradorArquivada FOREIGN KEY (id_administrador) REFERENCES administrador(id_administrador),
-    CONSTRAINT fk_participanteArquivada FOREIGN KEY (id_participante_denunciado) REFERENCES participante(id_participante),
-    CONSTRAINT fk_denunciaArquivada FOREIGN KEY (id_denuncia) REFERENCES denuncia(id_denuncia)
-);

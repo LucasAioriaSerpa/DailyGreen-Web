@@ -40,27 +40,31 @@ function updateOrgSession(newOrgValue) {
 }
 
 
+// FORMULÁRIO DE DENÚNCIA
+
 function btnDenuncia(denuncia) {
     const userAvatar = denuncia.closest('.user-avatar');
     const btnDenuncia = userAvatar.querySelector('.btn-denuncia');
-
-    // Faz com que os outros itens da lista não habilitem o botão quando clicado
+    
+    // Esconde todos os outros botões de denúncia
     document.querySelectorAll('.btn-denuncia').forEach(btn => {
         if (btn !== btnDenuncia) {
             btn.style.display = 'none';
         }
     });
-
+    
     btnDenuncia.style.display = (btnDenuncia.style.display == 'flex') ? 'none' : 'flex';
 }
 
-function formDenuncia() {
-    const formularioDenuncia = document.getElementById('formulario-denuncia');
+function formDenuncia(button) {
+    const postContainer = button.closest('.post');
+    const formularioDenuncia = postContainer.querySelector('.formulario-denuncia');
     formularioDenuncia.style.display = (formularioDenuncia.style.display == 'flex') ? 'none' : 'flex';
 }
 
-function btnCloseDenuncia() {
-    const formularioDenuncia = document.getElementById('formulario-denuncia');
+function btnCloseDenuncia(button) {
+    const postContainer = button.closest('.post');
+    const formularioDenuncia = postContainer.querySelector('.formulario-denuncia');
     formularioDenuncia.style.display = 'none';
 }
 
@@ -112,61 +116,54 @@ const arrayMotivos = {
     ]
 }
 
-function updateTitulo() {
-    const enviarDenuncuia = document.getElementById("enviar_denuncia");
-    const titulo = document.getElementById("titulo_opt").value;
-    const motivo = document.getElementById("motivo_opt");
+function updateTitulo(selectElement) {
+    // Encontra o formulário pai
+    const form = selectElement.closest('.form_denuncia');
+    
+    // Seleciona os elementos dentro deste formulário específico
+    const enviarDenuncia = form.querySelector(".enviar-denuncia");
+    const titulo = selectElement.value;
+    const motivoSelect = form.querySelector(".motivo-options");
 
     console.log("Título selecionado:", titulo);
-    console.log("Motivo selecionado:", motivo.value);
     console.log("Existe no arrayMotivos?", arrayMotivos.hasOwnProperty(titulo));
 
-    motivo.innerHTML = "";
+    // Limpa as opções atuais
+    motivoSelect.innerHTML = '<option value="">--- Selecione ---</option>';
 
-    if (titulo != "" && motivo.value != "") {
-        enviarDenuncuia.classList.remove("disabled");
-        console.log("update OFF - Titulo!")
-    } else {
-        enviarDenuncuia.classList.add("disabled");
-        console.log("update ON - Titulo!")
-    }
+    // Desativa o botão de envio inicialmente
+    enviarDenuncia.classList.add("disabled");
 
+    // Preenche os motivos se um título válido foi selecionado
     if (titulo && arrayMotivos[titulo]) {
-        // Adiciona um option padrão
-        const defaultOption = document.createElement("option");
-        defaultOption.value = "";
-        defaultOption.text = "--- Selecione ---";
-        motivo.appendChild(defaultOption);
-
-        // Adiciona os novos motivos
-        arrayMotivos[titulo].forEach(function (op) {
+        arrayMotivos[titulo].forEach(function(op) {
             const option = document.createElement("option");
             option.value = op;
             option.text = op;
-            motivo.appendChild(option);
+            motivoSelect.appendChild(option);
         });
     }
 }
 
-function updateMotivo() {
-    const enviarDenuncuia = document.getElementById("enviar_denuncia");
-    const titulo = document.getElementById("titulo_opt").value;
-    const motivo = document.getElementById("motivo_opt").value;
+function updateMotivo(selectElement) {
+    const form = selectElement.closest('.form_denuncia');
+    const enviarDenuncia = form.querySelector(".enviar-denuncia");
+    const titulo = form.querySelector(".titulo-options").value;
+    const motivo = selectElement.value;
 
-    console.log("Motivo selecionado:", motivo);
-
-    if (titulo != "" && motivo != "") {
-        enviarDenuncuia.classList.remove("disabled");
-        console.log("update OFF - Titulo!")
+    if (titulo && motivo) {
+        enviarDenuncia.classList.remove("disabled");
     } else {
-        enviarDenuncuia.classList.add("disabled");
-        console.log("update ON - Titulo!")
+        enviarDenuncia.classList.add("disabled");
     }
 }
 
-function confirmSendDenuncia() {
-    const enviar_denuncia = document.getElementById("enviar_denuncia");
-    if (enviar_denuncia.classList.contains("disabled")) {
+function confirmSendDenuncia(button) {
+    // Encontra o formulário pai do botão clicado
+    const form = button.closest('.form_denuncia');
+    const enviarDenuncia = button;
+    
+    if (enviarDenuncia.classList.contains("disabled")) {
         Swal.fire({
             title: "Selecione um motivo para a denúncia.",
             icon: "warning",
@@ -174,6 +171,7 @@ function confirmSendDenuncia() {
         });
         return;
     }
+    
     Swal.fire({
         title: "Confirma a denúncia desta conta?",
         text: "Após confirmada, a denúncia não poderá ser desfeita.",
@@ -189,12 +187,11 @@ function confirmSendDenuncia() {
                 title: "Denúncia enviada com sucesso!",
                 icon: "success",
                 draggable: true
-            }).then((result) => {
-                document.querySelector(".form_denuncia").submit();
-            })
+            }).then(() => {
+                form.submit();
+            });
         }
-    }
-    );
+    });
 }
 
 function toggleReact(btn) {
