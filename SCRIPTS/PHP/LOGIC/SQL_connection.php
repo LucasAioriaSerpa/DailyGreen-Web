@@ -25,19 +25,12 @@ class SQLconnection {
                                     $this->serverInfo['database'],
                                         $this->serverInfo['port']);
         } catch (mysqli_sql_exception $e) {
-            echo $e;
             error_log("Connection Failed: " . $conn->connect_error);
             header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");
             exit();
         }
         if ($test) {
-            if ($conn->connect_error) {
-                echo "Connection failed: " . $conn->connect_error;
-                return false;
-            } else {
-                echo "Connected successfully";
-                return true;
-            }
+            return !$conn->connect_error;
         } else {
             return $conn;
         }
@@ -46,11 +39,9 @@ class SQLconnection {
         $conn = $this->tryConnectBD(false);
         if ($conn->query($query) === true) {
             $last_id = $conn->insert_id;
-            echo "New recorded created sucessfully. Last ID: " . $last_id;
             $conn->close();
             return $last_id;
         } else {
-            echo "Error: " . $query . "<br>" . $conn->error;
             $conn->close();
             return false;
         }
@@ -81,7 +72,6 @@ class SQLconnection {
             $conn->close();
             return $data;
         } else {
-            echo "Error: " . $conn->error;
             $conn->close();
             return false;
         }

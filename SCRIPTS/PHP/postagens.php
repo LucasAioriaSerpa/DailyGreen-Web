@@ -22,7 +22,25 @@ $eventArray = $sqlConnection->callTableBD('evento');
 $midiaArray = $sqlConnection->callTableBD('midia');
 $usersArray = $sqlConnection->callTableBD('participante');
 $denunciaArray = $sqlConnection->callTableBD('denuncia');
+$reactionPostArray = $sqlConnection->callTableBD('reacaopost');
 $_event = null;
+
+function getPostReactions($postId, $reactionPostArray) {
+    $reactions = [
+        'gostei' => 0,
+        'parabens' => 0,
+        'apoio' => 0,
+        'amei' => 0,
+        'genial' => 0
+    ];
+    foreach ($reactionPostArray as $reaction) {
+        if ($reaction['id_reacaoPost'] == $postId) {
+            $reactions[$reaction['reaction']]++;
+        }
+    }
+    return $reactions;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -113,147 +131,330 @@ $_event = null;
             <?php foreach (array_reverse($postsArray) as $post): ?>
                 <?php foreach ($eventArray as $evento): if ($evento['id_post'] == $post['id_post']): $_event = true; endif; endforeach;?>
                 <?php if ($_event): $_event = false; continue; endif; ?>
-                <article class="post" id="post-<?= htmlspecialchars($post['id_post']) ?>" onclick="openPostModal(this)">
-                    <div class="post-user">
-                        <div class="user-avatar">
-                            <button class="btn-user-img" id="btn-user-img" name="btn-user-img" onclick="btnDenuncia(this)">
-                                <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
-                                alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
-                            </button>
+                <div class="post-divider" id="postDivider">
+                    <article class="post" id="post-<?= htmlspecialchars($post['id_post']) ?>" onclick="openPostModal(this, event)">
+                        <div class="post-user">
+                            <div class="user-avatar">
+                                <button class="btn-user-img" id="btn-user-img" name="btn-user-img" onclick="btnDenuncia(this)">
+                                    <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
+                                    alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
+                                </button>
+                                <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
+                                <button class="btn-denuncia" onclick="formDenuncia(this)">
+                                    <span class="alert-icon">⚠️</span><p>Denunciar</p>
+                                </button>
+                                <?php endif; ?>
+                            </div>
                             <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
-                            <button class="btn-denuncia" onclick="formDenuncia(this)">
-                                <span class="alert-icon">⚠️</span><p>Denunciar</p>
-                            </button>
-                            <?php endif; ?>
-                        </div>
-                        <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
-                        <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia" id="formulario-denuncia-<?= $post['id_post'] ?>
+                            <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia" id="formulario-denuncia-<?= $post['id_post'] ?>
                             style="display: none;>
-                            <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html"; ?>
-                        </div>
-                        <?php endif; ?>
-                        <div style="margin-left: 10px;">
-                            <div>
-                                <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
+                                <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html"; ?>
                             </div>
-                            <div style="color: #71767b;">
-                                @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></div>
+                            <?php endif; ?>
+                            <div style="margin-left: 10px;">
+                                <div>
+                                    <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
+                                </div>
+                                <div style="color: #71767b;">
+                                    @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="post-titulo">
-                        <h1><?= htmlspecialchars($post['titulo']) ?></h1>
-                    </div>
-                    <div class="post-content">
-                        <?php
-                        if (isset($post['descricao'])) {
-                            $descricao = htmlspecialchars($post['descricao']);
-                            echo nl2br(wordwrap($descricao, 80, "\n", true));
-                        }
-                        ?>
-                    </div>
-                    <div class="post-midia">
-                        <div class="column-midia">
+                        <div class="post-titulo">
+                            <h1><?= htmlspecialchars($post['titulo']) ?></h1>
+                        </div>
+                        <div class="post-content">
                             <?php
-                            $postMidias = [];
-                            foreach ($midiaArray as $midia) {
-                                if ($midia['id_post'] == $post['id_post']) {
-                                    $postMidias[] = $midia;
-                                }
+                            if (isset($post['descricao'])) {
+                                $descricao = htmlspecialchars($post['descricao']);
+                                echo nl2br(wordwrap($descricao, 80, "\n", true));
                             }
-                            $imgCount = count($postMidias);
-                            foreach ($postMidias as $idx => $midia):
                             ?>
-                                <img
-                                    src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
-                                    alt="Post Image"
-                                    class="post-img img-count-<?= $imgCount ?>"
-                                    onclick="openModal(this.src)"
-                                >
-                            <?php endforeach; ?>
                         </div>
-                    </div>
-                    <!-- Modal para ampliar imagem -->
-                    <button id="imgModal" class="img-modal" onclick="closeModal()">
-                        <span class="img-modal-close" onclick="closeModal(event)">&times;</span>
-                        <img class="img-modal-content" id="imgModalContent">
-                    </button>
-                    <div class="post-footer">
-                        <div class="reaction-wrapper">
-                            <button class="btn-content-footer btn-reaction-toggle" title="Reaja neste post!" onclick="toggleReact(this)">
-                                <i class="fa-solid fa-heart"> <p>Reaja</p></i>
-                            </button>
-                            <div class="react-container">
-                                <!--//TODO: action="/xampp/htdocs/DailyGreen-Project/SCRIPTS/LOGIC/.php" -->
-                                <form  method="post" class="form-reaction">
-                                    <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
-                                    <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
-                                    <input type="hidden" name="id_autor_reaction" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">
-                                    <button type="submit" name="reaction-post" value="gostei"   class="btn-reaction gostei"   title="Gostei"><i class="fa-solid fa-thumbs-up"></i></button>
-                                    <button type="submit" name="reaction-post" value="parabens" class="btn-reaction parabens" title="Parabéns"><i class="fa-solid fa-hands-clapping"></i></button>
-                                    <button type="submit" name="reaction-post" value="apoio"    class="btn-reaction apoio"    title="Apoio"><i class="fa-solid fa-handshake"></i></button>
-                                    <button type="submit" name="reaction-post" value="amei"     class="btn-reaction amei"     title="Amei"><i class="fa-solid fa-heart"></i></button>
-                                    <button type="submit" name="reaction-post" value="genial"   class="btn-reaction genial"   title="Genial"><i class="fa-solid fa-lightbulb"></i></button>
-                                </form>
+                        <div class="post-midia">
+                            <div class="column-midia">
+                                <?php
+                                $postMidias = [];
+                                foreach ($midiaArray as $midia) {
+                                    if ($midia['id_post'] == $post['id_post']) {
+                                        $postMidias[] = $midia;
+                                    }
+                                }
+                                $imgCount = count($postMidias);
+                                foreach ($postMidias as $idx => $midia):
+                                ?>
+                                    <img
+                                        src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
+                                        alt="Post Image"
+                                        class="post-img img-count-<?= $imgCount ?>"
+                                        onclick="openMidiaModal(this.src)"
+                                    >
+                                <?php endforeach; ?>
                             </div>
                         </div>
-                        <div class="comment-wrapper">
-                            <button id="btnComment" class="btn-content-footer btn-comment-toggle" title="Comente neste post!" onclick="toggleComment(this)">
-                                <i class="fa-solid fa-comment"><p>Comente</p></i>
-                            </button>
-                            <div class="comment-modal-content">
-                                <div class="comment-content">
-                                    <button id="btn_exit_modal_comment" onclick="closeCommentModal(event)">X</button>
-                                    <div class="post-comment">
-                                        <div class="post-user">
-                                            <div class="user-avatar">
-                                                <div class="btn-user-img" id="btn-user-img" name="btn-user-img" style="cursor: auto;">
-                                                    <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
-                                                    alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
-                                                </div>
-                                            </div>
-                                            <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
-                                            <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia">
-                                                <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html"; ?>
-                                            </div>
-                                            <?php endif; ?>
-                                            <div style="margin-left: 10px;">
-                                                <div>
-                                                    <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
-                                                </div>
-                                                <div style="color: #71767b;">
-                                                    @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></div>
-                                            </div>
+                        <!-- Modal para ampliar imagem -->
+                        <button id="imgModal" class="img-modal" onclick="closeMidiaModal()">
+                            <span class="img-modal-close">&times;</span>
+                            <img class="img-modal-content" id="imgModalContent">
+                        </button>
+                        <div class="post-footer">
+                            <div class="reaction-wrapper">
+                                <button class="btn-content-footer btn-reaction-toggle" title="Reaja neste post!" onclick="toggleReact(this)">
+                                    <i class="fa-solid fa-heart"> <p>Reaja</p></i>
+                                </button>
+                                <div class="react-container">
+                                    <?php $reactions = getPostReactions($post['id_post'], $reactionPostArray); ?>
+                                    <div class="form-reaction">
+                                        <button type="submit" name="reaction-post" value="gostei" class="btn-reaction gostei" title="Gostei"
+                                        onclick="sendReaction('gostei', <?= htmlspecialchars($post['id_post']) ?>, <?= htmlspecialchars($userInfo[0]['id_participante'])?>)">
+                                            <i class="fa-solid fa-thumbs-up"></i>
+                                        </button>
+                                        <div class="reaction-num">
+                                            <?php
+                                            echo $reactions['gostei'];
+                                            ?>
                                         </div>
-                                        <div class="post-titulo">
-                                            <h1><?= htmlspecialchars($post['titulo']) ?></h1>
+                                        <button type="submit" name="reaction-post" value="parabens" class="btn-reaction parabens" title="Parabéns">
+                                            <i class="fa-solid fa-hands-clapping"></i>
+                                        </button>
+                                        <div class="reaction-num">
+                                            <?php echo $reactions['parabens']; ?>
                                         </div>
-                                        <div class="post-content">
-                                            <?= nl2br(htmlspecialchars($post['descricao'])) ?>
+                                        <button type="submit" name="reaction-post" value="apoio" class="btn-reaction apoio" title="Apoio">
+                                            <i class="fa-solid fa-handshake"></i>
+                                        </button>
+                                        <div class="reaction-num">
+                                            <?php echo $reactions['apoio']; ?>
+                                        </div>
+                                        <button type="submit" name="reaction-post" value="amei" class="btn-reaction amei" title="Amei">
+                                            <i class="fa-solid fa-heart"></i>
+                                        </button>
+                                        <div class="reaction-num">
+                                            <?php echo $reactions['amei']; ?>
+                                        </div>
+                                        <button type="submit" name="reaction-post" value="genial" class="btn-reaction genial" title="Genial">
+                                            <i class="fa-solid fa-lightbulb"></i>
+                                        </button>
+                                        <div class="reaction-num">
+                                            <?php echo $reactions['genial']; ?>
                                         </div>
                                     </div>
-                                    <div class="comment-container">
-                                        <div class="user-avatar avatar-info-comment">
-                                            <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
-                                                style="width: 50px; height: 50px; border-radius: 50%;">
-                                            <div style="margin-left: 1vh;">
-                                                <div><?php echo $userInfo[0]['username'] ?></div>
-                                                <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo[0]['username']; ?></div>
+                                </div>
+                            </div>
+                            <div class="comment-wrapper">
+                                <button id="btnComment" class="btn-content-footer btn-comment-toggle" title="Comente neste post!" onclick="toggleComment(this)">
+                                    <i class="fa-solid fa-comment"><p>Comente</p></i>
+                                </button>
+                                <div class="comment-modal-content">
+                                    <div class="comment-content">
+                                        <button id="btn_exit_modal_comment" onclick="closeCommentModal(event)">X</button>
+                                        <div class="post-comment">
+                                            <div class="post-user">
+                                                <div class="user-avatar">
+                                                    <div class="btn-user-img" id="btn-user-img" name="btn-user-img" style="cursor: auto;">
+                                                        <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
+                                                        alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
+                                                    </div>
+                                                </div>
+                                                <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
+                                                <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia">
+                                                    <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html"; ?>
+                                                </div>
+                                                <?php endif; ?>
+                                                <div style="margin-left: 10px;">
+                                                    <div>
+                                                        <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
+                                                    </div>
+                                                    <div style="color: #71767b;">
+                                                        @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></div>
+                                                </div>
+                                            </div>
+                                            <div class="post-titulo">
+                                                <h1><?= htmlspecialchars($post['titulo']) ?></h1>
+                                            </div>
+                                            <div class="post-content">
+                                                <?= nl2br(htmlspecialchars($post['descricao'])) ?>
                                             </div>
                                         </div>
-                                        <form action="" class="form-comment">
-                                            <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
-                                            <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
-                                            <input type="hidden" name="id_autor_comment" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">
-                                            <input type="text" id="comment_title" name="comment-title" placeholder="título do comentário.." required>
-                                            <textarea id="comment_text" name="comment-text" placeholder="comentario.." required></textarea>
-                                            <button type="submit" name="comment-post">Comentar</button>
-                                        </form>
+                                        <div class="comment-container">
+                                            <div class="user-avatar avatar-info-comment">
+                                                <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
+                                                    style="width: 50px; height: 50px; border-radius: 50%;">
+                                                <div style="margin-left: 1vh;">
+                                                    <div><?php echo $userInfo[0]['username'] ?></div>
+                                                    <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo[0]['username']; ?></div>
+                                                </div>
+                                            </div>
+                                            <form action="" class="form-comment">
+                                                <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
+                                                <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
+                                                <input type="hidden" name="id_autor_comment" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">
+                                                <input type="text" id="comment_title" name="comment-title" placeholder="título do comentário.." required>
+                                                <textarea id="comment_text" name="comment-text" placeholder="comentario.." required></textarea>
+                                                <button type="submit" name="comment-post">Comentar</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
+                    <article class="post-modal" id="postModal" style="display: none;">
+                        <div class="post-modal-header">
+                            <button class="bnt-close-post-modal" onclick="closePostModal(this)">X</button>
+                            <div class="post-user">
+                                <div class="user-avatar">
+                                    <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
+                                    alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
+                                </div>
+                                <div style="margin-left: 10px;">
+                                    <div>
+                                        <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
+                                    </div>
+                                    <div style="color: #71767b;">
+                                        @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></div>
+                                </div>
+                            </div>
+                            <div class="post-titulo">
+                                <h1><?= htmlspecialchars($post['titulo']) ?></h1>
+                            </div>
+                            <div class="post-content">
+                                <?php
+                                if (isset($post['descricao'])) {
+                                    $descricao = htmlspecialchars($post['descricao']);
+                                    echo nl2br(wordwrap($descricao, 80, "\n", true));
+                                }
+                                ?>
+                            </div>
+                            <div class="post-midia">
+                                <div class="column-midia">
+                                    <?php
+                                    $postMidias = [];
+                                    foreach ($midiaArray as $midia) {
+                                        if ($midia['id_post'] == $post['id_post']) {
+                                            $postMidias[] = $midia;
+                                        }
+                                    }
+                                    $imgCount = count($postMidias);
+                                    foreach ($postMidias as $idx => $midia):
+                                    ?>
+                                        <img
+                                            src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
+                                            alt="Post Image"
+                                            class="post-img img-count-<?= $imgCount ?>"
+                                            onclick="openMidiaModal(this.src)"
+                                        >
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                            <!-- Modal para ampliar imagem -->
+                            <button id="imgModal" class="img-modal" onclick="closeMidiaModal()">
+                                <span class="img-modal-close" onclick="closeMidiaModal(event)">&times;</span>
+                                <img class="img-modal-content" id="imgModalContent">
+                            </button>
+                            <div class="post-footer">
+                                <div class="reaction-wrapper">
+                                    <button class="btn-content-footer btn-reaction-toggle" title="Reaja neste post!" onclick="toggleReact(this)">
+                                        <i class="fa-solid fa-heart"> <p>Reaja</p></i>
+                                    </button>
+                                    <div class="react-container">
+                                        <?php $reactions = getPostReactions($post['id_post'], $reactionPostArray); ?>
+                                        <div class="form-reaction">
+                                            <button type="submit" name="reaction-post" value="gostei" class="btn-reaction gostei" title="Gostei"
+                                            onclick="sendReaction('gostei', <?= htmlspecialchars($post['id_post']) ?>, <?= htmlspecialchars($userInfo[0]['id_participante'])?>)">
+                                                <i class="fa-solid fa-thumbs-up"></i>
+                                            </button>
+                                            <div class="reaction-num">
+                                                <?php
+                                                echo $reactions['gostei'];
+                                                ?>
+                                            </div>
+                                            <button type="submit" name="reaction-post" value="parabens" class="btn-reaction parabens" title="Parabéns">
+                                                <i class="fa-solid fa-hands-clapping"></i>
+                                            </button>
+                                            <div class="reaction-num">
+                                                <?php echo $reactions['parabens']; ?>
+                                            </div>
+                                            <button type="submit" name="reaction-post" value="apoio" class="btn-reaction apoio" title="Apoio">
+                                                <i class="fa-solid fa-handshake"></i>
+                                            </button>
+                                            <div class="reaction-num">
+                                                <?php echo $reactions['apoio']; ?>
+                                            </div>
+                                            <button type="submit" name="reaction-post" value="amei" class="btn-reaction amei" title="Amei">
+                                                <i class="fa-solid fa-heart"></i>
+                                            </button>
+                                            <div class="reaction-num">
+                                                <?php echo $reactions['amei']; ?>
+                                            </div>
+                                            <button type="submit" name="reaction-post" value="genial" class="btn-reaction genial" title="Genial">
+                                                <i class="fa-solid fa-lightbulb"></i>
+                                            </button>
+                                            <div class="reaction-num">
+                                                <?php echo $reactions['genial']; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment-wrapper">
+                                    <button id="btnComment" class="btn-content-footer btn-comment-toggle" title="Comente neste post!" onclick="toggleComment(this)">
+                                        <i class="fa-solid fa-comment"><p>Comente</p></i>
+                                    </button>
+                                    <div class="comment-modal-content">
+                                        <div class="comment-content">
+                                            <button id="btn_exit_modal_comment" onclick="closeCommentModal(event)">X</button>
+                                            <div class="post-comment">
+                                                <div class="post-user">
+                                                    <div class="user-avatar">
+                                                        <div class="btn-user-img" id="btn-user-img" name="btn-user-img" style="cursor: auto;">
+                                                            <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
+                                                            alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
+                                                        </div>
+                                                    </div>
+                                                    <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
+                                                    <div class="formulario-denuncia" id="formulario-denuncia" name="formulario-denuncia">
+                                                        <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_denuncia.html"; ?>
+                                                    </div>
+                                                    <?php endif; ?>
+                                                    <div style="margin-left: 10px;">
+                                                        <div>
+                                                            <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
+                                                        </div>
+                                                        <div style="color: #71767b;">
+                                                            @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></div>
+                                                    </div>
+                                                </div>
+                                                <div class="post-titulo">
+                                                    <h1><?= htmlspecialchars($post['titulo']) ?></h1>
+                                                </div>
+                                                <div class="post-content">
+                                                    <?= nl2br(htmlspecialchars($post['descricao'])) ?>
+                                                </div>
+                                            </div>
+                                            <div class="comment-container">
+                                                <div class="user-avatar avatar-info-comment">
+                                                    <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
+                                                        style="width: 50px; height: 50px; border-radius: 50%;">
+                                                    <div style="margin-left: 1vh;">
+                                                        <div><?php echo $userInfo[0]['username'] ?></div>
+                                                        <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo[0]['username']; ?></div>
+                                                    </div>
+                                                </div>
+                                                <form action="" class="form-comment">
+                                                    <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
+                                                    <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
+                                                    <input type="hidden" name="id_autor_comment" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">
+                                                    <input type="text" id="comment_title" name="comment-title" placeholder="título do comentário.." required>
+                                                    <textarea id="comment_text" name="comment-text" placeholder="comentario.." required></textarea>
+                                                    <button type="submit" name="comment-post">Comentar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             <?php endforeach; ?>
 
         </div>

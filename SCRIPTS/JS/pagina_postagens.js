@@ -1,12 +1,12 @@
 
-function openModal(src) {
+function openMidiaModal(src) {
     const modal = document.getElementById('imgModal');
     const modalImg = document.getElementById('imgModalContent');
     modalImg.src = src;
     modal.classList.add('show');
 }
 
-function closeModal(e) {
+function closeMidiaModal(e) {
     if (!e || e.target === document.getElementById('imgModal') || e.target.classList.contains('img-modal-close')) {
         document.getElementById('imgModal').classList.remove('show');
     }
@@ -39,6 +39,36 @@ function updateOrgSession(newOrgValue) {
         });
 }
 
+function openPostModal(post, event) {
+    const interactiveSelectors = [
+        '.btn-reaction-toggle',
+        '.btn-comment-toggle',
+        '.btn-user-img',
+        '.btn-denuncia',
+        '.react-container',
+        '.comment-modal-content',
+        '.formulario-denuncia',
+        '.post-img',
+        '.img-count',
+        '.img-modal-close'
+    ];
+    if (event) {
+        for (const selector of interactiveSelectors) {
+            if (event.target.closest(selector)) {
+                return;
+            }
+        }
+    }
+    const postDivider = post.closest('.post-divider');
+    const postModal = postDivider.querySelector('.post-modal');
+    postModal.style.display = 'flex';
+}
+
+function closePostModal(btn) {
+    const postDivider = btn.closest('.post-divider');
+    const postModal = postDivider.querySelector('.post-modal');
+    postModal.style.display = 'none';
+}
 
 // FORMULÁRIO DE DENÚNCIA
 
