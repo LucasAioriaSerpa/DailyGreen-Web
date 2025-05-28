@@ -12,6 +12,19 @@
 ?>
 
 <div class="navegacao_principal">
+    <div class="buttons-filters">
+        <div class="scroll-page">
+            <div class="button-pendente">
+                <button class="btn-pendente">Pendente</button>
+            </div>
+            <div class="button-analise">
+                <button class="btn-analise">Em Análise</button>
+            </div>
+            <div class="button-encerrado">
+                <button class="btn-encerrado">Encerrado</button>
+            </div>
+        </div>
+    </div>
     <?php if (count($denunciaArray) === 0):?>
         <div class="no-records">
             <div class="icon-lupa">
@@ -46,6 +59,9 @@
                             </div>
                         </div>
                         <div class="report-status-data">
+                            <div class="denuncia-id">
+                                <div class="report-id"> ID DENUNCIA: <div class="id-report"><?= htmlspecialchars($denuncia['id_denuncia']) ?></div> </div>
+                            </div>
                             <div class="button-analyse">
                                 <!-- o id da denuncia está setado no onclick em data-id  -->
                                 <div class="analyse"> <input type="submit" class="btn-analyse" data-id="<?= htmlspecialchars($denuncia['id_denuncia']) ?>" name="btn-analyse" id="btn-analyse"

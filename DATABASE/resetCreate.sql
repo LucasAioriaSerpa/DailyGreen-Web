@@ -138,6 +138,8 @@ CREATE TABLE denuncia (
     motivo VARCHAR(255) NOT NULL,
     status VARCHAR(45) NOT NULL DEFAULT 'Pendente',
     data_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    data_inicio_analise TIMESTAMP NULL DEFAULT NULL,
+    data_fim_analise TIMESTAMP NULL DEFAULT NULL,
     PRIMARY KEY (id_denuncia),
     FOREIGN KEY (id_relator) REFERENCES participante(id_participante),
     FOREIGN KEY (id_relatado) REFERENCES participante(id_participante),
@@ -150,11 +152,13 @@ CREATE TABLE banido (
     id_banido INT NOT NULL AUTO_INCREMENT,
     id_administrador INT NOT NULL,
     id_participante_banido INT NOT NULL,
+    id_denuncia INT NOT NULL,
     motivo VARCHAR(100) NOT NULL,
     create_time TIMESTAMP NOT NULL,
     PRIMARY KEY (id_banido),
     FOREIGN KEY (id_participante_banido) REFERENCES participante(id_participante),
-    FOREIGN KEY (id_administrador) REFERENCES administrador(id_administrador)
+    FOREIGN KEY (id_administrador) REFERENCES administrador(id_administrador),
+    FOREIGN KEY (id_denuncia) REFERENCES denuncia(id_denuncia)
 );
 
 -- Tabela suspenso
@@ -162,10 +166,26 @@ CREATE TABLE suspenso (
     id_suspenso INT NOT NULL AUTO_INCREMENT,
     id_administrador INT NOT NULL,
     id_participante_suspenso INT NOT NULL,
+    id_denuncia INT NOT NULL,
     motivo VARCHAR(100) NOT NULL,
     data_hora_inicio DATETIME NOT NULL,
     data_hora_fim DATETIME NOT NULL,
     PRIMARY KEY (id_suspenso),
     FOREIGN KEY (id_administrador) REFERENCES administrador(id_administrador),
-    FOREIGN KEY (id_participante_suspenso) REFERENCES participante(id_participante)
+    FOREIGN KEY (id_participante_suspenso) REFERENCES participante(id_participante),
+    FOREIGN KEY (id_denuncia) REFERENCES denuncia(id_denuncia)
+);
+
+-- Tabela denunciaArquivada
+CREATE TABLE arquivada(
+	id_arquivada INT NOT NULL AUTO_INCREMENT,
+    id_administrador INT NOT NULL,
+    id_participante_denunciado INT NOT NULL,
+    id_denuncia INT NOT NULL,
+    motivo VARCHAR(100) NOT NULL,
+    create_time TIMESTAMP NOT NULL,
+    PRIMARY KEY (id_arquivada),
+    FOREIGN KEY (id_administrador) REFERENCES administrador(id_administrador),
+    FOREIGN KEY (id_participante_denunciado) REFERENCES participante(id_participante),
+    FOREIGN KEY (id_denuncia) REFERENCES denuncia(id_denuncia)
 );

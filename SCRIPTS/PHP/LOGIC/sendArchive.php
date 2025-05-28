@@ -1,5 +1,4 @@
-
-<?php
+<?php 
     include_once 'session.php';
     include_once 'SQL_connection.php';
     include_once 'functions.php';
@@ -7,26 +6,20 @@
 
     $sqlConnection = new SQLconnection();
     $id_administrador = $_POST['id_administrador'];
-    $id_participante_suspenso = $_POST['id_participante_suspenso'];
+    $id_participante_denunciado = $_POST['id_participante_denunciado'];
     $id_denuncia = $_POST['id_denuncia'];
     $motivo = $_POST['motivo'];
-    $dataHoraInicio = date("Y-m-d H:i:s", strtotime($_POST['data_hora_inicio']));
-    $dataHoraFim = date("Y-m-d H:i:s", strtotime($_POST['data_hora_fim']));
 
-    $sqlQuery = "INSERT INTO suspenso(
+    $sqlQuery = "INSERT INTO arquivada(
         id_administrador,
-        id_participante_suspenso,
+        id_participante_denunciado,
         id_denuncia,
-        motivo,
-        data_hora_inicio,
-        data_hora_fim
+        motivo
     ) VALUES (
         '{$id_administrador}',
-        '{$id_participante_suspenso}',
+        '{$id_participante_denunciado}',
         '{$id_denuncia}',
-        '{$motivo}',
-        '{$dataHoraInicio}',
-        '{$dataHoraFim}'
+        '{$motivo}'
     )";
 
     $sqlConnection->insertQueryBD($sqlQuery);

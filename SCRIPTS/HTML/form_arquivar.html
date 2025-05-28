@@ -1,0 +1,27 @@
+<div class="modal_decisao">
+    <div class="header_decisao">
+        <button class="btn-close-modal" onclick="btnCloseArquivar()">X</button>
+        <h3>ARQUIVAR DENÚNCIA</h3>
+    </div>
+    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendArchive.php" method="POST" class="form_arquivar">
+        <input type="hidden" name="id_denuncia" value="<?php echo $id_denuncia; ?>">
+        <input type="hidden" name="id_participante_denunciado" value="<?php echo $relatado_id; ?>">
+        <input type="hidden" name="id_administrador" value="<?php echo $id_administrador; ?>">
+
+        <label for="motivo-decisao">Motivo:</label>
+        <select class="motivo-decisao" name="motivo" id="motivo-arquive" required>
+            <option value="">--- Selecione ---</option>
+            <option value="Conteudo_nao_infringe_as_diretrizes_da_comunidade">
+                Após análise, verificou-se que a publicação está de acordo com os termos de uso e não representa violação.
+            </option>
+            <option value="Denuncia_infundada_ou_feita_de_ma_fe">
+                A denúncia parece ter sido feita com o intuito de prejudicar outro usuário sem justificativa válida.
+            </option>
+            <option value="Discussao_relevante_e_dentro_do_contexto">
+                Apesar de críticas ou linguagem informal, o conteúdo se mantém pertinente ao tópico discutido
+            </option>
+        </select>
+
+        <input class="arquivar-denuncia" type="submit" value="ARQUIVAR" id="arquivar_denuncia">
+    </form>
+</div>

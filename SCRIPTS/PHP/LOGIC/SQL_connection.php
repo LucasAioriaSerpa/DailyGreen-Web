@@ -86,4 +86,26 @@ class SQLconnection {
             return false;
         }
     }
+
+    public function rawQueryBD(string $query) {
+        $conn = $this->tryConnectBD(false);
+        $result = $conn->query($query);
+
+        if ($result === true) {
+            $conn->close();
+            return true;
+        } elseif ($result) {
+            $data = [];
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            $result->free();
+            $conn->close();
+            return $data;
+        } else {
+            error_log("SQL Error: " . $conn->error);
+            $conn->close();
+            return false;
+        }
+    }
 }

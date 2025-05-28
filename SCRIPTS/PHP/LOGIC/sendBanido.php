@@ -6,18 +6,20 @@
     debug_var($_POST);
 
     $sqlConnection = new SQLconnection();
-    $id_denuncia = $_POST['id_denuncia'];
     $id_administrador = $_POST['id_administrador'];
     $id_participante_banido = $_POST['id_participante_banido'];
+    $id_denuncia = $_POST['id_denuncia'];
     $motivo = $_POST['motivo'];
 
     $sqlQuery = "INSERT INTO banido(
         id_administrador,
         id_participante_banido,
+        id_denuncia,
         motivo
     ) VALUES (
         '{$id_administrador}',
         '{$id_participante_banido}',
+        '{$id_denuncia}',
         '{$motivo}'
     )";
 

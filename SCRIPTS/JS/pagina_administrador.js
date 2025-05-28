@@ -74,13 +74,13 @@ function showButtons(){
 
 
 // BOTÕES DOS FORMULARIOS
-function formDiscard(){
-    const formularioDenuncia = document.getElementById('formulario-discard');
+function formArquivar(){
+    const formularioDenuncia = document.getElementById('formulario-arquivar');
     formularioDenuncia.style.display = (formularioDenuncia.style.display == 'flex') ? 'none' : 'flex';
 }
 
-function btnCloseDiscard(){
-    const formularioDenuncia = document.getElementById('formulario-discard');
+function btnCloseArquivar(){
+    const formularioDenuncia = document.getElementById('formulario-arquivar');
     formularioDenuncia.style.display = 'none';
 }
 
@@ -103,3 +103,6 @@ function btnCloseBan(){
     const formularioDenuncia = document.getElementById('formulario-banido');
     formularioDenuncia.style.display = 'none';
 }
+
+
+

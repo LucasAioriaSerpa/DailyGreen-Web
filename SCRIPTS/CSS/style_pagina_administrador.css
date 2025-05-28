@@ -278,49 +278,6 @@ body {
     margin-bottom: 10px;
 }
 
-
-
-
-
-/* LISTA DE USUARIOS */
-.navegacao_principal{
-    flex-grow: 1;
-    overflow-y: auto;
-    max-height: 100%;
-}
-
-.lista-usuarios {
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
-    width: 100%;
-}
-
-.user {
-    display: flex;
-    align-items: center;
-    background-color: #ABD1B5;
-    color: #EDF4ED;
-    gap: 1vw;
-    font-size: 2vh;
-    padding: 1vh;
-    border-radius: 10px;
-    width: 100%;
-} .user:hover {
-    background-color: #79B791;
-    color: #51291E;
-    transition: 0.5s;
-} .user:active {
-    background-color: #357d3a;
-    transition: 0.3s;
-}
-
-.user-info {
-    display: flex;
-    gap: 5vw;
-}
-
-
 .no-records{
     width: 100%;
     height: 80vh;
@@ -329,6 +286,220 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+
+
+/* LISTA DE USUARIOS */
+.user {
+    display: flex;
+    width: 70rem;
+    height: 8rem;
+}
+
+.lista-usuarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+    width: 100%;
+}
+
+.container-user {
+    display: flex;
+    flex-direction: row;
+    isolation: isolate;
+    position: relative;
+    width: 80rem;
+    background: #29292c;
+    border-radius: 1rem;
+    overflow: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    --gradient: linear-gradient(to bottom, #31beff, #0091ff, #3161ff);
+    --color: #32a6ff;
+    cursor: pointer;
+}
+
+.container-user:before {
+    position: absolute;
+    content: "";
+    inset: 0.0625rem;
+    border-radius: 0.9375rem;
+    background: rgba(52, 73, 94, 0.7);
+    z-index: 2
+}
+
+.container-user:after {
+    position: absolute;
+    content: "";
+    width: 0.25rem;
+    inset: 0.65rem auto 0.65rem 0.5rem;
+    border-radius: 0.125rem;
+    background: var(--gradient);
+    transition: transform 300ms ease;
+    z-index: 4;
+}
+
+.container-user:hover:after {
+    transform: translateX(0.15rem)
+}
+
+.container-user:active{
+    background: #5b5b63;
+}
+
+.user-avatar {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #f6f62e;
+    transition: transform 300ms ease;
+    z-index: 5;
+}
+
+.container-user:hover .user-avatar {
+    transform: translateX(0.15rem);
+}
+
+.user-info {
+    display: flex;
+    color: #EDF4ED;
+    width: 70rem;
+    height: 100%;
+    padding: 0 1.50rem;
+    transition: transform 300ms ease;
+    z-index: 5;
+}
+
+.container-user:hover .user-info {
+    transform: translateX(0.25rem);
+}
+
+.container-user:hover .show-user-posts{
+    transform: translateX(0.25rem);
+    transition: transform 300ms ease;
+    z-index: 30;
+}
+
+.efect-user,
+.border-user {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle closest-side at center, white, transparent);
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.efect-user {
+    z-index: 3;
+}
+
+.border-user {
+    z-index: 1;
+}
+
+.container-user:hover .efect-user,
+.container-user:hover .border-user {
+    opacity: 0.1;
+}
+
+.username,
+.email,
+.create-time {
+    display: flex;
+    padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: transform 300ms ease;
+    z-index: 5;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #75c0f9;
+}
+
+.dados-user,
+.user-img {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.user-name,
+.user-email,
+.user-creation-time {
+    color: #EDF4ED;
+}
+
+.btn-show-post{
+    display: flex;
+    margin-right: 2rem;
+}
+
+.show-user-posts{
+    display: flex;
+    align-items: center;
+}
+
+.show-perfil {
+    background: #3161ff;
+    color: white;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+    width: 9rem;
+    cursor: pointer;
+    z-index: 30;
+}
+
+.show-perfil .arrow {
+    background: white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+    right: 0.3em;
+    transition: all 0.3s;
+    display: flex;
+    z-index: 30;
+}
+
+.show-perfil:hover .arrow {
+    width: calc(100% - 0.6em);
+    z-index: 30;
+}
+
+.show-perfil .arrow svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #7b52b9;
+}
+
+.show-perfil:hover .arrow svg {
+    transform: translateX(0.1em);
+}
+
+.show-perfil:active .arrow {
+    transform: scale(0.95);
+}
+
+
 
 /* LISTA DE DENUNCIAS */
 .lista-reports {
@@ -433,7 +604,8 @@ body {
 .denuncia-motivo,
 .denuncia-status, 
 .denuncia-data, 
-.button-analyse {
+.button-analyse,
+.denuncia-id {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -441,13 +613,25 @@ body {
     word-wrap: break-word; 
 }
 
+.denuncia-id{
+    margin-top: 5px;
+}
+.report-id{
+    display: flex;
+    gap: 1vw;
+    color: #fff200;
+}
+.id-report{
+    color: #EDF4ED;
+}
+
 .denuncia-titulo,
-.denuncia-status,
-.denuncia-id {
+.denuncia-status {
     width: 35%;
 }
 
-.btn-analyse {
+.btn-analyse,
+.analyse-suspend {
     width: 150px;
     height: 40px;
     font-size: 12px;
@@ -458,7 +642,7 @@ body {
     border: none;
     border-radius: 5px;
     transition: all .4s;
-    margin-left: 55rem;
+    margin-left: 45rem;
     flex-shrink: 0;
 }
 
@@ -478,8 +662,125 @@ body {
     0 12px 10px -3px #EDF4ED;
 }
 
-/* LISTA SUSPENSOS */
 
+
+/* LISTA SUSPENSOS */
+.list-suspends {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.container-suspend {
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    position: relative;
+    width: 70rem;
+    height: 10rem;
+    background: #29292c;
+    border-radius: 1rem;
+    overflow: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    --gradient: linear-gradient(to bottom, #ffad31, #ffc400, #ffa231);
+    --color: #32a6ff
+}
+
+.container-suspend:before {
+    position: absolute;
+    content: "";
+    inset: 0.0625rem;
+    border-radius: 0.9375rem;
+    background: rgba(52, 73, 94, 0.7);
+    z-index: 2
+}
+
+.container-suspend:after {
+    position: absolute;
+    content: "";
+    width: 0.25rem;
+    inset: 0.65rem auto 0.65rem 0.5rem;
+    border-radius: 0.125rem;
+    background: var(--gradient);
+    transition: transform 300ms ease;
+    z-index: 4;
+}
+
+.container-suspend:hover:after {
+    transform: translateX(0.15rem)
+}
+
+.suspend-user-motivo {
+    display: flex;
+    padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #e8bb27;
+    transition: transform 300ms ease;
+    z-index: 5;
+}
+
+.container-suspend:hover .suspend-user-motivo {
+    transform: translateX(0.15rem);
+}
+
+.suspend-data {
+    display: flex;
+    color: #EDF4ED;
+    padding: 0 1.25rem;
+    transition: transform 300ms ease;
+    z-index: 5;
+}
+
+.container-suspend:hover .suspend-data {
+    transform: translateX(0.25rem);
+}
+
+.efect-suspend,
+.border-suspend {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle closest-side at center, white, transparent);
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.efect-suspend {
+    z-index: 3;
+}
+
+.border-suspend {
+    z-index: 1;
+}
+
+.container-suspend:hover .efect-suspend,
+.container-suspend:hover .border-suspend {
+    opacity: 0.1
+}
+
+.user-suspenso, 
+.suspenso-motivo,
+.suspend-inicio, 
+.suspend-fim {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    word-wrap: break-word; 
+}
+
+.suspenso-motivo,
+.suspend-fim {
+    margin-left: 20%;
+}
+
+.analyse-suspend{
+    margin-left: 55rem;
+}
 
 /* LISTA BANIDOS */
 
@@ -487,7 +788,6 @@ body {
 /* ANALISE DENUNCIAS */
 legend{
     background-color: #79b791;
-    border: 2px solid #51291E;
     padding: 0.5em;
     border: none;
     border-radius: .6rem;
@@ -495,15 +795,19 @@ legend{
     font-weight: bold;
 }
 
+.legend-adm{
+    background-color: #29292c;
+    color: #EDF4ED;
+}
+
 fieldset{
     padding: 10px;
     background-color: #EDF4ED;
 }
 
-.dados-relatado,
-.dados-relator{
+
+.relator-informacoes{
     display: flex;
-    align-items: center;
 }
 
 .img-relatado,
@@ -512,8 +816,17 @@ fieldset{
     margin-left: 5px;
 }
 
+.dados-relator,
+.dados-relatado{
+    display: flex;
+    width: 50rem;
+}
+
 .info-relatado,
 .info-relator{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-left: 3%;
 }
 
@@ -526,7 +839,7 @@ fieldset{
 }
 
 .back-to-listReport,
-.discard,
+.archive,
 .suspend,
 .ban{
     border: none;
@@ -547,7 +860,7 @@ fieldset{
     color: #171717;
 }
 
-.discard:hover{
+.archive:hover{
     transition: 1s;
     background-color: #ffe25f;
     color: #171717;
@@ -565,8 +878,26 @@ fieldset{
     color: #171717;
 }
 
+.analyse-suspend:hover {
+    border-radius: 5px;
+    transform: translateY(-10px);
+    box-shadow: 0 7px 0 -2px #fcb234,
+    0 15px 0 -4px #51291E,
+    0 16px 10px -3px #EDF4ED;
+}
+
+.analyse-suspend:active {
+    transition: all 0.2s;
+    transform: translateY(-5px);
+    box-shadow: 0 2px 0 -2px #fcb234,
+    0 8px 0 -4px #51291E,
+    0 12px 10px -3px #EDF4ED;
+}
+
+
+
 /* FORM DECISÕES DA DENUNCIA */
-.formulario-discard,
+.formulario-arquivar,
 .formulario-suspenso,
 .formulario-banido{
     display: none;

@@ -26,9 +26,31 @@
     <div class="list-suspends">
         <?php foreach ($suspensoArray as $suspenso): ?>
             <div class="suspend-users">
-                <div class="motivo"> MOTIVO: <div class="titulo-report"><?= htmlspecialchars($suspenso['motivo']) ?></div> </div>
-                <div class="inicio_suspensao"> INICIO DA SUSPENSÃO: <div class="titulo-report"><?= htmlspecialchars($suspenso['data_hora_inicio']) ?></div> </div>
-                <div class="fim_suspensao"> FIM DA SUSPENSÃO: <div class="titulo-report"><?= htmlspecialchars($suspenso['data_hora_inicio']) ?></div> </div>
+                <div class="suspnd-info">
+                    <div class="container-suspend">
+                        <div class="efect-suspend"></div>
+                        <div class="border-suspend"></div>
+                        <div class="suspend-user-motivo">
+                            <div class="user-suspenso">
+                                <div class="user-suspend"> USUÁRIO SUSPENSO: <div class="suspend-user"><?= htmlspecialchars($suspenso['id_suspenso']) ?></div> </div>
+                            </div>
+                            <div class="suspenso-motivo">
+                                <div class="motivo-suspend"> MOTIVO: <div class="suspend-motvo"><?= htmlspecialchars($suspenso['motivo']) ?></div> </div>
+                            </div>
+                        </div>
+                        <div class="suspend-data">
+                            <div class="suspend-inicio">
+                                <div class="inicio_suspensao"> INICIO DA SUSPENSÃO: <div class="start-suspend"><?= htmlspecialchars($suspenso['data_hora_inicio']) ?></div> </div>
+                            </div>
+                            <div class="suspend-fim">
+                                <div class="fim_suspensao"> FIM DA SUSPENSÃO: <div class="end-suspend"><?= htmlspecialchars($suspenso['data_hora_inicio']) ?></div> </div>
+                            </div>
+                        </div>
+                        <div class="suspend-data">
+                            <button class="analyse-suspend">VER SUSPENSÃO</button>
+                        </div>
+                    </div>
+                </div>
             </div> <br>
         <?php endforeach; ?>
     </div>

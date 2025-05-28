@@ -161,6 +161,8 @@ CREATE TABLE denuncia (
     motivo VARCHAR(255) NOT NULL,
     status VARCHAR(45) NOT NULL DEFAULT 'Pendente',
     data_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    data_inicio_analise TIMESTAMP NULL DEFAULT NULL,
+    data_fim_analise TIMESTAMP NULL DEFAULT NULL,
     PRIMARY KEY (id_denuncia),
     FOREIGN KEY (id_relator) REFERENCES participante(id_participante),
     FOREIGN KEY (id_relatado) REFERENCES participante(id_participante),
@@ -175,11 +177,13 @@ CREATE TABLE IF NOT EXISTS banido (
     id_banido INT NOT NULL AUTO_INCREMENT,
     id_administrador INT NOT NULL,
     id_participante_banido INT NOT NULL,
+    id_denuncia INT NOT NULL,
     motivo VARCHAR(100) NOT NULL,
     create_time TIMESTAMP NOT NULL,
     PRIMARY KEY (id_banido),
     CONSTRAINT fk_participanteBanidio FOREIGN KEY (id_participante_banido) REFERENCES participante (id_participante),
-    CONSTRAINT fk_administradorBanido FOREIGN KEY (id_administrador) REFERENCES administrador (id_administrador)
+    CONSTRAINT fk_administradorBanido FOREIGN KEY (id_administrador) REFERENCES administrador (id_administrador),
+    CONSTRAINT fk_denunciaBanido FOREIGN KEY (id_denuncia) REFERENCES denuncia(id_denuncia)
 );
 
 -- -----------------------------------------------------
@@ -189,10 +193,29 @@ CREATE TABLE IF NOT EXISTS suspenso (
     id_suspenso INT NOT NULL AUTO_INCREMENT,
     id_administrador INT NOT NULL,
     id_participante_suspenso INT NOT NULL,
+    id_denuncia INT NOT NULL,
     motivo VARCHAR(100) NOT NULL,
     data_hora_inicio DATETIME NOT NULL,
     data_hora_fim DATETIME NOT NULL,
     PRIMARY KEY (id_suspenso),
     CONSTRAINT fk_administradorSuspenso FOREIGN KEY (id_administrador) REFERENCES administrador (id_administrador),
-    CONSTRAINT fk_participanteSuspenso FOREIGN KEY (id_participante_suspenso) REFERENCES participante (id_participante)
+    CONSTRAINT fk_participanteSuspenso FOREIGN KEY (id_participante_suspenso) REFERENCES participante (id_participante),
+    CONSTRAINT fk_denunciaSuspenso FOREIGN KEY (id_denuncia) REFERENCES denuncia(id_denuncia)
+);
+
+
+-- -----------------------------------------------------
+-- Tabela denunciaArquivada
+-- -----------------------------------------------------
+CREATE TABLE arquivada(
+	id_arquivada INT NOT NULL AUTO_INCREMENT,
+    id_administrador INT NOT NULL,
+    id_participante_denunciado INT NOT NULL,
+    id_denuncia INT NOT NULL,
+    motivo VARCHAR(100) NOT NULL,
+    create_time TIMESTAMP NOT NULL,
+    PRIMARY KEY (id_arquivada),
+    CONSTRAINT fk_administradorArquivada FOREIGN KEY (id_administrador) REFERENCES administrador(id_administrador),
+    CONSTRAINT fk_participanteArquivada FOREIGN KEY (id_participante_denunciado) REFERENCES participante(id_participante),
+    CONSTRAINT fk_denunciaArquivada FOREIGN KEY (id_denuncia) REFERENCES denuncia(id_denuncia)
 );
