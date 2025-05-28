@@ -18,7 +18,7 @@
 
     // JOIN para pegar os dados do relator, relatado, post, midia e adm
     $join = "SELECT denuncia.*,
-		relator.username AS relator_username,
+        relator.username AS relator_username,
         relator.email AS relator_email,
         relator.profile_pic AS relator_profile_pic,
         relator.create_time AS relator_creation_date,
@@ -28,13 +28,14 @@
         relatado.create_time AS relatado_creation_date,
         administrador.email AS administrador_email,
         post.titulo AS post_titulo,
-        post.descricao AS post_descricao
+        post.descricao AS post_descricao,
+        midia.midia_ref AS post_midia_ref
         FROM denuncia
         JOIN participante AS relator ON denuncia.id_relator = relator.id_participante
         JOIN participante AS relatado ON denuncia.id_relatado = relatado.id_participante
-        JOIN administrador ON denuncia.id_administrador = administrador.id_administrador
+        LEFT JOIN administrador ON denuncia.id_administrador = administrador.id_administrador
         JOIN post ON denuncia.id_post = post.id_post
-        JOIN midia ON post.id_post = midia.id_post
+        LEFT JOIN midia ON post.id_post = midia.id_post
         WHERE denuncia.id_denuncia = {$id_denuncia};";
 
     $joinQuery = $sqlConnection->joinQueryBD($join);
@@ -58,6 +59,7 @@
         $post_id = $joinQuery[0]['id_post'];
         $post_titulo = $joinQuery[0]['post_titulo'];
         $post_descricao = $joinQuery[0]['post_descricao'];
+        $midia_post = $joinQuery[0]['post_midia_ref'];
         // Denuncia
         $denuncia_id = $joinQuery[0]['id_denuncia'];
         $denuncia_data = $joinQuery[0]['data_registro'];
@@ -73,9 +75,9 @@
         echo "Nenhum resultado encontrado.";
     }
 
-    if (in_array($post_id, $midiaArray)) {
-        $midia = $midiaArray[$post_id]['midia_ref'];
-    } else {$midia = null;}
+    if ($midia_post == null)  {
+        $midia_post = "Esse post não possui imagens.";
+    }
 
     $checkAndUpdate = "UPDATE denuncia
         SET 

@@ -5,23 +5,14 @@
     debug_var($_POST);
 
     $sqlConnection = new SQLconnection();
-    $id_administrador = $_POST['id_administrador'];
-    $id_participante_denunciado = $_POST['id_participante_denunciado'];
-    $id_denuncia = $_POST['id_denuncia'];
-    $motivo = $_POST['motivo'];
+    $updateDenunciaTB = "UPDATE denuncia
+        SET
+            status = 'Arquivada',
+            data_fim_analise = NOW()
+        WHERE
+            status = 'Em Análise';
+    ";
 
-    $sqlQuery = "INSERT INTO arquivada(
-        id_administrador,
-        id_participante_denunciado,
-        id_denuncia,
-        motivo
-    ) VALUES (
-        '{$id_administrador}',
-        '{$id_participante_denunciado}',
-        '{$id_denuncia}',
-        '{$motivo}'
-    )";
-
-    $sqlConnection->insertQueryBD($sqlQuery);
+    $sqlConnection->rawQueryBD($updateDenunciaTB);
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/admPage.php");
 ?>

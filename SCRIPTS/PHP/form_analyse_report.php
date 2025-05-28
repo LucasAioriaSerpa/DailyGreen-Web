@@ -72,13 +72,11 @@
                     <div class="dados-post">
                         <div><?php echo "<b>Titulo do Post: </b>".$post_titulo ?></div>
                         <div><?php echo "<b>Descrição do Post: </b>".$post_descricao ?></div>
-                        <?php if($midia != null): ?>
                         <div class="midia-post"><?php echo "<b>Imagens do Post: </b>" ?></div><br>
                         <div class="img-post">
-                            <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia)) ?>"
+                            <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia_post)) ?>"
                                 alt="Avatar" style="border-radius: 10px;">
                         </div>
-                        <?php endif; ?>
                     </div><br>
                 </fieldset><br>
                 <fieldset>

@@ -30,5 +30,17 @@
     )";
 
     $sqlConnection->insertQueryBD($sqlQuery);
+
+
+    $updateStatus = "UPDATE denuncia
+        SET
+            status = 'Resolvida',
+            data_fim_analise = NOW()
+        WHERE
+            status = 'Em Análise';
+    ";
+
+    $sqlConnection->rawQueryBD($updateStatus);
+
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/admPage.php");
 ?>

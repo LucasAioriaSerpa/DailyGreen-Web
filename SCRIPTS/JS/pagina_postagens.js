@@ -117,10 +117,7 @@ const arrayMotivos = {
 }
 
 function updateTitulo(selectElement) {
-    // Encontra o formulário pai
     const form = selectElement.closest('.form_denuncia');
-    
-    // Seleciona os elementos dentro deste formulário específico
     const enviarDenuncia = form.querySelector(".enviar-denuncia");
     const titulo = selectElement.value;
     const motivoSelect = form.querySelector(".motivo-options");
@@ -128,10 +125,8 @@ function updateTitulo(selectElement) {
     console.log("Título selecionado:", titulo);
     console.log("Existe no arrayMotivos?", arrayMotivos.hasOwnProperty(titulo));
 
-    // Limpa as opções atuais
     motivoSelect.innerHTML = '<option value="">--- Selecione ---</option>';
 
-    // Desativa o botão de envio inicialmente
     enviarDenuncia.classList.add("disabled");
 
     // Preenche os motivos se um título válido foi selecionado
@@ -159,7 +154,6 @@ function updateMotivo(selectElement) {
 }
 
 function confirmSendDenuncia(button) {
-    // Encontra o formulário pai do botão clicado
     const form = button.closest('.form_denuncia');
     const enviarDenuncia = button;
     
