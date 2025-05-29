@@ -16,7 +16,7 @@
     <fieldset>
         <legend>USUÁRIO</legend>
         <div><?php echo "ID do Participante: ".$id_participante ?></div>
-        <div><?php echo "Email do Participante: " ?></div>
+        <div><?php echo "Email do Participante:" ?></div>
     </fieldset><br>
     <fieldset>
         <legend>POSTS</legend>
@@ -27,8 +27,9 @@
 
                     foreach ($joinQuery as $post) {
                         echo "<hr>";
-                        echo "<h3 class='titulo-post-user' style='padding: 20px'>" . "TITULO\n".$post['titulo'] . "</h3>";
-                        echo "<p class='descricao-post-user' style='padding: 20px'>" . "DESCRIÇÃO\n".$post['descricao'] . "</p>";
+                        echo "<p class='titulo-post-user'" . "<strong>TITULO: </strong>".$post['titulo'] . "</p>";
+                        echo "<p class='descricao-post-user'" . "<strong>MOTIVO: </strong>".$post['descricao'] . "</p>";
+                        echo "<p class='creation-post-user'" . "<strong>POSTADO EM: </strong>".$post['create_time'] . "</p>";
                         echo "<hr> <br>";
                     }
                 } else {

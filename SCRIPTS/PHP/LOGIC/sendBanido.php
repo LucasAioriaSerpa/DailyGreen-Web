@@ -36,9 +36,10 @@
 
     $updateLista = "UPDATE participante
         SET
-            id_lista = '2'
+            id_lista = '3'
         WHERE
-            id_list = '3';
+            id_lista = '2';
+            AND id_participante = {$id_participante_banido};
     ";
 
     $sqlConnection->rawQueryBD($updateStatus);

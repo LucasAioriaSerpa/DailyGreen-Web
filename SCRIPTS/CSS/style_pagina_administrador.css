@@ -500,8 +500,19 @@ body {
 }
 
 /*POST DOS USUÁRIOS NA PÁGINA DO ADM*/
+.titulo-post-user,
+.descricao-post-user,
+.creation-post-user{
+    padding-left: 10px;
+}
 
+.titulo-post-user{
+    padding-top: 10px;
+}
 
+.creation-post-user{
+    padding-bottom: 10px;
+}
 
 /* LISTA DE DENUNCIAS */
 .buttons-filters{
