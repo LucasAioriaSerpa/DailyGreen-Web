@@ -45,6 +45,7 @@
             id_lista = '2'
         WHERE
             id_lista = '3';
+            AND id_participante = {$id_participante_suspenso};
     ";
 
     $sqlConnection->rawQueryBD($updateStatus);
