@@ -72,6 +72,13 @@ function showButtons(){
     btnMenu.style.color = btnMenu.style.color === 'white' ? '#808080' : 'white';
 }
 
+function scrollToStatus(statusId) {
+    const target = document.getElementById(statusId);
+    if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+    }
+}
+
 
 // BOTÕES DOS FORMULARIOS
 function formArquivar(){

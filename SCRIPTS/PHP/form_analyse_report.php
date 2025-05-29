@@ -17,7 +17,6 @@
 
 <div class="navegacao_principal">
     <div class="form-analyse-report">
-        <?php ?>
         <div class="container-dados-denuncia">
             <div class="relator-informacoes">
                 <fieldset>

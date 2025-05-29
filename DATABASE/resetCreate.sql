@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS post (
     id_autor INT NOT NULL,
     titulo VARCHAR(50) NOT NULL,
     descricao VARCHAR(255),
+    create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_post),
     CONSTRAINT fk_participantePost FOREIGN KEY (id_autor) REFERENCES participante (id_participante)
 );

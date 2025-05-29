@@ -2,7 +2,6 @@
     include_once 'LOGIC/session.php';
     include_once 'LOGIC/SQL_connection.php';
     include_once 'LOGIC/functions.php';
-    include_once 'LOGIC/functions.php';
     if ($_SESSION['user']['loged'] === false) {
         header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
         exit();
@@ -40,7 +39,6 @@
 
     $joinQuery = $sqlConnection->joinQueryBD($join);
 
-
     // Setando as variáveis do JOIN para exibir os dados
     if ($joinQuery && count($joinQuery) > 0) {
         // Relatado
@@ -75,9 +73,10 @@
         echo "Nenhum resultado encontrado.";
     }
 
-    if ($midia_post == null)  {
+    if ($midia_post === null)  {
         $midia_post = "Esse post não possui imagens.";
     }
+
 
     $checkAndUpdate = "UPDATE denuncia
         SET 

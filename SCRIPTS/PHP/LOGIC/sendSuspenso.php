@@ -40,7 +40,15 @@
             status = 'Em Análise';
     ";
 
+    $updateLista = "UPDATE participante
+        SET 
+            id_lista = '2'
+        WHERE
+            id_lista = '3';
+    ";
+
     $sqlConnection->rawQueryBD($updateStatus);
+    $sqlConnection->rawQueryBD($updateLista);
 
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/admPage.php");
 ?>
