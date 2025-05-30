@@ -49,6 +49,7 @@ function openPostModal(post, event) {
         '.comment-modal-content',
         '.formulario-denuncia',
         '.post-img',
+        '.img-modal',
         '.img-count',
         '.img-modal-close'
     ];

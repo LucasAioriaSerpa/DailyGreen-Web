@@ -34,10 +34,10 @@ body {
 
 @keyframes moveBg {
     from {
-        background-position: 0 0; 
+        background-position: 0 0;
     }
     to {
-        background-position: -100% 0; 
+        background-position: -100% 0;
     }
 }
 
@@ -69,7 +69,6 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 1.1rem;
     background-color: rgba(193, 238, 212, 0.811);
     color: #51291E;
 }
@@ -80,7 +79,6 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 1.1rem;
     color: #51291E;
 }
 
@@ -109,7 +107,6 @@ body {
 
 .menu-item i, .menu-item2 {
     margin-right: 15px;
-    font-size: 1.5rem;
 }
 
 .area_perfil {
@@ -442,23 +439,22 @@ body {
     justify-content: center;
 }
 .img-modal-content {
-    margin: auto;
-    display: block;
     max-width: 90vw;
     max-height: 90vh;
-    border-radius: 10px;
+    display: block;
+    margin: auto;
     box-shadow: 0 2px 16px #0008;
 }
 .img-modal-close {
     position: absolute;
-    top: 30px;
-    right: 40px;
+    top: 20px; right: 30px;
+    font-size: 2rem;
+    background: transparent;
+    border: none;
     color: #fff;
-    font-size: 2.5rem;
-    font-weight: bold;
     cursor: pointer;
-    z-index: 10000;
-    text-shadow: 0 2px 8px #000;
+    z-index: 10001;
+    text-shadow: 0 2px 16px #000000cc;
 }
 .img-modal.show {
     display: flex;

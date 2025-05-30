@@ -20,6 +20,7 @@ if (sizeof($userArray) == 0) {
 $postsArray = $sqlConnection->callTableBD('post');
 $eventArray = $sqlConnection->callTableBD('evento');
 $midiaArray = $sqlConnection->callTableBD('midia');
+$comentarioArray = $sqlConnection->callTableBD('comentario');
 $usersArray = $sqlConnection->callTableBD('participante');
 $denunciaArray = $sqlConnection->callTableBD('denuncia');
 $reactionPostArray = $sqlConnection->callTableBD('reacaopost');
@@ -180,21 +181,21 @@ function getPostReactions($postId, $reactionPostArray) {
                                     }
                                 }
                                 $imgCount = count($postMidias);
-                                foreach ($postMidias as $idx => $midia):
-                                ?>
-                                    <img
-                                        src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
-                                        alt="Post Image"
-                                        class="post-img img-count-<?= $imgCount ?>"
-                                        onclick="openMidiaModal(this.src)"
-                                    >
-                                <?php endforeach; ?>
+                                foreach ($postMidias as $idx => $midia) {
+                                    ?>
+                                        <img
+                                            src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
+                                            alt="post img"
+                                            class="post-img img-count-<?= $imgCount ?>"
+                                            onclick="openMidiaModal(this.src)"
+                                        >
+                                    <?php } ?>
                             </div>
                         </div>
                         <!-- Modal para ampliar imagem -->
                         <button id="imgModal" class="img-modal" onclick="closeMidiaModal()">
-                            <span class="img-modal-close">&times;</span>
-                            <img class="img-modal-content" id="imgModalContent">
+                            <span class="img-modal-close"> &times;</span>
+                            <img class="img-modal-content" id="imgModalContent" alt="modal">
                         </button>
                         <div class="post-footer">
                             <div class="reaction-wrapper">
@@ -284,7 +285,7 @@ function getPostReactions($postId, $reactionPostArray) {
                                                     <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo[0]['username']; ?></div>
                                                 </div>
                                             </div>
-                                            <form action="" class="form-comment">
+                                            <form action="/DailyGreen-Project/SCRIPTS/PHP/logic/send_comment.php" class="form-comment" method="post">
                                                 <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
                                                 <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
                                                 <input type="hidden" name="id_autor_comment" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">
@@ -298,6 +299,7 @@ function getPostReactions($postId, $reactionPostArray) {
                             </div>
                         </div>
                     </article>
+                    <!-- //! MODAL POST -->
                     <article class="post-modal" id="postModal" style="display: none;">
                         <div class="post-modal-header">
                             <button class="bnt-close-post-modal" onclick="closePostModal(this)">X</button>
@@ -335,22 +337,25 @@ function getPostReactions($postId, $reactionPostArray) {
                                         }
                                     }
                                     $imgCount = count($postMidias);
-                                    foreach ($postMidias as $idx => $midia):
+                                    foreach ($postMidias as $idx => $midia) {
                                     ?>
                                         <img
                                             src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
-                                            alt="Post Image"
+                                            alt="post img"
                                             class="post-img img-count-<?= $imgCount ?>"
-                                            onclick="openMidiaModal(this.src)"
+                                            style="cursor: auto;"
                                         >
-                                    <?php endforeach; ?>
+                                    <?php } ?>
                                 </div>
                             </div>
-                            <!-- Modal para ampliar imagem -->
-                            <button id="imgModal" class="img-modal" onclick="closeMidiaModal()">
-                                <span class="img-modal-close" onclick="closeMidiaModal(event)">&times;</span>
-                                <img class="img-modal-content" id="imgModalContent">
                             </button>
+                            <div class="post-comments">
+                                <?php foreach($comentarioArray as $comment): ?>
+                                    <?php if ($comment['id_post'] === $post['id_post']): ?>
+                                        <div class="comment"></div>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </div>
                             <div class="post-footer">
                                 <div class="reaction-wrapper">
                                     <button class="btn-content-footer btn-reaction-toggle" title="Reaja neste post!" onclick="toggleReact(this)">
@@ -439,7 +444,7 @@ function getPostReactions($postId, $reactionPostArray) {
                                                         <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo[0]['username']; ?></div>
                                                     </div>
                                                 </div>
-                                                <form action="" class="form-comment">
+                                                <form action="/DailyGreen-Project/SCRIPTS/PHP/logic/send_comment.php" class="form-comment" method="post">
                                                     <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
                                                     <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
                                                     <input type="hidden" name="id_autor_comment" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">
