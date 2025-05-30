@@ -11,6 +11,7 @@ switch ($_POST["cad-part"]) {
         $_SESSION['inputs']['cadastro']['cad-part'] = $_POST["cad-part"];
         $_SESSION['inputs']['cadastro']['part-1'] = [
             "nome" => $_POST["nome"],
+            "passagem" => $_POST["passagem"],
             "biografia" => $_POST["biografia"],
             "email" => $_POST["email"],
             "org" => $_POST["org"]

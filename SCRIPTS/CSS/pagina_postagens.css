@@ -1351,7 +1351,7 @@ body {
     border: 1px solid #79B791;
     border-radius: 8px;
     resize: vertical;
-    min-height: 150px;
+    min-height: 70px;
     background-color: #F8FBF8;
     color: #51291E;
     font-size: 16px;
@@ -1363,7 +1363,14 @@ body {
     gap: 12px;
 }
 
-.submit-btn, .cancel-btn {
+
+.cancel-btn {
+    margin: 30px;
+    margin-bottom: -10px;
+    margin-right: -10px;
+}
+
+.submit-btn, .cancel-btn, .botao_foto {
     padding: 10px 20px;
     border-radius: 20px;
     font-weight: bold;
@@ -1372,13 +1379,13 @@ body {
     border: 1px solid;
 }
 
-.submit-btn {
+.submit-btn, .botao_foto {
     background-color: #79B791;
     color: #EDF4ED;
     border-color: #79B791;
 }
 
-.submit-btn:hover {
+.submit-btn:hover, .botao_foto {
     background-color: #5A9E6E;
 }
 
@@ -1396,3 +1403,14 @@ body {
 .post-titulo h1 {
     font-size: 1.5em;
 }
+
+
+  .file-input-no-text {
+    color:#0679eb00;
+    width: 130px; /* Ajuste conforme necessário */
+  }
+
+  #fileInput {
+    display: none; /* Esconde o input real */
+  }
+  

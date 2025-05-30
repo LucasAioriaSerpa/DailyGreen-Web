@@ -57,8 +57,8 @@ $_event = null;
                             style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div style="margin-left: 10px;">
-                        <div><?php echo $userInfo[0]['username'] ?></div>
-                        <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo[0]['username']; ?></div>
+                        <div><?= htmlspecialchars($userInfo[-1]['username']) ?></div>
+                        <div style="font-size: 0.8rem; color: #71767b;">@<?= htmlspecialchars($userInfo[-1]['username']) ?></div>
                     </div>
                     <div id="logoutBtn" class="logout_button">
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/logoutPostagens.php">
@@ -78,20 +78,43 @@ $_event = null;
                         style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid #EDF4ED;">
                 </div>  
                 <div class="profile-info">
-                    <h2><strong><?= htmlspecialchars($userInfo[0]['username']) ?></strong></h2>
-                    <p>@<?= htmlspecialchars($userInfo[0]['username']) ?></p>
+
+                    <h2><strong><?= htmlspecialchars($userInfo[-1]['username']) ?></strong></h2>
+                    <p>@<?= htmlspecialchars($userInfo[-1]['username']) ?></p>
+
+
                     <p>📅 Entrou em: <?= date('d/m/Y', strtotime($userInfo[0]['create_time'])) ?></p>
                     <p id="user-biography">Biografia: <?= htmlspecialchars($userInfo[0]['biografia']) ?></p>  
                 </div>
                 
                 <button class="edit-btn">
-                    <i class="fas fa-edit"></i> Editar Biografia
+                    <i class="fas fa-edit"></i> Editar Perfil
                 </button>
                 
                 <!-- Modal de Edição -->
                 <div class="edit-modal" id="editModal">
                     
                     <div class="edit-form-container">
+                    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileName.php" method="POST" id="nameForm">
+                            <div class="form-group">
+                                <label for="username">Nome:</label>
+                                <input 
+                                    id="username" 
+                                    name="nome" 
+                                    placeholder="Escreva seu nome aqui..."
+                                    pattern=".{0,30}" x
+                                    maxlength="30"
+                                    title="A nome deve ter no máximo 30 caracteres."
+                                >
+                                <span id="charCounterUsername">0/20</span>
+                            </div>
+                            
+                            <div class="form-actions">
+                                
+                                <input type="submit" class="submit-btn" value="Salvar"> 
+                            </div>
+                        </form>
+
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileAcc.php" method="POST" id="bioForm">
                             <div class="form-group">
                                 <label for="biografia">Biografia:</label>
@@ -107,10 +130,14 @@ $_event = null;
                             </div>
                             
                             <div class="form-actions">
-                                <button type="button" class="cancel-btn" id="cancelBtn">Cancelar</button>
+                                
                                 <input type="submit" class="submit-btn" value="Salvar"> 
                             </div>
                         </form>
+                        <div class="form-actions">
+                                <button type="button" class="cancel-btn" id="cancelBtn">Cancelar</button>
+                                
+                        </div>
                     </div>
                 </div>
                 

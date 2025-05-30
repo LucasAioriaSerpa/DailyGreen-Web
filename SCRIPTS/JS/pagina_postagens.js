@@ -302,3 +302,32 @@ document.getElementById('biografia').addEventListener('input', function () {
 
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const editBtn = document.querySelector('.edit-btn');
+    const editModal = document.getElementById('editModal');
+    const bioForm = document.getElementById('nameForm');
+    const cancelBtn = document.getElementById('cancelBtn');
+
+    editBtn.addEventListener('click', function () {
+        editModal.style.display = 'flex';
+    });
+
+    bioForm.addEventListener('submit', function (e) {
+
+        const novoNome = document.getElementById('nome').value;
+        console.log('Novo nome:', novoNome);
+
+        editModal.style.display = 'none';
+    });
+
+    cancelBtn.addEventListener('click', function () {
+        editModal.style.display = 'none';
+    });
+
+    editModal.addEventListener('click', function (e) {
+        if (e.target === editModal) {
+            editModal.style.display = 'none';
+        }
+    });
+});
+
