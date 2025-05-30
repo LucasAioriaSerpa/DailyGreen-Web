@@ -131,7 +131,21 @@ $countPost = 0;
                             </div>
                             
                             <div class="form-actions">
-                                
+                                <input type="submit" class="submit-btn" value="Salvar"> 
+                            </div>
+                        </form>
+
+
+
+
+                        
+                        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfilePic.php" method="POST" id="PicForm" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="profilePic">ProfilePic:</label>
+                                <input type="file" id="profilePic" name="profilePic" class="ProfilePic" accept="image/*" >
+                            </div>
+                            
+                            <div class="form-actions">
                                 <input type="submit" class="submit-btn" value="Salvar"> 
                             </div>
                         </form>
