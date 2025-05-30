@@ -16,13 +16,13 @@
     <div class="buttons-post-user">
         <div class="action-buttons">
             <div class="button-back">
-                <button class="btn-back" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listButtonsAdm.php')">VOLTAR</button>
+                <button class="btn-back" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">VOLTAR</button>
             </div>
             <div class="button-suspender">
-                <button type="submit" class="btn-suspender" onclick="formArquivar()">SUSPENDER</button>
+                <input type="submit" value="SUSPENDER" class="btn-suspender" id="suspend" name="suspend" onclick="formSuspend()">
             </div>
             <div class="button-banir">
-                <button type="submit" class="btn-banir" onclick="formSuspend()">BANIR</button>
+                <input type="submit" value="BANIR" class="btn-banir" id="ban" name="ban" onclick="formBan()">
             </div>
         </div>
         <div class="formulario-suspenso" id="formulario-suspenso" name="formulario-suspenso">
@@ -60,7 +60,7 @@
                                 <td>
                                     <?php foreach ($post['midias'] as $midia): ?>
                                         <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia)) ?>" 
-                                            alt="Imagem do post" style="width: 90px; height: 90px; border-radius: 10%; margin: 5px;">
+                                            alt="Imagem do post" style="border-radius: 10%; margin: 5px;">
                                     <?php endforeach; ?>
                                 </td>
                             </tr>

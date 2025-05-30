@@ -69,6 +69,14 @@
         // Administrador
         $admnistrador_id = $joinQuery[0]['id_administrador'];
         $admnistrador_email = $joinQuery[0]['administrador_email'];
+        //Formato Data
+        $relatado_create_time = new DateTime($relatado_creation_date);
+        $relator_create_time = new DateTime($relator_creation_date);
+        $denuncia_registro = new DateTime($denuncia_data);
+        $data_inicio = new DateTime($data_inicio_analise);
+        if ($data_fim_analise != null){
+            $data_fim = new DateTime($data_fim_analise);
+        }
     } else {
         echo "Nenhum resultado encontrado.";
     }

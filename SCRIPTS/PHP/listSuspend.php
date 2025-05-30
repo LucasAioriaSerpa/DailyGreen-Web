@@ -26,28 +26,53 @@
     <div class="list-suspends">
         <?php foreach ($suspensoArray as $suspenso): ?>
             <div class="suspend-users">
-                <div class="suspnd-info">
+                <div class="suspend-info">
                     <div class="container-suspend">
                         <div class="efect-suspend"></div>
                         <div class="border-suspend"></div>
-                        <div class="suspend-user-motivo">
-                            <div class="user-suspenso">
-                                <div class="user-suspend"> USUÁRIO SUSPENSO: <div class="suspend-user"><?= htmlspecialchars($suspenso['id_suspenso']) ?></div> </div>
-                            </div>
-                            <div class="suspenso-motivo">
-                                <div class="motivo-suspend"> MOTIVO: <div class="suspend-motvo"><?= htmlspecialchars($suspenso['motivo']) ?></div> </div>
-                            </div>
-                        </div>
-                        <div class="suspend-data">
-                            <div class="suspend-inicio">
-                                <div class="inicio_suspensao"> INICIO DA SUSPENSÃO: <div class="start-suspend"><?= htmlspecialchars($suspenso['data_hora_inicio']) ?></div> </div>
-                            </div>
-                            <div class="suspend-fim">
-                                <div class="fim_suspensao"> FIM DA SUSPENSÃO: <div class="end-suspend"><?= htmlspecialchars($suspenso['data_hora_inicio']) ?></div> </div>
-                            </div>
-                        </div>
-                        <div class="suspend-data">
-                            <button class="analyse-suspend">VER SUSPENSÃO</button>
+                        <div class="table-list-suspend">
+                            <table class="table-suspend">
+                                <thead class="head-table-suspend">
+                                    <tr class="row-head-suspend">
+                                        <th class="colunm-head-suspend" style="width: 25%">
+                                            <div class="suspend-id">
+                                                <div class="user-suspend-id"> NÚMERO SUSPENSÃO: <div class="suspend-user"><?= htmlspecialchars($suspenso['id_suspenso']) ?></div> </div>
+                                            </div>
+                                        </th>
+                                        <th class="colunm-head-suspend" style="width: 25%" >
+                                            <div class="user-suspenso">
+                                                <div class="user-suspend"> USUÁRIO SUSPENSO: <div class="suspend-user"><?= htmlspecialchars($suspenso['id_participante_suspenso']) ?></div> </div>
+                                            </div>
+                                        </th>
+                                        <th class="colunm-head-suspend">
+                                            <div class="suspenso-motivo">
+                                                <div class="motivo-suspend"> MOTIVO: <div class="suspend-motvo"><?= str_replace('_', ' ', htmlspecialchars($suspenso['motivo'])) ?></div> </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="body-table-suspend">
+                                    <tr style="height: 25px;"></tr>
+                                    <tr class="row-body-suspend">
+                                        <td class="colunm-body-suspend" style="width: 25%">
+                                            <div class="suspend-inicio">
+                                                <div class="inicio_suspensao"> INICIO DA SUSPENSÃO: <div class="start-suspend"><?= htmlspecialchars($suspenso['data_hora_inicio']) ?></div> </div>
+                                            </div>
+                                        </td>
+                                        <td class="colunm-body-suspend" style="width: 25%" >
+                                            <div class="suspend-fim">
+                                                <div class="fim_suspensao"> FIM DA SUSPENSÃO: <div class="end-suspend"><?= htmlspecialchars($suspenso['data_hora_inicio']) ?></div> </div>
+                                            </div>
+                                        </td>
+                                        <td class="colunm-body-suspend">
+                                            <div class="suspend-data">
+                                                <button class="analyse-suspend" type="submit" data-id="<?= htmlspecialchars($suspenso['id_suspenso']) ?>"
+                                                    onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/viewSuspend.php?id='+this.getAttribute('data-id'))">VER SUSPENSÃO</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

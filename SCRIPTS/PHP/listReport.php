@@ -73,7 +73,7 @@
                                         </th>
                                         <th class="colunm-head-report" style="width: 50%">
                                             <div class="denuncia-titulo">
-                                                <div class="titulo"> TITULO: <div class="titulo-report"><?= htmlspecialchars($denuncia['titulo']) ?></div> </div>
+                                                <div class="titulo"> TITULO: <div class="titulo-report"><?= str_replace('_', ' ', htmlspecialchars($denuncia['titulo'])) ?></div> </div>
                                             </div>
                                         </th>
                                         <th class="colunm-head-report-status">

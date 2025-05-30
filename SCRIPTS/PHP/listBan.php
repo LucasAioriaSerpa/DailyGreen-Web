@@ -9,7 +9,7 @@
     $sqlConnection = new SQLconnection();
     $banidoArray = $sqlConnection->callTableBD('banido');
 
-    // AINDA VOU FAZER O JOIN
+
 ?>
 
 <div class="container-banido">
@@ -25,9 +25,52 @@
     <?php endif; ?>
     <div class="list-bans">
         <?php foreach ($banidoArray as $banido): ?>
-            <div class="ban-users">
-                <div class="motivo"> MOTIVO: <div class="titulo-report"><?= htmlspecialchars($banido['motivo']) ?></div> </div>
-                <div class="inicio_suspensao"> DATA DO BANIMENTO: <div class="titulo-report"><?= htmlspecialchars($banido['create_time']) ?></div> </div>
+            <div class="suspend-users">
+                <div class="suspend-info">
+                    <div class="container-ban">
+                        <div class="efect-ban"></div>
+                        <div class="border-ban"></div>
+                        <div class="table-list-ban">
+                            <table class="table-ban">
+                                <thead class="head-table-ban">
+                                    <tr class="row-head-ban">
+                                        <th class="colunm-head-ban" style="width: 20%">
+                                            <div class="user-banido">
+                                                <div class="id-ban"> ID DO BANIMENTO: <div class="ban-user"><?= htmlspecialchars($banido['id_banido']) ?></div> </div>
+                                            </div>
+                                        </th>
+                                        <th class="colunm-head-ban" style="width: 40%">
+                                            <div class="user-banido">
+                                                <div class="user-ban"> NOME USUÁRIO: <div class="ban-user"><?= htmlspecialchars($banido['id_participante_banido']) ?></div> </div>
+                                            </div>
+                                        </th>
+                                        <th class="colunm-head-ban">
+                                            <div class="ban-inicio">
+                                                <div class="inicio_ban"> DATA BANIMENTO: <div class="start-ban"><?= htmlspecialchars($banido['create_time']) ?></div> </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="height: 25px;"></tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="ban-motivo" style="width: 100%">
+                                                <div class="motivo-ban"> MOTIVO: <div class="ban-motvo"><?= str_replace('_', ' ', htmlspecialchars($banido['motivo'])) ?></div> </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ban-button">
+                                                <button class="analyse-ban" type="submit" data-id="<?= htmlspecialchars($suspenso['id_suspenso']) ?>"
+                                                    onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/viewBan.php?id='+this.getAttribute('data-id'))">VER BANIMENTO</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div> <br>
         <?php endforeach; ?>
     </div>

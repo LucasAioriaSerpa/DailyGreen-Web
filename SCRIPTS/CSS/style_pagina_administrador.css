@@ -336,7 +336,7 @@ body {
     position: absolute;
     width: 0%;
     height: 4px;
-    background-color: #000000;
+    background-color: #3161ff;
     transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
     transition-duration: 400ms;
     transition-property: width, left;
@@ -552,19 +552,8 @@ body {
 }
 
 /*POST DOS USUÁRIOS NA PÁGINA DO ADM*/
-.titulo-post-user,
-.descricao-post-user,
-.creation-post-user{
-    padding-left: 10px;
-}
 
-.titulo-post-user{
-    padding-top: 10px;
-}
 
-.creation-post-user{
-    padding-bottom: 10px;
-}
 
 /* LISTA DE DENUNCIAS */
 
@@ -668,7 +657,7 @@ body {
     align-items: flex-start;
 }
 
-.report-id, .titulo{
+.report-id {
     color: #fff200;
 }
 
@@ -722,7 +711,8 @@ body {
 }
 
 .btn-analyse,
-.analyse-suspend {
+.analyse-suspend,
+.analyse-ban {
     width: 150px;
     height: 40px;
     font-size: 12px;
@@ -759,6 +749,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1vh;
     width: 100%;
 }
 
@@ -767,6 +758,7 @@ body {
     flex-direction: column;
     isolation: isolate;
     position: relative;
+    justify-content: center;
     width: 70rem;
     height: 10rem;
     background: #29292c;
@@ -774,7 +766,7 @@ body {
     overflow: hidden;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
-    --gradient: linear-gradient(to bottom, #ffad31, #ffc400, #ffa231);
+    --gradient: linear-gradient(to bottom, #ffcf31, #ff9900, #ff8a31);
     --color: #32a6ff
 }
 
@@ -784,7 +776,7 @@ body {
     inset: 0.0625rem;
     border-radius: 0.9375rem;
     background: rgba(52, 73, 94, 0.7);
-    z-index: 2
+    z-index: 2;
 }
 
 .container-suspend:after {
@@ -802,30 +794,17 @@ body {
     transform: translateX(0.15rem)
 }
 
-.suspend-user-motivo {
+.table-list-suspend {
     display: flex;
     padding: 0.65rem 0.25rem 0.4rem 1.25rem;
-    font-weight: 500;
     font-size: 1.1rem;
-    color: #e8bb27;
-    transition: transform 300ms ease;
-    z-index: 5;
-}
-
-.container-suspend:hover .suspend-user-motivo {
-    transform: translateX(0.15rem);
-}
-
-.suspend-data {
-    display: flex;
     color: #EDF4ED;
-    padding: 0 1.25rem;
     transition: transform 300ms ease;
-    z-index: 5;
+    z-index: 10;
 }
 
-.container-suspend:hover .suspend-data {
-    transform: translateX(0.25rem);
+.container-suspend:hover .table-list-suspend {
+    transform: translateX(0.15rem);
 }
 
 .efect-suspend,
@@ -852,27 +831,179 @@ body {
     opacity: 0.1
 }
 
-.user-suspenso, 
-.suspenso-motivo,
-.suspend-inicio, 
-.suspend-fim {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start; 
-    word-wrap: break-word; 
+.table-suspend{
+    width: 100%;
+    height: 100%;
 }
 
-.suspenso-motivo,
-.suspend-fim {
-    margin-left: 20%;
+
+.user-suspend-id,
+.user-suspend,
+.inicio_suspensao,
+.fim_suspensa,
+.suspend-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-suspend-id{
+    color: #ff9900;
+}
+
+.motivo-suspend{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    margin-right: 5px;
 }
 
 .analyse-suspend{
-    margin-left: 55rem;
+    margin-left: 20rem;
 }
 
+.analyse-suspend:hover {
+    border-radius: 5px;
+    transform: translateY(-10px);
+    box-shadow: 0 7px 0 -2px #fcb234,
+    0 15px 0 -4px #51291E,
+    0 16px 10px -3px #EDF4ED;
+}
+
+.analyse-suspend:active {
+    transition: all 0.2s;
+    transform: translateY(-5px);
+    box-shadow: 0 2px 0 -2px #fcb234,
+    0 8px 0 -4px #51291E,
+    0 12px 10px -3px #EDF4ED;
+}
+
+
+
 /* LISTA BANIDOS */
+.list-bans {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+    width: 100%;
+}
+
+.container-ban {
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    position: relative;
+    justify-content: center;
+    width: 70rem;
+    height: 10rem;
+    background: #29292c;
+    border-radius: 1rem;
+    overflow: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    --gradient: linear-gradient(to bottom, #ff7c7c, #ff4c4c, #fc0000);
+    --color: #32a6ff
+}
+
+.container-ban:before {
+    position: absolute;
+    content: "";
+    inset: 0.0625rem;
+    border-radius: 0.9375rem;
+    background: rgba(52, 73, 94, 0.7);
+    z-index: 2;
+}
+
+.container-ban:after {
+    position: absolute;
+    content: "";
+    width: 0.25rem;
+    inset: 0.65rem auto 0.65rem 0.5rem;
+    border-radius: 0.125rem;
+    background: var(--gradient);
+    transition: transform 300ms ease;
+    z-index: 4;
+}
+
+.container-ban:hover:after {
+    transform: translateX(0.15rem)
+}
+
+.table-list-ban {
+    display: flex;
+    padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+    font-size: 1.1rem;
+    color: #EDF4ED;
+    transition: transform 300ms ease;
+    z-index: 10;
+}
+
+.container-ban:hover .table-list-ban {
+    transform: translateX(0.15rem);
+}
+
+.efect-ban,
+.border-ban {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle closest-side at center, white, transparent);
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.efect-ban {
+    z-index: 3;
+}
+
+.border-ban {
+    z-index: 1;
+}
+
+.container-ban:hover .efect-ban,
+.container-ban:hover .border-ban {
+    opacity: 0.1
+}
+
+.table-ban{
+    width: 100%;
+    height: 100%;
+}
+
+.id-ban,
+.user-ban,
+.inicio_ban {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.id-ban {
+    color: #ff2c2c;
+}
+
+
+
+.analyse-ban:hover {
+    border-radius: 5px;
+    transform: translateY(-10px);
+    box-shadow: 0 7px 0 -2px #ff2f2f,
+    0 15px 0 -4px #51291E,
+    0 16px 10px -3px #EDF4ED;
+}
+
+.analyse-ban:active {
+    transition: all 0.2s;
+    transform: translateY(-5px);
+    box-shadow: 0 2px 0 -2px #ff2f2f,
+    0 8px 0 -4px #51291E,
+    0 12px 10px -3px #EDF4ED;
+}
+
 
 
 /* ANALISE DENUNCIAS */
@@ -890,6 +1021,13 @@ legend{
     color: #EDF4ED;
 }
 
+.no-data-end{
+    background-color: #ffef9ed2; 
+    border-radius: 5px;
+    height: 30px;
+    text-align: center;
+}
+
 fieldset{
     padding: 10px;
     background-color: #EDF4ED;
@@ -904,6 +1042,10 @@ fieldset{
 .img-relator{
     margin: 5px;
     margin-left: 5px;
+}
+
+.dados-adm {
+    width: 100%;
 }
 
 .dados-relator,
@@ -968,21 +1110,6 @@ fieldset{
     color: #171717;
 }
 
-.analyse-suspend:hover {
-    border-radius: 5px;
-    transform: translateY(-10px);
-    box-shadow: 0 7px 0 -2px #fcb234,
-    0 15px 0 -4px #51291E,
-    0 16px 10px -3px #EDF4ED;
-}
-
-.analyse-suspend:active {
-    transition: all 0.2s;
-    transform: translateY(-5px);
-    box-shadow: 0 2px 0 -2px #fcb234,
-    0 8px 0 -4px #51291E,
-    0 12px 10px -3px #EDF4ED;
-}
 
 
 
