@@ -23,6 +23,7 @@ $midiaArray = $sqlConnection->callTableBD('midia');
 $usersArray = $sqlConnection->callTableBD('participante');
 $denunciaArray = $sqlConnection->callTableBD('denuncia');
 $_event = null;
+$countPost = 0; 
 ?>
 
 <!DOCTYPE html>
@@ -53,12 +54,12 @@ $_event = null;
             <div class="area_perfil">
                 <div class="menu-item2" onclick="btnLogout()">
                     <div class="user-avatar">
-                        <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
+                        <img src="<?= str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
                             style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div style="margin-left: 10px;">
-                        <div><?= htmlspecialchars($userInfo[-1]['username']) ?></div>
-                        <div style="font-size: 0.8rem; color: #71767b;">@<?= htmlspecialchars($userInfo[-1]['username']) ?></div>
+                        <div><?= htmlspecialchars($userInfo[0]['username']) ?></div>
+                        <div style="font-size: 0.8rem; color: #71767b;">@<?= htmlspecialchars($userInfo[0]['username']) ?></div>
                     </div>
                     <div id="logoutBtn" class="logout_button">
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/logoutPostagens.php">
@@ -79,8 +80,8 @@ $_event = null;
                 </div>  
                 <div class="profile-info">
 
-                    <h2><strong><?= htmlspecialchars($userInfo[-1]['username']) ?></strong></h2>
-                    <p>@<?= htmlspecialchars($userInfo[-1]['username']) ?></p>
+                    <h2><strong><?= htmlspecialchars($userInfo[0]['username']) ?></strong></h2>
+                    <p>@<?= htmlspecialchars($userInfo[0]['username']) ?></p>
 
 
                     <p>📅 Entrou em: <?= date('d/m/Y', strtotime($userInfo[0]['create_time'])) ?></p>
@@ -150,7 +151,9 @@ $_event = null;
 
             <!-- posts do usuário -->
             <?php foreach (array_reverse($postsArray) as $post): ?>
-                <?php if ($post['id_autor'] == $userInfo[0]['id_participante']): ?>
+                <?php if ($post['id_autor'] == $userInfo[0]['id_participante']) { ?>
+                    <?php foreach ($eventArray as $evento): if ($evento['id_post'] == $post['id_post']): $_event = true; endif; endforeach;?>
+                    <?php if ($_event): $_event = false; continue; endif; $countPost += 1; ?>
                     <div class="post">
                         <div class="post-user">
                             <div class="user-avatar">
@@ -198,8 +201,12 @@ $_event = null;
                             </div>
                         </div>
                     </div>
-                <?php endif; ?>
-            <?php endforeach; ?>
+                <?php } ?>
+            <?php endforeach; if ($countPost === 0): ?>
+                <div class="post-not-found" style="justify-content: center; display: flex; margin-top: 50px; ">
+                    <h3>Nenhuma Postagem encontrada</h3> 
+                </div>
+            <?php endif; ?>
         </div>
 
         <!-- //* SIDEBAR DIREITA -->

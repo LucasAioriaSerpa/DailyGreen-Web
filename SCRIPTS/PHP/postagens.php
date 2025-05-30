@@ -78,8 +78,8 @@ function getPostReactions($postId, $reactionPostArray) {
                             style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div style="margin-left: 10px;">
-                        <div><?= htmlspecialchars($userInfo[-1]['username']) ?></div>
-                        <div style="font-size: 0.8rem; color: #71767b;">@<?= htmlspecialchars($userInfo[-1]['username']) ?></div>
+                        <div><?= htmlspecialchars($userInfo[0]['username']) ?></div>
+                        <div style="font-size: 0.8rem; color: #71767b;">@<?= htmlspecialchars($userInfo[0]['username']) ?></div>
                     </div>
                     <div id="logoutBtn" class="logout_button">
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/logoutPostagens.php">

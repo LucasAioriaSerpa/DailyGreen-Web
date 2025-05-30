@@ -13,5 +13,5 @@ username = '{$username}'
 WHERE id_participante = '{$idParticipante}'
 ";
 $sqlConnection->insertQueryBD($sqlQuery);
-$_SESSION['user']['account'][-1]['username'] = $username;
+$_SESSION['user']['account'][0]['username'] = $username;
 header("Location: /DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php");
