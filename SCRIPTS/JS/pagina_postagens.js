@@ -302,3 +302,68 @@ document.getElementById('biografia').addEventListener('input', function () {
 
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const editBtn = document.querySelector('.edit-btn');
+    const editModal = document.getElementById('editModal');
+    const bioForm = document.getElementById('nameForm');
+    const cancelBtn = document.getElementById('cancelBtn');
+
+    editBtn.addEventListener('click', function () {
+        editModal.style.display = 'flex';
+    });
+
+    bioForm.addEventListener('submit', function (e) {
+
+        const novoNome = document.getElementById('nome').value;
+        console.log('Novo nome:', novoNome);
+
+        editModal.style.display = 'none';
+    });
+
+    cancelBtn.addEventListener('click', function () {
+        editModal.style.display = 'none';
+    });
+
+    editModal.addEventListener('click', function (e) {
+        if (e.target === editModal) {
+            editModal.style.display = 'none';
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const editBtn = document.querySelector('.edit-btn');
+    const editModal = document.getElementById('editModal');
+    const picForm = document.getElementById('PicForm'); // Corrigido: 'PicForm' (com P maiúsculo)
+    const cancelBtn = document.getElementById('cancelBtn');
+
+    editBtn.addEventListener('click', function () {
+        editModal.style.display = 'flex';
+    });
+
+    picForm.addEventListener('submit', function (e) {
+
+        const inputFoto = document.getElementById('profilePic');
+        const arquivoFoto = inputFoto.files[0]; 
+
+        if (arquivoFoto) {
+            console.log('Nome do arquivo:', arquivoFoto.name);
+            console.log('Tipo do arquivo:', arquivoFoto.type);
+            console.log('Tamanho (bytes):', arquivoFoto.size); 
+            } else {
+                console.log('Nenhum arquivo selecionado.');
+            }
+
+            editModal.style.display = 'none';
+        });
+
+        cancelBtn.addEventListener('click', function () {
+            editModal.style.display = 'none';
+        });
+
+        editModal.addEventListener('click', function (e) {
+            if (e.target === editModal) {
+                editModal.style.display = 'none';
+            }
+        });
+    });

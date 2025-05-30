@@ -78,8 +78,8 @@ function getPostReactions($postId, $reactionPostArray) {
                             style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div style="margin-left: 10px;">
-                        <div><?php echo $userInfo[0]['username'] ?></div>
-                        <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo[0]['username']; ?></div>
+                        <div><?= htmlspecialchars($userInfo[0]['username']) ?></div>
+                        <div style="font-size: 0.8rem; color: #71767b;">@<?= htmlspecialchars($userInfo[0]['username']) ?></div>
                     </div>
                     <div id="logoutBtn" class="logout_button">
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/logoutPostagens.php">
@@ -199,7 +199,7 @@ function getPostReactions($postId, $reactionPostArray) {
                         <div class="post-footer">
                             <div class="reaction-wrapper">
                                 <button class="btn-content-footer btn-reaction-toggle" title="Reaja neste post!" onclick="toggleReact(this)">
-                                    <i class="fa-solid fa-heart"> <p>Reaja</p></i>
+                                    <i class="fa-solid fa-heart"> <p>Reações</p></i>
                                 </button>
                                 <div class="react-container">
                                     <?php $reactions = getPostReactions($post['id_post'], $reactionPostArray); ?>
@@ -242,7 +242,8 @@ function getPostReactions($postId, $reactionPostArray) {
                             </div>
                             <div class="comment-wrapper">
                                 <button id="btnComment" class="btn-content-footer btn-comment-toggle" title="Comente neste post!" onclick="toggleComment(this)">
-                                    <i class="fa-solid fa-comment"><p>Comente</p></i>
+                                    <?php $countComment = 0; foreach($comentarioArray as $comment) { if ($comment['id_post'] === $post['id_post']) { $countComment += 1; } } ?>
+                                    <i class="fa-solid fa-comment"><p>Comente</p><?php if ($countComment != 0) { echo $countComment; } ?>  </i>
                                 </button>
                                 <div class="comment-modal-content">
                                     <div class="comment-content">
@@ -312,7 +313,8 @@ function getPostReactions($postId, $reactionPostArray) {
                                         <strong><?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></strong>
                                     </div>
                                     <div style="color: #71767b;">
-                                        @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?></div>
+                                        @<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']) ?>
+                                    </div>
                                 </div>
                             </div>
                             <div class="post-titulo">
@@ -342,31 +344,95 @@ function getPostReactions($postId, $reactionPostArray) {
                                             src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia['midia_ref'])) ?>"
                                             alt="post img"
                                             class="post-img img-count-<?= $imgCount ?>"
-                                            style="cursor: auto;"
+                                            style="cursor: auto; width: 18%;"
                                         >
                                     <?php } ?>
                                 </div>
                             </div>
                             </button>
-                            <div class="post-comments">
-                                <?php foreach($comentarioArray as $comment): ?>
-                                    <?php if ($comment['id_post'] === $post['id_post']): ?>
-                                        <div class="comment">
-                                            <div class="account-part-comment">
-                                                ..
-                                            </div>
-                                            <div class="content-part-comment">
-                                                <div class="title-part-comment">
-                                                    ...
+                            <?php if ($countComment === 0): ?>
+                                <div class="box-comments-none">
+                                    <h1>Não possui comentarios!</h1>
+                                </div>
+                            <?php else: ?>
+                            <div class="box-comments">
+                                    <div class="post-comments">
+                                    <?php foreach($comentarioArray as $comment): ?>
+                                        <?php if ($comment['id_post'] === $post['id_post']): ?>
+                                            <div class="comment">
+                                                <div class="account-part-comment">
+                                                    <div class="avatar-comment">
+                                                        <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($userArray[((int) $comment['id_autor_comentario'] - 1)]['profile_pic'])) ?>"
+                                                        alt="Avatar_autor_comentario" style="width: 50px; height: 50px; border-radius: 50%;">
+                                                    </div>
+                                                    <div class="usarname-autor-comment">
+                                                        <div>
+                                                            <strong><?= htmlspecialchars($userArray[((int) $comment['id_autor_comentario']-1)]['username']) ?></strong>
+                                                        </div>
+                                                        <div style="color: #71767b;">
+                                                            @<?= htmlspecialchars($userArray[((int) $comment['id_autor_comentario']-1)]['username']) ?>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="description-part-comment">
-                                                    ....
+                                                <div class="content-part-comment">
+                                                    <div class="title-part-comment">
+                                                        <h1><?= htmlspecialchars($comment['titulo_comentario']) ?></h1>
+                                                    </div>
+                                                    <div class="description-part-comment">
+                                                        <?= htmlspecialchars($comment['descricao_comentario']) ?>
+                                                    </div>
+                                                </div>
+                                                <div class="footer-comment">
+                                                    <div class="reaction-wrapper">
+                                                        <button class="btn-content-footer btn-reaction-toggle" title="Reaja neste post!" onclick="toggleReact(this)">
+                                                            <i class="fa-solid fa-heart"> <p>Reaja</p></i>
+                                                        </button>
+                                                        <div class="react-container">
+                                                            <?php $reactions = getPostReactions($post['id_post'], $reactionPostArray); ?>
+                                                            <div class="form-reaction">
+                                                                <button type="submit" name="reaction-post" value="gostei" class="btn-reaction gostei" title="Gostei"
+                                                                onclick="sendReaction('gostei', <?= htmlspecialchars($post['id_post']) ?>, <?= htmlspecialchars($userInfo[0]['id_participante'])?>)">
+                                                                    <i class="fa-solid fa-thumbs-up"></i>
+                                                                </button>
+                                                                <div class="reaction-num">
+                                                                    <?php
+                                                                    echo $reactions['gostei'];
+                                                                    ?>
+                                                                </div>
+                                                                <button type="submit" name="reaction-post" value="parabens" class="btn-reaction parabens" title="Parabéns">
+                                                                    <i class="fa-solid fa-hands-clapping"></i>
+                                                                </button>
+                                                                <div class="reaction-num">
+                                                                    <?php echo $reactions['parabens']; ?>
+                                                                </div>
+                                                                <button type="submit" name="reaction-post" value="apoio" class="btn-reaction apoio" title="Apoio">
+                                                                    <i class="fa-solid fa-handshake"></i>
+                                                                </button>
+                                                                <div class="reaction-num">
+                                                                    <?php echo $reactions['apoio']; ?>
+                                                                </div>
+                                                                <button type="submit" name="reaction-post" value="amei" class="btn-reaction amei" title="Amei">
+                                                                    <i class="fa-solid fa-heart"></i>
+                                                                </button>
+                                                                <div class="reaction-num">
+                                                                    <?php echo $reactions['amei']; ?>
+                                                                </div>
+                                                                <button type="submit" name="reaction-post" value="genial" class="btn-reaction genial" title="Genial">
+                                                                    <i class="fa-solid fa-lightbulb"></i>
+                                                                </button>
+                                                                <div class="reaction-num">
+                                                                    <?php echo $reactions['genial']; ?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
+                            <?php endif; ?>
                             <div class="post-footer">
                                 <div class="reaction-wrapper">
                                     <button class="btn-content-footer btn-reaction-toggle" title="Reaja neste post!" onclick="toggleReact(this)">
@@ -413,7 +479,7 @@ function getPostReactions($postId, $reactionPostArray) {
                                 </div>
                                 <div class="comment-wrapper">
                                     <button id="btnComment" class="btn-content-footer btn-comment-toggle" title="Comente neste post!" onclick="toggleComment(this)">
-                                        <i class="fa-solid fa-comment"><p>Comente</p></i>
+                                        <i class="fa-solid fa-comment"><p>Comente</p> <?php if ($countComment != 0) { echo $countComment; } ?> </i>
                                     </button>
                                     <div class="comment-modal-content">
                                         <div class="comment-content">

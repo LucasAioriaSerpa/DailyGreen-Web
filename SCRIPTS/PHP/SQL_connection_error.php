@@ -31,7 +31,7 @@ include_once 'LOGIC/functions.php';
                     <div class="data-input">
                         <label for="password">Password:</label>
                         <div class="password-input">
-                            <input type="password" id="password" name="password" required>
+                            <input type="password" id="password" name="password">
                             <input type="checkbox" onclick="togglePasswordInput()" onkeypress="togglePasswordInput()">
                         </div>
                     </div>

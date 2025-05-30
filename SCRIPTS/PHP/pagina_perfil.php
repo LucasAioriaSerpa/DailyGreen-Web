@@ -23,6 +23,7 @@ $midiaArray = $sqlConnection->callTableBD('midia');
 $usersArray = $sqlConnection->callTableBD('participante');
 $denunciaArray = $sqlConnection->callTableBD('denuncia');
 $_event = null;
+$countPost = 0; 
 ?>
 
 <!DOCTYPE html>
@@ -53,12 +54,12 @@ $_event = null;
             <div class="area_perfil">
                 <div class="menu-item2" onclick="btnLogout()">
                     <div class="user-avatar">
-                        <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
+                        <img src="<?= str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
                             style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div style="margin-left: 10px;">
-                        <div><?php echo $userInfo[0]['username'] ?></div>
-                        <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo[0]['username']; ?></div>
+                        <div><?= htmlspecialchars($userInfo[0]['username']) ?></div>
+                        <div style="font-size: 0.8rem; color: #71767b;">@<?= htmlspecialchars($userInfo[0]['username']) ?></div>
                     </div>
                     <div id="logoutBtn" class="logout_button">
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/logoutPostagens.php">
@@ -78,20 +79,43 @@ $_event = null;
                         style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid #EDF4ED;">
                 </div>  
                 <div class="profile-info">
+
                     <h2><strong><?= htmlspecialchars($userInfo[0]['username']) ?></strong></h2>
                     <p>@<?= htmlspecialchars($userInfo[0]['username']) ?></p>
+
+
                     <p>📅 Entrou em: <?= date('d/m/Y', strtotime($userInfo[0]['create_time'])) ?></p>
                     <p id="user-biography">Biografia: <?= htmlspecialchars($userInfo[0]['biografia']) ?></p>  
                 </div>
                 
                 <button class="edit-btn">
-                    <i class="fas fa-edit"></i> Editar Biografia
+                    <i class="fas fa-edit"></i> Editar Perfil
                 </button>
                 
                 <!-- Modal de Edição -->
                 <div class="edit-modal" id="editModal">
                     
                     <div class="edit-form-container">
+                    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileName.php" method="POST" id="nameForm">
+                            <div class="form-group">
+                                <label for="username">Nome:</label>
+                                <input 
+                                    id="username" 
+                                    name="nome" 
+                                    placeholder="Escreva seu nome aqui..."
+                                    pattern=".{0,30}" x
+                                    maxlength="30"
+                                    title="A nome deve ter no máximo 30 caracteres."
+                                >
+                                <span id="charCounterUsername">0/20</span>
+                            </div>
+                            
+                            <div class="form-actions">
+                                
+                                <input type="submit" class="submit-btn" value="Salvar"> 
+                            </div>
+                        </form>
+
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileAcc.php" method="POST" id="bioForm">
                             <div class="form-group">
                                 <label for="biografia">Biografia:</label>
@@ -107,10 +131,28 @@ $_event = null;
                             </div>
                             
                             <div class="form-actions">
-                                <button type="button" class="cancel-btn" id="cancelBtn">Cancelar</button>
                                 <input type="submit" class="submit-btn" value="Salvar"> 
                             </div>
                         </form>
+
+
+
+
+                        
+                        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfilePic.php" method="POST" id="PicForm" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="profilePic">ProfilePic:</label>
+                                <input type="file" id="profilePic" name="profilePic" class="ProfilePic" accept="image/*" >
+                            </div>
+                            
+                            <div class="form-actions">
+                                <input type="submit" class="submit-btn" value="Salvar"> 
+                            </div>
+                        </form>
+                        <div class="form-actions">
+                                <button type="button" class="cancel-btn" id="cancelBtn">Cancelar</button>
+                                
+                        </div>
                     </div>
                 </div>
                 
@@ -123,7 +165,9 @@ $_event = null;
 
             <!-- posts do usuário -->
             <?php foreach (array_reverse($postsArray) as $post): ?>
-                <?php if ($post['id_autor'] == $userInfo[0]['id_participante']): ?>
+                <?php if ($post['id_autor'] == $userInfo[0]['id_participante']) { ?>
+                    <?php foreach ($eventArray as $evento): if ($evento['id_post'] == $post['id_post']): $_event = true; endif; endforeach;?>
+                    <?php if ($_event): $_event = false; continue; endif; $countPost += 1; ?>
                     <div class="post">
                         <div class="post-user">
                             <div class="user-avatar">
@@ -171,8 +215,12 @@ $_event = null;
                             </div>
                         </div>
                     </div>
-                <?php endif; ?>
-            <?php endforeach; ?>
+                <?php } ?>
+            <?php endforeach; if ($countPost === 0): ?>
+                <div class="post-not-found" style="justify-content: center; display: flex; margin-top: 50px; ">
+                    <h3>Nenhuma Postagem encontrada</h3> 
+                </div>
+            <?php endif; ?>
         </div>
 
         <!-- //* SIDEBAR DIREITA -->
