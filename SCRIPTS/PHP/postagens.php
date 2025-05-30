@@ -71,7 +71,6 @@ function getPostReactions($postId, $reactionPostArray) {
                 </div>
             </a>
 
-
             <div class="area_perfil">
                 <div class="menu-item2" onclick="btnLogout()">
                     <div class="user-avatar">
@@ -352,7 +351,19 @@ function getPostReactions($postId, $reactionPostArray) {
                             <div class="post-comments">
                                 <?php foreach($comentarioArray as $comment): ?>
                                     <?php if ($comment['id_post'] === $post['id_post']): ?>
-                                        <div class="comment"></div>
+                                        <div class="comment">
+                                            <div class="account-part-comment">
+                                                ..
+                                            </div>
+                                            <div class="content-part-comment">
+                                                <div class="title-part-comment">
+                                                    ...
+                                                </div>
+                                                <div class="description-part-comment">
+                                                    ....
+                                                </div>
+                                            </div>
+                                        </div>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
