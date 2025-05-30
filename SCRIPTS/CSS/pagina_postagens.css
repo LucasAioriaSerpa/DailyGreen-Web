@@ -5,7 +5,7 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Arial, sans-serif;
     scrollbar-color: #79B791 #EDF4ED;
-    scrollbar-width: thin;
+    scrollbar-width:auto;
 }
 
 html,
@@ -151,16 +151,6 @@ body {
     background-color: #ABD1B5;
     border: none;
     font-weight: bold;
-}
-
-/** CONTEÚDO CENTRAL (FEED - 50%) */
-.conteudo_principal {
-    width: 50%;
-    flex-grow: 1;
-    border-right: 1px solid #ABD1B5;
-    height: 100vh;
-    overflow-y: auto;
-    background-color: #EDF4ED;
 }
 
 .feed-header {
@@ -1273,15 +1263,17 @@ body {
     align-items: center;
     justify-content: center;
 } .post-modal-header {
+    overflow: hidden;
     background-color: #EDF4ED;
     padding: 20px;
     border-radius: 10px;
-    width: 90%;
+    width: 95%;
     max-width: 600px;
+    max-height: 95%;
     box-shadow: 0 2px 8px #000000cc;
     position: relative;
     color: #51291E;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
 } .bnt-close-post-modal {
     position: absolute;
@@ -1299,8 +1291,76 @@ body {
     color: #51291E;
 }
 
+.box-comments-none {
+    border-radius: 1rem;
+    margin: 1vh;
+    padding: 1vh;
+    box-shadow: 0 4px 15px #0000001a;
+    text-align: center;
+    transition: border-bottom 0.3s cubic-bezier(0.22, 0.49, 0.6, 0.99);
+    border-bottom: transparent 0vh solid;
+}
+.box-comments-none:hover {
+    border-bottom: #79B791 0.8vh solid;
+} .box-comments-none h1 {
+    cursor: default;
+    user-select: none;
+}
+
+.box-comments {
+    overflow: hidden;
+    border-bottom: #79B791 0.5vh solid;
+    border-radius: 1rem;
+    margin: 1vh;
+    padding: 1vh;
+    box-shadow: 0 4px 15px #0000001a;
+    transition: border-bottom 0.3s cubic-bezier(0.22, 0.49, 0.6, 0.99);
+    border-bottom: transparent 0vh solid;
+} .box-comments:hover {
+    border-bottom: #79B791 0.8vh solid;
+}
+
+.post-comments {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    list-style-type: none;
+    height: 45vh;
+}
+
 .comment {
-    
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 0.5vh;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px #0000001a;
+    transition: border-bottom 0.3s cubic-bezier(0.22, 0.49, 0.6, 0.99);
+    border-bottom: transparent 0vh solid;
+} .comment:hover {
+    margin-bottom: 1vh;
+    border-bottom: solid #79B791 1vh;
+}
+
+.account-part-comment {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-comment {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #ABD1B5;
+    position: relative;
+}
+
+.username-autor-comment {
+    margin-left: 10px;
+}
+
+.footer-comment {
+    margin: 1vh;
 }
 
 /* PARTE DA BIOGRAFIA*/
@@ -1322,7 +1382,7 @@ body {
     background-color: #EDF4ED;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px #0000001a;
     width: 90%;
     max-width: 600px;
     animation: fadeIn 0.3s;
@@ -1405,12 +1465,11 @@ body {
 }
 
 
-  .file-input-no-text {
+.file-input-no-text {
     color:#0679eb00;
     width: 130px; /* Ajuste conforme necessário */
-  }
+}
 
-  #fileInput {
+#fileInput {
     display: none; /* Esconde o input real */
-  }
-  
+}
