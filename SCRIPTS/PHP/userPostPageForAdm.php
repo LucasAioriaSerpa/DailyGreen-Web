@@ -13,29 +13,62 @@
 ?>
 
 <div class="container-post-user">
-    <fieldset>
-        <legend>USUÁRIO</legend>
-        <div><?php echo "ID do Participante: ".$id_participante ?></div>
-        <div><?php echo "Email do Participante:" ?></div>
-    </fieldset><br>
-    <fieldset>
-        <legend>POSTS</legend>
-        <div>
-            <?php 
-                if ($joinQuery && count($joinQuery) > 0){
-                    $participante_username = $joinQuery[0]['participante_username']; // mesmo nome em todos os posts
-
-                    foreach ($joinQuery as $post) {
-                        echo "<hr>";
-                        echo "<p class='titulo-post-user'" . "<strong>TITULO: </strong>".$post['titulo'] . "</p>";
-                        echo "<p class='descricao-post-user'" . "<strong>MOTIVO: </strong>".$post['descricao'] . "</p>";
-                        echo "<p class='creation-post-user'" . "<strong>POSTADO EM: </strong>".$post['create_time'] . "</p>";
-                        echo "<hr> <br>";
-                    }
-                } else {
-                    echo "Nenhum resultado encontrado.";
-                }
-            ?>
+    <div class="buttons-post-user">
+        <div class="action-buttons">
+            <div class="button-back">
+                <button class="btn-back" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listButtonsAdm.php')">VOLTAR</button>
+            </div>
+            <div class="button-suspender">
+                <button type="submit" class="btn-suspender" onclick="formArquivar()">SUSPENDER</button>
+            </div>
+            <div class="button-banir">
+                <button type="submit" class="btn-banir" onclick="formSuspend()">BANIR</button>
+            </div>
         </div>
-    </fieldset>
+        <div class="formulario-suspenso" id="formulario-suspenso" name="formulario-suspenso">
+            <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_suspend.html"; ?>
+        </div>
+        <div class="formulario-banido" id="formulario-banido" name="formulario-banido">
+            <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_ban.html"; ?>
+        </div>
+    </div><br><br>
+    <hr>
+    <h3>USUÁRIO</h3>
+    <hr><br>
+    <table>
+        <tbody>
+            <tr><th>ID do Participante:</th><td><?php echo $id_participante ?></td></tr>
+            <tr><th>Email do Participante:</th><td><?php echo $participante_email  ?></td></tr>
+            <tr><th>Data criação da conta:</th><td><?php echo $participante_create_time ?></td></tr>
+        </tbody>
+    </table><br>
+    <hr>
+    <h3>POSTS</h3>
+    <hr><br>
+    <div>
+        <?php foreach ($postsAgrupados as $post): ?>
+            <div>
+                <table>
+                    <tbody>
+                        <tr><th>TÍTULO:</th><td><?= htmlspecialchars($post['titulo']) ?></td></tr>
+                        <tr><th>DESCRIÇÃO:</th><td><?= htmlspecialchars($post['descricao']) ?></td></tr>
+                        <tr><th>POSTADO EM:</th><td><?= htmlspecialchars($post['create_time']) ?></td></tr>
+
+                        <?php if (count($post['midias']) > 0): ?>
+                            <tr>
+                                <th>MÍDIAS:</th>
+                                <td>
+                                    <?php foreach ($post['midias'] as $midia): ?>
+                                        <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia)) ?>" 
+                                            alt="Imagem do post" style="width: 90px; height: 90px; border-radius: 10%; margin: 5px;">
+                                    <?php endforeach; ?>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table><br>
+                <hr><br>
+            </div>
+        <?php endforeach; ?>
+    </div>
 </div>

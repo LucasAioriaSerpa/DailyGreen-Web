@@ -36,9 +36,9 @@
 
     $updateLista = "UPDATE participante
         SET
-            id_lista = '2'
+            id_lista = '1'
         WHERE
-            id_lista = '3';
+            (id_lista = '2' OR id_lista = '3')
             AND id_participante = {$id_participante_banido};
     ";
 

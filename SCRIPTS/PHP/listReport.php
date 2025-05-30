@@ -21,31 +21,10 @@
     usort($denunciaArray, function ($a, $b) {
         return statusPriority($a['status']) <=> statusPriority($b['status']);
     });
-
-    $primeiraPendente = true;
-    $primeiraAnalise = true;
-    $primeiraResolvida = true;
-    $primeiraArquivada = true;
     
 ?>
 
 <div class="navegacao_principal">
-    <div class="buttons-filters">
-        <div class="scroll-page">
-            <div class="button-pendente">
-                <button class="btn-pendente" onclick="scrollToStatus('pendente')">Pendente</button>
-            </div>
-            <div class="button-analise">
-                <button class="btn-analise" onclick="scrollToStatus('analise')">Em Análise</button>
-            </div>
-            <div class="button-encerrado">
-                <button class="btn-encerrado" onclick="scrollToStatus('resolvida')">Encerrado</button>
-            </div>
-            <div class="button-arquivada">
-                <button class="btn-arquivada" onclick="scrollToStatus('arquivada')">Arquivadas</button>
-            </div>
-        </div>
-    </div><br><br>
     <?php if (count($denunciaArray) === 0):?>
         <div class="no-records">
             <div class="icon-lupa">
@@ -62,36 +41,19 @@
                 $status = $denuncia['status'];
                 $status_denuncia = htmlspecialchars($status);
                 $statusClass = '';
-                $id = ''; 
 
                 switch ($status_denuncia) {
                     case 'Pendente': 
                         $statusClass = 'status-pendente'; 
-                        if ($primeiraPendente) {
-                            $id = 'pendente';
-                            $primeiraPendente = false;
-                        }
                         break;
                     case 'Em Análise': 
                         $statusClass = 'status-em-analise'; 
-                        if ($primeiraAnalise) {
-                            $id = 'analise';
-                            $primeiraAnalise = false;
-                        }
                         break;
                     case 'Resolvida': 
                         $statusClass = 'status-resolvida'; 
-                        if ($primeiraResolvida) {
-                            $id = 'resolvida';
-                            $primeiraResolvida = false;
-                        }
                         break;
                     case 'Arquivada': 
                         $statusClass = 'status-arquivada'; 
-                        if ($primeiraArquivada) {
-                            $id = 'arquivada';
-                            $primeiraArquivada = false;
-                        }
                         break;
                 }
             ?>

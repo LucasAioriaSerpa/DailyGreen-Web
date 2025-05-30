@@ -290,6 +290,58 @@ body {
 
 
 /* LISTA DE USUARIOS */
+.buttons-post-user{
+    width: 100%;
+}
+
+.action-buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-back,
+.btn-suspender,
+.btn-banir {
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+}
+
+.btn-back:focus:after,
+.btn-suspender:focus:after,
+.btn-banir:focus:after,
+.btn-back:hover:after,
+.btn-suspender:hover:after,
+.btn-banir:hover:after {
+    width: 100%;
+    left: 0%;
+}
+
+.btn-back:after,
+.btn-suspender:after,
+.btn-banir:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 4px;
+    background-color: #000000;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+}
+
 .user {
     display: flex;
     width: 70rem;
@@ -515,62 +567,6 @@ body {
 }
 
 /* LISTA DE DENUNCIAS */
-.buttons-filters{
-    width: 100%;
-}
-
-.scroll-page{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* From Uiverse.io by WhiteNervosa */ 
-.btn-pendente,
-.btn-analise,
-.btn-encerrado,
-.btn-arquivada {
-    font-size: 18px;
-    font-family: inherit;
-    font-weight: bold;
-    cursor: pointer;
-    position: relative;
-    border: none;
-    background: none;
-    text-transform: uppercase;
-    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition-duration: 400ms;
-    transition-property: color;
-}
-
-.btn-pendente:focus:after,
-.btn-analise:focus:after,
-.btn-encerrado:focus:after,
-.btn-arquivada:focus:after,
-.btn-pendente:hover:after,
-.btn-analise:hover:after,
-.btn-encerrado:hover:after,
-.btn-arquivada:hover:after {
-    width: 100%;
-    left: 0%;
-}
-
-.btn-pendente:after,
-.btn-analise:after,
-.btn-encerrado:after,
-.btn-arquivada:after {
-    content: "";
-    pointer-events: none;
-    bottom: -2px;
-    left: 50%;
-    position: absolute;
-    width: 0%;
-    height: 4px;
-    background-color: #000000;
-    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition-duration: 400ms;
-    transition-property: width, left;
-}
 
 .lista-reports {
     display: flex;
