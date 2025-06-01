@@ -11,17 +11,30 @@ body {
     color: #51291E;
     line-height: 1.6;
     padding-top: 80px;
+} body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/DailyGreen-Project/IMAGES/BACKGROUNDs/florest-3.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(1vb);
+    z-index: -1;
+    opacity: 1;
 }
 
-/* Barra de navegação */
 .top_bar {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     padding: 18px 36px;
     background-color: #79b791;
     color: #EDF4ED;
-    box-shadow: 0 2px 8px #ABD1B580;
+    box-shadow: 0 2px 8px #598e6da9;
     position: fixed;
     top: 0;
     left: 0;
@@ -35,76 +48,151 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 9vw; height: 10vh;
+    min-width: 9vw; min-height: 10vh;
+    width: 120px; height: 60px;
     font-size: 2rem;
     font-weight: bold;
     color: #51291E;
     letter-spacing: 1px;
     background-image: url(/DailyGreen-Project/IMAGES/logo-dailyGreen-transparentBackground.png);
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
+} @media (max-width: 700px) {
+    .logo {
+        min-width: 60px; min-height: 40px;
+        width: 80px; height: 40px;
+        font-size: 1.2rem;
+        padding: 0 4px;
+    }
+} @media (max-width: 450px) {
+    .logo {
+        min-width: 40px; min-height: 30px;
+        width: 50px; height: 30px;
+        font-size: 1rem;
+        padding: 0 2px;
+    }
+}
+
+.main-nav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    gap: 10%;
+    top: 1vh;
 }
 
 .main-nav a {
+    display: flex;
+    justify-content: center ;
     color: #51291E;
-    background-color: #EDF4ED;
-    text-decoration: none;
+    background: #EDF4ED;
+    width: 10vw; height: 5vh;
     margin: 0 18px;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
-    border-radius: 2vb;
-    padding-left: 0.8vw; padding-right: 0.8vw;
+    padding: 1vb;
+    border-radius: 1vb;
     font-weight: 500;
-    transition: 0.2s;
-} .main-nav a:hover {
-    padding-top: 1vh;
-    padding-bottom: 8vh;
-    padding-left: 1vw; padding-right: 1vw;
-    background-color: #ABD1B5;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition:
+        0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+        padding 0.2s,
+        background 0.2s;
+}
+.main-nav a:hover {
+    border-radius: 24px 24px 0 0;
+    height: 20vh;
+    background: #ABD1B5;
+    transition:
+        0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+        padding 0.2s,
+        background 0.2s;
 }
 
 .main-nav a.active {
     color: #EDF4ED;
     background-color: #51291E;
-    border-radius: 2vb;
+    box-shadow: 0 0 0 transparent;
+    border-top: transparent solid 0vh;
     cursor: default;
-    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 } .main-nav a.active:hover {
-    padding-top: 1vh;
-    padding-bottom: 8vh;
-    padding-left: 1vw; padding-right: 1vw;
-    transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    box-shadow: 0 4px 16px #51291e81;
+    border-top: #ABD1B5 solid 1vh;
 }
 
 .auth-buttons {
     display: flex;
+    align-items: center;
+    justify-content: center ;
     gap: 14px;
 }
 
 .botao_login, .botao_cadastro {
     padding: 8px 20px;
-    border: none;
-    border-radius: 5px;
+    border: transparent solid 0vh;
+    border-bottom: transparent solid 0vh;
+    border-radius: 0.5vb;
     cursor: pointer;
     font-weight: bold;
     text-decoration: none;
     background-color: #ABD1B5;
     color: #51291E;
-    transition: background 0.2s, color 0.2s;
+    transition:
+        0.8s cubic-bezier(0.075, 0.82, 0.165, 1),
+        background 0.2s,
+        color 0.2s;
 } .botao_login:hover, .botao_cadastro:hover {
+    border: #ABD1B5 solid 0.5vh;
+    border-bottom: #51291E solid 1vh;
+    border-radius: 1vb;
     background-color: #79b791;
     color: #EDF4ED;
+    transition:
+        0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+        background 0.2s,
+        color 0.2s;
+} .botao_login:active, .botao_cadastro:active {
+    border: #51291E solid 1vh;
+    border-bottom: #ABD1B5 solid 0.5vh;
+    border-radius: 1vb;
+    background-color: #69a781;
+    color: #d4e3d4;
+    transition:
+        0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+        background 0.2s,
+        color 0.2s;
 }
 
-/* Hero Section */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.inicio-content {
+    display: none;
+} .inicio-content.active {
+    display: flex;
+    flex-direction: column;
+}
+
 .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     background: linear-gradient(120deg, #ABD1B5 60%, #79b791 100%);
     color: #51291E;
-    text-align: center;
     padding: 60px 20px 40px 20px;
     border-radius: 0 0 30px 30px;
     margin-bottom: 32px;
     box-shadow: 0 4px 16px #ABD1B540;
+}
+.logo-dailygreen {
+    width: 15%;
+    border-radius: 1vb;
 }
 .hero h1 {
     font-size: 2.5rem;
@@ -132,7 +220,6 @@ body {
     color: #51291E;
 }
 
-/* Sobre o projeto */
 .about {
     background: #ABD1B5;
     color: #51291E;
@@ -151,18 +238,24 @@ body {
     font-size: 1.1rem;
 }
 
-/* Motivos para usar */
 .motivos {
-    margin: 40px auto 0 auto;
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin: 1vh 20vw;
+    max-width: 120vw;
     text-align: center;
 }
 .motivos h2 {
+    width: 50%;
     font-size: 1.7rem;
     margin-bottom: 18px;
+    border-radius: 1vb;
+    box-shadow: 0 2px 8px #ABD1B540;
+    background-color: #79b791;
     color: #51291E;
 }
-.motivos .container {
+
+.container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 22px;
@@ -176,7 +269,9 @@ body {
     border: 0px solid transparent;
     border-top: 4px solid #79b791;
     border-bottom: 0vh solid transparent;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
 } .card:hover {
     transform: translateY(-6px) scale(1.03);
     border: 2px solid #79b791;
@@ -184,7 +279,7 @@ body {
     border-bottom: 0.8vh solid #79b791;
     box-shadow: 0 10px 24px #abd1b593;
 }
-.card h2 {
+.card h3 {
     font-size: 2.2rem;
     color: #79b791;
     margin-bottom: 10px;
@@ -195,7 +290,6 @@ body {
     font-size: 1.08rem;
 }
 
-/* ? Depoimentos */
 .testimonials {
     background: #ABD1B5;
     border-radius: 18px;
@@ -234,36 +328,48 @@ body {
     font-weight: bold;
 }
 
-/* ? Funcionalidades em destaque */
 .features {
     margin: 48px auto 0 auto;
     max-width: 1100px;
     text-align: center;
 }
 .features h2 {
-    font-size: 1.5rem;
+    width: 50%;
+    font-size: 1.7rem;
     margin-bottom: 18px;
+    border-radius: 1vb;
+    box-shadow: 0 2px 8px #ABD1B540;
+    background-color: #79b791;
     color: #51291E;
+    background-color: #79b791;
 }
 .features-list {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 24px;
     justify-content: center;
+    gap: 24px;
+    height: 15vh;
 }
 .feature-card {
     background: #EDF4ED;
     border-radius: 12px;
     padding: 28px 18px;
-    box-shadow: 0 4px 12px #ABD1B540;
+    border: 0px solid transparent;
     border-left: 6px solid #79b791;
+    border-bottom: 0vh solid transparent;
+    box-shadow: 0 4px 12px #ABD1B540;
     min-width: 220px;
     max-width: 320px;
     flex: 1 1 220px;
     transition: transform 0.2s, box-shadow 0.2s;
 } .feature-card:hover {
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 10px 24px #ABD1B540;
+    border: 2px solid #79b791;
+    border-left: 0vh solid transparent;
+    border-bottom: 0.8vh solid #79b791;
+    box-shadow: 0 10px 24px #abd1b593;
 }
 .feature-card h3 {
     color: #79b791;
@@ -275,7 +381,6 @@ body {
     font-size: 1.05rem;
 }
 
-/* ? Rodapé */
 footer {
     background: #79b791;
     color: #EDF4ED;
