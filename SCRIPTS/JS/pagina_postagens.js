@@ -39,7 +39,7 @@ function updateOrgSession(newOrgValue) {
         });
 }
 
-function openPostModal(post, event) {
+function openPostModal(post, event, type) {
     const interactiveSelectors = [
         '.btn-reaction-toggle',
         '.btn-comment-toggle',
@@ -60,13 +60,13 @@ function openPostModal(post, event) {
             }
         }
     }
-    const postDivider = post.closest('.post-divider');
+    const postDivider = post.closest('.'+type+'-divider');
     const postModal = postDivider.querySelector('.post-modal');
     postModal.style.display = 'flex';
 }
 
-function closePostModal(btn) {
-    const postDivider = btn.closest('.post-divider');
+function closePostModal(btn, type) {
+    const postDivider = btn.closest('.'+type+'-divider');
     const postModal = postDivider.querySelector('.post-modal');
     postModal.style.display = 'none';
 }
