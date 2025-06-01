@@ -101,6 +101,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1vw;
   margin-bottom: 30px;
 } .nav_bar_cadastro a {
   color: #fff;
@@ -111,6 +112,13 @@ body {
 } .nav_bar_cadastro a:hover{
   color: #51291E;
   transition: 0.3s;
+}
+
+.redirect-page {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7rem;
+  gap: 1vh;
 }
 
 .type-user {

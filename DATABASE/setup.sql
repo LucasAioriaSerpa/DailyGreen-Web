@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS banido (
     id_participante_banido INT NOT NULL,
     id_denuncia INT NOT NULL,
     motivo VARCHAR(100) NOT NULL,
-    create_time TIMESTAMP NOT NULL,
+    create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_banido),
     CONSTRAINT fk_participanteBanidio FOREIGN KEY (id_participante_banido) REFERENCES participante (id_participante),
     CONSTRAINT fk_administradorBanido FOREIGN KEY (id_administrador) REFERENCES administrador (id_administrador),

@@ -25,8 +25,8 @@ if ($_SESSION['user']['type'] === null) {
             <div class="logo"></div>
             <div class="main-nav">
                 <a class="active">Início</a>
-                <a>Sobre</a>
-                <a>Contato</a>
+                <!-- <a>Sobre</a>
+                <a>Contato</a> -->
             </div>
             <div class="auth-buttons">
                 <a href="http://localhost/DailyGreen-Project/SCRIPTS/HTML/pagina_login.html" class="botao_login">Login</a>
@@ -121,5 +121,5 @@ if ($_SESSION['user']['type'] === null) {
             </div>
         </footer>
     </body>
-
+    <script src="/DailyGreen-Project/SCRIPTS/JS/main_page.js"></script>
 </html>

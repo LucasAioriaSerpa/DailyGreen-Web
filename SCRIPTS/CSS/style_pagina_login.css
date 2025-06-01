@@ -47,9 +47,20 @@ body::before {
   transition: 0.3s;
 }
 
+.nav_bar_login {
+  gap: 1vw;
+}
+
 .nav_bar_login h2 {
   font-size: 28px;
   color: #51291e;
+}
+
+.redirect-page {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7rem;
+  gap: 1vh;
 }
 
 .login-container label {

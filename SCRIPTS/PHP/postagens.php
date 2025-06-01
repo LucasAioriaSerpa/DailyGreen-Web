@@ -2,8 +2,19 @@
 include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/session.php";
 include_once "/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/SQL_connection.php";
 include_once '/xampp/htdocs/DailyGreen-Project/SCRIPTS/PHP/LOGIC/functions.php';
-if ($_SESSION['user']['loged'] === false) {
+if (empty($_SESSION['user']['loged']) || $_SESSION['user']['loged'] === false) {
     header('Location: /DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php');
+    exit();
+}
+$id_lista = isset($_SESSION['user']['account'][0]['id_lista']) ? (int)$_SESSION['user']['account'][0]['id_lista'] : null;
+if ($id_lista === 1 || $id_lista === 2) {
+    $_SESSION['user']['loged'] = false;
+    $_SESSION['user']['find'] = null;
+    $_SESSION['user']['org'] = null;
+    $redirectUrl = $id_lista === 1
+        ? '/DailyGreen-Project/SCRIPTS/PHP/bannedAlert.php'
+        : '/DailyGreen-Project/SCRIPTS/PHP/timeOutAlert.php';
+    header("Location: $redirectUrl");
     exit();
 }
 $userInfo = $_SESSION['user']['account'];

@@ -115,6 +115,7 @@ body {
 .main-nav a.active {
     color: #EDF4ED;
     background-color: #51291E;
+    height: 20vh;
     box-shadow: 0 0 0 transparent;
     border-top: transparent solid 0vh;
     cursor: default;

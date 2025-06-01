@@ -149,7 +149,7 @@ CREATE TABLE banido (
     id_participante_banido INT NOT NULL,
     id_denuncia INT NOT NULL,
     motivo VARCHAR(100) NOT NULL,
-    create_time TIMESTAMP NOT NULL,
+    create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_banido),
     FOREIGN KEY (id_participante_banido) REFERENCES participante(id_participante),
     FOREIGN KEY (id_administrador) REFERENCES administrador(id_administrador),
