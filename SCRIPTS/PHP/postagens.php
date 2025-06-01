@@ -24,9 +24,10 @@ $comentarioArray = $sqlConnection->callTableBD('comentario');
 $usersArray = $sqlConnection->callTableBD('participante');
 $denunciaArray = $sqlConnection->callTableBD('denuncia');
 $reactionPostArray = $sqlConnection->callTableBD('reacaopost');
+$reactionCommentArray = $sqlConnection->callTableBD('reacaocomentario');
 $_event = null;
 
-function getPostReactions($postId, $reactionPostArray) {
+function getPostReactions($Id, $reactionArray, $type) {
     $reactions = [
         'gostei' => 0,
         'parabens' => 0,
@@ -34,8 +35,8 @@ function getPostReactions($postId, $reactionPostArray) {
         'amei' => 0,
         'genial' => 0
     ];
-    foreach ($reactionPostArray as $reaction) {
-        if ($reaction['id_reacaoPost'] == $postId) {
+    foreach ($reactionArray as $reaction) {
+        if ($reaction["id_reacao{$type}"] == $Id) {
             $reactions[$reaction['reaction']]++;
         }
     }
@@ -202,42 +203,50 @@ function getPostReactions($postId, $reactionPostArray) {
                                     <i class="fa-solid fa-heart"> <p>Reações</p></i>
                                 </button>
                                 <div class="react-container">
-                                    <?php $reactions = getPostReactions($post['id_post'], $reactionPostArray); ?>
-                                    <div class="form-reaction">
-                                        <button type="submit" name="reaction-post" value="gostei" class="btn-reaction gostei" title="Gostei"
-                                        onclick="sendReaction('gostei', <?= htmlspecialchars($post['id_post']) ?>, <?= htmlspecialchars($userInfo[0]['id_participante'])?>)">
-                                            <i class="fa-solid fa-thumbs-up"></i>
-                                        </button>
-                                        <div class="reaction-num">
-                                            <?php
-                                            echo $reactions['gostei'];
-                                            ?>
+                                    <?php $reactions = getPostReactions($post['id_post'], $reactionPostArray, 'Post'); ?>
+                                    <form class="form-reaction" id="forms_reaction" action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/send_reaction.php" method="post">
+                                        <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
+                                        <!-- //? GOSTEI -->
+                                        <div class="reaction-pair-elements gostei">
+                                            <button type="submit" name="reaction-gostei" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-gostei"
+                                                class="btn-reaction" title="gostei">
+                                                <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-thumbs-up"></i></span>
+                                            </button>
                                         </div>
-                                        <button type="submit" name="reaction-post" value="parabens" class="btn-reaction parabens" title="Parabéns">
-                                            <i class="fa-solid fa-hands-clapping"></i>
-                                        </button>
-                                        <div class="reaction-num">
-                                            <?php echo $reactions['parabens']; ?>
+                                        <div class="reaction-num"><?php echo $reactions['gostei']; ?></div>
+                                        <!-- //? PARABENS -->
+                                        <div class="reaction-pair-elements parabens">
+                                            <button type="submit" name="reaction-parabens" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-parabens"
+                                                class="btn-reaction" title="parabéns">
+                                                <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-hands-clapping"></i></span>
+                                            </button>
                                         </div>
-                                        <button type="submit" name="reaction-post" value="apoio" class="btn-reaction apoio" title="Apoio">
-                                            <i class="fa-solid fa-handshake"></i>
-                                        </button>
-                                        <div class="reaction-num">
-                                            <?php echo $reactions['apoio']; ?>
+                                        <div class="reaction-num"><?php echo $reactions['parabens']; ?></div>
+                                        <!-- //? APOIO -->
+                                        <div class="reaction-pair-elements apoio">
+                                            <button type="submit" name="reaction-apoio" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-apoio"
+                                                class="btn-reaction" title="apoio">
+                                                <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-handshake"></i></span>
+                                            </button>
                                         </div>
-                                        <button type="submit" name="reaction-post" value="amei" class="btn-reaction amei" title="Amei">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </button>
-                                        <div class="reaction-num">
-                                            <?php echo $reactions['amei']; ?>
+                                        <div class="reaction-num"><?php echo $reactions['apoio']; ?></div>
+                                        <!-- //? AMEI -->
+                                        <div class="reaction-pair-elements amei">
+                                            <button type="submit" name="reaction-amei" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-amei"
+                                                class="btn-reaction" title="amei">
+                                                <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-heart"></i></span>
+                                            </button>
                                         </div>
-                                        <button type="submit" name="reaction-post" value="genial" class="btn-reaction genial" title="Genial">
-                                            <i class="fa-solid fa-lightbulb"></i>
-                                        </button>
-                                        <div class="reaction-num">
-                                            <?php echo $reactions['genial']; ?>
+                                        <div class="reaction-num"><?php echo $reactions['amei']; ?></div>
+                                        <!-- //? GENIAL -->
+                                        <div class="reaction-pair-elements genial">
+                                            <button type="submit" name="reaction-genial" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-genial"
+                                                class="btn-reaction" title="genial">
+                                                <span class="box-icon-reaction" style="color: #51291E;"><i class="icon-reaction fa-solid fa-lightbulb"></i></span>
+                                            </button>
                                         </div>
-                                    </div>
+                                        <div class="reaction-num"><?php echo $reactions['genial']; ?></div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="comment-wrapper">
@@ -388,42 +397,50 @@ function getPostReactions($postId, $reactionPostArray) {
                                                             <i class="fa-solid fa-heart"> <p>Reaja</p></i>
                                                         </button>
                                                         <div class="react-container">
-                                                            <?php $reactions = getPostReactions($post['id_post'], $reactionPostArray); ?>
-                                                            <div class="form-reaction">
-                                                                <button type="submit" name="reaction-post" value="gostei" class="btn-reaction gostei" title="Gostei"
-                                                                onclick="sendReaction('gostei', <?= htmlspecialchars($post['id_post']) ?>, <?= htmlspecialchars($userInfo[0]['id_participante'])?>)">
-                                                                    <i class="fa-solid fa-thumbs-up"></i>
-                                                                </button>
-                                                                <div class="reaction-num">
-                                                                    <?php
-                                                                    echo $reactions['gostei'];
-                                                                    ?>
+                                                            <?php $reactions = getPostReactions($comment['id_comentario'], $reactionCommentArray, 'Comentario'); ?>
+                                                            <form class="form-reaction" id="forms_reaction_comment" action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/send_reaction.php" method="post">
+                                                                <input type="hidden" name="id_comentario" value="<?= htmlspecialchars($comment['id_comentario']) ?>">
+                                                                <!-- //? GOSTEI -->
+                                                                <div class="reaction-pair-elements gostei">
+                                                                    <button type="submit" name="reaction-gostei" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-gostei"
+                                                                        class="btn-reaction" title="gostei">
+                                                                        <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-thumbs-up"></i></span>
+                                                                    </button>
                                                                 </div>
-                                                                <button type="submit" name="reaction-post" value="parabens" class="btn-reaction parabens" title="Parabéns">
-                                                                    <i class="fa-solid fa-hands-clapping"></i>
-                                                                </button>
-                                                                <div class="reaction-num">
-                                                                    <?php echo $reactions['parabens']; ?>
+                                                                <div class="reaction-num"><?php echo $reactions['gostei']; ?></div>
+                                                                <!-- //? PARABENS -->
+                                                                <div class="reaction-pair-elements parabens">
+                                                                    <button type="submit" name="reaction-parabens" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-parabens"
+                                                                        class="btn-reaction" title="parabéns">
+                                                                        <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-hands-clapping"></i></span>
+                                                                    </button>
                                                                 </div>
-                                                                <button type="submit" name="reaction-post" value="apoio" class="btn-reaction apoio" title="Apoio">
-                                                                    <i class="fa-solid fa-handshake"></i>
-                                                                </button>
-                                                                <div class="reaction-num">
-                                                                    <?php echo $reactions['apoio']; ?>
+                                                                <div class="reaction-num"><?php echo $reactions['parabens']; ?></div>
+                                                                <!-- //? APOIO -->
+                                                                <div class="reaction-pair-elements apoio">
+                                                                    <button type="submit" name="reaction-apoio" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-apoio"
+                                                                        class="btn-reaction" title="apoio">
+                                                                        <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-handshake"></i></span>
+                                                                    </button>
                                                                 </div>
-                                                                <button type="submit" name="reaction-post" value="amei" class="btn-reaction amei" title="Amei">
-                                                                    <i class="fa-solid fa-heart"></i>
-                                                                </button>
-                                                                <div class="reaction-num">
-                                                                    <?php echo $reactions['amei']; ?>
+                                                                <div class="reaction-num"><?php echo $reactions['apoio']; ?></div>
+                                                                <!-- //? AMEI -->
+                                                                <div class="reaction-pair-elements amei">
+                                                                    <button type="submit" name="reaction-amei" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-amei"
+                                                                        class="btn-reaction" title="amei">
+                                                                        <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-heart"></i></span>
+                                                                    </button>
                                                                 </div>
-                                                                <button type="submit" name="reaction-post" value="genial" class="btn-reaction genial" title="Genial">
-                                                                    <i class="fa-solid fa-lightbulb"></i>
-                                                                </button>
-                                                                <div class="reaction-num">
-                                                                    <?php echo $reactions['genial']; ?>
+                                                                <div class="reaction-num"><?php echo $reactions['amei']; ?></div>
+                                                                <!-- //? GENIAL -->
+                                                                <div class="reaction-pair-elements genial">
+                                                                    <button type="submit" name="reaction-genial" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-genial"
+                                                                        class="btn-reaction" title="genial">
+                                                                        <span class="box-icon-reaction" style="color: #51291E;"><i class="icon-reaction fa-solid fa-lightbulb"></i></span>
+                                                                    </button>
                                                                 </div>
-                                                            </div>
+                                                                <div class="reaction-num"><?php echo $reactions['genial']; ?></div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -439,42 +456,50 @@ function getPostReactions($postId, $reactionPostArray) {
                                         <i class="fa-solid fa-heart"> <p>Reaja</p></i>
                                     </button>
                                     <div class="react-container">
-                                        <?php $reactions = getPostReactions($post['id_post'], $reactionPostArray); ?>
-                                        <div class="form-reaction">
-                                            <button type="submit" name="reaction-post" value="gostei" class="btn-reaction gostei" title="Gostei"
-                                            onclick="sendReaction('gostei', <?= htmlspecialchars($post['id_post']) ?>, <?= htmlspecialchars($userInfo[0]['id_participante'])?>)">
-                                                <i class="fa-solid fa-thumbs-up"></i>
-                                            </button>
-                                            <div class="reaction-num">
-                                                <?php
-                                                echo $reactions['gostei'];
-                                                ?>
+                                        <?php $reactions = getPostReactions($post['id_post'], $reactionPostArray, 'Post'); ?>
+                                        <form class="form-reaction" id="forms_reaction" action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/send_reaction.php" method="post">
+                                            <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
+                                            <!-- //? GOSTEI -->
+                                            <div class="reaction-pair-elements gostei">
+                                                <button type="submit" name="reaction-gostei" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-gostei"
+                                                    class="btn-reaction" title="gostei">
+                                                    <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-thumbs-up"></i></span>
+                                                </button>
                                             </div>
-                                            <button type="submit" name="reaction-post" value="parabens" class="btn-reaction parabens" title="Parabéns">
-                                                <i class="fa-solid fa-hands-clapping"></i>
-                                            </button>
-                                            <div class="reaction-num">
-                                                <?php echo $reactions['parabens']; ?>
+                                            <div class="reaction-num"><?php echo $reactions['gostei']; ?></div>
+                                            <!-- //? PARABENS -->
+                                            <div class="reaction-pair-elements parabens">
+                                                <button type="submit" name="reaction-parabens" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-parabens"
+                                                    class="btn-reaction" title="parabéns">
+                                                    <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-hands-clapping"></i></span>
+                                                </button>
                                             </div>
-                                            <button type="submit" name="reaction-post" value="apoio" class="btn-reaction apoio" title="Apoio">
-                                                <i class="fa-solid fa-handshake"></i>
-                                            </button>
-                                            <div class="reaction-num">
-                                                <?php echo $reactions['apoio']; ?>
+                                            <div class="reaction-num"><?php echo $reactions['parabens']; ?></div>
+                                            <!-- //? APOIO -->
+                                            <div class="reaction-pair-elements apoio">
+                                                <button type="submit" name="reaction-apoio" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-apoio"
+                                                    class="btn-reaction" title="apoio">
+                                                    <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-handshake"></i></span>
+                                                </button>
                                             </div>
-                                            <button type="submit" name="reaction-post" value="amei" class="btn-reaction amei" title="Amei">
-                                                <i class="fa-solid fa-heart"></i>
-                                            </button>
-                                            <div class="reaction-num">
-                                                <?php echo $reactions['amei']; ?>
+                                            <div class="reaction-num"><?php echo $reactions['apoio']; ?></div>
+                                            <!-- //? AMEI -->
+                                            <div class="reaction-pair-elements amei">
+                                                <button type="submit" name="reaction-amei" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-amei"
+                                                    class="btn-reaction" title="amei">
+                                                    <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-heart"></i></span>
+                                                </button>
                                             </div>
-                                            <button type="submit" name="reaction-post" value="genial" class="btn-reaction genial" title="Genial">
-                                                <i class="fa-solid fa-lightbulb"></i>
-                                            </button>
-                                            <div class="reaction-num">
-                                                <?php echo $reactions['genial']; ?>
+                                            <div class="reaction-num"><?php echo $reactions['amei']; ?></div>
+                                            <!-- //? GENIAL -->
+                                            <div class="reaction-pair-elements genial">
+                                                <button type="submit" name="reaction-genial" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-genial"
+                                                    class="btn-reaction" title="genial">
+                                                    <span class="box-icon-reaction" style="color: #51291E;"><i class="icon-reaction fa-solid fa-lightbulb"></i></span>
+                                                </button>
                                             </div>
-                                        </div>
+                                            <div class="reaction-num"><?php echo $reactions['genial']; ?></div>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="comment-wrapper">
@@ -641,25 +666,59 @@ function getPostReactions($postId, $reactionPostArray) {
                             <div class="post-footer">
                                 <div class="reaction-wrapper">
                                     <button class="btn-content-footer btn-reaction-toggle" title="Reaja neste post!" onclick="toggleReact(this)">
-                                        <i class="fa-solid fa-heart"> <p>Reaja</p></i>
+                                        <i class="fa-solid fa-heart"> <p>Reações</p></i>
                                     </button>
                                     <div class="react-container">
-                                        <!--//TODO: action="/xampp/htdocs/DailyGreen-Project/SCRIPTS/LOGIC/.php" -->
-                                        <form  method="post" class="form-reaction">
+                                        <?php $reactions = getPostReactions($post['id_post'], $reactionPostArray, 'Post'); ?>
+                                        <form class="form-reaction" id="forms_reaction" action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/send_reaction.php" method="post">
                                             <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
-                                            <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
-                                            <input type="hidden" name="id_autor_reaction" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">
-                                            <button type="submit" name="reaction-post" value="gostei"   class="btn-reaction gostei"   title="Gostei"><i class="fa-solid fa-thumbs-up"></i></button>
-                                            <button type="submit" name="reaction-post" value="parabens" class="btn-reaction parabens" title="Parabéns"><i class="fa-solid fa-hands-clapping"></i></button>
-                                            <button type="submit" name="reaction-post" value="apoio"    class="btn-reaction apoio"    title="Apoio"><i class="fa-solid fa-handshake"></i></button>
-                                            <button type="submit" name="reaction-post" value="amei"     class="btn-reaction amei"     title="Amei"><i class="fa-solid fa-heart"></i></button>
-                                            <button type="submit" name="reaction-post" value="genial"   class="btn-reaction genial"   title="Genial"><i class="fa-solid fa-lightbulb"></i></button>
+                                            <!-- //? GOSTEI -->
+                                            <div class="reaction-pair-elements gostei">
+                                                <button type="submit" name="reaction-gostei" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-gostei"
+                                                    class="btn-reaction" title="gostei">
+                                                    <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-thumbs-up"></i></span>
+                                                </button>
+                                            </div>
+                                            <div class="reaction-num"><?php echo $reactions['gostei']; ?></div>
+                                            <!-- //? PARABENS -->
+                                            <div class="reaction-pair-elements parabens">
+                                                <button type="submit" name="reaction-parabens" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-parabens"
+                                                    class="btn-reaction" title="parabéns">
+                                                    <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-hands-clapping"></i></span>
+                                                </button>
+                                            </div>
+                                            <div class="reaction-num"><?php echo $reactions['parabens']; ?></div>
+                                            <!-- //? APOIO -->
+                                            <div class="reaction-pair-elements apoio">
+                                                <button type="submit" name="reaction-apoio" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-apoio"
+                                                    class="btn-reaction" title="apoio">
+                                                    <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-handshake"></i></span>
+                                                </button>
+                                            </div>
+                                            <div class="reaction-num"><?php echo $reactions['apoio']; ?></div>
+                                            <!-- //? AMEI -->
+                                            <div class="reaction-pair-elements amei">
+                                                <button type="submit" name="reaction-amei" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-amei"
+                                                    class="btn-reaction" title="amei">
+                                                    <span class="box-icon-reaction"><i class="icon-reaction fa-solid fa-heart"></i></span>
+                                                </button>
+                                            </div>
+                                            <div class="reaction-num"><?php echo $reactions['amei']; ?></div>
+                                            <!-- //? GENIAL -->
+                                            <div class="reaction-pair-elements genial">
+                                                <button type="submit" name="reaction-genial" value="<?=htmlspecialchars($userInfo[0]['id_participante'])?>-genial"
+                                                    class="btn-reaction" title="genial">
+                                                    <span class="box-icon-reaction" style="color: #51291E;"><i class="icon-reaction fa-solid fa-lightbulb"></i></span>
+                                                </button>
+                                            </div>
+                                            <div class="reaction-num"><?php echo $reactions['genial']; ?></div>
                                         </form>
                                     </div>
                                 </div>
                                 <div class="comment-wrapper">
                                     <button id="btnComment" class="btn-content-footer btn-comment-toggle" title="Comente neste post!" onclick="toggleComment(this)">
-                                        <i class="fa-solid fa-comment"><p>Comente</p></i>
+                                        <?php $countComment = 0; foreach($comentarioArray as $comment) { if ($comment['id_post'] === $post['id_post']) { $countComment += 1; } } ?>
+                                        <i class="fa-solid fa-comment"><p>Comente</p><?php if ($countComment != 0) { echo $countComment; } ?>  </i>
                                     </button>
                                     <div class="comment-modal-content">
                                         <div class="comment-content">
@@ -701,7 +760,7 @@ function getPostReactions($postId, $reactionPostArray) {
                                                         <div style="font-size: 0.8rem; color: #71767b;">@<?php echo $userInfo[0]['username']; ?></div>
                                                     </div>
                                                 </div>
-                                                <form action="" class="form-comment">
+                                                <form action="/DailyGreen-Project/SCRIPTS/PHP/logic/send_comment.php" class="form-comment" method="post">
                                                     <input type="hidden" name="id_post" value="<?= htmlspecialchars($post['id_post']) ?>">
                                                     <input type="hidden" name="id_autor" value="<?= htmlspecialchars($post['id_autor']) ?>">
                                                     <input type="hidden" name="id_autor_comment" value="<?= htmlspecialchars($userInfo[0]['id_participante']) ?>">

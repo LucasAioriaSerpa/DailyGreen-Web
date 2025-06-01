@@ -76,14 +76,14 @@ function closePostModal(btn) {
 function btnDenuncia(denuncia) {
     const userAvatar = denuncia.closest('.user-avatar');
     const btnDenuncia = userAvatar.querySelector('.btn-denuncia');
-    
+
     // Esconde todos os outros botões de denúncia
     document.querySelectorAll('.btn-denuncia').forEach(btn => {
         if (btn !== btnDenuncia) {
             btn.style.display = 'none';
         }
     });
-    
+
     btnDenuncia.style.display = (btnDenuncia.style.display == 'flex') ? 'none' : 'flex';
 }
 
@@ -187,7 +187,7 @@ function updateMotivo(selectElement) {
 function confirmSendDenuncia(button) {
     const form = button.closest('.form_denuncia');
     const enviarDenuncia = button;
-    
+
     if (enviarDenuncia.classList.contains("disabled")) {
         Swal.fire({
             title: "Selecione um motivo para a denúncia.",
@@ -196,7 +196,7 @@ function confirmSendDenuncia(button) {
         });
         return;
     }
-    
+
     Swal.fire({
         title: "Confirma a denúncia desta conta?",
         text: "Após confirmada, a denúncia não poderá ser desfeita.",

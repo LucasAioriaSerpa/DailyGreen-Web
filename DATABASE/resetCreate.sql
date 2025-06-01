@@ -60,10 +60,11 @@ CREATE TABLE IF NOT EXISTS post (
 
 -- Tabela reacaoPost
 CREATE TABLE IF NOT EXISTS reacaoPost (
+    id_reacao INT NOT NULL AUTO_INCREMENT,
     id_reacaoPost INT NOT NULL,
     id_autor_reacao INT NOT NULL,
     reaction VARCHAR(10) NOT NULL,
-    PRIMARY KEY (id_reacaoPost),
+    PRIMARY KEY (id_reacao),
     CONSTRAINT fk_postReacao FOREIGN KEY (id_reacaoPost) REFERENCES post(id_post),
     CONSTRAINT fk_autorReacaoPost FOREIGN KEY (id_autor_reacao) REFERENCES participante(id_participante)
 );
@@ -105,11 +106,12 @@ CREATE TABLE IF NOT EXISTS comentario (
 
 -- Tabela reacaoComentario
 CREATE TABLE IF NOT EXISTS reacaoComentario (
-    id_reacaoComentario INT NOT NULL AUTO_INCREMENT,
+    id_reacao INT NOT NULL AUTO_INCREMENT,
+    id_reacaoComentario INT NOT NULL,
     id_autor_reacao INT NOT NULL,
     reaction VARCHAR(10) NOT NULL,
-    PRIMARY KEY (id_reacaoComentario),
-        CONSTRAINT fk_comentarioReacao FOREIGN KEY (id_reacaoComentario) REFERENCES comentario(id_comentario),
+    PRIMARY KEY (id_reacao),
+    CONSTRAINT fk_comentarioReacao FOREIGN KEY (id_reacaoComentario) REFERENCES comentario(id_comentario),
     CONSTRAINT fk_autorReacaoComentario FOREIGN KEY (id_autor_reacao) REFERENCES participante(id_participante)
 );
 

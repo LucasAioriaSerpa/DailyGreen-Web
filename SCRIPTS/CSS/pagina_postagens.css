@@ -431,6 +431,7 @@ body {
 .img-modal-content {
     max-width: 90vw;
     max-height: 90vh;
+    border-radius: 10px;
     display: block;
     margin: auto;
     box-shadow: 0 2px 16px #0008;
@@ -586,27 +587,6 @@ body {
 .fas,
 .far {
     font-size: 1.2rem;
-}
-
-/* CORES DOS ÍCONES */
-.fa-twitter {
-    color: #51291E;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
-}
-
-html,
-body {
-    height: 100%;
-    width: 100%;
-    background-color: #EDF4ED;
-    color: #51291E;
-    overflow: hidden;
 }
 
 /* CONTAINER PRINCIPAL */
@@ -1056,7 +1036,7 @@ body {
     left: 0;
     bottom: 110%;
     opacity: 0;
-    padding: 0 10px;
+    padding-left: 2vh;
     border-radius: 10rem;
     background-color: #79B791;
     outline: #51291E solid 2px;
@@ -1072,69 +1052,83 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1vh;
+    margin-top: 0.8vh;
     margin-bottom: 1vh;
-    gap: 10px;
 }
 
-.btn-reaction {
-    bottom: 0.5vh;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    width: 38px;
-    height: 38px;
-    color: #fff;
+.reaction-pair-elements {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(145deg, #79B791 60%, #ABD1B5 100%);
+    width: 38px; height: 38px;
+    padding: 10px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
     box-shadow: 0 2px 8px #00000022;
+    border: 1px solid #51291E;
     transition:
         transform 0.2s,
         box-shadow 0.2s,
         filter 0.2s;
-    outline: 2px solid transparent;
-    border: 2px solid #fff;
 }
-.btn-reaction:hover, .btn-reaction:focus {
+
+.reaction-pair-elements.gostei   { background: linear-gradient(135deg, #0a66c2 70%, #79B791 100%); }
+.reaction-pair-elements.amei     { background: linear-gradient(135deg, #eb3b5a 70%, #79B791 100%); }
+.reaction-pair-elements.parabens { background: linear-gradient(135deg, #8854d0 70%, #79B791 100%); }
+.reaction-pair-elements.apoio    { background: linear-gradient(135deg, #20bf6b 70%, #79B791 100%); }
+.reaction-pair-elements.genial   { background: linear-gradient(135deg, #f7b731 70%, #79B791 100%); }
+
+.reaction-pair-elements:hover, .reaction-pair-elements:focus {
     bottom: 1vh;
     transform: scale(1.25) rotate(-8deg);
     box-shadow: 0 6px 18px #0004;
     filter: brightness(1.1) saturate(1.2);
-    outline: 2px solid #51291E;
+    border: 2px solid #51291E;
+    border-bottom: 0.8vh solid #51291E;
     z-index: 2;
-}
-.btn-reaction:active {
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        filter 0.2s;
+} .reaction-pair-elements:active {
     transform: scale(1.1) rotate(0deg);
     filter: brightness(0.95);
 }
 
-.btn-reaction.gostei   { background: linear-gradient(135deg, #0a66c2 70%, #79B791 100%); }
-.btn-reaction.parabens { background: linear-gradient(135deg, #8854d0 70%, #79B791 100%); }
-.btn-reaction.apoio    { background: linear-gradient(135deg, #20bf6b 70%, #79B791 100%); }
-.btn-reaction.amei     { background: linear-gradient(135deg, #eb3b5a 70%, #79B791 100%); }
-.btn-reaction.genial   { background: linear-gradient(135deg, #f7b731 70%, #79B791 100%); color: #51291E; }
-
-.btn-reaction i {
-    pointer-events: none;
-    font-size: 1.2em;
-    filter: drop-shadow(0 1px 2px #0003);
+.btn-reaction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #EDF4ED;
+    background-color: #00000001; /** CONFIA FUNCIONA KKKKK */
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 600px) {
-    .btn-reaction {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-        padding: 7px;
-    }
-    .form-reaction {
-        gap: 8px;
-    }
+.reaction-num {
+    padding: 0.5vh 0.5vw;
+    position: relative;
+    right: 1vw; top: 1.5vh;
+    border-radius: 50%;
+    font-size: 0.5rem;
+    text-align: center;
+    cursor: default;
+    color: #EDF4ED;
+    background-color: #51291E;
+}
+
+.box-icon-reaction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; height: 30px;
+    pointer-events: none;
+    font-size: 1.4rem;
+    filter: drop-shadow(0 1px 2px #0003);
 }
 
 .comment-wrapper {
@@ -1466,7 +1460,7 @@ body {
 
 
 .file-input-no-text {
-    color:#0679eb00;
+    color: #0679eb00;
     width: 130px; /* Ajuste conforme necessário */
 }
 

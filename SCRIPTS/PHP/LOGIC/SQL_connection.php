@@ -1,90 +1,94 @@
-
 <?php
 include_once 'Cypher.php';
+
 class SQLconnection {
     private EncodeDecode $encodeDecode;
-    private array $sqlData;
     private array $serverInfo;
-    public function __construct(){
+
+    public function __construct() {
         $this->encodeDecode = new EncodeDecode();
-        $this->sqlData = $_SESSION['mySql'];
+        $sqlData = $_SESSION['mySql'];
         $this->serverInfo = [
-            "servername"=>"{$this->sqlData["servername"]}",
-            "username"=>"{$this->sqlData["username"]}",
-            "password"=>"{$this->sqlData["password"]}",
-            "database"=>"{$this->sqlData["database"]}",
-            "port"=>(int)$this->sqlData["port"]
+            "servername" => $sqlData["servername"],
+            "username" => $sqlData["username"],
+            "password" => $sqlData["password"],
+            "database" => $sqlData["database"],
+            "port" => (int) $sqlData["port"]
         ];
     }
 
-    public function tryConnectBD(bool $test) {
-        try {
-            $conn = new mysqli(     $this->serverInfo['servername'],
-                                    $this->serverInfo['username'],
-                                    $this->encodeDecode->decrypt($this->serverInfo['password']),
-                                    $this->serverInfo['database'],
-                                        $this->serverInfo['port']);
-        } catch (mysqli_sql_exception $e) {
+    private function connect(): mysqli {
+        $conn = @new mysqli(
+            $this->serverInfo['servername'],
+            $this->serverInfo['username'],
+            $this->encodeDecode->decrypt($this->serverInfo['password']),
+            $this->serverInfo['database'],
+            $this->serverInfo['port']
+        );
+        if ($conn->connect_error) {
             error_log("Connection Failed: " . $conn->connect_error);
             header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");
             exit();
         }
+        return $conn;
+    }
+
+    public function tryConnectBD(bool $test) {
+        $conn = $this->connect();
         if ($test) {
-            return !$conn->connect_error;
-        } else {
-            return $conn;
+            $success = !$conn->connect_error;
+            $conn->close();
+            return $success;
         }
+        return $conn;
     }
+
     public function insertQueryBD(string $query) {
-        $conn = $this->tryConnectBD(false);
-        if ($conn->query($query) === true) {
-            $last_id = $conn->insert_id;
-            $conn->close();
-            return $last_id;
-        } else {
-            $conn->close();
-            return false;
-        }
+        $conn = $this->connect();
+        $result = $conn->query($query);
+        $last_id = $result ? $conn->insert_id : false;
+        $conn->close();
+        return $last_id;
     }
-    public function callTableBD(string $table) {
-        $data = [];
-        $conn = $this->tryConnectBD(false);
+
+    public function callTableBD(string $table): array {
+        $conn = $this->connect();
         $table = $conn->real_escape_string($table);
         $sqlQuery = "SELECT * FROM `$table`";
         $result = $conn->query($sqlQuery);
-        if ($result && $result->num_rows > 0) {
+        $data = [];
+        if ($result) {
             while ($row = $result->fetch_assoc()) {
                 $data[] = $row;
             }
+            $result->free();
         }
         $conn->close();
         return $data;
     }
 
-    public function joinQueryBD(string $join){
-        $conn = $this->tryConnectBD(false);
+    public function joinQueryBD(string $join) {
+        $conn = $this->connect();
         $result = $conn->query($join);
+        $data = false;
         if ($result && $result->num_rows > 0) {
             $data = [];
             while ($row = $result->fetch_assoc()) {
                 $data[] = $row;
             }
-            $conn->close();
-            return $data;
-        } else {
-            $conn->close();
-            return false;
+            $result->free();
         }
+        $conn->close();
+        return $data;
     }
 
     public function rawQueryBD(string $query) {
-        $conn = $this->tryConnectBD(false);
+        $conn = $this->connect();
         $result = $conn->query($query);
-
         if ($result === true) {
             $conn->close();
             return true;
-        } elseif ($result) {
+        } elseif ($result instanceof mysqli_result) {
             $data = [];
             while ($row = $result->fetch_assoc()) {
                 $data[] = $row;
