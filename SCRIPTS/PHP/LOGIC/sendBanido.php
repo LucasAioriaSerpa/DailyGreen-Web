@@ -52,8 +52,11 @@
     ";
 
     $sqlConnection->rawQueryBD($updateStatus);
+    echo "sucess update Status <br>";
     $sqlConnection->rawQueryBD($updateLista);
+    echo "sucess update Lista <br>";
     $sqlConnection->rawQueryBD($deleteMidias);
+    echo "sucess update DeletePosts <br>";
     $sqlConnection->rawQueryBD($deletePosts);
 
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/admPage.php");
