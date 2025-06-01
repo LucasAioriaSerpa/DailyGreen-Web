@@ -105,4 +105,20 @@ function btnCloseBan(){
 }
 
 
+// BOTÃO PARA RECOLHER INFORMAÇÕES
+let aberto = false;
 
+function alternarFiltro() {
+const container = document.getElementById('hide-report');
+const seta = document.getElementById('seta');
+
+aberto = !aberto;
+
+if (aberto) {
+    container.classList.add('aberto');      
+    seta.classList.add('girada');           
+} else {
+    container.classList.remove('aberto');  
+    seta.classList.remove('girada');       
+}
+}

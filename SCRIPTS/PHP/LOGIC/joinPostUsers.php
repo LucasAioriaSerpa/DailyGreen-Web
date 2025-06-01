@@ -22,9 +22,11 @@
     participante.username AS participante_username,
     participante.email AS participante_email,
     participante.profile_pic AS participante_profile_pic,
-    participante.create_time AS participante_create_time
+    participante.create_time AS participante_create_time,
+    lista.tipo_lista AS participante_lista
     FROM post
     JOIN participante ON post.id_autor = participante.id_participante
+    JOIN lista ON participante.id_lista = lista.id_lista
     LEFT JOIN midia ON post.id_post = midia.id_post
     WHERE participante.id_participante = {$id_participante};";
 
@@ -51,6 +53,7 @@
         $participante_email = $postInformation['participante_email'];
         $participante_username = $postInformation['participante_username'];
         $participante_create_time = $postInformation['participante_create_time'];
+        $participante_lista = $postInformation['participante_lista'];
     }
 
 

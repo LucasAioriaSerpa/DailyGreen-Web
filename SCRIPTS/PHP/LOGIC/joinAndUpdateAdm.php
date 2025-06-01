@@ -28,6 +28,7 @@
         administrador.email AS administrador_email,
         post.titulo AS post_titulo,
         post.descricao AS post_descricao,
+        post.create_time AS post_creation_date,
         midia.midia_ref AS post_midia_ref
         FROM denuncia
         JOIN participante AS relator ON denuncia.id_relator = relator.id_participante
@@ -57,6 +58,7 @@
         $post_id = $joinQuery[0]['id_post'];
         $post_titulo = $joinQuery[0]['post_titulo'];
         $post_descricao = $joinQuery[0]['post_descricao'];
+        $post_creation_date = $joinQuery[0]['post_creation_date'];
         $midia_post = $joinQuery[0]['post_midia_ref'];
         // Denuncia
         $denuncia_id = $joinQuery[0]['id_denuncia'];

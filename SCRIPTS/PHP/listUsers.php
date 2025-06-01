@@ -41,7 +41,8 @@
                             <div class="dados-user">
                                 <div class="username"> Username: <div class="user-name"><?= htmlspecialchars($user['username']) ?></div> </div>
                                 <div class="email"> Email: <div class="user-email"><?= htmlspecialchars($user['email']) ?></div> </div>
-                                <div class="create-time"> Creation time: <div class="user-creation-time"><?= htmlspecialchars($user['create_time']) ?></div> </div>
+                                <?php $create_date = new DateTime(htmlspecialchars($user['create_time'])); ?>
+                                <div class="create-time"> Creation time: <div class="user-creation-time"><?= $create_date->format('d/m/Y H:i:s') ?></div> </div>
                             </div>
                         </div>
                         <div class=btn-show-post>

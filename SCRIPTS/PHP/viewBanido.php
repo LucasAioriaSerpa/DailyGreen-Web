@@ -9,36 +9,37 @@
     }
     $sqlConnection = new SQLconnection();
     $id_denuncia = (int) $_GET['id'];
-    include_once 'LOGIC/joinSuspenso.php';
+    include_once 'LOGIC/joinBanido.php';
 
 ?>
 
-<div class="form-analyse-suspend">
+<div class="form-analyse-ban">
     <div class="buttons-post-user">
         <div class="action-buttons">
             <div class="button-back">
-                <button class="btn-back" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listSuspend.php')">VOLTAR</button>
+                <button class="btn-back" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listBan.php')">VOLTAR</button>
             </div>
         </div>
     </div><br><br>
-    <div class="info-suspend">
-        <div class="info-user-suspend">
+    <div class="info-ban">
+        <div class="info-user-ban">
             <fieldset>
                 <legend>INFORMAÇÕES DO USUÁRIO</legend>
                 <div>
                     <table style="display: flex">
-                        <tbody style="width: 50%">
-                            <tr><th class="th">ID:&nbsp;</th><td><?php echo $id_participante_suspenso ?></td></tr>
+                        <tbody style="width: 15%"><th><td rowspan="4">
+                            <div class="img-user-banido">
+                                <img src="<?= str_replace("/xampp/htdocs", "", $participante_profile_pic) ?>"
+                                    alt="Avatar" style="width: 100px; height: 100px; margin-left: 30px; border-radius: 50%;">
+                            </div>
+                        </td></th></tbody>
+                        <tbody>
+                            <tr><th class="th">ID:&nbsp;</th><td><?php echo $id_participante_banido ?></td></tr>
                             <tr><th class="th">Nome:&nbsp;</th><td><?php echo $participante_username  ?></td></tr>
                             <tr><th class="th">Email:&nbsp;</th><td><?php echo $participante_email ?></td></tr>
-                            <tr><th class="th">Criação da conta:&nbsp;</th><td><?php echo $user_create_time->format('d/m/Y H:i:s') ?></td></tr>
-                        </tbody>
-                        <tbody style="width: 50%">
                             <tr><th class="th">Lista:&nbsp;</th><td><?php echo $participante_lista ?></td></tr>
-                            <tr><th class="th">Inicio da Suspensão:&nbsp;</th><td><?php echo $data_inicio_suspensao->format('d/m/Y H:i:s') ?></td></tr>
-                            <tr><th class="th">Fim da Suspensão:&nbsp;</th><td><?php echo $data_fim_suspensao->format('d/m/Y H:i:s') ?></td></tr>
                         </tbody>
-                    </table><br>
+                    </table>
                 </div>
             </fieldset><br>
             <fieldset>
@@ -58,7 +59,7 @@
                                 <tr><th class="th">ID Adm Responsável:&nbsp;</th><td><?php echo $id_administrador ?></td></tr>
                                 <tr><th class="th">Email Adm Responsável:&nbsp;</th><td><?php echo $administrador_email ?></td></tr>
                             </tbody>
-                        </table><br>
+                        </table>
                     </div>
             </fieldset><br>
             <div id="hide-report" class="hide-report-container">
@@ -66,7 +67,7 @@
                     <span><strong>POST DENUNCIADO</strong></span>
                     <span id="seta" class="seta">▼</span>
                 </div>
-                <div class="info-suspend-report">
+                <div class="info-ban-report">
                     <div>
                         <table>
                             <tbody>
@@ -75,7 +76,7 @@
                                 <tr><th class="th">Descrição:&nbsp;</th><td><?php echo $post_descricao ?></td></tr>
                                 <tr><th class="th">Data Publicação:&nbsp;</th><td><?php echo $post_create_time->format('d/m/Y H:i:s') ?></td></tr>
                                 <tr style="height: 10px"></tr>
-                                <tr><th class="th">Mídia:&nbsp;</th><td><img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia_ref)) ?>" alt="Avatar"></td></tr>
+                                <tr><th class="th">Midia:&nbsp;</th><td><img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia_ref)) ?>" alt="Avatar"></td></tr>
                             </tbody>
                         </table><br>
                     </div>

@@ -9,7 +9,6 @@
     $sqlConnection = new SQLconnection();
     $suspensoArray = $sqlConnection->callTableBD('suspenso');
 
-    // AINDA VOU FAZER O JOIN
 ?>
 
 <div class="container-suspensos">
@@ -36,12 +35,21 @@
                                     <tr class="row-head-suspend">
                                         <th class="colunm-head-suspend" style="width: 25%">
                                             <div class="suspend-id">
-                                                <div class="user-suspend-id"> NÚMERO SUSPENSÃO: <div class="suspend-user"><?= htmlspecialchars($suspenso['id_suspenso']) ?></div> </div>
+                                                <div class="user-suspend-id"> ID SUSPENSÃO: <div class="suspend-user"><?= htmlspecialchars($suspenso['id_suspenso']) ?></div> </div>
                                             </div>
                                         </th>
                                         <th class="colunm-head-suspend" style="width: 25%" >
                                             <div class="user-suspenso">
-                                                <div class="user-suspend"> USUÁRIO SUSPENSO: <div class="suspend-user"><?= htmlspecialchars($suspenso['id_participante_suspenso']) ?></div> </div>
+                                                <?php $id_suspenso = htmlspecialchars($suspenso['id_participante_suspenso']) ?>
+                                                <?php $join = "SELECT suspenso.*, participante.username AS username_suspenso
+                                                    FROM suspenso JOIN participante ON suspenso.id_participante_suspenso = participante.id_participante
+                                                    WHERE suspenso.id_participante_suspenso = {$id_suspenso};";
+                                                    $joinQuery = $sqlConnection->joinQueryBD($join);
+                                                    if ($joinQuery && count($joinQuery) > 0){
+                                                        $participante_suspenso = $joinQuery[0]['username_suspenso'];
+                                                    }
+                                                ?>
+                                                <div class="user-suspend"> NOME USUÁRIO: <div class="suspend-user"><?= $participante_suspenso ?></div> </div>
                                             </div>
                                         </th>
                                         <th class="colunm-head-suspend">
@@ -56,17 +64,19 @@
                                     <tr class="row-body-suspend">
                                         <td class="colunm-body-suspend" style="width: 25%">
                                             <div class="suspend-inicio">
-                                                <div class="inicio_suspensao"> INICIO DA SUSPENSÃO: <div class="start-suspend"><?= htmlspecialchars($suspenso['data_hora_inicio']) ?></div> </div>
+                                                <?php $data_inicio = new DateTime(htmlspecialchars($suspenso['data_hora_inicio'])) ?>
+                                                <div class="inicio_suspensao"> INICIO DA SUSPENSÃO: <div class="start-suspend"><?= $data_inicio->format('d/m/Y H:i:s') ?></div> </div>
                                             </div>
                                         </td>
                                         <td class="colunm-body-suspend" style="width: 25%" >
                                             <div class="suspend-fim">
-                                                <div class="fim_suspensao"> FIM DA SUSPENSÃO: <div class="end-suspend"><?= htmlspecialchars($suspenso['data_hora_inicio']) ?></div> </div>
+                                                <?php $data_fim = new DateTime(htmlspecialchars($suspenso['data_hora_inicio'])) ?>
+                                                <div class="fim_suspensao"> FIM DA SUSPENSÃO: <div class="end-suspend"><?= $data_fim->format('d/m/Y H:i:s') ?></div> </div>
                                             </div>
                                         </td>
                                         <td class="colunm-body-suspend">
                                             <div class="suspend-data">
-                                                <button class="analyse-suspend" type="submit" data-id="<?= htmlspecialchars($suspenso['id_suspenso']) ?>"
+                                                <button class="analyse-suspend" type="submit" data-id="<?= htmlspecialchars($suspenso['id_denuncia']) ?>"
                                                     onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/viewSuspend.php?id='+this.getAttribute('data-id'))">VER SUSPENSÃO</button>
                                             </div>
                                         </td>

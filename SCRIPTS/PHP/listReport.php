@@ -88,7 +88,8 @@
                                     <tr class="row-body-report">
                                         <td class="colunm-body-report" style="width: 30%">
                                             <div class="denuncia-data">
-                                                <div class="data"> DATA DE REGISTRO: <div class="data-report"><?= htmlspecialchars($denuncia['data_registro']) ?></div> </div>
+                                                <?php $report_create_time = new DateTime(htmlspecialchars($denuncia['data_registro'])) ?>
+                                                <div class="data"> DATA DE REGISTRO: <div class="data-report"><?= $report_create_time->format('d/m/Y H:i:s') ?></div> </div>
                                             </div>
                                         </td>
                                         <td class="colunm-body-report" style="width: 50%">

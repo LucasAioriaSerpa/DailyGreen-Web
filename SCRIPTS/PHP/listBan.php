@@ -36,17 +36,28 @@
                                     <tr class="row-head-ban">
                                         <th class="colunm-head-ban" style="width: 20%">
                                             <div class="user-banido">
-                                                <div class="id-ban"> ID DO BANIMENTO: <div class="ban-user"><?= htmlspecialchars($banido['id_banido']) ?></div> </div>
+                                                <div class="id-ban"> ID BANIMENTO:&nbsp; <div class="ban-user"><?= htmlspecialchars($banido['id_banido']) ?></div> </div>
                                             </div>
                                         </th>
                                         <th class="colunm-head-ban" style="width: 40%">
                                             <div class="user-banido">
-                                                <div class="user-ban"> NOME USUÁRIO: <div class="ban-user"><?= htmlspecialchars($banido['id_participante_banido']) ?></div> </div>
+                                                <?php $id_banido = htmlspecialchars($banido['id_participante_banido']) ?>
+                                                <?php $join = "SELECT banido.*, participante.username AS username_banido
+                                                    FROM banido JOIN participante ON banido.id_participante_banido = participante.id_participante
+                                                    WHERE banido.id_participante_banido = {$id_banido};";
+
+                                                    $joinQuery = $sqlConnection->joinQueryBD($join);
+                                                    if ($joinQuery && count($joinQuery) > 0){
+                                                        $participante_banido = $joinQuery[0]['username_banido'];
+                                                    }
+                                                ?>
+                                                <div class="user-ban"> NOME USUÁRIO: <div class="ban-user"><?= $participante_banido ?></div> </div>
                                             </div>
                                         </th>
                                         <th class="colunm-head-ban">
                                             <div class="ban-inicio">
-                                                <div class="inicio_ban"> DATA BANIMENTO: <div class="start-ban"><?= htmlspecialchars($banido['create_time']) ?></div> </div>
+                                                <?php $ban_create_time = new DateTime(htmlspecialchars($banido['create_time'])) ?>
+                                                <div class="inicio_ban"> DATA BANIMENTO: <div class="start-ban"><?= $ban_create_time->format('d/m/Y H:i:s') ?></div> </div>
                                             </div>
                                         </th>
                                     </tr>
@@ -61,8 +72,8 @@
                                         </td>
                                         <td>
                                             <div class="ban-button">
-                                                <button class="analyse-ban" type="submit" data-id="<?= htmlspecialchars($suspenso['id_suspenso']) ?>"
-                                                    onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/viewBan.php?id='+this.getAttribute('data-id'))">VER BANIMENTO</button>
+                                                <button class="analyse-ban" type="submit" data-id="<?= htmlspecialchars($banido['id_denuncia']) ?>"
+                                                    onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/viewBanido.php?id='+this.getAttribute('data-id'))">VER BANIMENTO</button>
                                             </div>
                                         </td>
                                     </tr>

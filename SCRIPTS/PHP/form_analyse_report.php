@@ -31,7 +31,7 @@
                         <div class="info-relator">
                             <div><?php echo "<b>Nome: </b>".$relator; ?></div>
                             <div><?php echo "<b>Email: </b>".$relator_email ?></div>
-                            <div><?php echo "<b>Conta criada em: </b>".$relator_create_time->format('d/m/Y H:i') ?></div>
+                            <div><?php echo "<b>Conta criada em: </b>".$relator_create_time->format('d/m/Y H:i:s') ?></div>
                         </div>
                     </div> 
                 </fieldset><br>
@@ -40,9 +40,9 @@
                         <legend class="legend-adm">DADOS ADM</legend>
                         <div><?php echo "<b>ID Administrador: </b>".$admnistrador_id; ?></div>
                         <div><?php echo "<b>Email Administrador: </b>".$admnistrador_email ?></div>
-                        <div><?php echo "<b>Data de inicio da análise: </b>".$data_inicio->format('d/m/Y H:i') ?></div>
+                        <div><?php echo "<b>Data de inicio da análise: </b>".$data_inicio->format('d/m/Y H:i:s') ?></div>
                         <?php if($data_fim_analise != null): ?>
-                            <div><?php echo "<b>Data do fim da análise: </b>".$data_fim->format('d/m/Y H:i') ?></div><br>
+                            <div><?php echo "<b>Data do fim da análise: </b>".$data_fim->format('d/m/Y H:i:s') ?></div><br>
                         <?php else: ?>
                             <br><div class="no-data-end"><?php echo "<b>Denúncia Em Análise. </b>" ?></div><br>
                         <?php endif; ?>
@@ -59,7 +59,7 @@
                     <div class="info-relatado">
                         <div><?php echo "<b>Nome: </b>".$relatado; ?></div>
                         <div><?php echo "<b>Email: </b>".$relatado_email ?></div>
-                        <div><?php echo "<b>Conta criada em: </b>".$relatado_create_time->format('d/m/Y H:i') ?></div>
+                        <div><?php echo "<b>Conta criada em: </b>".$relatado_create_time->format('d/m/Y H:i:s') ?></div>
                     </div>
                 </div><br>
                 <fieldset>
@@ -68,7 +68,7 @@
                         <div><?php echo "<b>ID da Denúncia: </b>".$denuncia_id; ?></div>
                         <div><?php echo "<b>Motivo da Denúncia: </b>".str_replace('_', ' ', $denuncia_motivo); ?></div>
                         <div><?php echo "<b>Descrição da Denúncia: </b>".$denuncia_descricao; ?></div>
-                        <div><?php echo "<b>Data de Registro: </b>".$denuncia_registro->format('d/m/Y H:i') ?></div>
+                        <div><?php echo "<b>Data de Registro: </b>".$denuncia_registro->format('d/m/Y H:i:s') ?></div>
                     </div> <br>
                 </fieldset><br>
                 <fieldset>
@@ -76,6 +76,8 @@
                     <div class="dados-post">
                         <div><?php echo "<b>Titulo do Post: </b>".$post_titulo ?></div>
                         <div><?php echo "<b>Descrição do Post: </b>".$post_descricao ?></div>
+                        <?php $post_create_time = new DateTime($post_creation_date) ?>
+                        <div><?php echo "<b>Postado em: </b>".$post_create_time->format('d/m/Y H:i:s') ?></div>
                         <div class="midia-post"><?php echo "<b>Imagens do Post: </b>" ?></div><br>
                         <div class="img-post">
                             <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia_post)) ?>"
