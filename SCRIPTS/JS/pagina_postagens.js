@@ -295,6 +295,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //Contador do numero de caracteres em biografia
+document.getElementById('username').addEventListener('input', function () {
+    const charCounterUsername = this.value.length;
+    document.getElementById('charCounterUsername').textContent = charCounterUsername + '/30';
+});
+
 document.getElementById('biografia').addEventListener('input', function () {
     const charCount = this.value.length;
     document.getElementById('charCounter').textContent = charCount + '/250';

@@ -73,7 +73,9 @@ $countPost = 0;
         <!-- CONTEÚDO CENTRAL (PERFIL) -->
         <div class="conteudo_principal">
             <div class="profile-header">
-                <div class="banner"></div>
+                <div class="banner">
+                    <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['banner_pic']); ?>" alt="Banner">>   
+                </div>
                 <div class="avatar-large">
                     <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar" 
                         style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid #EDF4ED;">
@@ -96,63 +98,74 @@ $countPost = 0;
                 <div class="edit-modal" id="editModal">
                     
                     <div class="edit-form-container">
-                    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileName.php" method="POST" id="nameForm">
-                            <div class="form-group">
-                                <label for="username">Nome:</label>
-                                <input 
-                                    id="username" 
-                                    name="nome" 
-                                    placeholder="Escreva seu nome aqui..."
-                                    pattern=".{0,30}" x
-                                    maxlength="30"
-                                    title="A nome deve ter no máximo 30 caracteres."
-                                >
-                                <span id="charCounterUsername">0/20</span>
-                            </div>
-                            
-                            <div class="form-actions">
+                        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileName.php" method="POST" id="nameForm">
+                                <div class="form-group">
+                                    <label for="username">Nome:</label>
+                                    <input 
+                                        id="username" 
+                                        name="nome" 
+                                        placeholder="Escreva seu nome aqui..."
+                                        pattern=".{0,30}" x
+                                        maxlength="30"
+                                        title="A nome deve ter no máximo 30 caracteres."
+                                    >
+                                    <span id="charCounterUsername">0/30</span>
+                                </div>
                                 
-                                <input type="submit" class="submit-btn" value="Salvar"> 
-                            </div>
-                        </form>
+                                <div class="form-actions">
+                                    
+                                    <input type="submit" class="submit-btn" value="Salvar"> 
+                                </div>
+                            </form>
 
-                        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileAcc.php" method="POST" id="bioForm">
-                            <div class="form-group">
-                                <label for="biografia">Biografia:</label>
-                                <input 
-                                    id="biografia" 
-                                    name="biografia" 
-                                    placeholder="Escreva sua biografia aqui..."
-                                    pattern=".{0,250}" x
-                                    maxlength="250"
-                                    title="A biografia deve ter no máximo 250 caracteres."
-                                >
-                                <span id="charCounter">0/250</span>
-                            </div>
-                            
-                            <div class="form-actions">
-                                <input type="submit" class="submit-btn" value="Salvar"> 
-                            </div>
-                        </form>
-
-
-
-
-                        
-                        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfilePic.php" method="POST" id="PicForm" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="profilePic">ProfilePic:</label>
-                                <input type="file" id="profilePic" name="profilePic" class="ProfilePic" accept="image/*" >
-                            </div>
-                            
-                            <div class="form-actions">
-                                <input type="submit" class="submit-btn" value="Salvar"> 
-                            </div>
-                        </form>
-                        <div class="form-actions">
-                                <button type="button" class="cancel-btn" id="cancelBtn">Cancelar</button>
+                            <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileAcc.php" method="POST" id="bioForm">
+                                <div class="form-group">
+                                    <label for="biografia">Biografia:</label>
+                                    <input 
+                                        id="biografia" 
+                                        name="biografia" 
+                                        placeholder="Escreva sua biografia aqui..."
+                                        pattern=".{0,250}" x
+                                        maxlength="250"
+                                        title="A biografia deve ter no máximo 250 caracteres."
+                                    >
+                                    <span id="charCounter">0/250</span>
+                                </div>
                                 
-                        </div>
+                                <div class="form-actions">
+                                    <input type="submit" class="submit-btn" value="Salvar"> 
+                                </div>
+                            </form>
+
+
+
+
+                            
+                            <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfilePic.php" method="POST" id="PicForm" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="profilePic">Foto de perfil:</label>
+                                    <input type="file" id="profilePic" name="profile_pic" class="ProfilePic" accept="image/*" >
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <input type="submit" class="submit-btn" value="Salvar"> 
+                                </div>
+                            </form>
+
+                            <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileBanner.php" method="POST" id="BannerForm" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="profilePic">Banner:</label>
+                                    <input type="file" id="banner_pic" name="banner_pic" class="banner_pic" accept="image/*" >
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <input type="submit" class="submit-btn" value="Salvar"> 
+                                </div>
+                            </form>
+                            <div class="form-actions">
+                                    <button type="button" class="cancel-btn" id="cancelBtn">Cancelar</button>
+                                    
+                            </div>
                     </div>
                 </div>
                 
