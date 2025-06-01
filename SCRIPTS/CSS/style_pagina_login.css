@@ -6,21 +6,45 @@
 }
 
 body {
-  background-color: #edf4ed;
+  background-color: #000000cc;
   color: #51291e;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/DailyGreen-Project/IMAGES/BACKGROUNDs/florest-4.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  z-index: -1;
+  opacity: 1;
 }
 
 .login-container {
   background-color: #abd1b5;
   padding: 40px;
+  border: #51291e solid 2px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px #ffffff1a;
   width: 100%;
   max-width: 400px;
+  box-shadow: 0 2px 8px #000000cc;
+  transition: 0.2s;
+} .login-container:hover {
+  padding: 45px;
+  border: #51291e solid 5px;
+  transition: 0.3s;
 }
 
 .nav_bar_login h2 {
@@ -38,11 +62,22 @@ body {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
-  border: none;
+  border: transparent solid 0px;
   border-radius: 5px;
   background-color: #edf4ed;
   color: #51291e;
   font-size: 16px;
+  transition: 0.3s;
+} .login-container input:hover {
+  border-bottom: #51291e solid 0.8vh;
+  box-shadow: 0 2px 8px #00000022;
+  transition: 0.5s;
+} .login-container input:focus {
+  outline: none;
+  border: #51291e solid 0.3vh;
+  border-bottom: #51291e solid 0.8vh;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
 .class_button input[type="submit"] {
@@ -56,12 +91,10 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
-}
-
-.class_button input[type="submit"]:hover {
-  transition: 1s;
+} .class_button input[type="submit"]:hover {
   background-color: #51291e;
   color: #edf4ed;
+  transition: 0.2s;
 }
 
 .nav_bar_login {
@@ -69,16 +102,13 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
-}
-
-.nav_bar_login a {
-  color: #edf4ed;
+} .nav_bar_login a {
+  color: #EDF4ED;
   text-decoration: none;
   font-size: 12px;
   font-weight: bold;
-}
-
-.nav_bar_login a:hover{
-  transition: 1s;
+  transition: 0.5s;
+} .nav_bar_login a:hover{
   color: #51291e;
+  transition: 0.3s;
 }

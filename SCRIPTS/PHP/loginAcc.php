@@ -4,8 +4,7 @@ include_once 'LOGIC/Cypher.php';
 include_once 'LOGIC/functions.php';
 if ($_SESSION['user']['find'] === false) {
     $_SESSION['user']['find'] = null;
-    
-    echo 
+    echo
     '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
