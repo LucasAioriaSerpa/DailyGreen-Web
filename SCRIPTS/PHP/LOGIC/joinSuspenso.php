@@ -21,6 +21,7 @@
     participante.id_participante AS participante_id,
     participante.username AS participante_username,
     participante.email AS participante_email,
+    participante.profile_pic,
     participante.create_time AS participante_create_time,
     lista.tipo_lista AS participante_lista_tipo,
     -- Denuncia
@@ -59,6 +60,7 @@
         $id_participante_suspenso = $joinQuery[0]['participante_id'];
         $participante_username = $joinQuery[0]['participante_username'];
         $participante_email = $joinQuery[0]['participante_email'];
+        $participante_profile_pic = $joinQuery[0]['profile_pic'];
         $participante_creation_date = $joinQuery[0]['participante_create_time'];
         $participante_lista = $joinQuery[0]['participante_lista_tipo'];
         $inico_suspensao = $joinQuery[0]['data_hora_inicio'];

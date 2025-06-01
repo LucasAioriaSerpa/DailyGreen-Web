@@ -42,8 +42,19 @@
             AND id_participante = {$id_participante_banido};
     ";
 
+    $deleteMidias = " DELETE m FROM midia m
+        JOIN post p ON m.id_post = p.id_post
+        WHERE p.id_autor = {$id_participante_banido};
+    ";
+
+    $deletePosts = "DELETE FROM post
+        WHERE id_autor = {$id_participante_banido};
+    ";
+
     $sqlConnection->rawQueryBD($updateStatus);
     $sqlConnection->rawQueryBD($updateLista);
+    $sqlConnection->rawQueryBD($deleteMidias);
+    $sqlConnection->rawQueryBD($deletePosts);
 
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/admPage.php");
 ?>

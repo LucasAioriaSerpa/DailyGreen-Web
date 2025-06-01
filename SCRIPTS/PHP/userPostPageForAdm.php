@@ -13,25 +13,6 @@
 ?>
 
 <div class="container-post-user">
-    <div class="buttons-post-user">
-        <div class="action-buttons">
-            <div class="button-back">
-                <button class="btn-back" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">VOLTAR</button>
-            </div>
-            <div class="button-suspender">
-                <input type="submit" value="SUSPENDER" class="btn-suspender" id="suspend" name="suspend" onclick="formSuspend()">
-            </div>
-            <div class="button-banir">
-                <input type="submit" value="BANIR" class="btn-banir" id="ban" name="ban" onclick="formBan()">
-            </div>
-        </div>
-        <div class="formulario-suspenso" id="formulario-suspenso" name="formulario-suspenso">
-            <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_suspend.html"; ?>
-        </div>
-        <div class="formulario-banido" id="formulario-banido" name="formulario-banido">
-            <?php include "/xampp/htdocs/DailyGreen-Project/SCRIPTS/HTML/form_ban.html"; ?>
-        </div>
-    </div><br><br>
     <hr>
     <h3>USUÁRIO</h3>
     <hr><br>

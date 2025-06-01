@@ -27,18 +27,25 @@
                 <legend>INFORMAÇÕES DO USUÁRIO</legend>
                 <div>
                     <table style="display: flex">
-                        <tbody style="width: 50%">
-                            <tr><th class="th">ID:&nbsp;</th><td><?php echo $id_participante_suspenso ?></td></tr>
-                            <tr><th class="th">Nome:&nbsp;</th><td><?php echo $participante_username  ?></td></tr>
-                            <tr><th class="th">Email:&nbsp;</th><td><?php echo $participante_email ?></td></tr>
+                        <tbody style="width: 20%"><th><td rowspan="4">
+                            <div class="img-user-banido">
+                                <img src="<?= str_replace("/xampp/htdocs", "", $participante_profile_pic) ?>"
+                                    alt="Avatar" style="width: 100px; height: 100px; margin-left: 30px; border-radius: 50%;">
+                                </div>
+                            </td></th>
+                        </tbody>
+                        <tbody style="width: 40%">
+                            <tr><th class="th">ID do Usuário:&nbsp;</th><td><?php echo $id_participante_suspenso ?></td></tr>
+                            <tr><th class="th">Nome do Usuário:&nbsp;</th><td><?php echo $participante_username  ?></td></tr>
+                            <tr><th class="th">Email Cadastrado:&nbsp;</th><td><?php echo $participante_email ?></td></tr>
                             <tr><th class="th">Criação da conta:&nbsp;</th><td><?php echo $user_create_time->format('d/m/Y H:i:s') ?></td></tr>
                         </tbody>
                         <tbody style="width: 50%">
-                            <tr><th class="th">Lista:&nbsp;</th><td><?php echo $participante_lista ?></td></tr>
+                            <tr><th class="th">Pertence a Lista:&nbsp;</th><td><?php echo $participante_lista ?></td></tr>
                             <tr><th class="th">Inicio da Suspensão:&nbsp;</th><td><?php echo $data_inicio_suspensao->format('d/m/Y H:i:s') ?></td></tr>
                             <tr><th class="th">Fim da Suspensão:&nbsp;</th><td><?php echo $data_fim_suspensao->format('d/m/Y H:i:s') ?></td></tr>
                         </tbody>
-                    </table><br>
+                    </table>
                 </div>
             </fieldset><br>
             <fieldset>
@@ -58,7 +65,7 @@
                                 <tr><th class="th">ID Adm Responsável:&nbsp;</th><td><?php echo $id_administrador ?></td></tr>
                                 <tr><th class="th">Email Adm Responsável:&nbsp;</th><td><?php echo $administrador_email ?></td></tr>
                             </tbody>
-                        </table><br>
+                        </table>
                     </div>
             </fieldset><br>
             <div id="hide-report" class="hide-report-container">

@@ -31,13 +31,15 @@
                             <div class="img-user-banido">
                                 <img src="<?= str_replace("/xampp/htdocs", "", $participante_profile_pic) ?>"
                                     alt="Avatar" style="width: 100px; height: 100px; margin-left: 30px; border-radius: 50%;">
-                            </div>
-                        </td></th></tbody>
+                                </div>
+                            </td></th>
+                        </tbody>
                         <tbody>
-                            <tr><th class="th">ID:&nbsp;</th><td><?php echo $id_participante_banido ?></td></tr>
-                            <tr><th class="th">Nome:&nbsp;</th><td><?php echo $participante_username  ?></td></tr>
-                            <tr><th class="th">Email:&nbsp;</th><td><?php echo $participante_email ?></td></tr>
-                            <tr><th class="th">Lista:&nbsp;</th><td><?php echo $participante_lista ?></td></tr>
+                            <tr><th class="th">ID do Usuário:&nbsp;</th><td><?php echo $id_participante_banido ?></td></tr>
+                            <tr><th class="th">Nome do Usuário:&nbsp;</th><td><?php echo $participante_username  ?></td></tr>
+                            <tr><th class="th">Email Cadastrado:&nbsp;</th><td><?php echo $participante_email ?></td></tr>
+                            <tr><th class="th">Pertence a Lista:&nbsp;</th><td><?php echo $participante_lista ?></td></tr>
+                            <tr><th class="th">Criação da conta:&nbsp;</th><td><?php echo $user_create_time->format('d/m/Y H:i:s') ?></td></tr>
                         </tbody>
                     </table>
                 </div>
