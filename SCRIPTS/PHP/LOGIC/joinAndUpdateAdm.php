@@ -79,11 +79,9 @@
         if ($data_fim_analise != null){
             $data_fim = new DateTime($data_fim_analise);
         }
-    } else {
-        echo "Nenhum resultado encontrado.";
-    }
+    } 
 
-    if ($midia_post === null)  {
+    if (!isset($midia_post))  {
         $midia_post = "Esse post não possui imagens.";
     }
 

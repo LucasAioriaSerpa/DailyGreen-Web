@@ -16,6 +16,14 @@
 ?>
 
 <div class="navegacao_principal">
+    <?php if(!isset($post_id)): ?>
+        <fieldset style="width: 100%; height: 85vh; display: flex; align-items: center; flex-direction: column; justify-content: center; gap: 5vh">
+            <h4>Usuário está banido da plataforma!</h4>
+            <div class="ban-button">
+                <button class="analyse-ban" type="submit" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listBan.php')">VER LISTA</button>
+            </div>
+        </fieldset>
+    <?php else: ?>
     <div class="form-analyse-report">
         <div class="container-dados-denuncia">
             <div class="relator-informacoes">
@@ -106,4 +114,5 @@
             </fieldset>
         </div>
     </div>
+    <?php endif; ?>
 </div>
