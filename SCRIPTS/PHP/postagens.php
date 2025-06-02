@@ -31,6 +31,7 @@ if (sizeof($userArray) == 0) {
 $postsArray = $sqlConnection->callTableBD('post');
 $eventArray = $sqlConnection->callTableBD('evento');
 $midiaArray = $sqlConnection->callTableBD('midia');
+$checkListArray = $sqlConnection->callTableBD('checklist');
 $comentarioArray = $sqlConnection->callTableBD('comentario');
 $usersArray = $sqlConnection->callTableBD('participante');
 $denunciaArray = $sqlConnection->callTableBD('denuncia');
@@ -784,6 +785,14 @@ function getPostReactions($Id, $reactionArray, $type) {
                                         </div>
                                     </div>
                                 </div>
+                                <?php if(!isset($userInfo[1])): ?>
+                                    <div class="participar-wrapper"></div>
+                                <?php else: ?>
+                                <div class="checkIn-weapper">
+                                    <?php foreach($checkListArray as $checkList): ?>
+                                    <?php endforeach;?>
+                                </div>
+                                <?php endif;?>
                             </div>
                         </article>
                         <!-- //! MODAL EVENT -->

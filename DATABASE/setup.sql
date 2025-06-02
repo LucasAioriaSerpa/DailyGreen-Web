@@ -117,6 +117,19 @@ CREATE TABLE IF NOT EXISTS evento (
 );
 
 -- -----------------------------------------------------
+-- Tabela checklist
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS checklist (
+    id_checklist INT NOT NULL AUTO_INCREMENT,
+    id_participante INT NOT NULL,
+    id_post INT NOT NULL,
+    presente BOOLEAN NOT NULL,
+    PRIMARY KEY (id_checklist),
+    CONSTRAINT fk_participanteChecklist FOREIGN KEY (id_participante) REFERENCES participante(id_participante),
+    CONSTRAINT fk_postChecklist FOREIGN KEY (id_post) REFERENCES post(id_post)
+);
+
+-- -----------------------------------------------------
 -- Tabela comentario
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS comentario (

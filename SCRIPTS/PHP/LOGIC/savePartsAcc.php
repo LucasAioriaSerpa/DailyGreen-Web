@@ -1,13 +1,18 @@
 <?php
 include_once 'session.php';
+include_once 'SQL_connection.php';
 include_once 'uploadImage.php';
 include_once 'Cypher.php';
 include_once 'functions.php';
-
+$__sqlConnection = new SQLconnection();
+$participanteArray = $__sqlConnection->callTableBD("participante");
 $locationAccCreation = "Location: /DailyGreen-Project/SCRIPTS/PHP/accountCreation.php";
 
 switch ($_POST["cad-part"]) {
     case "0":
+        foreach ($participanteArray as $participante) {
+            echo "hello wolrd";
+        }
         $_SESSION['inputs']['cadastro']['cad-part'] = $_POST["cad-part"];
         $_SESSION['inputs']['cadastro']['part-1'] = [
             "nome" => $_POST["nome"],
