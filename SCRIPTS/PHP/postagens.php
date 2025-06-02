@@ -822,6 +822,7 @@ function getPostReactions($Id, $reactionArray, $type) {
                                                 <button class="btn-exit-modal-checklist" onclick="closeCheckListModal(event)">X</button>
                                                 <h2>Lista de Presença</h2>
                                                 <ul class="checklist-users">
+                                                    <!--//! muito instavel para funcionar por parte do organizador ! -->
                                                     <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateCheckIn.php" method="post">
                                                         <input type="hidden" name="id_post" value="<?=htmlspecialchars($post['id_post'])?>">
                                                         <?php

@@ -17,15 +17,20 @@
 
 DailyGreen é uma plataforma colaborativa para promover práticas sustentáveis, conectar pessoas e divulgar eventos relacionados ao meio ambiente.
 
+### Controlador de verção e Editor
+
+- [![GITHUB][GITHUB]][GITHUB-url] [![GIT][GIT]][GIT-url]
+- [![VISUAL STUDIO CODE][VS]][VS-url]
+
 ---
 
 ### Tecnologias Utilizadas
 
-- [![VISUAL STUDIO CODE][VS]][VS-url]
-- [![PHP][PHP.php]][PHP-url]
-- [![MySQL][MySQL.sql]][MySQL-url]
 - [![HTML5][HTML5.html]][HTML5-url] [![CSS3][CSS3.css]][CSS3-url]
 - [![JS][JS.js]][JS-url]
+- [![PHP][PHP.php]][PHP-url]
+- [![MySQL][MySQL.sql]][MySQL-url]
+- [![APACHE][APACHE]][APACHE-url]
 
 ---
 
@@ -88,15 +93,21 @@ Este projeto está sob a licença Unlicense. Veja mais em [LICENSE.txt](https://
 [license-shield]: https://img.shields.io/github/license/Garudaakuma/DailyGreen-Project.svg?style=for-the-badge
 [license-url]: https://github.com/Garudaakuma/DailyGreen-Project/blob/master/LICENSE.txt
 
+[GITHUB]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
+[GITHUB-url]: https://github.com
+[GIT]: https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white
+[GIT-url]: https://git-scm.com/doc
 [VS]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white
 [VS-url]: https://code.visualstudio.com
-[PHP.php]: https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white
-[PHP-url]: https://www.php.net/
-[MySQL.sql]: https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white
-[MySQL-url]: https://www.mysql.com/
 [HTML5.html]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [HTML5-url]: https://developer.mozilla.org/docs/Web/HTML
 [CSS3.css]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
 [CSS3-url]: https://developer.mozilla.org/docs/Web/CSS
 [JS.js]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
 [JS-url]: https://developer.mozilla.org/docs/Web/JavaScript
+[PHP.php]: https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white
+[PHP-url]: https://www.php.net/
+[MySQL.sql]: https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white
+[MySQL-url]: https://www.mysql.com/
+[APACHE]: https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white
+[APACHE-url]: https://httpd.apache.org/docs/
