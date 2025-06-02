@@ -5,7 +5,6 @@
 }
 
 body {
-    background-color: #EDF4ED;
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -551,6 +550,55 @@ body {
 
 
 
+/* POSTS DOS USUARIOS */
+.title {
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    color: #0091ff;
+}
+
+.title::before {
+    width: 18px;
+    height: 18px;
+}
+
+.title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+}
+
+.title::before,
+.title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: #0091ff;
+}
+
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+
+
+
 
 /* LISTA DE DENUNCIAS */
 
@@ -741,6 +789,7 @@ body {
 
 
 
+
 /* LISTA SUSPENSOS */
 .list-suspends {
     display: flex;
@@ -911,7 +960,6 @@ body {
     max-height: 0;                    
     overflow: hidden;               
     transition: max-height 1s ease;
-    background-color: #EDF4ED;
     border-top: 1px solid #51291E;
 }
 
@@ -954,7 +1002,7 @@ body {
     overflow: hidden;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
-    --gradient: linear-gradient(to bottom, #ff7c7c, #ff4c4c, #fc0000);
+    --gradient: linear-gradient(to bottom, #fda1a1, #ff7676, #fc0000);
     --color: #32a6ff
 }
 
@@ -1024,11 +1072,14 @@ body {
     height: 100%;
 }
 
-.id-ban{
+.user-ban, .id-ban{
     display: flex;
 }
 
-.user-ban,
+.ban-user{
+    color: #EDF4ED;
+}
+
 .inicio_ban {
     display: flex;
     flex-direction: column;
@@ -1081,7 +1132,6 @@ legend{
 
 fieldset{
     padding: 10px;
-    background-color: #EDF4ED;
 }
 
 
