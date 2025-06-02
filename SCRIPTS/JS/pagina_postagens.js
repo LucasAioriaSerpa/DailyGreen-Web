@@ -51,7 +51,11 @@ function openPostModal(post, event, type) {
         '.post-img',
         '.img-modal',
         '.img-count',
-        '.img-modal-close'
+        '.img-modal-close',
+        '.btn-send-checkIn',
+        '.btn-send-checkList',
+        '.btn-exit-modal-checklist',
+        '.checklist-modal-content'
     ];
     if (event) {
         for (const selector of interactiveSelectors) {
@@ -262,6 +266,19 @@ function closeCommentModal(e) {
     const commentModalContent = e.target.closest('.comment-modal-content');
     if (commentModalContent) {
         commentModalContent.classList.remove('show');
+    }
+}
+
+function toggleCheckListModal(btn) {
+    const checkListWrapper = btn.closest('.checkIn-wrapper');
+    const checkListModal = checkListWrapper.querySelector('.checklist-modal-content');
+    checkListModal.style.display = 'flex';
+}
+
+function closeCheckListModal(event) {
+    const checkListModal = event.target.closest('.checklist-modal-content');
+    if (checkListModal) {
+        checkListModal.style.display = 'none';
     }
 }
 

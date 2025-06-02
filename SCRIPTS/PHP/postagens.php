@@ -786,12 +786,82 @@ function getPostReactions($Id, $reactionArray, $type) {
                                     </div>
                                 </div>
                                 <?php if(!isset($userInfo[1])): ?>
-                                    <div class="participar-wrapper"></div>
+                                    <?php
+                                    $foundCheckIn = false;
+                                    $userId = $userInfo[0]['id_participante'];
+                                    $postId = $post['id_post'];
+                                    foreach ($checkListArray as $checklist) {
+                                        if ($userId == $checklist['id_participante'] && $checklist['id_post'] == $postId) {
+                                            $foundCheckIn = true;
+                                            break;
+                                        }
+                                    }
+                                    $btnId = "btn-send-checkIn-" . htmlspecialchars($postId);
+                                    ?>
+                                    <div class="participar-wrapper">
+                                        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendCheckIn.php" method="post">
+                                            <input type="hidden" name="id_participante" value="<?= htmlspecialchars($userId) ?>">
+                                            <input type="hidden" name="id_post" value="<?= htmlspecialchars($postId) ?>">
+                                            <button
+                                                type="submit"
+                                                id="<?= $btnId ?>"
+                                                class="btn-content-footer btn-send-checkIn<?= $foundCheckIn ? ' active' : '' ?>"
+                                                name="btn-participar"
+                                            >
+                                                <i><p>Participar</p></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 <?php else: ?>
-                                <div class="checkIn-weapper">
-                                    <?php foreach($checkListArray as $checkList): ?>
-                                    <?php endforeach;?>
-                                </div>
+                                    <div class="checkIn-wrapper">
+                                        <button class="btn-content-footer btn-send-checkList" onclick="toggleCheckListModal(this)">
+                                            <i><p>Presença</p></i>
+                                        </button>
+                                        <div class="checklist-modal-content" style="display: none;">
+                                            <div class="checklist-content">
+                                                <button class="btn-exit-modal-checklist" onclick="closeCheckListModal(event)">X</button>
+                                                <h2>Lista de Presença</h2>
+                                                <ul class="checklist-users">
+                                                    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateCheckIn.php" method="post">
+                                                        <input type="hidden" name="id_post" value="<?=htmlspecialchars($post['id_post'])?>">
+                                                        <?php
+                                                        $hasUsers = false;
+                                                        foreach ($checkListArray as $checklist):
+                                                            if ($checklist['id_post'] == $post['id_post']):
+                                                                $hasUsers = true;
+                                                                ?><input type="hidden" name="id_checklist" value="<?=htmlspecialchars($checklist['id_checklist'])?>"><?php
+                                                                $userId = $checklist['id_participante'];
+                                                                foreach ($usersArray as $user):
+                                                                    if ($user['id_participante'] == $userId):
+                                                        ?>
+                                                                        <li class="checklist-user-item">
+                                                                            <img class="checklist-user-avatar" src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($user['profile_pic'])) ?>" alt="Avatar">
+                                                                            <div class="checklist-user-name"><strong><?= htmlspecialchars($user['username']) ?></strong></div>
+                                                                            <div class="checklist-user-status <?php if($checklist['presente'] == 1) {echo htmlspecialchars('presente'); }?> ">
+                                                                                <?php if($checklist['presente'] == 1) {
+                                                                                        echo htmlspecialchars('Presente');
+                                                                                    } else {
+                                                                                        echo htmlspecialchars('Ausente');
+                                                                                    }?>
+                                                                            </div>
+                                                                            <input type="checkbox" class="checkin-checkbox" name="checkin[<?= htmlspecialchars($user['id_participante']) ?>]" value="1" <?php if($checklist['presente'] == 1) echo 'checked'; ?>>
+                                                                        </li>
+                                                        <?php
+                                                                    endif;
+                                                                endforeach;
+                                                            endif;
+                                                        endforeach;
+                                                        if (!$hasUsers): ?>
+                                                            <li class="checklist-user-item">
+                                                                <strong>Não há registros de checkIn para este evento!</strong>
+                                                            </li>
+                                                        <?php endif; ?>
+                                                        <input type="submit" class="btn-checkIn-submit">
+                                                    </form>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <?php endif;?>
                             </div>
                         </article>

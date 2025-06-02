@@ -1254,6 +1254,162 @@ body {
     transition: 0.2s;
 }
 
+.btn-send-checkIn.active {
+    background-color: #51291E;
+    color: #EDF4ED;
+    transition: 0.2s;
+}
+.btn-send-checkIn.active:hover {
+    background-color: #79B791;
+    color: #51291E;
+    transition: 0.2s;
+}
+
+.checkIn-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.checklist-modal-content {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: #000000cc;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    align-items: center;
+    justify-content: center;
+}
+.checklist-modal-content.show {
+    display: flex;
+}
+
+.checklist-content {
+    background-color: #EDF4ED;
+    border-radius: 10px;
+    padding: 30px 25px 25px 25px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 2px 8px #000000cc;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn-exit-modal-checklist {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #51291E;
+    color: #EDF4ED;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 14px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+}
+.btn-exit-modal-checklist:hover {
+    background-color: #79B791;
+    color: #51291E;
+}
+
+.checklist-users {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+.checklist-user-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #ABD1B5;
+}
+.checklist-user-item:last-child {
+    border-bottom: none;
+}
+.checklist-user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ABD1B5;
+}
+.checklist-user-name {
+    font-weight: bold;
+    color: #51291E;
+    flex-grow: 1;
+}
+.checklist-user-status.presente {
+    font-size: 0.95em;
+    color: #79B791;
+    font-weight: bold;
+} .checklist-user-status {
+    color:#2b2828;
+}
+
+.checkin-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #79B791;
+    border-radius: 6px;
+    background: #EDF4ED;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.checkin-checkbox:checked {
+    background-color: #79B791;
+    border-color: #51291E;
+}
+
+.checkin-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid #EDF4ED;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    display: block;
+}
+
+.checkin-checkbox:focus {
+    outline: 2px solid #51291E;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #ABD1B5;
+}
+
+.btn-checkIn-submit {
+    background-color: #79B791;
+    color: #51291E;
+    border: none;
+    border-radius: 5vh;
+    padding: 15px 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+.btn-checkIn-submit:hover {
+    background-color: #51291E;
+    color: #EDF4ED;
+}
+
 .post-modal {
     display: none;
     position: fixed;
