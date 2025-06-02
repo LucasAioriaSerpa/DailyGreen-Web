@@ -21,4 +21,5 @@ if (isset($_POST['checkin']['checked'])) {
         header("Location: /DailyGreen-Project/SCRIPTS/PHP/postagens.php");
     }
 }
+header("Location: /DailyGreen-Project/SCRIPTS/PHP/postagens.php");
 ?>
