@@ -247,13 +247,16 @@ main {
     text-align: center;
 }
 .motivos h2 {
-    width: 50%;
     font-size: 1.7rem;
-    margin-bottom: 18px;
+    margin: 0 auto 18px auto; /* Centraliza horizontalmente */
+    padding: 10px 20px;
     border-radius: 1vb;
     box-shadow: 0 2px 8px #ABD1B540;
     background-color: #79b791;
     color: #51291E;
+    text-align: center;
+    width: auto; /* Remove a largura fixa */
+    display: inline-block; /* Permite que o elemento se ajuste ao conteúdo */
 }
 
 .container {
@@ -330,19 +333,22 @@ main {
 }
 
 .features {
+    padding-bottom: 20px;
     margin: 48px auto 0 auto;
     max-width: 1100px;
     text-align: center;
 }
 .features h2 {
-    width: 50%;
     font-size: 1.7rem;
-    margin-bottom: 18px;
+    margin: 0 auto 18px auto; /* Centraliza horizontalmente */
+    padding: 10px 20px;
     border-radius: 1vb;
     box-shadow: 0 2px 8px #ABD1B540;
     background-color: #79b791;
     color: #51291E;
-    background-color: #79b791;
+    text-align: center;
+    width: auto; /* Remove a largura fixa */
+    display: inline-block; /* Permite que o elemento se ajuste ao conteúdo */
 }
 .features-list {
     display: flex;
