@@ -13,6 +13,9 @@
 ?>
 
 <div class="container-post-user">
+    <div class="button-back">
+        <button class="btn-back" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">VOLTAR</button>
+    </div><br><br>
     <hr>
     <h3>USUÁRIO</h3>
     <hr><br>
@@ -30,7 +33,7 @@
     <hr><br>
     <div>
         <?php foreach ($postsAgrupados as $post): ?>
-            <div>
+            <div><hr><br>
                 <table>
                     <tbody>
                         <tr><th class="th">TÍTULO:&nbsp;</th><td><?= htmlspecialchars($post['titulo']) ?></td></tr>
