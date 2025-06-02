@@ -101,6 +101,24 @@ if ($_SESSION['user']['type'] === null) {
                         </div>
                     </div>
                 </section>
+                <section class="features">
+                    <h2>Contato</h2>
+                    <div class="features-list">
+                        <div class="feature-card">
+                            <h3>WhatsApp</h3>
+                            <p>+55 41 99523-4512</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Facebook & Twitter</h3>
+                            <p>@DailyGreen</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Github</h3>
+                            <p>github.com/LucasAioriaSerpa/ DailyGreen-Project</p>
+                        </div>
+                        
+                    </div>
+                </section>
             </div>
             <div class="sobre-content">
 
