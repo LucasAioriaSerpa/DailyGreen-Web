@@ -13,8 +13,11 @@
 ?>
 
 <div class="container-post-user">
+    <div class="button-back">
+        <button class="btn-back" onclick="loadPage('/DailyGreen-Project/SCRIPTS/PHP/listUsers.php')">VOLTAR</button>
+    </div><br><br>
     <hr>
-    <h3>USUÁRIO</h3>
+    <h3 class="title">USUÁRIO</h3>
     <hr><br>
     <table>
         <tbody>
@@ -26,11 +29,11 @@
         </tbody>
     </table><br>
     <hr>
-    <h3>POSTS</h3>
+    <h3 class="title">POSTS</h3>
     <hr><br>
     <div>
         <?php foreach ($postsAgrupados as $post): ?>
-            <div>
+            <div><hr><br>
                 <table>
                     <tbody>
                         <tr><th class="th">TÍTULO:&nbsp;</th><td><?= htmlspecialchars($post['titulo']) ?></td></tr>
@@ -43,8 +46,7 @@
                                 <th class="th">MÍDIAS:</th>
                                 <td>
                                     <?php foreach ($post['midias'] as $midia): ?>
-                                        <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia)) ?>" 
-                                            alt="Imagem do post" style="border-radius: 10%; margin: 5px;">
+                                        <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($midia)) ?>" alt="Imagem do post">
                                     <?php endforeach; ?>
                                 </td>
                             </tr>

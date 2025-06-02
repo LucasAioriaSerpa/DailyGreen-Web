@@ -109,16 +109,16 @@ function btnCloseBan(){
 let aberto = false;
 
 function alternarFiltro() {
-const container = document.getElementById('hide-report');
-const seta = document.getElementById('seta');
+    const container = document.getElementById('hide-report');
+    const seta = document.getElementById('seta');
 
-aberto = !aberto;
+    aberto = !aberto;
 
-if (aberto) {
-    container.classList.add('aberto');      
-    seta.classList.add('girada');           
-} else {
-    container.classList.remove('aberto');  
-    seta.classList.remove('girada');       
-}
+    if (aberto) {
+        container.classList.add('aberto');      
+        seta.classList.add('girada');           
+    } else {
+        container.classList.remove('aberto');  
+        seta.classList.remove('girada');       
+    }
 }

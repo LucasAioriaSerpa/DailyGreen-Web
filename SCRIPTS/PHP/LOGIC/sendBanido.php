@@ -42,21 +42,25 @@
             AND id_participante = {$id_participante_banido};
     ";
 
-    $deleteMidias = " DELETE m FROM midia m
-        JOIN post p ON m.id_post = p.id_post
-        WHERE p.id_autor = {$id_participante_banido};
+    $updateDenuncia = "UPDATE denuncia SET id_post = NULL 
+        WHERE id_post IN (SELECT id_post FROM post WHERE id_autor = {$id_participante_banido});
     ";
 
-    $deletePosts = "DELETE FROM post
-        WHERE id_autor = {$id_participante_banido};
+    $deleteMidia = "DELETE FROM midia 
+        WHERE 
+            id_post IN (SELECT id_post FROM post WHERE id_autor = {$id_participante_banido} 
+            AND id_post IS NOT NULL);
+    ";
+
+    $deletePosts = "DELETE FROM post 
+        WHERE 
+            id_autor = {$id_participante_banido};
     ";
 
     $sqlConnection->rawQueryBD($updateStatus);
-    echo "sucess update Status <br>";
     $sqlConnection->rawQueryBD($updateLista);
-    echo "sucess update Lista <br>";
-    $sqlConnection->rawQueryBD($deleteMidias);
-    echo "sucess update DeletePosts <br>";
+    $sqlConnection->rawQueryBD($updateDenuncia);
+    $sqlConnection->rawQueryBD($deleteMidia);
     $sqlConnection->rawQueryBD($deletePosts);
 
     header("Location: /DailyGreen-Project/SCRIPTS/PHP/admPage.php");

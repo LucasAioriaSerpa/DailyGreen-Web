@@ -36,7 +36,7 @@
                                     <tr class="row-head-ban">
                                         <th class="colunm-head-ban" style="width: 20%">
                                             <div class="user-banido">
-                                                <div class="id-ban"> ID BANIMENTO:&nbsp; <div class="ban-user"><?= htmlspecialchars($banido['id_banido']) ?></div> </div>
+                                                <div class="id-ban"> ID BANIMENTO:&nbsp; <div class="ban-user-id"><?= htmlspecialchars($banido['id_banido']) ?></div> </div>
                                             </div>
                                         </th>
                                         <th class="colunm-head-ban" style="width: 40%">
@@ -51,7 +51,7 @@
                                                         $participante_banido = $joinQuery[0]['username_banido'];
                                                     }
                                                 ?>
-                                                <div class="user-ban"> NOME USUÁRIO: <div class="ban-user"><?= $participante_banido ?></div> </div>
+                                                <div class="user-ban"> NOME USUÁRIO:&nbsp; <div class="ban-user"><?= $participante_banido ?></div> </div>
                                             </div>
                                         </th>
                                         <th class="colunm-head-ban">
