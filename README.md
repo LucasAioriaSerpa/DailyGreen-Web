@@ -21,6 +21,7 @@ DailyGreen é uma plataforma colaborativa para promover práticas sustentáveis,
 
 ### Tecnologias Utilizadas
 
+- [![VISUAL STUDIO CODE][VS]][VS-url]
 - [![PHP][PHP.php]][PHP-url]
 - [![MySQL][MySQL.sql]][MySQL-url]
 - [![HTML5][HTML5.html]][HTML5-url] [![CSS3][CSS3.css]][CSS3-url]
@@ -87,6 +88,8 @@ Este projeto está sob a licença Unlicense. Veja mais em [LICENSE.txt](https://
 [license-shield]: https://img.shields.io/github/license/Garudaakuma/DailyGreen-Project.svg?style=for-the-badge
 [license-url]: https://github.com/Garudaakuma/DailyGreen-Project/blob/master/LICENSE.txt
 
+[VS]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white
+[VS-url]: https://code.visualstudio.com
 [PHP.php]: https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white
 [PHP-url]: https://www.php.net/
 [MySQL.sql]: https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white
