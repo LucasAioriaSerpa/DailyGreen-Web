@@ -17,10 +17,11 @@
 
 DailyGreen é uma plataforma colaborativa para promover práticas sustentáveis, conectar pessoas e divulgar eventos relacionados ao meio ambiente.
 
-### Controlador de verção e Editor
+### Controlador de verção e Editores
 
 - [![GITHUB][GITHUB]][GITHUB-url] [![GIT][GIT]][GIT-url]
 - [![VISUAL STUDIO CODE][VS]][VS-url]
+- [![CLIP STUDIO PAINT][CSP.clip]][CSP-url]
 
 ---
 
@@ -99,6 +100,8 @@ Este projeto está sob a licença Unlicense. Veja mais em [LICENSE.txt](https://
 [GIT-url]: https://git-scm.com/doc
 [VS]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white
 [VS-url]: https://code.visualstudio.com
+[CSP.clip]: https://img.shields.io/badge/ClipStudioPaint-%23CFD3D3.svg?style=for-the-badge&logo=ClipStudioPaint&logoColor=white
+[CSP-url]: https://www.clipstudio.net/en/manuals/
 [HTML5.html]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [HTML5-url]: https://developer.mozilla.org/docs/Web/HTML
 [CSS3.css]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
