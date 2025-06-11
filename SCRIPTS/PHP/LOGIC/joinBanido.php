@@ -85,7 +85,6 @@
     } else {
         echo "Nenhum resultado encontrado.";
     }
-    
     $user_create_time = new DateTime($participante_creation_date);
     $denuncia_create_time = new DateTime($denuncia_create);
     $inicio_analise = new DateTime($denuncia_inicio_analise);
