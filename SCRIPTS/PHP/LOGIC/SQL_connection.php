@@ -18,15 +18,19 @@ class SQLconnection {
     }
 
     private function connect(): mysqli {
-        $conn = @new mysqli(
-            $this->serverInfo['servername'],
-            $this->serverInfo['username'],
-            $this->encodeDecode->decrypt($this->serverInfo['password']),
-            $this->serverInfo['database'],
-            $this->serverInfo['port']
-        );
-        if ($conn->connect_error) {
-            error_log("Connection Failed: " . $conn->connect_error);
+        try {
+            $conn = @new mysqli(
+                $this->serverInfo['servername'],
+                $this->serverInfo['username'],
+                $this->encodeDecode->decrypt($this->serverInfo['password']),
+                $this->serverInfo['database'],
+                $this->serverInfo['port']
+            );
+            if ($conn->connect_error) {
+                throw new Exception("Connection Failed: " . $conn->connect_error);
+            }
+        } catch (Exception $e) {
+            error_log($e->getMessage());
             header("Location: /DailyGreen-Project/SCRIPTS/PHP/SQL_connection_error.php");
             exit();
         }
