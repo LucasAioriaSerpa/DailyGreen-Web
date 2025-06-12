@@ -1,0 +1,22 @@
+
+.conteudo_principal {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#status {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#chart-container {
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}

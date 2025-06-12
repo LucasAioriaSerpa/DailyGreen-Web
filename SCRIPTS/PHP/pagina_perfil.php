@@ -23,7 +23,7 @@ $midiaArray = $sqlConnection->callTableBD('midia');
 $usersArray = $sqlConnection->callTableBD('participante');
 $denunciaArray = $sqlConnection->callTableBD('denuncia');
 $_event = null;
-$countPost = 0; 
+$countPost = 0;
 ?>
 
 <!DOCTYPE html>
@@ -42,20 +42,27 @@ $countPost = 0;
     <div class="container">
         <!-- //* SIDEBAR ESQUERDA -->
         <div class="sidebar_esquerda">
-            <a style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php"> 
+            <a class="btnlateral" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php">
                 <div class="menu-item">
-                    <span><i class="fas fa-home"></i>Página Inicial</span>   
+                    <span><i class="fas fa-home"></i>Página Inicial</span>
                 </div>
             </a>
-            <a href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
+            <?php if ($_SESSION['user']['org'] === true || $_SESSION['user']['org'] === 1): ?>
+            <a class="btnlateral" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/lixeira_inteligente.php">
                 <div class="menu-item">
-                    <span><i class="fas fa-user"></i> Perfil</a></span>
+                    <span><i class="fas fa-trash"></i> Lixeira-Inteligente</span>
+                </div>
+            </a>
+            <?php endif; ?>
+            <a class="btnlateral" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
+                <div class="menu-item">
+                    <span><i class="fas fa-user"></i> Perfil</span>
                 </div>
             </a>
             <div class="area_perfil">
                 <div class="menu-item2" onclick="btnLogout()">
                     <div class="user-avatar">
-                        <img src="<?= str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
+                        <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
                             style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div style="margin-left: 10px;">
@@ -75,12 +82,12 @@ $countPost = 0;
         <div class="conteudo_principal">
             <div class="profile-header">
                 <div class="banner">
-                    <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['banner_pic']); ?>" alt="Banner">>   
+                    <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['banner_pic']); ?>" alt="Banner">
                 </div>
                 <div class="avatar-large">
-                    <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar" 
+                    <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
                         style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid #EDF4ED;">
-                </div>  
+                </div>
                 <div class="profile-info">
 
                     <h2><strong><?= htmlspecialchars($userInfo[0]['username']) ?></strong></h2>
@@ -88,23 +95,20 @@ $countPost = 0;
 
 
                     <p>📅 Entrou em: <?= date('d/m/Y', strtotime($userInfo[0]['create_time'])) ?></p>
-                    <p id="user-biography">Biografia: <?= htmlspecialchars($userInfo[0]['biografia']) ?></p>  
+                    <p id="user-biography">Biografia: <?= htmlspecialchars($userInfo[0]['biografia']) ?></p>
                 </div>
-                
                 <button class="edit-btn">
                     <i class="fas fa-edit"></i> Editar Perfil
                 </button>
-                
                 <!-- Modal de Edição -->
                 <div class="edit-modal" id="editModal">
-                    
                     <div class="edit-form-container">
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileName.php" method="POST" id="nameForm">
                                 <div class="form-group">
                                     <label for="username">Nome:</label>
-                                    <input 
-                                        id="username" 
-                                        name="nome" 
+                                    <input
+                                        id="username"
+                                        name="nome"
                                         placeholder="Escreva seu nome aqui..."
                                         pattern=".{0,30}" x
                                         maxlength="30"
@@ -112,19 +116,17 @@ $countPost = 0;
                                     >
                                     <span id="charCounterUsername">0/30</span>
                                 </div>
-                                
                                 <div class="form-actions">
-                                    
-                                    <input type="submit" class="submit-btn" value="Salvar"> 
+                                    <input type="submit" class="submit-btn" value="Salvar">
                                 </div>
                             </form>
 
                             <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfileAcc.php" method="POST" id="bioForm">
                                 <div class="form-group">
                                     <label for="biografia">Biografia:</label>
-                                    <input 
-                                        id="biografia" 
-                                        name="biografia" 
+                                    <input
+                                        id="biografia"
+                                        name="biografia"
                                         placeholder="Escreva sua biografia aqui..."
                                         pattern=".{0,250}" x
                                         maxlength="250"
@@ -132,24 +134,18 @@ $countPost = 0;
                                     >
                                     <span id="charCounter">0/250</span>
                                 </div>
-                                
                                 <div class="form-actions">
-                                    <input type="submit" class="submit-btn" value="Salvar"> 
+                                    <input type="submit" class="submit-btn" value="Salvar">
                                 </div>
                             </form>
 
-
-
-
-                            
                             <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/updateProfilePic.php" method="POST" id="PicForm" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="profilePic">Foto de perfil:</label>
                                     <input type="file" id="profilePic" name="profile_pic" class="ProfilePic" accept="image/*" >
                                 </div>
-                                
                                 <div class="form-actions">
-                                    <input type="submit" class="submit-btn" value="Salvar"> 
+                                    <input type="submit" class="submit-btn" value="Salvar">
                                 </div>
                             </form>
 
@@ -158,20 +154,16 @@ $countPost = 0;
                                     <label for="profilePic">Banner:</label>
                                     <input type="file" id="banner_pic" name="banner_pic" class="banner_pic" accept="image/*" >
                                 </div>
-                                
                                 <div class="form-actions">
-                                    <input type="submit" class="submit-btn" value="Salvar"> 
+                                    <input type="submit" class="submit-btn" value="Salvar">
                                 </div>
                             </form>
                             <div class="form-actions">
                                     <button type="button" class="cancel-btn" id="cancelBtn">Cancelar</button>
-                                    
                             </div>
                     </div>
                 </div>
-                
             </div>
-            
 
             <nav class="tabs">
                 <a href="#">Posts</a>
@@ -186,7 +178,7 @@ $countPost = 0;
                         <div class="post-user">
                             <div class="user-avatar">
                                     <img src="<?= str_replace("/xampp/htdocs", "", htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['profile_pic'])) ?>"
-                                    alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">    
+                                    alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
                             </div>
                             <div style="margin-left: 10px;">
                                 <div>
@@ -232,7 +224,7 @@ $countPost = 0;
                 <?php } ?>
             <?php endforeach; if ($countPost === 0): ?>
                 <div class="post-not-found" style="justify-content: center; display: flex; margin-top: 50px; ">
-                    <h3>Nenhuma Postagem encontrada</h3> 
+                    <h3>Nenhuma Postagem encontrada</h3>
                 </div>
             <?php endif; ?>
         </div>
@@ -345,8 +337,6 @@ $countPost = 0;
         <span class="img-modal-close" onclick="closeModal(event)">&times;</span>
         <img class="img-modal-content" id="imgModalContent">
     </div>
-
-    
 
     <script src="/DailyGreen-Project/SCRIPTS/JS/pagina_postagens.js"></script>
 </body>

@@ -73,18 +73,23 @@ function getPostReactions($Id, $reactionArray, $type) {
     <div class="container">
         <!-- //* SIDEBAR ESQUERDA -->
         <div class="sidebar_esquerda">
-
             <a class="btnlateral" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php">
                 <div class="menu-item">
                     <span><i class="fas fa-home"></i>Página Inicial</span>
                 </div>
             </a>
-            <a class="btnlateral" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
+            <?php if ($_SESSION['user']['org'] === true || $_SESSION['user']['org'] === 1): ?>
+            <a class="btnlateral" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/lixeira_inteligente.php">
                 <div class="menu-item">
-                    <span><i class="fas fa-user"></i> Perfil</a></span>
+                    <span><i class="fas fa-trash"></i> Lixeira-Inteligente</span>
                 </div>
             </a>
-
+            <?php endif; ?>
+            <a class="btnlateral" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
+                <div class="menu-item">
+                    <span><i class="fas fa-user"></i> Perfil</span>
+                </div>
+            </a>
             <div class="area_perfil">
                 <div class="menu-item2" onclick="btnLogout()">
                     <div class="user-avatar">
