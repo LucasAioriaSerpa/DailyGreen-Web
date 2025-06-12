@@ -16,6 +16,7 @@ if ($_SESSION['user']['type'] === null) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME | DailyGreen</title>
+    <link rel="icon" type="image/x-icon" href="/DailyGreen-Project/IMAGES/dailyGreen-icon.ico">
     <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_main_page.css">
 </head>
 

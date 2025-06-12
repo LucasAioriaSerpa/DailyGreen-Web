@@ -7,7 +7,6 @@
         <input type="hidden" name="id_relator" value="<?php echo $userInfo[0]['id_participante']; ?>">
         <input type="hidden" name="id_relatado" value="<?php echo $post['id_autor']; ?>">
         <input type="hidden" name="id_post" value="<?php echo $post['id_post']; ?>">
-
         <label for="titulo">Titulo:</label>
         <select class="titulo-options" name="titulo" id="titulo_opt" required onchange="updateTitulo(this)">
             <option value="">--- Selecione ---</option>
@@ -21,13 +20,10 @@
             <option value="Incitacao_a_praticas_ilegais">Incitação a práticas ilegais</option>
             <option value="Conteudo_improprio_ou_explicito">Conteúdo impróprio ou explícito</option>
         </select>
-
         <br><br><label for="motivo">Motivo da Denuncia:</label>
         <select class="motivo-options" name="motivo" id="motivo_opt" required onchange="updateMotivo(this)">
             <option value="">--- Selecione ---</option>
         </select> <br><br>
-
-
         <input class="enviar-denuncia disabled" type="button" value="ENVIAR" id="enviar_denuncia" onclick="confirmSendDenuncia(this)">
     </form>
 </div>

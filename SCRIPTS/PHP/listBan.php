@@ -8,8 +8,6 @@
     }
     $sqlConnection = new SQLconnection();
     $banidoArray = $sqlConnection->callTableBD('banido');
-
-
 ?>
 
 <div class="container-banido">

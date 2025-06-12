@@ -1,11 +1,9 @@
 <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/sendPost.php" id="formPost" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id_participante" value="<?php echo $userInfo[0]['id_participante']; ?>">
-    
     <div class="input-container">
         <input type="text" name="titulo" placeholder="Escreva um título..." id="titulo" required>
         <span id="charCounter1" class="char-counter">0/50</span>
     </div>
-    
     <div class="input-container">
         <input type="text" name="descricao" placeholder="Escreva uma descrição..." id="descricao" required>
         <span id="charCounter2" class="char-counter">0/250</span>
@@ -22,7 +20,6 @@
         <input class="botao_postagem" type="submit" value="Postar">
     </div>
 </form>
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/DailyGreen-Project/SCRIPTS/JS/form_midia.js"></script>
 <script>

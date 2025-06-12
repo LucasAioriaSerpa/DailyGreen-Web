@@ -64,6 +64,7 @@ function getPostReactions($Id, $reactionArray, $type) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Postagens | DailyGreen</title>
+    <link rel="icon" type="image/x-icon" href="/DailyGreen-Project/IMAGES/dailyGreen-icon.ico">
     <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/pagina_postagens.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -815,7 +816,7 @@ function getPostReactions($Id, $reactionArray, $type) {
                                 <?php else: ?>
                                     <div class="checkIn-wrapper">
                                         <button class="btn-content-footer btn-send-checkList" onclick="toggleCheckListModal(this)">
-                                            <i><p>Presença</p></i>
+                                            <i class="fa-solid fa-person"><p>Presença</p></i>
                                         </button>
                                         <div class="checklist-modal-content" style="display: none;">
                                             <div class="checklist-content">
@@ -845,14 +846,20 @@ function getPostReactions($Id, $reactionArray, $type) {
                                                                                         echo htmlspecialchars('Ausente');
                                                                                     }?>
                                                                             </div>
-                                                                            <input type="checkbox" class="checkin-checkbox" name="checkin[<?= htmlspecialchars($user['id_participante']) ?>]" value="1" <?php if($checklist['presente'] == 1) echo 'checked'; ?>>
+                                                                            <input type="checkbox" class="checkin-checkbox"
+                                                                                name="checkin[<?php if($checklist['presente'] == 1) {echo 'checked';} else {echo 'not-checked';} ?>][<?=htmlspecialchars($userId)?>]"
+                                                                                value="<?=htmlspecialchars($userId)?>" <?php if($checklist['presente'] == 1) echo 'checked'; ?>
+                                                                            >
+                                                                            <?php if($checklist['presente'] == 1): ?>
+                                                                                <input type="hidden" name="checkin[checked-un][<?=htmlspecialchars($userId)?>]" value="<?=htmlspecialchars($userId)?>">
+                                                                            <?php endif; ?>
                                                                         </li>
                                                         <?php
                                                                     endif;
                                                                 endforeach;
                                                             endif;
                                                         endforeach;
-                                                        if (!$hasUsers): ?>
+                                                        if (!$hasUsers):?>
                                                             <li class="checklist-user-item">
                                                                 <strong>Não há registros de checkIn para este evento!</strong>
                                                             </li>

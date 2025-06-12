@@ -1,107 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_tela_de_cadastro_adm.css" />
-
-    <title>Cadastro Adm | DailyGreen</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_tela_de_cadastro_adm.css" />
+  <link rel="icon" type="image/x-icon" href="/DailyGreen-Project/IMAGES/dailyGreen-icon.ico">
+  <title>Cadastro Adm | DailyGreen</title>
 </head>
 
 <body>
-    <div class="container-cadastro-adm">
-        <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/AdmSendCadastro.php" method="post" class="inserir_dados" id="form_cadastro">
-            <div class="titulo-link-login">
-                <h1 class="titulo_cadastro_adm">CADASTRO ADMINISTRADOR</h1>
-                <br />
-                <a href="/DailyGreen-Project/SCRIPTS/PHP/loginAdm.php">FAZER LOGIN</a>
-            </div>
-            <div class="cadastro_email_adm">
-                <input type="email" class="input_dados_cadastrais" id="email" name="email" placeholder="Email de acesso"
-                    required />
-            </div>
-            <br />
+  <div class="container-cadastro-adm">
+    <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/AdmSendCadastro.php" method="post" class="inserir_dados"
+      id="form_cadastro">
+      <div class="titulo-link-login">
+        <h1 class="titulo_cadastro_adm">CADASTRO ADMINISTRADOR</h1>
+        <br />
+        <a href="/DailyGreen-Project/SCRIPTS/PHP/loginAdm.php">FAZER LOGIN</a>
+      </div>
+      <div class="cadastro_email_adm">
+        <input type="email" class="input_dados_cadastrais" id="email" name="email" placeholder="Email de acesso"
+          required />
+      </div>
+      <br />
 
-            <div class="cadastro_senha_adm">
-                <div class="senha_status">
-                    <input type="password" class="input_dados_cadastrais input-wrapper" id="password" name="password"
-                        placeholder="Digite a senha" required />
-                    <span class="status" id="status_password" value="0"></span>
-                </div>
-            </div>
-            <br />
+      <div class="cadastro_senha_adm">
+        <div class="senha_status">
+          <input type="password" class="input_dados_cadastrais input-wrapper" id="password" name="password"
+            placeholder="Digite a senha" required />
+          <span class="status" id="status_password" value="0"></span>
+        </div>
+      </div>
+      <br />
 
-            <div class="confirmacao_senha_adm">
-                <div class="senha_status">
-                    <input type="password" class="input_dados_cadastrais input-wrapper" id="input_confirmacao_password"
-                        placeholder="Digite novamente a senha" required />
-                    <span class="status" id="status_confirmacao_password" value="0"></span>
-                </div>
-            </div>
+      <div class="confirmacao_senha_adm">
+        <div class="senha_status">
+          <input type="password" class="input_dados_cadastrais input-wrapper" id="input_confirmacao_password"
+            placeholder="Digite novamente a senha" required />
+          <span class="status" id="status_confirmacao_password" value="0"></span>
+        </div>
+      </div>
 
-            <input type="hidden" id="confirmarStatus" value="0" />
+      <input type="hidden" id="confirmarStatus" value="0" />
 
-            <div class="button_cadastrar_adm">
-                <input type="submit" class="botao_cadastrar" value="CADASTRAR" />
-            </div>
-        </form>
-    </div>
+      <div class="button_cadastrar_adm">
+        <input type="submit" class="botao_cadastrar" value="CADASTRAR" />
+      </div>
+    </form>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        
-  const form = document.getElementById('form_cadastro');
-  const senha = document.getElementById('password');
-  const confirmacaoSenha = document.getElementById('input_confirmacao_password');
-  const statusSenha = document.getElementById('status_password');
-  const statusConfirmacao = document.getElementById('status_confirmacao_password');
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
 
-  function atualizarStatusSenhas() {
-    if (senha.value === confirmacaoSenha.value && senha.value !== "") {
-      statusSenha.textContent = "✔️";
-      statusSenha.className = "check";
-      statusConfirmacao.textContent = "✔️";
-      statusConfirmacao.className = "check";
-    } else {
-      statusSenha.textContent = "❌";
-      statusSenha.className = "error";
-      statusConfirmacao.textContent = "❌";
-      statusConfirmacao.className = "error";
-    }
-  }
+    const form = document.getElementById('form_cadastro');
+    const senha = document.getElementById('password');
+    const confirmacaoSenha = document.getElementById('input_confirmacao_password');
+    const statusSenha = document.getElementById('status_password');
+    const statusConfirmacao = document.getElementById('status_confirmacao_password');
 
-  form.addEventListener('submit', function (event) {
-    const senhaRegex = /^.{8,50}$/;
-
-    if (!senhaRegex.test(senha.value)) {
-      event.preventDefault();
-
-      Swal.fire({
-        icon: 'error',
-        title: 'Senha inválida',
-        text: 'A senha deve ter no mínimo 8 e no máximo 50 caracteres.',
-      });
-      return;
+    function atualizarStatusSenhas() {
+      if (senha.value === confirmacaoSenha.value && senha.value !== "") {
+        statusSenha.textContent = "✔️";
+        statusSenha.className = "check";
+        statusConfirmacao.textContent = "✔️";
+        statusConfirmacao.className = "check";
+      } else {
+        statusSenha.textContent = "❌";
+        statusSenha.className = "error";
+        statusConfirmacao.textContent = "❌";
+        statusConfirmacao.className = "error";
+      }
     }
 
-    if (senha.value !== confirmacaoSenha.value) {
-      event.preventDefault();
+    form.addEventListener('submit', function (event) {
+      const senhaRegex = /^.{8,50}$/;
 
-      Swal.fire({
-        icon: 'warning',
-        title: 'Senhas diferentes',
-        text: 'As senhas não coincidem. Verifique e tente novamente.',
-      });
-    }
-  });
+      if (!senhaRegex.test(senha.value)) {
+        event.preventDefault();
 
-  senha.addEventListener("input", atualizarStatusSenhas);
-  confirmacaoSenha.addEventListener("input", atualizarStatusSenhas);
+        Swal.fire({
+          icon: 'error',
+          title: 'Senha inválida',
+          text: 'A senha deve ter no mínimo 8 e no máximo 50 caracteres.',
+        });
+        return;
+      }
 
-    </script>
-    
-    
+      if (senha.value !== confirmacaoSenha.value) {
+        event.preventDefault();
+
+        Swal.fire({
+          icon: 'warning',
+          title: 'Senhas diferentes',
+          text: 'As senhas não coincidem. Verifique e tente novamente.',
+        });
+      }
+    });
+
+    senha.addEventListener("input", atualizarStatusSenhas);
+    confirmacaoSenha.addEventListener("input", atualizarStatusSenhas);
+
+  </script>
+
+
 </body>
 
 </html>
