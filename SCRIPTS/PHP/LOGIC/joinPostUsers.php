@@ -49,23 +49,22 @@
         if (!empty($postInformation['midia_ref'])) {
             $postsAgrupados[$idPost]['midias'][] = $postInformation['midia_ref'];
         }
-
         $participante_email = $postInformation['participante_email'];
         $participante_username = $postInformation['participante_username'];
         $participante_lista = $postInformation['participante_lista'];
+        $participante_create_time = $postInformation['participante_create_time'];
         }
     } else {
         $participante_email = '';
         $participante_username = '';
         $participante_lista = '';
-        $user_create_date = '';
         foreach ($userArray as $user) {
             if ($user['id_participante'] == $id_participante) {
-            $participante_email = $user['email'];
-            $participante_username = $user['username'];
-            $participante_lista = $user['id_lista'];
-            $participante_create_time = $user['create_time'];
-            break;
+                $participante_email = $user['email'];
+                $participante_username = $user['username'];
+                $participante_lista = $user['id_lista'];
+                $participante_create_time = $user['create_time'];
+                break;
             }
         }
     }

@@ -9,7 +9,6 @@ if (empty($_SESSION['user']['loged'])) {
 }
 $sqlConnection = new SQLconnection();
 $id_participante = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-// ? Evite warnings se variáveis não estiverem definidas
 $participante_email = $participante_email ?? '';
 $participante_create_time = $participante_create_time ?? '';
 $participante_lista = $participante_lista ?? '';
