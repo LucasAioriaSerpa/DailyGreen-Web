@@ -10,6 +10,7 @@ include_once 'LOGIC/functions.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/DailyGreen-Project/IMAGES/dailyGreen-icon.ico">
     <link rel="stylesheet" href="/DailyGreen-Project/SCRIPTS/CSS/style_connection_error.css">
     <title>SQL CONNECTION ERROR</title>
 </head>

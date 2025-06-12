@@ -2,7 +2,6 @@
     include_once 'LOGIC/session.php';
     include_once 'LOGIC/SQL_connection.php';
     include_once 'LOGIC/functions.php';
-    
     if ($_SESSION['user']['loged'] === false) {
         header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
         exit();

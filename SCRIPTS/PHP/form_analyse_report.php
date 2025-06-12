@@ -7,12 +7,10 @@
         header("Location: /DailyGreen-Project/SCRIPTS/PHP/loginAdm.php");
         exit();
     }
-
     $sqlConnection = new SQLconnection();
     $id_administrador = ((int) $_SESSION['user']['account']);
     $id_adm = ((int) $_SESSION['user']['account']['id_administrador']);
     $id_denuncia = (int) $_GET['id'];
-
 ?>
 
 <div class="navegacao_principal">

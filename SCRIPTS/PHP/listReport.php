@@ -8,7 +8,6 @@
     }
     $sqlConnection = new SQLconnection();
     $denunciaArray = $sqlConnection->callTableBD('denuncia');
-
     function statusPriority($status) {
         switch ($status) {
             case 'Pendente': return 1;
@@ -17,11 +16,9 @@
             case 'Arquivada': return 4;
         }
     }
-
     usort($denunciaArray, function ($a, $b) {
         return statusPriority($a['status']) <=> statusPriority($b['status']);
     });
-    
 ?>
 
 <div class="navegacao_principal">

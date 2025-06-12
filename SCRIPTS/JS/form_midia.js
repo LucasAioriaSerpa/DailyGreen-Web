@@ -1,5 +1,4 @@
 
-
 let selectedFiles = [];
 
 function loadFiles(event) {
