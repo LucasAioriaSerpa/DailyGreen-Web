@@ -1,21 +1,23 @@
+// ? Lixeira Inteligente - Dashboard...
 let ip = "";
 const MAX_POINTS = 30;
 const statusEl = document.getElementById("status");
 
-// Cards
+// ? Elemetnso Cards
 const distanciaInternaEl = document.getElementById('distanciaInterna');
 const distanciaExternaEl = document.getElementById('distanciaExterna');
 const pessoasPassaramEl = document.getElementById('pessoasPassaram');
 const pesoEl = document.getElementById('peso');
 const gasDetectadoEl = document.getElementById('gasDetectado');
 
-// Gráficos
+// ? Gráficos lists
 const labels = [];
 const distanciaInternaData = [];
 const distanciaExternaData = [];
 const pesoData = [];
 const gasData = [];
 
+// ? Grafico de distancia:
 const chartDistancia = new Chart(document.getElementById('chartDistancia'), {
     type: 'line',
     data: {
@@ -46,6 +48,7 @@ const chartDistancia = new Chart(document.getElementById('chartDistancia'), {
     }
 });
 
+// ? Grafico de peso
 const chartPeso = new Chart(document.getElementById('chartPeso'), {
     type: 'line',
     data: {
@@ -66,6 +69,7 @@ const chartPeso = new Chart(document.getElementById('chartPeso'), {
     }
 });
 
+// ? Grafico de Gás
 const chartGas = new Chart(document.getElementById('chartGas'), {
     type: 'line',
     data: {
@@ -88,6 +92,21 @@ const chartGas = new Chart(document.getElementById('chartGas'), {
 
 let intervalId = null;
 
+/**
+ * Busca dados dos sensores do dispositivo ESP32 e atualiza os elementos da interface e gráficos.
+ *
+ * Esta função realiza as seguintes ações:
+ * - Envia uma requisição fetch para o dispositivo ESP32 usando o endereço IP fornecido.
+ * - Analisa a resposta JSON contendo dados dos sensores como distância interna/externa, contagem de pessoas, peso e detecção de gás.
+ * - Atualiza os elementos DOM correspondentes com os valores mais recentes dos sensores.
+ * - Mantém e atualiza os arrays de dados para visualização nos gráficos, garantindo um número máximo de pontos.
+ * - Atualiza os gráficos para refletir os novos dados.
+ * - Atualiza o indicador de status de conexão com base no sucesso ou falha da operação fetch.
+ *
+ * @async
+ * @function fetchData
+ * @returns {Promise<void>} Resolvido quando os dados forem buscados e a interface atualizada.
+ */
 async function fetchData() {
     if (!ip) return;
     try {
@@ -130,6 +149,7 @@ async function fetchData() {
     }
 }
 
+// ? Evento de clique no botão de conexão
 document.getElementById("connectBtn").addEventListener("click", function () {
     const ipValue = document.getElementById("ipInput").value.trim();
     if (!ipValue) {
@@ -140,7 +160,7 @@ document.getElementById("connectBtn").addEventListener("click", function () {
     ip = `http://${ipValue}/`;
     statusEl.textContent = "Conectando...";
     statusEl.style.color = "blue";
-    // Limpa dados antigos
+    // ! Limpa dados antigos
     labels.length = 0;
     distanciaInternaData.length = 0;
     distanciaExternaData.length = 0;
