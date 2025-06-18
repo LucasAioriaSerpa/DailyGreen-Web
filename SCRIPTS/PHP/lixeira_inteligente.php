@@ -6,7 +6,7 @@ if (empty($_SESSION['user']['loged']) || $_SESSION['user']['loged'] === false) {
     header('Location: /DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php');
     exit();
 }
-$id_lista = isset($_SESSION['user']['account'][0]['id_lista']) ? (int)$_SESSION['user']['account'][0]['id_lista'] : null;
+$id_lista = isset($_SESSION['user']['account'][0]['id_lista']) ? (int) $_SESSION['user']['account'][0]['id_lista'] : null;
 if ($id_lista === 1 || $id_lista === 2) {
     $_SESSION['user']['loged'] = false;
     $_SESSION['user']['find'] = null;
@@ -48,19 +48,22 @@ if (sizeof($userArray) == 0) {
     <div class="container">
         <!-- //* SIDEBAR ESQUERDA -->
         <div class="sidebar_esquerda">
-            <a class="btnlateral" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php">
+            <a class="btnlateral" style="text-decoration: none;"
+                href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/postagens.php">
                 <div class="menu-item">
                     <span><i class="fas fa-home"></i>Página Inicial</span>
                 </div>
             </a>
             <?php if ($_SESSION['user']['org'] === true || $_SESSION['user']['org'] === 1): ?>
-            <a class="btnlateral" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/lixeira_inteligente.php">
-                <div class="menu-item">
-                    <span><i class="fas fa-trash"></i> Lixeira-Inteligente</span>
-                </div>
-            </a>
+                <a class="btnlateral" style="text-decoration: none;"
+                    href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/lixeira_inteligente.php">
+                    <div class="menu-item">
+                        <span><i class="fas fa-trash"></i> Lixeira-Inteligente</span>
+                    </div>
+                </a>
             <?php endif; ?>
-            <a class="btnlateral" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
+            <a class="btnlateral" style="text-decoration: none;"
+                href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
                 <div class="menu-item">
                     <span><i class="fas fa-user"></i> Perfil</span>
                 </div>
@@ -68,12 +71,13 @@ if (sizeof($userArray) == 0) {
             <div class="area_perfil">
                 <div class="menu-item2" onclick="btnLogout()">
                     <div class="user-avatar">
-                        <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
-                            style="width: 50px; height: 50px; border-radius: 50%;">
+                        <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>"
+                            alt="User Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
                     </div>
                     <div style="margin-left: 10px;">
                         <div><?= htmlspecialchars($userInfo[0]['username']) ?></div>
-                        <div style="font-size: 0.8rem; color: #71767b;">@<?= htmlspecialchars($userInfo[0]['username']) ?></div>
+                        <div style="font-size: 0.8rem; color: #71767b;">
+                            @<?= htmlspecialchars($userInfo[0]['username']) ?></div>
                     </div>
                     <div id="logoutBtn" class="logout_button">
                         <form action="/DailyGreen-Project/SCRIPTS/PHP/LOGIC/logoutPostagens.php">
@@ -86,18 +90,53 @@ if (sizeof($userArray) == 0) {
 
         <!-- CONTEÚDO CENTRAL (PERFIL) -->
         <div class="conteudo_principal">
-            <h2>Gráfico de dados da lixeira</h2>
-            <div>
-                <label for="ipInput">Endereço IP do Sensor:</label>
-                <input type="text" id="ipInput" name="ipInput" placeholder="Ex: 192.168.0.100">
-                <button type="button" id="connectBtn">Conectar</button>
+            <h1>Dashboard da Lixeira Inteligente</h1>
+            <div class="connection-container">
+                <div class="input-container">
+                    <label for="ipInput" class="label-ip">Endereço IP do Sensor:
+                        <input type="text" id="ipInput" name="ipInput" placeholder="Ex: 192.168.0.100">
+                    </label>
+                    <button type="button" id="connectBtn">Conectar</button>
+                </div>
             </div>
+            <h3>Status da conexão:</h3>
             <div id="status">Aguardando conexão...</div>
-            <div id="chart-container">
-                <canvas id="chart"></canvas>
+            <div class="cards">
+                <div class="card">
+                    Distância Interna
+                    <span id="distanciaInterna">-- cm</span>
+                </div>
+                <div class="card">
+                    Distância Externa
+                    <span id="distanciaExterna">-- cm</span>
+                </div>
+                <div class="card">
+                    Pessoas Passaram
+                    <span id="pessoasPassaram">--</span>
+                </div>
+                <div class="card">
+                    Peso
+                    <span id="peso">-- g</span>
+                </div>
+                <div class="card">
+                    Gás Detectado
+                    <span id="gasDetectado">--</span>
+                </div>
+            </div>
+            <div class="charts">
+                <div class="chart-container">
+                    <canvas id="chartDistancia"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chartPeso"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chartGas"></canvas>
+                </div>
             </div>
         </div>
-    <script src="/DailyGreen-Project/SCRIPTS/JS/pagina_postagens.js"></script>
-    <script src="/DailyGreen-Project/SCRIPTS/JS/lixeira_inteligente.js"></script>
+        <script src="/DailyGreen-Project/SCRIPTS/JS/pagina_postagens.js"></script>
+        <script src="/DailyGreen-Project/SCRIPTS/JS/lixeira_inteligente.js"></script>
 </body>
+
 </html>

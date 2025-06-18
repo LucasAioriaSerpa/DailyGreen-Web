@@ -1,45 +1,88 @@
 let ip = "";
 const MAX_POINTS = 30;
 const statusEl = document.getElementById("status");
-const ctx = document.getElementById("chart").getContext("2d");
-const chart = new Chart(ctx, {
+
+// Cards
+const distanciaInternaEl = document.getElementById('distanciaInterna');
+const distanciaExternaEl = document.getElementById('distanciaExterna');
+const pessoasPassaramEl = document.getElementById('pessoasPassaram');
+const pesoEl = document.getElementById('peso');
+const gasDetectadoEl = document.getElementById('gasDetectado');
+
+// Gráficos
+const labels = [];
+const distanciaInternaData = [];
+const distanciaExternaData = [];
+const pesoData = [];
+const gasData = [];
+
+const chartDistancia = new Chart(document.getElementById('chartDistancia'), {
     type: 'line',
     data: {
-        labels: [],
+        labels,
         datasets: [
             {
-                label: 'HC-SR04 (cm) Nivel de Lixo',
-                borderColor: 'red',
-                backgroundColor: 'rgba(255, 0, 0, 0.1)',
-                data: [],
-                tension: 0.4
+                label: 'Distância Interna (cm)',
+                data: distanciaInternaData,
+                borderColor: '#40916c',
+                backgroundColor: '#b7e4c7',
+                fill: false,
+                tension: 0.2
             },
             {
-                label: 'HC-SR04 (cm) Distancia na Lixeira',
-                borderColor: 'blue',
-                backgroundColor: 'rgba(0, 0, 255, 0.1)',
-                data: [],
-                tension: 0.4
+                label: 'Distância Externa (cm)',
+                data: distanciaExternaData,
+                borderColor: '#f77f00',
+                backgroundColor: '#ffe5b4',
+                fill: false,
+                tension: 0.2
             }
         ]
     },
     options: {
         responsive: true,
-        maintainAspectRatio: true,
-        animation: {
-            duration: 500,
-            easing: 'easeOutQuad'
-        },
-        scales: {
-            x: {
-                title: { display: true, text: 'Tempo' }
-            },
-            y: {
-                beginAtZero: true,
-                suggestedMax: 100,
-                title: { display: true, text: 'Distância (cm)' }
-            }
-        }
+        plugins: { legend: { position: 'top' } },
+        scales: { y: { beginAtZero: true } }
+    }
+});
+
+const chartPeso = new Chart(document.getElementById('chartPeso'), {
+    type: 'line',
+    data: {
+        labels,
+        datasets: [{
+            label: 'Peso (g)',
+            data: pesoData,
+            borderColor: '#1d3557',
+            backgroundColor: '#a8dadc',
+            fill: false,
+            tension: 0.2
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { position: 'top' } },
+        scales: { y: { beginAtZero: true } }
+    }
+});
+
+const chartGas = new Chart(document.getElementById('chartGas'), {
+    type: 'line',
+    data: {
+        labels,
+        datasets: [{
+            label: 'Valor MQ-135',
+            data: gasData,
+            borderColor: '#d90429',
+            backgroundColor: '#ffb3c1',
+            fill: false,
+            tension: 0.2
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { position: 'top' } },
+        scales: { y: { beginAtZero: true } }
     }
 });
 
@@ -48,26 +91,42 @@ let intervalId = null;
 async function fetchData() {
     if (!ip) return;
     try {
-        const response = await fetch(ip, { mode: "cors" });
-        const data = await response.json();
+        const res = await fetch(ip, { mode: "cors" });
+        const data = await res.json();
+
+        // Atualiza cards
+        distanciaInternaEl.textContent = data.distanciaInternaCM + " cm";
+        distanciaExternaEl.textContent = data.distanciaExternaCM + " cm";
+        pessoasPassaramEl.textContent = data.QuantidadeDePessoasQuePassaram;
+        pesoEl.textContent = data.hx711Peso + " g";
+        gasDetectadoEl.textContent = data.mqGasDetectado === "true" || data.mqGasDetectado === true ? "Sim" : "Não";
+
+        // Atualiza gráficos
         const now = new Date().toLocaleTimeString();
 
-        if (chart.data.labels.length >= MAX_POINTS) {
-            chart.data.labels.shift();
-            chart.data.datasets[0].data.shift();
-            chart.data.datasets[1].data.shift();
+        if (labels.length >= MAX_POINTS) {
+            labels.shift();
+            distanciaInternaData.shift();
+            distanciaExternaData.shift();
+            pesoData.shift();
+            gasData.shift();
         }
+        labels.push(now);
+        distanciaInternaData.push(data.distanciaInternaCM);
+        distanciaExternaData.push(data.distanciaExternaCM);
+        pesoData.push(data.hx711Peso);
+        gasData.push(data.mqValorAnalogico);
 
-        chart.data.labels.push(now);
-        chart.data.datasets[0].data.push(data.sensor1);
-        chart.data.datasets[1].data.push(data.sensor2);
-        chart.update();
+        chartDistancia.update();
+        chartPeso.update();
+        chartGas.update();
 
         statusEl.textContent = `Conectado - Última atualização: ${now}`;
         statusEl.style.color = "green";
     } catch (error) {
         statusEl.textContent = "Erro de conexão com ESP32";
         statusEl.style.color = "red";
+        console.error("Erro ao buscar dados do ESP32:", error);
     }
 }
 
@@ -81,11 +140,16 @@ document.getElementById("connectBtn").addEventListener("click", function () {
     ip = `http://${ipValue}/`;
     statusEl.textContent = "Conectando...";
     statusEl.style.color = "blue";
-    chart.data.labels = [];
-    chart.data.datasets[0].data = [];
-    chart.data.datasets[1].data = [];
-    chart.update();
+    // Limpa dados antigos
+    labels.length = 0;
+    distanciaInternaData.length = 0;
+    distanciaExternaData.length = 0;
+    pesoData.length = 0;
+    gasData.length = 0;
+    chartDistancia.update();
+    chartPeso.update();
+    chartGas.update();
     if (intervalId) clearInterval(intervalId);
-    intervalId = setInterval(fetchData, 1000);
+    intervalId = setInterval(fetchData, 2000);
     fetchData();
 });
