@@ -1,55 +1,106 @@
-*{
+* {
     font-family: 'Times New Roman', Times, serif;
 }
 
-body{
-    background-color: #EDF4ED;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+body {
+    background-color: #000000cc;
+    color: #51291e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+} body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/DailyGreen-Project/IMAGES/BACKGROUNDs/florest-4.jpg);
+    background-size: auto;
+    background-position: center;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.container-cadastro-adm {
+    background-color: #abd1b5;
+    padding: 40px;
+    border: #51291e solid 2px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 2px 8px #000000cc;
+    transition: 0.2s;
+} .container-cadastro-adm:hover {
+    padding: 45px;
+    transition: 0.3s;
 }
 
 .container-cadastro-adm{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    background-color: #abd1b5;
+    padding: 40px;
+    border: #51291e solid 2px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 2px 8px #000000cc;
+    transition: 0.2s;
+} .container-cadastro-adm:hover{
+    padding: 45px;
+    transition: 0.3s;
 }
 
+.container-cadastro-adm label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
 
-.titulo-link-login{
+.container-cadastro-adm input {
+    border: transparent solid 0px;
+    border-radius: 5px;
+    background-color: #edf4ed;
+    color: #51291e;
+    font-size: 16px;
+    transition: 0.3s;
+} .container-cadastro-adm input:hover {
+    transition: 0.5s;
+} .container-cadastro-adm input:focus {
+    outline: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.titulo-link-login {
     display: flex;
     align-items: center;
     gap: 1vw;
     padding-bottom: 15px;
 }
 
-.titulo_cadastro_adm{
+.titulo_cadastro_adm {
     font-weight: bold;
     font-size: 20px;
     padding-bottom: 10px;
 }
 
-.titulo-link-login a{
+.titulo-link-login a {
     padding-bottom: 10px;
     font-weight: bold;
     text-decoration: none;
     color: #EDF4ED;
     font-size: 0.8em;
-} .titulo-link-login a:hover{
+}
+
+.titulo-link-login a:hover {
     transition: 0.2s;
-    color: #51291E; 
+    color: #51291E;
 }
 
-.inserir_dados{
-    background-color: #79B791;
-    color: #EDF4ED;
-    padding: 25px;
-    border-radius: 20px;
-}
-
-.input_dados_cadastrais{
+.input_dados_cadastrais {
     width: 96%;
     height: 30px;
     padding: 5px;
@@ -61,14 +112,30 @@ body{
     border-radius: 5px;
 }
 
-.cadastro_email_adm{
-    background-color: white;
-    border-radius: 5px;
+.input-cadastro{
+    border: transparent solid 1px;
+    transition: 0.3s;
+}.input-cadastro:hover {
+    border-bottom: #51291e solid 1vh;
+    box-shadow: 0 2px 8px #00000022;
+    transition: 0.5s;
 }
 
-.senha_status{
+.cadastro_email_adm {
+    background-color: #EDF4ED;
     border-radius: 5px;
-    background-color: white;
+    transition: 0.5s;
+}
+
+.cadastro_senha_adm {
+    background-color: #EDF4ED;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.senha_status {
+    border-radius: 5px;
+    background-color: #EDF4ED;
     display: flex;
     align-items: center;
 }
@@ -106,22 +173,23 @@ body{
     padding-left: 3%;
 }
 
-.button_cadastrar_adm{
+.button_cadastrar_adm {
     padding-top: 25px;
 }
 
-.botao_cadastrar{
+.botao_cadastrar {
     width: 100%;
     padding: 4%;
     border: none;
     background-color: #EDF4ED;
+    color: #51291e;
     font-weight: bold;
-}
-
-.botao_cadastrar:hover{
+} .botao_cadastrar:hover {
     transition: 0.5s;
-    background-color: #51291E;
-    color: white;
+    background-color: #51291e;
+    border-bottom: #51291e solid 0.8vh;
+    box-shadow: 0 2px 8px #00000022;
+    color: #EDF4ED;
     font-weight: bold;
     cursor: pointer;
 }

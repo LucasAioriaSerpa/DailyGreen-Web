@@ -117,7 +117,6 @@ if ($_SESSION['user']['type'] === null) {
                             <h3>Github</h3>
                             <p>github.com/LucasAioriaSerpa/ DailyGreen-Project</p>
                         </div>
-                        
                     </div>
                 </section>
             </div>

@@ -8,8 +8,12 @@ $__Cripto = new EncodeDecode();
 $_SQL = new SQLconnection();
 $email = $_POST['email'];
 $senha = $__Cripto->encrypt($_POST['password']);
-
-$_SQLQUERY = "INSERT INTO administrador ( email, password) VALUES ('{$email}', '{$senha}')";
-$_SQL->insertQueryBD($_SQLQUERY);
+try {
+    $_SQLQUERY = "INSERT INTO administrador ( email, password) VALUES ('{$email}', '{$senha}')";
+    $_SQL->insertQueryBD($_SQLQUERY);
+} catch (Exception $e) {
+    error_log('Database insert error: ' . $e->getMessage());
+    exit;
+}
 
 header('Location: /DailyGreen-Project/SCRIPTS/HTML/tela_de_login_adm.html');
