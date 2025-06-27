@@ -1626,9 +1626,7 @@ body {
 
 .file-input-no-text {
     color: #0679eb00;
-    width: 130px; /* Ajuste conforme necessário */
+    width: 130px;
 }
 
-#fileInput {
-    display: none; /* Esconde o input real */
-}
+#fileInput {display: none;}

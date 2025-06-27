@@ -38,7 +38,6 @@ $denunciaArray = $sqlConnection->callTableBD('denuncia');
 $reactionPostArray = $sqlConnection->callTableBD('reacaopost');
 $reactionCommentArray = $sqlConnection->callTableBD('reacaocomentario');
 $_event = null;
-
 function getPostReactions($Id, $reactionArray, $type) {
     $reactions = [
         'gostei' => 0,

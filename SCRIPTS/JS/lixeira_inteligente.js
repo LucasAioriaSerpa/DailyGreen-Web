@@ -112,17 +112,12 @@ async function fetchData() {
     try {
         const res = await fetch(ip, { mode: "cors" });
         const data = await res.json();
-
-        // Atualiza cards
         distanciaInternaEl.textContent = data.distanciaInternaCM + " cm";
         distanciaExternaEl.textContent = data.distanciaExternaCM + " cm";
         pessoasPassaramEl.textContent = data.QuantidadeDePessoasQuePassaram;
         pesoEl.textContent = data.hx711Peso + " g";
         gasDetectadoEl.textContent = data.mqGasDetectado === "true" || data.mqGasDetectado === true ? "Sim" : "Não";
-
-        // Atualiza gráficos
         const now = new Date().toLocaleTimeString();
-
         if (labels.length >= MAX_POINTS) {
             labels.shift();
             distanciaInternaData.shift();
@@ -135,19 +130,57 @@ async function fetchData() {
         distanciaExternaData.push(data.distanciaExternaCM);
         pesoData.push(data.hx711Peso);
         gasData.push(data.mqValorAnalogico);
-
         chartDistancia.update();
         chartPeso.update();
         chartGas.update();
-
         statusEl.textContent = `Conectado - Última atualização: ${now}`;
         statusEl.style.color = "green";
+        const dados = {
+            horario: new Date().toLocaleTimeString(),
+            distanciaInterna: data.distanciaInternaCM,
+            distanciaExterna: data.distanciaExternaCM,
+            pessoasPassaram: data.QuantidadeDePessoasQuePassaram,
+            peso: data.hx711Peso,
+            gasDetectado: data.mqGasDetectado === "true" || data.mqGasDetectado === true ? "Sim" : "Não"
+        }
+        enviarParaExcel(dados);
     } catch (error) {
         statusEl.textContent = "Erro de conexão com ESP32";
         statusEl.style.color = "red";
         console.error("Erro ao buscar dados do ESP32:", error);
     }
 }
+
+async function enviarParaExcel(dados) {
+    try {
+        const response = await fetch('/DailyGreen-Project/SCRIPTS/PHP/exportar_excel.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dados)
+        });
+        const result = await response.json();
+        if (result.success) {console.log("Dados exportados com sucesso para Excel.");}
+    } catch (error) {
+        console.error("Erro ao exportar dados para Excel:", error);
+        statusEl.textContent = "Erro ao exportar dados para Excel.";
+        statusEl.style.color = "red";
+    }
+}
+
+// ? Evento de clique no botão de exportação para Excel
+document.getElementById("exportExcelBtn").addEventListener("click", function () {
+    const dados = {
+        labels: labels,
+        distanciaInternaData: distanciaInternaData,
+        distanciaExternaData: distanciaExternaData,
+        pesoData: pesoData,
+        gasData: gasData,
+        QuantidadeDePessoasQuePassaram: pessoasPassaramEl.textContent,
+    }
+    enviarParaExcel(dados);
+});
 
 // ? Evento de clique no botão de conexão
 document.getElementById("connectBtn").addEventListener("click", function () {
@@ -160,7 +193,6 @@ document.getElementById("connectBtn").addEventListener("click", function () {
     ip = `http://${ipValue}/`;
     statusEl.textContent = "Conectando...";
     statusEl.style.color = "blue";
-    // ! Limpa dados antigos
     labels.length = 0;
     distanciaInternaData.length = 0;
     distanciaExternaData.length = 0;
