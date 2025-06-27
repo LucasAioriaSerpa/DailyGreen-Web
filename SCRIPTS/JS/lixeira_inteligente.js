@@ -18,7 +18,34 @@ const distanciaExternaData = []
 const pesoData = []
 const gasData = []
 
+function getGradient(ctx, color_1, color_2) {
+    const gradient = ctx.createLinearGradient(0,0,0,400)
+    gradient.addColorStop(0, color_1)
+    gradient.addColorStop(1, color_2)
+    return gradient
+}
+
+const shadowLinePlugin = {
+    id: 'shadowLine',
+    beforeDatasetsDraw(chart) {
+        const ctx = chart.ctx
+        chart.data.datasets.forEach((dataset, i) => {
+            const meta = chart.getDatasetMeta(i)
+            if (!meta.hidden && dataset.borderColor) {
+                ctx.save()
+                ctx.shadowColor = dataset.boderColor + '88'
+                ctx.shadowBlur = 12
+                ctx.shadowOffsetX = 0
+                ctx.shadowOffsetY = 4
+                ctx.globalAlpha = 0.7
+            }
+        })
+    },
+    afterDatasetDraw(chart) {chart.ctx.restore()}
+}
+
 // ? Grafico de distancia:
+const ctxDist = document.getElementById('chartDistancia').getContext('2d')
 const chartDistancia = new Chart(document.getElementById('chartDistancia'), {
     type: 'line',
     data: {
@@ -28,29 +55,79 @@ const chartDistancia = new Chart(document.getElementById('chartDistancia'), {
                 label: 'Distância Interna (cm)',
                 data: distanciaInternaData,
                 borderColor: '#40916c',
-                backgroundColor: '#b7e4c7',
-                fill: false,
-                tension: 0.2
+                backgroundColor: getGradient(ctxDist, '#b7e4c7', '#d8f3dc'),
+                fill: true,
+                tension: 0.4,
+                pointRadius: 5,
+                pointBackGroundColor: '#40916c',
+                pointBorderColor: '#fff',
+                pointHoverRadius: 7,
+                borderWidth: 3,
+                shadowOffsetX: 2,
+                shadowOffsetY: 2,
+                shadowBlur: 8,
+                shadowColor: '#40916c55'
             },
             {
                 label: 'Distância Externa (cm)',
                 data: distanciaExternaData,
                 borderColor: '#f77f00',
-                backgroundColor: '#ffe5b4',
-                fill: false,
-                tension: 0.2
+                backgroundColor: getGradient(ctxDist, '#ffe5b4', '#fff3e0'),
+                fill: true,
+                tension: 0.4,
+                pointRadius: 5,
+                pointBackGroundColor: '#f77f00',
+                pointBorderColor: '#fff',
+                pointHoverRadius: 7,
+                borderWidth: 3,
+                shadowOffsetX: 2,
+                shadowOffsetY: 2,
+                shadowBlur: 8,
+                shadowColor: '#f77f0055'
             }
         ]
     },
     options: {
         responsive: true,
-        plugins: { legend: { position: 'top' } },
-        scales: { y: { beginAtZero: true } }
-    }
+        animation: {
+            duration: 1200,
+            easing: 'easeOutQuart'
+        },
+        plugins: {
+            legend: { position: 'top', lebels: {font: {size:16}} },
+            title: {
+                display: true,
+                text: 'Distancia dos Sensores',
+                font: {size:20, weight: 'bold'},
+                color: '#40916c'
+            },
+            tooltip: {
+                backgroundColor: '#fff',
+                titleColor: '#40916c',
+                bodyColor: '#333',
+                borderColor: '#40916c',
+                borderWidth: 1,
+                padding: 12
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: {color: '#b7e4c7'},
+                ticks: {color:'#40916c',font:{size:14}}
+            },
+            x: {
+                grid: {color: '#b7e4c7'},
+                ticks: {color: '#40916c',font:{size:14}}
+            }
+        }
+    },
+    plugins: [shadowLinePlugin]
 })
 
 // ? Grafico de peso
-const chartPeso = new Chart(document.getElementById('chartPeso'), {
+const ctxPeso = document.getElementById('chartPeso').getContext('2d');
+const chartPeso = new Chart(ctxPeso, {
     type: 'line',
     data: {
         labels,
@@ -58,20 +135,57 @@ const chartPeso = new Chart(document.getElementById('chartPeso'), {
             label: 'Peso (g)',
             data: pesoData,
             borderColor: '#1d3557',
-            backgroundColor: '#a8dadc',
-            fill: false,
-            tension: 0.2
+            backgroundColor: getGradient(ctxPeso, '#a8dadc', '#f1faee'),
+            fill: true,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBackgroundColor: '#1d3557',
+            pointBorderColor: '#fff',
+            pointHoverRadius: 7,
+            borderWidth: 3
         }]
     },
     options: {
         responsive: true,
-        plugins: { legend: { position: 'top' } },
-        scales: { y: { beginAtZero: true } }
-    }
-})
+        animation: {
+            duration: 1200,
+            easing: 'easeOutQuart'
+        },
+        plugins: {
+            legend: { position: 'top', labels: { font: { size: 16 } } },
+            title: {
+                display: true,
+                text: 'Peso Detectado',
+                font: { size: 20, weight: 'bold' },
+                color: '#1d3557'
+            },
+            tooltip: {
+                backgroundColor: '#fff',
+                titleColor: '#1d3557',
+                bodyColor: '#333',
+                borderColor: '#1d3557',
+                borderWidth: 1,
+                padding: 12
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: { color: '#a8dadc' },
+                ticks: { color: '#1d3557', font: { size: 14 } }
+            },
+            x: {
+                grid: { color: '#a8dadc' },
+                ticks: { color: '#1d3557', font: { size: 14 } }
+            }
+        }
+    },
+    plugins: [shadowLinePlugin]
+});
 
 // ? Grafico de Gás
-const chartGas = new Chart(document.getElementById('chartGas'), {
+const ctxGas = document.getElementById('chartGas').getContext('2d');
+const chartGas = new Chart(ctxGas, {
     type: 'line',
     data: {
         labels,
@@ -79,17 +193,53 @@ const chartGas = new Chart(document.getElementById('chartGas'), {
             label: 'Valor MQ-135',
             data: gasData,
             borderColor: '#d90429',
-            backgroundColor: '#ffb3c1',
-            fill: false,
-            tension: 0.2
+            backgroundColor: getGradient(ctxGas, '#ffb3c1', '#fff0f3'),
+            fill: true,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBackgroundColor: '#d90429',
+            pointBorderColor: '#fff',
+            pointHoverRadius: 7,
+            borderWidth: 3
         }]
     },
     options: {
         responsive: true,
-        plugins: { legend: { position: 'top' } },
-        scales: { y: { beginAtZero: true } }
-    }
-})
+        animation: {
+            duration: 1200,
+            easing: 'easeOutQuart'
+        },
+        plugins: {
+            legend: { position: 'top', labels: { font: { size: 16 } } },
+            title: {
+                display: true,
+                text: 'Gás Detectado (MQ-135)',
+                font: { size: 20, weight: 'bold' },
+                color: '#d90429'
+            },
+            tooltip: {
+                backgroundColor: '#fff',
+                titleColor: '#d90429',
+                bodyColor: '#333',
+                borderColor: '#d90429',
+                borderWidth: 1,
+                padding: 12
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: { color: '#ffb3c1' },
+                ticks: { color: '#d90429', font: { size: 14 } }
+            },
+            x: {
+                grid: { color: '#ffb3c1' },
+                ticks: { color: '#d90429', font: { size: 14 } }
+            }
+        }
+    },
+    plugins: [shadowLinePlugin]
+});
 
 async function enviarParaExcel(dados) {
     try {
