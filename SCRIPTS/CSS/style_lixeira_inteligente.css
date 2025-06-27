@@ -25,6 +25,19 @@ h1 {
     color: var(--primary);
 }
 
+.status-lixeira {
+    display: flex;
+    gap: 10px;
+    margin: 1%;
+}
+
+#status-connection, #status-exportExcel {
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 1px 4px #0000004c;
+}
+
 .cards {
     display: flex;
     gap: 16px;

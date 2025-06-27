@@ -1,21 +1,22 @@
 // ? Lixeira Inteligente - Dashboard...
-let ip = "";
-const MAX_POINTS = 30;
-const statusEl = document.getElementById("status");
+let ip = ""
+const MAX_POINTS = 30
+const statusEl = document.getElementById("status-connection")
+const statusE2 = document.getElementById("status-exportExcel")
 
 // ? Elemetnso Cards
-const distanciaInternaEl = document.getElementById('distanciaInterna');
-const distanciaExternaEl = document.getElementById('distanciaExterna');
-const pessoasPassaramEl = document.getElementById('pessoasPassaram');
-const pesoEl = document.getElementById('peso');
-const gasDetectadoEl = document.getElementById('gasDetectado');
+const distanciaInternaEl = document.getElementById('distanciaInterna')
+const distanciaExternaEl = document.getElementById('distanciaExterna')
+const pessoasPassaramEl = document.getElementById('pessoasPassaram')
+const pesoEl = document.getElementById('peso')
+const gasDetectadoEl = document.getElementById('gasDetectado')
 
 // ? Gráficos lists
-const labels = [];
-const distanciaInternaData = [];
-const distanciaExternaData = [];
-const pesoData = [];
-const gasData = [];
+const labels = []
+const distanciaInternaData = []
+const distanciaExternaData = []
+const pesoData = []
+const gasData = []
 
 // ? Grafico de distancia:
 const chartDistancia = new Chart(document.getElementById('chartDistancia'), {
@@ -46,7 +47,7 @@ const chartDistancia = new Chart(document.getElementById('chartDistancia'), {
         plugins: { legend: { position: 'top' } },
         scales: { y: { beginAtZero: true } }
     }
-});
+})
 
 // ? Grafico de peso
 const chartPeso = new Chart(document.getElementById('chartPeso'), {
@@ -67,7 +68,7 @@ const chartPeso = new Chart(document.getElementById('chartPeso'), {
         plugins: { legend: { position: 'top' } },
         scales: { y: { beginAtZero: true } }
     }
-});
+})
 
 // ? Grafico de Gás
 const chartGas = new Chart(document.getElementById('chartGas'), {
@@ -88,9 +89,28 @@ const chartGas = new Chart(document.getElementById('chartGas'), {
         plugins: { legend: { position: 'top' } },
         scales: { y: { beginAtZero: true } }
     }
-});
+})
 
-let intervalId = null;
+async function enviarParaExcel(dados) {
+    try {
+        const response = await fetch('/DailyGreen-Project/SCRIPTS/PHP/exportar_excel.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dados)
+        })
+        const result = await response.json()
+        if (result.success) {console.log("Dados exportados com sucesso para Excel.")}
+        statusE2.textContent = "Exportação feita com sucesso! - Feita: "+Date().toLocaleTimeString()
+    } catch (error) {
+        console.error("Erro ao exportar dados para Excel:", error)
+        statusE2.textContent = "Erro ao exportar dados para Excel."
+        statusE2.style.color = "red"
+    }
+}
+
+let intervalId = null
 
 /**
  * Busca dados dos sensores do dispositivo ESP32 e atualiza os elementos da interface e gráficos.
@@ -108,33 +128,33 @@ let intervalId = null;
  * @returns {Promise<void>} Resolvido quando os dados forem buscados e a interface atualizada.
  */
 async function fetchData() {
-    if (!ip) return;
+    if (!ip) return
     try {
-        const res = await fetch(ip, { mode: "cors" });
-        const data = await res.json();
-        distanciaInternaEl.textContent = data.distanciaInternaCM + " cm";
-        distanciaExternaEl.textContent = data.distanciaExternaCM + " cm";
-        pessoasPassaramEl.textContent = data.QuantidadeDePessoasQuePassaram;
-        pesoEl.textContent = data.hx711Peso + " g";
-        gasDetectadoEl.textContent = data.mqGasDetectado === "true" || data.mqGasDetectado === true ? "Sim" : "Não";
-        const now = new Date().toLocaleTimeString();
+        const res = await fetch(ip, { mode: "cors" })
+        const data = await res.json()
+        distanciaInternaEl.textContent = data.distanciaInternaCM + " cm"
+        distanciaExternaEl.textContent = data.distanciaExternaCM + " cm"
+        pessoasPassaramEl.textContent = data.QuantidadeDePessoasQuePassaram
+        pesoEl.textContent = data.hx711Peso + " g"
+        gasDetectadoEl.textContent = data.mqGasDetectado === "true" || data.mqGasDetectado === true ? "Sim" : "Não"
+        const now = new Date().toLocaleTimeString()
         if (labels.length >= MAX_POINTS) {
-            labels.shift();
-            distanciaInternaData.shift();
-            distanciaExternaData.shift();
-            pesoData.shift();
-            gasData.shift();
+            labels.shift()
+            distanciaInternaData.shift()
+            distanciaExternaData.shift()
+            pesoData.shift()
+            gasData.shift()
         }
-        labels.push(now);
-        distanciaInternaData.push(data.distanciaInternaCM);
-        distanciaExternaData.push(data.distanciaExternaCM);
-        pesoData.push(data.hx711Peso);
-        gasData.push(data.mqValorAnalogico);
-        chartDistancia.update();
-        chartPeso.update();
-        chartGas.update();
-        statusEl.textContent = `Conectado - Última atualização: ${now}`;
-        statusEl.style.color = "green";
+        labels.push(now)
+        distanciaInternaData.push(data.distanciaInternaCM)
+        distanciaExternaData.push(data.distanciaExternaCM)
+        pesoData.push(data.hx711Peso)
+        gasData.push(data.mqValorAnalogico)
+        chartDistancia.update()
+        chartPeso.update()
+        chartGas.update()
+        statusEl.textContent = `Conectado - Última atualização: ${now}`
+        statusEl.style.color = "green"
         const dados = {
             horario: new Date().toLocaleTimeString(),
             distanciaInterna: data.distanciaInternaCM,
@@ -143,65 +163,34 @@ async function fetchData() {
             peso: data.hx711Peso,
             gasDetectado: data.mqGasDetectado === "true" || data.mqGasDetectado === true ? "Sim" : "Não"
         }
-        enviarParaExcel(dados);
+        enviarParaExcel(dados)
     } catch (error) {
-        statusEl.textContent = "Erro de conexão com ESP32";
-        statusEl.style.color = "red";
-        console.error("Erro ao buscar dados do ESP32:", error);
+        statusEl.textContent = "Erro de conexão com ESP32"
+        statusEl.style.color = "red"
+        console.error("Erro ao buscar dados do ESP32:", error)
     }
 }
-
-async function enviarParaExcel(dados) {
-    try {
-        const response = await fetch('/DailyGreen-Project/SCRIPTS/PHP/exportar_excel.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dados)
-        });
-        const result = await response.json();
-        if (result.success) {console.log("Dados exportados com sucesso para Excel.");}
-    } catch (error) {
-        console.error("Erro ao exportar dados para Excel:", error);
-        statusEl.textContent = "Erro ao exportar dados para Excel.";
-        statusEl.style.color = "red";
-    }
-}
-
-// ? Evento de clique no botão de exportação para Excel
-document.getElementById("exportExcelBtn").addEventListener("click", function () {
-    const dados = {
-        labels: labels,
-        distanciaInternaData: distanciaInternaData,
-        distanciaExternaData: distanciaExternaData,
-        pesoData: pesoData,
-        gasData: gasData,
-        QuantidadeDePessoasQuePassaram: pessoasPassaramEl.textContent,
-    }
-    enviarParaExcel(dados);
-});
 
 // ? Evento de clique no botão de conexão
 document.getElementById("connectBtn").addEventListener("click", function () {
-    const ipValue = document.getElementById("ipInput").value.trim();
+    const ipValue = document.getElementById("ipInput").value.trim()
     if (!ipValue) {
-        statusEl.textContent = "Por favor, insira um IP válido.";
-        statusEl.style.color = "orange";
-        return;
+        statusEl.textContent = "Por favor, insira um IP válido."
+        statusEl.style.color = "orange"
+        return
     }
-    ip = `http://${ipValue}/`;
-    statusEl.textContent = "Conectando...";
-    statusEl.style.color = "blue";
-    labels.length = 0;
-    distanciaInternaData.length = 0;
-    distanciaExternaData.length = 0;
-    pesoData.length = 0;
-    gasData.length = 0;
-    chartDistancia.update();
-    chartPeso.update();
-    chartGas.update();
-    if (intervalId) clearInterval(intervalId);
-    intervalId = setInterval(fetchData, 2000);
-    fetchData();
-});
+    ip = `http://${ipValue}/`
+    statusEl.textContent = "Conectando..."
+    statusEl.style.color = "blue"
+    labels.length = 0
+    distanciaInternaData.length = 0
+    distanciaExternaData.length = 0
+    pesoData.length = 0
+    gasData.length = 0
+    chartDistancia.update()
+    chartPeso.update()
+    chartGas.update()
+    if (intervalId) clearInterval(intervalId)
+    intervalId = setInterval(fetchData, 2000)
+    fetchData()
+})

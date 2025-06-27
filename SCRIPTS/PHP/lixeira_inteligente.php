@@ -97,11 +97,13 @@ if (sizeof($userArray) == 0) {
                         <input type="text" id="ipInput" name="ipInput" placeholder="Ex: 192.168.0.100">
                     </label>
                     <button type="button" id="connectBtn">Conectar</button>
-                    <button type="button" id="exportExcelBtn">Exportar para Excel</button>
                 </div>
             </div>
             <h3>Status da conexão:</h3>
-            <div id="status">Aguardando conexão...</div>
+            <div class="status-lixeira">
+                <div id="status-connection">Aguardando conexão...</div>
+                <div id="status-exportExcel">Aguardando conexão da lixeira...</div>
+            </div>
             <div class="cards">
                 <div class="card">
                     Distância Interna
