@@ -102,7 +102,7 @@ if (sizeof($userArray) == 0) {
             <h3>Status da conexão:</h3>
             <div class="status-lixeira">
                 <div id="status-connection">Aguardando conexão...</div>
-                <div id="status-exportExcel">Aguardando conexão da lixeira...</div>
+                <div id="status-exportExcel">Aguardando conexão...</div>
             </div>
             <div class="cards">
                 <div class="card">
