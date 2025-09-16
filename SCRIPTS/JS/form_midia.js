@@ -32,13 +32,11 @@ function renderPreview() {
                 const wrapper = document.createElement('div');
                 wrapper.className = 'preview-media-wrapper';
                 wrapper.appendChild(element);
-
                 const removeBtn = document.createElement('button');
                 removeBtn.type = 'button';
                 removeBtn.textContent = '×';
                 removeBtn.className = 'preview-media-remove-btn';
                 removeBtn.onclick = () => removeFile(index);
-
                 wrapper.appendChild(removeBtn);
                 previewContainer.appendChild(wrapper);
             }
@@ -57,9 +55,7 @@ document.getElementById('formPost').addEventListener('submit', function(e) {
             confirmButtonColor: '#3085d6'
         });
     }
-    
 });
-
 
 document.getElementById('formPost').addEventListener('submit', function(e) {
 const titulo = document.getElementById('titulo').value.trim();
