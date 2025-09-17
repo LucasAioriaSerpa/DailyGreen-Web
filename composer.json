@@ -1,0 +1,14 @@
+{
+    "require": {
+        "yectep/phpspreadsheet-bundle": "^1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Scripts\\": "SCRIPTS/",
+            "Tests\\": "TESTS/"
+        }
+    }
+}
