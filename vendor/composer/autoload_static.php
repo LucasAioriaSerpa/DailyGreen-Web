@@ -51,7 +51,7 @@ class ComposerStaticInitd04a6a4216eec9684d7a430e94632a78
             'Symfony\\Component\\Config\\' => 25,
             'Symfony\\Component\\Cache\\' => 24,
             'Symfony\\Bundle\\FrameworkBundle\\' => 31,
-            'Scripts\\' => 8,
+            'SCRIPTS\\' => 8,
         ),
         'P' => 
         array (
@@ -169,7 +169,7 @@ class ComposerStaticInitd04a6a4216eec9684d7a430e94632a78
         array (
             0 => __DIR__ . '/..' . '/symfony/framework-bundle',
         ),
-        'Scripts\\' => 
+        'SCRIPTS\\' => 
         array (
             0 => __DIR__ . '/../..' . '/SCRIPTS',
         ),
@@ -705,7 +705,7 @@ class ComposerStaticInitd04a6a4216eec9684d7a430e94632a78
         'PHPUnit\\Framework\\MockObject\\TestDoubleState' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Api/TestDoubleState.php',
         'PHPUnit\\Framework\\NativeType' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/NativeType.php',
         'PHPUnit\\Framework\\NoChildTestSuiteException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/NoChildTestSuiteException.php',
-        'PHPUnit\\Framework\\PhptAssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/PHPTAssertionFailedError.php',
+        'PHPUnit\\Framework\\PhptAssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/PhptAssertionFailedError.php',
         'PHPUnit\\Framework\\ProcessIsolationException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ProcessIsolationException.php',
         'PHPUnit\\Framework\\Reorderable' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Reorderable.php',
         'PHPUnit\\Framework\\SelfDescribing' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/SelfDescribing.php',

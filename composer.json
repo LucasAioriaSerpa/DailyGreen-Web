@@ -3,11 +3,11 @@
         "yectep/phpspreadsheet-bundle": "^1.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^11"
+        "phpunit/phpunit": "^11.5"
     },
     "autoload": {
         "psr-4": {
-            "Scripts\\": "SCRIPTS/",
+            "SCRIPTS\\": "SCRIPTS/",
             "Tests\\": "TESTS/"
         }
     }
