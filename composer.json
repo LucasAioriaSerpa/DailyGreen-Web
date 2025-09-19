@@ -12,6 +12,7 @@
         }
     },
     "scripts": {
-        "senhaIncriptadaTest": "vendor\\bin\\phpunit tests\\CriarSenhaIncriptadaTest.php"
+        "senhaIncriptadaTest": "vendor\\bin\\phpunit tests\\criarSenhaIncriptadaTest.php",
+        "enviarPostTest": "vendor\\bin\\phpunit tests\\criarPostTest.php"
     }
 }

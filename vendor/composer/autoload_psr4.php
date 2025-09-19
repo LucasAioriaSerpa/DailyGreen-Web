@@ -8,7 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'ZipStream\\' => array($vendorDir . '/maennchen/zipstream-php/src'),
     'Yectep\\PhpSpreadsheetBundle\\' => array($vendorDir . '/yectep/phpspreadsheet-bundle/src'),
-    'Tests\\' => array($baseDir . '/TESTS'),
+    'TESTS\\' => array($baseDir . '/TESTS'),
     'Symfony\\Polyfill\\Php83\\' => array($vendorDir . '/symfony/polyfill-php83'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
