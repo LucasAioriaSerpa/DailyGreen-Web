@@ -8,7 +8,10 @@
     "autoload": {
         "psr-4": {
             "SCRIPTS\\": "SCRIPTS/",
-            "Tests\\": "TESTS/"
+            "TESTS\\": "TESTS/"
         }
+    },
+    "scripts": {
+        "senhaIncriptadaTest": "vendor\\bin\\phpunit tests\\CriarSenhaIncriptadaTest.php"
     }
 }

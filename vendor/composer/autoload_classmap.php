@@ -472,7 +472,7 @@ return array(
     'PHPUnit\\Framework\\MockObject\\TestDoubleState' => $vendorDir . '/phpunit/phpunit/src/Framework/MockObject/Runtime/Api/TestDoubleState.php',
     'PHPUnit\\Framework\\NativeType' => $vendorDir . '/phpunit/phpunit/src/Framework/NativeType.php',
     'PHPUnit\\Framework\\NoChildTestSuiteException' => $vendorDir . '/phpunit/phpunit/src/Framework/Exception/NoChildTestSuiteException.php',
-    'PHPUnit\\Framework\\PhptAssertionFailedError' => $vendorDir . '/phpunit/phpunit/src/Framework/Exception/PhptAssertionFailedError.php',
+    'PHPUnit\\Framework\\PhptAssertionFailedError' => $vendorDir . '/phpunit/phpunit/src/Framework/Exception/PHPTAssertionFailedError.php',
     'PHPUnit\\Framework\\ProcessIsolationException' => $vendorDir . '/phpunit/phpunit/src/Framework/Exception/ProcessIsolationException.php',
     'PHPUnit\\Framework\\Reorderable' => $vendorDir . '/phpunit/phpunit/src/Framework/Reorderable.php',
     'PHPUnit\\Framework\\SelfDescribing' => $vendorDir . '/phpunit/phpunit/src/Framework/SelfDescribing.php',
