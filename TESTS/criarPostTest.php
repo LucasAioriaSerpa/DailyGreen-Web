@@ -7,6 +7,17 @@ final class CriarPostTest extends TestCase {
     private SQLconnection $db;
     protected function setUp(): void { $this->db = new SQLconnection(); }
     public function testEnvioPostagemValida(): void {
+        $cypherMock = $this->createMock(EncodeDecode::class);
+        $cypherMock ->method('decrypt')
+                    ->willReturn('mock_password');
+        $sqlConnectionMock = $this  ->getMockBuilder(SQLconnection::class)
+                                    ->setConstructorArgs([$cypherMock])
+                                    ->onlyMethods(['callTableBD', 'insertQueryBD'])
+                                    ->getMock();
+        $sqlConnectionMock  ->method('callTableBD')
+                            ->willReturnOnConsecutiveCalls([], ['post1']);
+        $sqlConnectionMock  ->method('insertQueryBD')
+                            ->willReturn(1);
         $sqlQuery = "INSERT INTO post(
             id_autor,
             titulo,
@@ -16,9 +27,9 @@ final class CriarPostTest extends TestCase {
             'titulo',
             'descricao'
         )";
-        $initialPostCounter = count($this->db->callTableBD("post"));
-        $last_id = $this->db->insertQueryBD($sqlQuery);
-        $finalPostCounter = count($this->db->callTableBD("post"));
+        $initialPostCounter = count($sqlConnectionMock->callTableBD("post"));
+        $last_id = $sqlConnectionMock->insertQueryBD($sqlQuery);
+        $finalPostCounter = count($sqlConnectionMock->callTableBD("post"));
         $this->assertIsNumeric($last_id);
         $this->assertEquals($initialPostCounter + 1, $finalPostCounter);
     }

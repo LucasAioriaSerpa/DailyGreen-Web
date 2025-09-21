@@ -7,12 +7,14 @@
     },
     "autoload": {
         "psr-4": {
-            "SCRIPTS\\": "SCRIPTS/",
+            "SCRIPTS\\PHP\\": "SCRIPTS/PHP",
+            "SCRIPTS\\PHP\\LOGIC\\": "SCRIPTS/PHP/LOGIC",
             "TESTS\\": "TESTS/"
         }
     },
     "scripts": {
         "senhaIncriptadaTest": "vendor\\bin\\phpunit tests\\criarSenhaIncriptadaTest.php",
-        "enviarPostTest": "vendor\\bin\\phpunit tests\\criarPostTest.php"
+        "enviarPostTest": "vendor\\bin\\phpunit tests\\criarPostTest.php",
+        "adicionarBioTest": "vendor\\bin\\phpunit tests\\adicionarBiografiaTest.php"
     }
 }
