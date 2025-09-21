@@ -8,7 +8,7 @@ debug_var($_POST);
 $biografia = $_POST['biografia'];
 $idParticipante = $_SESSION['user']['account'][0]['id_participante'];
 $sqlQuery = "
-UPDATE participante SET 
+UPDATE participante SET
 biografia = '{$biografia}'
 WHERE id_participante = '{$idParticipante}'
 ";
