@@ -26,4 +26,4 @@
             echo "Cypher.php - something wrong happened!";
             return false;
         }
-    }
+    };

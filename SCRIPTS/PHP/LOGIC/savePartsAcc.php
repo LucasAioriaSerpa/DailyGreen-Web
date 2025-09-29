@@ -1,4 +1,5 @@
 <?php
+include_once 'functions.php';
 include_once 'session.php';
 include_once 'uploadImage.php';
 include_once 'Cypher.php';
@@ -18,13 +19,11 @@ switch ($_POST["cad-part"]) {
                 break;
             }
         }
-        
         if ($emailExistente) {
             $_SESSION['error'] = "Este e-mail já está cadastrado. Por favor, use outro e-mail.";
             header($locationAccCreation);
             exit();
         }
-        
         $_SESSION['inputs']['cadastro']['cad-part'] = $_POST["cad-part"];
         $_SESSION['inputs']['cadastro']['part-1'] = [
             "nome" => $_POST["nome"],
