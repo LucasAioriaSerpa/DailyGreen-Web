@@ -3,7 +3,7 @@
 use PHPUnit\Framework\TestCase;
 include_once "SCRIPTS/PHP/LOGIC/SQL_connection.php";
 
-CLASS BiografiaService {
+class BiografiaService {
     private SQLconnection $db;
     public function __construct(SQLconnection $db) { $this->db = $db; }
     public function adicionarBiografia(string $biografia, int $idParticipante): bool {
@@ -12,7 +12,7 @@ CLASS BiografiaService {
     }
 }
 
-final class adicionarBiografiaTest extends TestCase {
+final class AdicionarBiografiaTest extends TestCase {
     public function testAdicionarBiografiaComSucesso(): void {
         $sqlConnectionMock = $this->createMock(SQLconnection::class);
         $sqlConnectionMock  ->method('insertQueryBD')
