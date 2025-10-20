@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.7 on win32)" generated="2025-10-20T10:51:03.095760" rpa="false" schemaversion="5">
+<suite id="s1" name="caminhoFeliz" source="c:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Testes_Lucas\cadastroParticipanteTest\tests\caminhoFeliz.robot">
+<test id="s1-t1" name="First robot" line="3">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Hello, world!</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-20T10:51:03.208212" elapsed="0.000467"/>
+</kw>
+<status status="PASS" start="2025-10-20T10:51:03.207599" elapsed="0.001433"/>
+</test>
+<status status="PASS" start="2025-10-20T10:51:03.098014" elapsed="0.111351"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="caminhoFeliz" id="s1" pass="1" fail="0" skip="0">caminhoFeliz</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
