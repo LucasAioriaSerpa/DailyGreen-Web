@@ -45,7 +45,7 @@ include_once 'LOGIC/functions.php';
                         <input type="text" id="port" name="port" required>
                     </div>
                 </div>
-                <div class="btn-connect"><input type="submit" value="Conectar"></div>
+                <div class="btn-connect"><input type="submit" name="btn-conectar" value="Conectar"></div>
             </form>
         </div>
     </section>
