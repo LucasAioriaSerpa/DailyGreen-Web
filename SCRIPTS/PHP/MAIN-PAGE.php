@@ -30,8 +30,8 @@ if ($_SESSION['user']['type'] === null) {
                 <a>Contato</a> -->
             </div>
             <div class="auth-buttons">
-                <a href="http://localhost/DailyGreen-Project/SCRIPTS/HTML/pagina_login.html" class="botao_login">Login</a>
-                <a href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/accountCreation.php" class="botao_cadastro">Cadastro</a>
+                <a href="http://localhost/DailyGreen-Project/SCRIPTS/HTML/pagina_login.html" class="botao_login" name="btn-login">Login</a>
+                <a href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/accountCreation.php" class="botao_cadastro" name="btn-cadastro">Cadastro</a>
             </div>
         </header>
         <!-- //? MAIN -->
