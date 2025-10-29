@@ -7,7 +7,7 @@ ${CAMPO_SENHA}    id=password
 ${BOTAO_ENTRAR}    id=btn-entrar
 ${CAMPO_TITULO}    id=tituloOrg
 ${CAMPO_DESCRICAO}    id=descricaoOrg
-${DESCRIÇAO}    Descrição do Evento de Teste
+${DESCRIÇAO}    Esta é uma descrição de teste para a postagem
 ${CAMPO_DATA_INICIO}    id=dataTimeInicio
 ${CAMPO_DATA_FIM}    id=dataTimeFim
 ${DATA_INICIO}    01/01/002026

@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 Resource    ../resources/keywords.robot
 
 *** Test Cases ***
-Publicar Uma Postagem
+Publicar Um Evento
     Abrir Site na Página Principal
     Fazer Login como Organizacao
     Publicar Evento
