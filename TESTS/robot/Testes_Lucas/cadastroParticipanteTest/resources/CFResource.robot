@@ -4,7 +4,13 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${BROWSER}    Chrome
-${URL}    https://http://localhost/DailyGreen-Project/SCRIPTS/PHP/main-page.php
+${URL}    http://localhost/DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php
+${btn-cadastro}    name=btn-cadastro
+${URL-cadastro-pt1}    http://localhost/DailyGreen-Project/SCRIPTS/PHP/accountCreation.php
+${input-email}    id=email
+${input-senha}    id=password
+${email}    lucasaioriaserpa@hotmail.com
+${senha}    senha@forte123456789
 
 
 *** Keywords ***
@@ -13,6 +19,7 @@ abrir o navegador
     Maximize Browser Window
 
 acessar a pagina home do DailyGreen
+
 
 fechar o navegador
     Capture Page Screenshot
