@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    String
 Resource    variables.robot
 
 *** Keywords ***
@@ -11,8 +12,8 @@ Abrir Site na Página Principal
 Fazer Login como Organizacao
     [Documentation]    Faz o login como organização já cadastrada
     Click Link    ${BOTÃO_LOGIN}
-    Input Text    ${CAMPO_EMAIL}    vivo@outlook.com
-    Input Password    ${CAMPO_SENHA}    123456789
+    Input Text    ${CAMPO_EMAIL}    posigraf@outlook.com
+    Input Password    ${CAMPO_SENHA}    iwusmsfbskhfowiuwnkjsfsihoiweh
     Click Button    ${BOTAO_ENTRAR}
 
 Publicar Evento
@@ -22,6 +23,7 @@ Publicar Evento
     Wait Until Element Is Visible    ${CAMPO_DESCRICAO}    timeout=10s
     
     # Preenche o título
+    Sleep    0.10s
     Click Element    ${CAMPO_TITULO}
     Input Text    ${CAMPO_TITULO}    Evento de Teste
     
@@ -30,10 +32,15 @@ Publicar Evento
     Click Element    ${CAMPO_DESCRICAO}
     Input Text    ${CAMPO_DESCRICAO}    ${DESCRIÇAO}
     
-    # Preenche os demais campos
-    Wait Until Element Is Visible    ${CAMPO_DATA_INICIO}    timeout=5s
-    Input Text    ${CAMPO_DATA_INICIO}    2025-10-27T10:00
-    Input Text    ${CAMPO_DATA_FIM}    2025-10-27T12:00
+    Wait Until Element Is Visible    ${CAMPO_DATA_INICIO}
+    Sleep    0.5s
+    Input Text    ${CAMPO_DATA_INICIO}    ${DATA_INICIO}
+    Press Keys    ${CAMPO_DATA_INICIO}    ${HORA_INICIO}
+    
+    Wait Until Element Is Visible    ${CAMPO_DATA_FIM}
+    Sleep    0.5s
+    Input Text    ${CAMPO_DATA_FIM}    ${DATA_FIM}
+    Press Keys    ${CAMPO_DATA_FIM}    ${HORA_FIM}
     
     Wait Until Element Is Visible    ${CAMPO_LOCAL}    timeout=5s
     Click Element    ${CAMPO_LOCAL}
