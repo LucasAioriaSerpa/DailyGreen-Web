@@ -158,7 +158,7 @@ function getPostReactions($Id, $reactionArray, $type) {
                                     alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%;">
                                 </button>
                                 <?php if($userInfo[0]['id_participante'] != ($post['id_autor'])): ?>
-                                <button class="btn-denuncia" onclick="formDenuncia(this)">
+                                <button class="btn-denuncia" id="btn-denuncia" onclick="formDenuncia(this)">
                                     <span class="alert-icon">⚠️</span><p>Denunciar</p>
                                 </button>
                                 <?php endif; ?>

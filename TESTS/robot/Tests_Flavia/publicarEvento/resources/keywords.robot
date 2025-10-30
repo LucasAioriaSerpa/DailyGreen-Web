@@ -9,7 +9,7 @@ Abrir Site na Página Principal
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
 
-Fazer Login como Organizacao
+Fazer Login
     [Documentation]    Faz o login como organização já cadastrada
     Click Link    ${BOTÃO_LOGIN}
     Input Text    ${CAMPO_EMAIL}    posigraf@outlook.com
