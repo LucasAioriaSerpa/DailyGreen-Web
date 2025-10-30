@@ -84,7 +84,7 @@ function getPostReactions($Id, $reactionArray, $type) {
                 </div>
             </a>
             <?php endif; ?>
-            <a class="btnlateral" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
+            <a class="btnlateral" id="btn-perfil" style="text-decoration: none;" href="http://localhost/DailyGreen-Project/SCRIPTS/PHP/pagina_perfil.php">
                 <div class="menu-item">
                     <span><i class="fas fa-user"></i> Perfil</span>
                 </div>

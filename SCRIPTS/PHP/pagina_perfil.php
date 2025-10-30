@@ -97,7 +97,7 @@ $countPost = 0;
                     <p>📅 Entrou em: <?= date('d/m/Y', strtotime($userInfo[0]['create_time'])) ?></p>
                     <p id="user-biography">Biografia: <?= htmlspecialchars($userInfo[0]['biografia']) ?></p>
                 </div>
-                <button class="edit-btn">
+                <button class="edit-btn" id="btn-editar-perfil">
                     <i class="fas fa-edit"></i> Editar Perfil
                 </button>
                 <!-- Modal de Edição -->
@@ -135,7 +135,7 @@ $countPost = 0;
                                     <span id="charCounter">0/250</span>
                                 </div>
                                 <div class="form-actions">
-                                    <input type="submit" class="submit-btn" value="Salvar">
+                                    <input type="submit" class="submit-btn" value="Salvar" id="btn-salvar-biografia">
                                 </div>
                             </form>
 
