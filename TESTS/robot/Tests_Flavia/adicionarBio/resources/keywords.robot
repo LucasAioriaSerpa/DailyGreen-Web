@@ -5,6 +5,7 @@ Resource    ../resources/variables.robot
 *** Keywords ***
 Acessar Página de Perfil
     [Documentation]    Acessa a página de perfil
+    Sleep    1s
     Click Element    ${BOTAO_PERFIL}
 
 Adicionar Biografia

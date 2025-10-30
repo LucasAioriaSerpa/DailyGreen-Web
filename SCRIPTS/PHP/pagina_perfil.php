@@ -85,7 +85,7 @@ $countPost = 0;
                     <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['banner_pic']); ?>" alt="Banner">
                 </div>
                 <div class="avatar-large">
-                    <img src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
+                    <img id="img-perfil" src="<?php echo str_replace("/xampp/htdocs", "", $userInfo[0]['profile_pic']); ?>" alt="User Avatar"
                         style="width: 100px; height: 100px; border-radius: 50%; border: 4px solid #EDF4ED;">
                 </div>
                 <div class="profile-info">
@@ -145,7 +145,7 @@ $countPost = 0;
                                     <input type="file" id="profilePic" name="profile_pic" class="ProfilePic" accept="image/*" >
                                 </div>
                                 <div class="form-actions">
-                                    <input type="submit" class="submit-btn" value="Salvar">
+                                    <input type="submit" class="submit-btn" id="btn-salvar-foto-perfil" value="Salvar">
                                 </div>
                             </form>
 
