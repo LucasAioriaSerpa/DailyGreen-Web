@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.9 on win32)" generated="2025-10-31T08:06:14.618319" rpa="false" schemaversion="5">
+<suite id="s1" name="DailyGreen-Project" source="C:\xampp\htdocs\DailyGreen-Project">
+<suite id="s1-s1" name="TESTS" source="C:\xampp\htdocs\DailyGreen-Project\TESTS">
+<suite id="s1-s1-s1" name="Robot" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot">
+<suite id="s1-s1-s1-s1" name="Tests Flavia" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia">
+<suite id="s1-s1-s1-s1-s1" name="publicarEvento" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia\publicarEvento">
+<suite id="s1-s1-s1-s1-s1-s1" name="Tests" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia\publicarEvento\tests">
+<suite id="s1-s1-s1-s1-s1-s1-s1" name="publicarEvento" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia\publicarEvento\tests\publicarEvento.robot">
+<test id="s1-s1-s1-s1-s1-s1-s1-t1" name="Publicar Um Evento" line="6">
+<kw name="Abrir Site na Página Principal" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:15.035179" level="INFO">Opening browser 'chrome' to base url 'http://localhost/DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-10-31T08:06:15.034683" elapsed="2.511384"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-10-31T08:06:17.546884" elapsed="0.067462"/>
+</kw>
+<doc>Abre o site DailyGreen na página principal</doc>
+<status status="PASS" start="2025-10-31T08:06:15.033430" elapsed="2.582501"/>
+</kw>
+<kw name="Fazer Login" owner="keywords">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:17.627802" level="INFO">Clicking link 'name=btn-login'.</msg>
+<arg>${BOTÃO_LOGIN}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:17.624838" elapsed="0.589992"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:18.218992" level="INFO">Typing text 'posigraf@outlook.com' into text field 'id=email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>posigraf@outlook.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:18.215932" elapsed="0.654728"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:18.872243" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2025-10-31T08:06:19.064158" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>iwusmsfbskhfowiuwnkjsfsihoiweh</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:18.871255" elapsed="0.581438"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:19.457667" level="INFO">Clicking button 'id=btn-entrar'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:19.454239" elapsed="1.125667"/>
+</kw>
+<doc>Faz o login como organização já cadastrada</doc>
+<status status="PASS" start="2025-10-31T08:06:17.618824" elapsed="2.961788"/>
+</kw>
+<kw name="Publicar Evento" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_TITULO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T08:06:20.588363" elapsed="0.106845"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_DESCRICAO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T08:06:20.696030" elapsed="0.080343"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-31T08:06:20.880119" level="INFO">Slept 100 milliseconds.</msg>
+<arg>0.10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-31T08:06:20.778060" elapsed="0.104071"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:20.888966" level="INFO">Clicking element 'id=tituloOrg'.</msg>
+<arg>${CAMPO_TITULO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:20.885154" elapsed="0.393841"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:21.280969" level="INFO">Typing text 'Evento de Teste' into text field 'id=tituloOrg'.</msg>
+<arg>${CAMPO_TITULO}</arg>
+<arg>Evento de Teste</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:21.279643" elapsed="0.433873"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-31T08:06:22.218808" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-31T08:06:21.714369" elapsed="0.506540"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:22.235618" level="INFO">Clicking element 'id=descricaoOrg'.</msg>
+<arg>${CAMPO_DESCRICAO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:22.229170" elapsed="0.376659"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:22.609054" level="INFO">Typing text 'Esta é uma descrição de teste para a postagem' into text field 'id=descricaoOrg'.</msg>
+<arg>${CAMPO_DESCRICAO}</arg>
+<arg>${DESCRIÇAO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:22.606584" elapsed="0.656059"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_DATA_INICIO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T08:06:23.263961" elapsed="0.087807"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-31T08:06:23.856736" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-31T08:06:23.352786" elapsed="0.506009"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:23.869252" level="INFO">Typing text '01/01/002026' into text field 'id=dataTimeInicio'.</msg>
+<arg>${CAMPO_DATA_INICIO}</arg>
+<arg>${DATA_INICIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:23.860092" elapsed="0.493889"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:24.359136" level="INFO">Sending key(s) ('10:00',) to id=dataTimeInicio element.</msg>
+<msg time="2025-10-31T08:06:24.728028" level="INFO">Sending keys 10:00</msg>
+<arg>${CAMPO_DATA_INICIO}</arg>
+<arg>${HORA_INICIO}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-10-31T08:06:24.354682" elapsed="0.450801"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_DATA_FIM}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T08:06:24.806980" elapsed="0.077694"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-31T08:06:25.388783" level="INFO">Slept 500 milliseconds.</msg>
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-31T08:06:24.886405" elapsed="0.505194"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:25.397716" level="INFO">Typing text '08/01/2026' into text field 'id=dataTimeFim'.</msg>
+<arg>${CAMPO_DATA_FIM}</arg>
+<arg>${DATA_FIM}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:25.393423" elapsed="0.324678"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:25.722002" level="INFO">Sending key(s) ('10:00',) to id=dataTimeFim element.</msg>
+<msg time="2025-10-31T08:06:26.078003" level="INFO">Sending keys 10:00</msg>
+<arg>${CAMPO_DATA_FIM}</arg>
+<arg>${HORA_FIM}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-10-31T08:06:25.719478" elapsed="0.447101"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LOCAL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T08:06:26.167798" elapsed="0.096880"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:26.269391" level="INFO">Clicking element 'id=endereco'.</msg>
+<arg>${CAMPO_LOCAL}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:26.265981" elapsed="0.354900"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:26.628447" level="INFO">Typing text 'Rua dos Bobos, 0' into text field 'id=endereco'.</msg>
+<arg>${CAMPO_LOCAL}</arg>
+<arg>Rua dos Bobos, 0</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:26.623855" elapsed="0.465929"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_LINK}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T08:06:27.091147" elapsed="0.069275"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:27.164059" level="INFO">Clicking element 'id=link'.</msg>
+<arg>${CAMPO_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:27.161835" elapsed="0.472359"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:27.640096" level="INFO">Typing text 'https://www.bobos.com' into text field 'id=link'.</msg>
+<arg>${CAMPO_LINK}</arg>
+<arg>https://www.bobos.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:27.635920" elapsed="0.649928"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-31T08:06:29.288684" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-31T08:06:28.286658" elapsed="1.003851"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:29.294761" level="INFO">Clicking button 'id=btn-postar-evento'.</msg>
+<arg>${BOTAO_POSTAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:29.291869" elapsed="0.703536"/>
+</kw>
+<doc>Publica um novo evento na plataforma</doc>
+<status status="PASS" start="2025-10-31T08:06:20.587173" elapsed="9.410147"/>
+</kw>
+<kw name="Verificar Evento" owner="keywords">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:06:30.437920" level="INFO">${classe_content} = Esta é uma descrição de teste para a postagem</msg>
+<var>${classe_content}</var>
+<arg>class=post-content</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:06:30.009957" elapsed="0.429728"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${classe_content}</arg>
+<arg>${DESCRIÇAO}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-10-31T08:06:30.441252" elapsed="0.003443"/>
+</kw>
+<doc>Verifica se o evento foi publicado com sucesso</doc>
+<status status="PASS" start="2025-10-31T08:06:30.003555" elapsed="0.442156"/>
+</kw>
+<kw name="Fechar Browser" owner="keywords">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-10-31T08:06:30.450594" elapsed="2.661309"/>
+</kw>
+<doc>Fecha o navegador</doc>
+<status status="PASS" start="2025-10-31T08:06:30.447743" elapsed="2.665105"/>
+</kw>
+<status status="PASS" start="2025-10-31T08:06:15.027974" elapsed="18.086601"/>
+</test>
+<status status="PASS" start="2025-10-31T08:06:14.738921" elapsed="18.392330"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:06:14.723613" elapsed="18.438444"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:06:14.710932" elapsed="18.503766"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:06:14.696280" elapsed="18.539430"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:06:14.686553" elapsed="18.605957"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:06:14.679278" elapsed="18.630221"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:06:14.642926" elapsed="18.698878"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="DailyGreen-Project" id="s1" pass="1" fail="0" skip="0">DailyGreen-Project</stat>
+<stat name="TESTS" id="s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS</stat>
+<stat name="Robot" id="s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot</stat>
+<stat name="Tests Flavia" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia</stat>
+<stat name="publicarEvento" id="s1-s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia.publicarEvento</stat>
+<stat name="Tests" id="s1-s1-s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia.publicarEvento.Tests</stat>
+<stat name="publicarEvento" id="s1-s1-s1-s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia.publicarEvento.Tests.publicarEvento</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.9 on win32)" generated="2025-10-31T08:02:57.306095" rpa="false" schemaversion="5">
+<suite id="s1" name="DailyGreen-Project" source="C:\xampp\htdocs\DailyGreen-Project">
+<suite id="s1-s1" name="TESTS" source="C:\xampp\htdocs\DailyGreen-Project\TESTS">
+<suite id="s1-s1-s1" name="Robot" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot">
+<suite id="s1-s1-s1-s1" name="Tests Flavia" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia">
+<suite id="s1-s1-s1-s1-s1" name="alterarImgPerfil" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia\alterarImgPerfil">
+<suite id="s1-s1-s1-s1-s1-s1" name="Tests" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia\alterarImgPerfil\tests">
+<suite id="s1-s1-s1-s1-s1-s1-s1" name="alterarImgPerfil" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia\alterarImgPerfil\tests\alterarImgPerfil.robot">
+<test id="s1-s1-s1-s1-s1-s1-s1-t1" name="Alterar Imagem de Perfil" line="8">
+<kw name="Abrir Site na Página Principal" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:57.725997" level="INFO">Opening browser 'chrome' to base url 'http://localhost/DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-10-31T08:02:57.725420" elapsed="2.153973"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-10-31T08:02:59.880752" elapsed="0.187484"/>
+</kw>
+<doc>Abre o site DailyGreen na página principal</doc>
+<status status="PASS" start="2025-10-31T08:02:57.723990" elapsed="2.345084"/>
+</kw>
+<kw name="Fazer Login Participante" owner="keywords">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:03:00.076233" level="INFO">Clicking link 'name=btn-login'.</msg>
+<arg>${BOTÃO_LOGIN}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:03:00.072838" elapsed="0.565177"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:03:00.641954" level="INFO">Typing text 'fernandatorres@gmail.com' into text field 'id=email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>fernandatorres@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:03:00.639511" elapsed="0.739175"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:03:01.381337" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2025-10-31T08:03:01.518613" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>jfhjdfsjkadnfujiwbeinfjsb</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:03:01.379619" elapsed="0.400413"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:03:01.782730" level="INFO">Clicking button 'id=btn-entrar'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:03:01.780987" elapsed="1.127936"/>
+</kw>
+<doc>Faz o login como participante já cadastrado</doc>
+<status status="PASS" start="2025-10-31T08:03:00.070607" elapsed="2.839382"/>
+</kw>
+<kw name="Acessar Página de Perfil" owner="keywords">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-31T08:03:03.917303" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-31T08:03:02.914180" elapsed="1.005954"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:03:03.924570" level="INFO">Clicking element 'id=btn-perfil'.</msg>
+<arg>${BOTAO_PERFIL}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:03:03.922328" elapsed="0.561785"/>
+</kw>
+<doc>Acessa a página de perfil</doc>
+<status status="PASS" start="2025-10-31T08:03:02.912106" elapsed="1.573410"/>
+</kw>
+<kw name="Capturar SRC da Imagem de Perfil" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${IMG_PERFIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T08:03:04.492455" elapsed="0.180477"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:03:04.732166" level="INFO">${src} = http://localhost/DailyGreen-Project/IMAGES/PROFILES/690493d7a7dad.jpg</msg>
+<var>${src}</var>
+<arg>${IMG_PERFIL}</arg>
+<arg>src</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:03:04.674183" elapsed="0.058876"/>
+</kw>
+<return>
+<value>${src}</value>
+<status status="PASS" start="2025-10-31T08:03:04.733889" elapsed="0.001580"/>
+</return>
+<msg time="2025-10-31T08:03:04.736468" level="INFO">${src_original} = http://localhost/DailyGreen-Project/IMAGES/PROFILES/690493d7a7dad.jpg</msg>
+<var>${src_original}</var>
+<doc>Captura o atributo src atual da imagem de perfil</doc>
+<status status="PASS" start="2025-10-31T08:03:04.487901" elapsed="0.249253"/>
+</kw>
+<kw name="Subir Imagem de Perfil" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_EDITAR_PERFIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T08:03:04.743876" elapsed="0.078893"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:03:04.826347" level="INFO">Clicking button 'id=btn-editar-perfil'.</msg>
+<arg>${BOTAO_EDITAR_PERFIL}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:03:04.824155" elapsed="0.391565"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_SELECIONAR_IMAGEM}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T08:03:05.217302" elapsed="0.082110"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:03:05.304820" level="INFO">Sending C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia\alterarImgPerfil\resources\img\newImage.jpg to browser.</msg>
+<arg>${BOTAO_SELECIONAR_IMAGEM}</arg>
+<arg>${CAMINHO_IMAGEM}</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:03:05.301365" elapsed="0.136127"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-31T08:03:06.442730" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-31T08:03:05.439590" elapsed="1.005793"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:03:06.451779" level="INFO">Clicking element 'id=btn-salvar-foto-perfil'.</msg>
+<arg>${BOTAO_SALVAR_FOTO_PERFIL}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:03:06.447511" elapsed="0.617155"/>
+</kw>
+<doc>Clica no botão de alterar imagem de perfil, seleciona uma imagem e clica no botão de salvar</doc>
+<status status="PASS" start="2025-10-31T08:03:04.739753" elapsed="2.325674"/>
+</kw>
+<kw name="Verificar Imagem de Perfil Foi Alterada" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${IMG_PERFIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T08:03:07.070177" elapsed="0.150876"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-31T08:03:09.225613" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-31T08:03:07.223134" elapsed="2.004934"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:03:09.313246" level="INFO">${src_novo} = http://localhost/DailyGreen-Project/IMAGES/PROFILES/6904976adc30f.jpg</msg>
+<var>${src_novo}</var>
+<arg>${IMG_PERFIL}</arg>
+<arg>src</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:03:09.230851" elapsed="0.083331"/>
+</kw>
+<kw name="Should Not Be Equal" owner="BuiltIn">
+<arg>${src_original}</arg>
+<arg>${src_novo}</arg>
+<arg>msg=A imagem de perfil não foi alterada!</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" start="2025-10-31T08:03:09.315673" elapsed="0.003446"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-31T08:03:09.323092" level="INFO">Imagem alterada com sucesso! SRC antigo: http://localhost/DailyGreen-Project/IMAGES/PROFILES/690493d7a7dad.jpg, SRC novo: http://localhost/DailyGreen-Project/IMAGES/PROFILES/6904976adc30f.jpg</msg>
+<arg>Imagem alterada com sucesso! SRC antigo: ${src_original}, SRC novo: ${src_novo}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-31T08:03:09.320129" elapsed="0.004462"/>
+</kw>
+<arg>${src_original}</arg>
+<doc>Verifica se a imagem de perfil foi alterada com sucesso capturando o src antes e depois</doc>
+<status status="PASS" start="2025-10-31T08:03:07.067935" elapsed="2.257690"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-10-31T08:03:09.328529" elapsed="2.657010"/>
+</kw>
+<status status="PASS" start="2025-10-31T08:02:57.717245" elapsed="14.269455"/>
+</test>
+<status status="PASS" start="2025-10-31T08:02:57.433126" elapsed="14.569650"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:57.417843" elapsed="14.614872"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:57.405230" elapsed="14.688169"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:57.379905" elapsed="14.725697"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:57.370650" elapsed="14.768718"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:57.361976" elapsed="14.800686"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:57.327513" elapsed="14.852436"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="DailyGreen-Project" id="s1" pass="1" fail="0" skip="0">DailyGreen-Project</stat>
+<stat name="TESTS" id="s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS</stat>
+<stat name="Robot" id="s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot</stat>
+<stat name="Tests Flavia" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia</stat>
+<stat name="alterarImgPerfil" id="s1-s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia.alterarImgPerfil</stat>
+<stat name="Tests" id="s1-s1-s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia.alterarImgPerfil.Tests</stat>
+<stat name="alterarImgPerfil" id="s1-s1-s1-s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia.alterarImgPerfil.Tests.alterarImgPerfil</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

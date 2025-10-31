@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.9 on win32)" generated="2025-10-31T08:02:14.185662" rpa="false" schemaversion="5">
+<suite id="s1" name="DailyGreen-Project" source="C:\xampp\htdocs\DailyGreen-Project">
+<suite id="s1-s1" name="TESTS" source="C:\xampp\htdocs\DailyGreen-Project\TESTS">
+<suite id="s1-s1-s1" name="Robot" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot">
+<suite id="s1-s1-s1-s1" name="Tests Flavia" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia">
+<suite id="s1-s1-s1-s1-s1" name="adicionarBio" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia\adicionarBio">
+<suite id="s1-s1-s1-s1-s1-s1" name="Tests" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia\adicionarBio\tests">
+<suite id="s1-s1-s1-s1-s1-s1-s1" name="adicionarBio" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Tests_Flavia\adicionarBio\tests\adicionarBio.robot">
+<test id="s1-s1-s1-s1-s1-s1-s1-t1" name="Adicionar Biografia" line="7">
+<kw name="Abrir Site na Página Principal" owner="keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:14.618768" level="INFO">Opening browser 'chrome' to base url 'http://localhost/DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-10-31T08:02:14.617749" elapsed="2.260241"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-10-31T08:02:16.879222" elapsed="0.552493"/>
+</kw>
+<doc>Abre o site DailyGreen na página principal</doc>
+<status status="PASS" start="2025-10-31T08:02:14.615094" elapsed="2.817918"/>
+</kw>
+<kw name="Fazer Login" owner="keywords">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:17.439853" level="INFO">Clicking link 'name=btn-login'.</msg>
+<arg>${BOTÃO_LOGIN}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:02:17.437712" elapsed="0.632265"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:18.071887" level="INFO">Typing text 'posigraf@outlook.com' into text field 'id=email'.</msg>
+<arg>${CAMPO_EMAIL}</arg>
+<arg>posigraf@outlook.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:02:18.070720" elapsed="0.826579"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:18.900734" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2025-10-31T08:02:19.009827" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${CAMPO_SENHA}</arg>
+<arg>iwusmsfbskhfowiuwnkjsfsihoiweh</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:02:18.898381" elapsed="0.435619"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:19.336914" level="INFO">Clicking button 'id=btn-entrar'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:02:19.335349" elapsed="0.969232"/>
+</kw>
+<doc>Faz o login como organização já cadastrada</doc>
+<status status="PASS" start="2025-10-31T08:02:17.435612" elapsed="2.869668"/>
+</kw>
+<kw name="Acessar Página de Perfil" owner="keywords">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-31T08:02:21.313298" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-31T08:02:20.311165" elapsed="1.003827"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:21.318394" level="INFO">Clicking element 'id=btn-perfil'.</msg>
+<arg>${BOTAO_PERFIL}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:02:21.316075" elapsed="0.489751"/>
+</kw>
+<doc>Acessa a página de perfil</doc>
+<status status="PASS" start="2025-10-31T08:02:20.307992" elapsed="1.499284"/>
+</kw>
+<kw name="Adicionar Biografia" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_EDITAR_PERFIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T08:02:21.813700" elapsed="0.157436"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:21.975372" level="INFO">Clicking button 'id=btn-editar-perfil'.</msg>
+<arg>${BOTAO_EDITAR_PERFIL}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:02:21.972273" elapsed="0.375797"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:22.353267" level="INFO">Clicking element 'id=biografia'.</msg>
+<arg>${CAMPO_BIOGRAFIA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:02:22.349529" elapsed="0.396297"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:22.749665" level="INFO">Typing text 'Biografia alterada com sucesso para o teste' into text field 'id=biografia'.</msg>
+<arg>${CAMPO_BIOGRAFIA}</arg>
+<arg>${TEXTO_BIOGRAFIA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:02:22.747210" elapsed="1.062517"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-31T08:02:24.813911" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-31T08:02:23.811191" elapsed="1.004232"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:24.820334" level="INFO">Clicking button 'id=btn-salvar-biografia'.</msg>
+<arg>${BOTAO_SALVAR_BIOGRAFIA}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T08:02:24.817073" elapsed="0.677948"/>
+</kw>
+<doc>Adiciona uma biografia ao perfil do usuário</doc>
+<status status="PASS" start="2025-10-31T08:02:21.811816" elapsed="3.684617"/>
+</kw>
+<kw name="Verificar Biografia" owner="keywords">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-10-31T08:02:25.668506" level="INFO">Current page contains text 'Biografia alterada com sucesso para o teste'.</msg>
+<arg>${TEXTO_BIOGRAFIA}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-10-31T08:02:25.501811" elapsed="0.169998"/>
+</kw>
+<doc>Verifica se a biografia foi adicionada com sucesso</doc>
+<status status="PASS" start="2025-10-31T08:02:25.498915" elapsed="0.173799"/>
+</kw>
+<kw name="Fechar Browser" owner="keywords">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-10-31T08:02:25.678035" elapsed="2.540767"/>
+</kw>
+<doc>Fecha o navegador</doc>
+<status status="PASS" start="2025-10-31T08:02:25.675310" elapsed="2.544043"/>
+</kw>
+<status status="PASS" start="2025-10-31T08:02:14.606455" elapsed="13.614038"/>
+</test>
+<status status="PASS" start="2025-10-31T08:02:14.303631" elapsed="13.933033"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:14.288307" elapsed="13.992884"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:14.269721" elapsed="14.047064"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:14.263048" elapsed="14.082876"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:14.252210" elapsed="14.115712"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:14.245974" elapsed="14.138265"/>
+</suite>
+<status status="PASS" start="2025-10-31T08:02:14.207411" elapsed="14.203764"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="DailyGreen-Project" id="s1" pass="1" fail="0" skip="0">DailyGreen-Project</stat>
+<stat name="TESTS" id="s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS</stat>
+<stat name="Robot" id="s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot</stat>
+<stat name="Tests Flavia" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia</stat>
+<stat name="adicionarBio" id="s1-s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia.adicionarBio</stat>
+<stat name="Tests" id="s1-s1-s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia.adicionarBio.Tests</stat>
+<stat name="adicionarBio" id="s1-s1-s1-s1-s1-s1-s1" pass="1" fail="0" skip="0">DailyGreen-Project.TESTS.Robot.Tests Flavia.adicionarBio.Tests.adicionarBio</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
