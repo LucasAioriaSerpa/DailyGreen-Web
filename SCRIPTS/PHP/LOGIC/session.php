@@ -1,5 +1,7 @@
 
 <?php
+include_once('Cypher.php');
+$encodeDecode = new EncodeDecode();
 session_start();
 $session_array = [];
 $session_array['user'] = [
@@ -12,10 +14,10 @@ $session_array['user'] = [
 $session_array['mySql'] = [
     'servername' => 'localhost',
     'username' => 'root',
-    'password' => '',
+    'password' => $encodeDecode->encrypt('root#root031023'),
     'database' => 'db_dailygreen',
     'port' => 3306,
-    'flag-connection' => false
+    'flag-connection' => true
 ];
 $session_array['inputs'] = [
     'login' => [
