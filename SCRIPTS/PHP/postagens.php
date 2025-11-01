@@ -216,7 +216,7 @@ function getPostReactions($Id, $reactionArray, $type) {
                         </button>
                         <div class="post-footer">
                             <div class="reaction-wrapper">
-                                <button class="btn-content-footer btn-reaction-toggle" title="Reaja neste post!" onclick="toggleReact(this)">
+                                <button class="btn-content-footer btn-reaction-toggle" title="Reaja neste post!" onclick="toggleReact(this)" id="btn-reaction-<?= htmlspecialchars($usersArray[((int) $post["id_autor"]) - 1]['username']); ?>">
                                     <i class="fa-solid fa-heart"> <p>Reações</p></i>
                                 </button>
                                 <div class="react-container">

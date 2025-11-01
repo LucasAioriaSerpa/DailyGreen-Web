@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-10-31T23:47:10.107721" rpa="false" schemaversion="5">
+<suite id="s1" name="caminhoFeliz" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Testes_Lucas\comentarPostagemTest\tests\caminhoFeliz.robot">
+<test id="s1-t1" name="Comentar Postagem TEST - Participante" line="8">
+<kw name="Abrir o navegador" owner="CFResource" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:10.395227" level="INFO">Opening browser 'chrome' to base url 'http://localhost/DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-10-31T23:47:10.395227" elapsed="1.309810"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-10-31T23:47:11.706036" elapsed="0.025189"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:47:10.393722" elapsed="1.337503"/>
+</kw>
+<kw name="Acessar a página inicial do DailyGreen" owner="CFResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_LOGIN}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:47:11.732233" elapsed="0.024567"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:12.470503" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:47:11.756800" elapsed="0.713703"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:12.471503" level="INFO">Clicking element 'name=btn-login'.</msg>
+<arg>${BTN_lOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:47:12.471503" elapsed="0.243290"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:47:11.732233" elapsed="0.982560"/>
+</kw>
+<kw name="Entrando na conta" owner="CFResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_LOGIN_EMAIL}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:47:12.715792" elapsed="0.015568"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:13.211349" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:47:12.731360" elapsed="0.479989"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:13.211349" level="INFO">Typing text 'email@gmail.com' into text field 'id=email'.</msg>
+<arg>${INPUT_LOGIN_EMAIL}</arg>
+<arg>${VALUE_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:47:13.211349" elapsed="0.113610"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:13.838937" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:47:13.324959" elapsed="0.513978"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:13.839937" level="INFO">Typing text 'senha@forte123456789' into text field 'id=password'.</msg>
+<arg>${INPUT_LOGIN_PASSWORD}</arg>
+<arg>${VALUE_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:47:13.838937" elapsed="0.087448"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:14.419798" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:47:13.927889" elapsed="0.491909"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:14.419798" level="INFO">Clicking element 'id=btn-entrar'.</msg>
+<arg>${BTN_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:47:14.419798" elapsed="0.442015"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:47:12.715792" elapsed="2.146021"/>
+</kw>
+<kw name="Abrir comentario" owner="CFResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_COMMENT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:47:14.863346" elapsed="0.029288"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:15.207797" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:47:14.892634" elapsed="0.315163"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:15.208805" level="INFO">Clicking element 'id=btnComment'.</msg>
+<arg>${BTN_COMMENT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:47:15.207797" elapsed="0.054742"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:47:14.861813" elapsed="0.400726"/>
+</kw>
+<kw name="Preencher comentario" owner="CFResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_COMMENT_TEXT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:47:15.263536" elapsed="0.022069"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:15.538677" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:47:15.285605" elapsed="0.253072"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:15.538677" level="INFO">Typing text 'titulo comentario' into text field 'id=comment_title'.</msg>
+<arg>${INPUT_COMMENT_TITLE}</arg>
+<arg>${VALUE_COMMENT_TITLE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:47:15.538677" elapsed="0.124029"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:15.807526" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:47:15.662706" elapsed="0.145328"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:15.808034" level="INFO">Typing text 'texto do comentario' into text field 'id=comment_text'.</msg>
+<arg>${INPUT_COMMENT_TEXT}</arg>
+<arg>${VALUE_COMMENT_TEXT}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:47:15.808034" elapsed="0.101665"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:16.055358" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:47:15.909699" elapsed="0.145659"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:47:16.056358" level="INFO">Clicking element 'name=comment-post'.</msg>
+<arg>${BTN_COMMENT_POST}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:47:16.055358" elapsed="0.142331"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:47:15.263536" elapsed="0.934153"/>
+</kw>
+<kw name="Fechar o navegador" owner="CFResource" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-31T23:47:16.198769" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-10-31T23:47:16.199768" elapsed="2.172399"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:47:16.198769" elapsed="2.173398"/>
+</kw>
+<doc>Esse teste tem como objetivo realizar comentar em uma postagem no DailyGreen</doc>
+<tag>comentar_postagem</tag>
+<status status="PASS" start="2025-10-31T23:47:10.393722" elapsed="7.978445"/>
+</test>
+<status status="PASS" start="2025-10-31T23:47:10.110287" elapsed="8.262877"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">comentar_postagem</stat>
+</tag>
+<suite>
+<stat name="caminhoFeliz" id="s1" pass="1" fail="0" skip="0">caminhoFeliz</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

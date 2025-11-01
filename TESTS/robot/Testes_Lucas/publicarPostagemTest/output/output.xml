@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-10-31T23:45:38.756712" rpa="false" schemaversion="5">
+<suite id="s1" name="caminhoFeliz" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Testes_Lucas\publicarPostagemTest\tests\caminhoFeliz.robot">
+<test id="s1-t1" name="Publicar Postagem TEST - Participante" line="8">
+<kw name="Abrir o navegador" owner="CFResource" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:39.039893" level="INFO">Opening browser 'chrome' to base url 'http://localhost/DailyGreen-Project/SCRIPTS/PHP/MAIN-PAGE.php'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-10-31T23:45:39.039893" elapsed="1.285412"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-10-31T23:45:40.325305" elapsed="0.062253"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:45:39.039893" elapsed="1.349154"/>
+</kw>
+<kw name="Acessar a página inicial do DailyGreen" owner="CFResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_LOGIN}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:45:40.389047" elapsed="0.027152"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:41.213727" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:45:40.416199" elapsed="0.797528"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:41.215233" level="INFO">Clicking element 'name=btn-login'.</msg>
+<arg>${BTN_lOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:45:41.213727" elapsed="0.103817"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:45:40.389047" elapsed="0.928497"/>
+</kw>
+<kw name="Entrando na conta" owner="CFResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_LOGIN_EMAIL}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:45:41.318553" elapsed="0.023149"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:41.341702" level="INFO">Typing text 'email@gmail.com' into text field 'id=email'.</msg>
+<arg>${INPUT_LOGIN_EMAIL}</arg>
+<arg>${VALUE_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:45:41.341702" elapsed="0.100749"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:41.939471" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:45:41.442451" elapsed="0.497020"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:41.939471" level="INFO">Typing text 'senha@forte123456789' into text field 'id=password'.</msg>
+<arg>${INPUT_LOGIN_PASSWORD}</arg>
+<arg>${VALUE_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:45:41.939471" elapsed="0.081181"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:42.523205" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:45:42.020652" elapsed="0.502553"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:42.524205" level="INFO">Clicking element 'id=btn-entrar'.</msg>
+<arg>${BTN_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:45:42.524205" elapsed="0.395475"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:45:41.317544" elapsed="1.602136"/>
+</kw>
+<kw name="Preenchendo post" owner="CFResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_TITULO}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:45:42.920680" elapsed="0.014577"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:42.936267" level="INFO">Typing text 'titulo postagem' into text field 'id=titulo'.</msg>
+<arg>${INPUT_TITULO}</arg>
+<arg>${VALUE_TITULO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:45:42.935257" elapsed="0.103612"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:43.367647" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:45:43.038869" elapsed="0.328778"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:43.367647" level="INFO">Typing text 'descrição postagem' into text field 'id=descricao'.</msg>
+<arg>${INPUT_DESCRICAO}</arg>
+<arg>${VALUE_DESCRICAO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:45:43.367647" elapsed="0.109874"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:43.830507" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:45:43.478027" elapsed="0.352480"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:45:43.831506" level="INFO">Clicking element 'id=btn-postar'.</msg>
+<arg>${BTN_POSTAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:45:43.830507" elapsed="0.181260"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:45:42.919680" elapsed="1.092593"/>
+</kw>
+<kw name="Fechar o navegador" owner="CFResource" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-31T23:45:44.012273" elapsed="0.001007"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-10-31T23:45:44.013280" elapsed="2.120408"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:45:44.012273" elapsed="2.121415"/>
+</kw>
+<doc>Esse teste tem como objetivo realizar um cadastro do tipo participante no DailyGreen</doc>
+<tag>cadastro_participante</tag>
+<status status="PASS" start="2025-10-31T23:45:39.038896" elapsed="7.094792"/>
+</test>
+<status status="PASS" start="2025-10-31T23:45:38.757713" elapsed="7.377479"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">cadastro_participante</stat>
+</tag>
+<suite>
+<stat name="caminhoFeliz" id="s1" pass="1" fail="0" skip="0">caminhoFeliz</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

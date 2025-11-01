@@ -30,7 +30,6 @@ Acessar a página inicial do DailyGreen
 
 Entrando na conta
     Wait Until Element Is Visible    ${INPUT_LOGIN_EMAIL}    10s
-    Sleep    5s
     Input Text    ${INPUT_LOGIN_EMAIL}    ${VALUE_EMAIL}
     Capture Page Screenshot
     Input Text    ${INPUT_LOGIN_PASSWORD}    ${VALUE_PASSWORD}

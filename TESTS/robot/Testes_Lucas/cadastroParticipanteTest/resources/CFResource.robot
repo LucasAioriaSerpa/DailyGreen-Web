@@ -1,7 +1,7 @@
 
 *** Settings ***
 Library    SeleniumLibrary
-Library    /PYTHON/utils.py
+Library    PYTHON/utils.py
 
 *** Variables ***
 ${BROWSER}    chrome

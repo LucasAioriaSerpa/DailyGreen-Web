@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-10-31T23:41:29.454141" rpa="false" schemaversion="5">
+<suite id="s1" name="caminhoFeliz" source="C:\xampp\htdocs\DailyGreen-Project\TESTS\robot\Testes_Lucas\banirUsuarioTest\tests\caminhoFeliz.robot">
+<test id="s1-t1" name="Banir Usuario TEST - Administrador" line="7">
+<kw name="Abrir o navegador" owner="CFResource" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:29.734350" level="INFO">Opening browser 'chrome' to base url 'http://localhost/DailyGreen-Project/SCRIPTS/PHP/loginAdm.php'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-10-31T23:41:29.734350" elapsed="1.319457"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:31.506344" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:41:31.053807" elapsed="0.454045"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-10-31T23:41:31.507852" elapsed="0.022727"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:41:29.733349" elapsed="1.797230"/>
+</kw>
+<kw name="Acessar a página administrador do DailyGreen" owner="CFResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_LOGIN_EMAIL}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:41:31.531577" elapsed="0.024127"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:32.116052" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:41:31.555704" elapsed="0.560348"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:32.117561" level="INFO">Typing text 'lucasaioriaserpa@outlook.com' into text field 'id=email'.</msg>
+<arg>${INPUT_LOGIN_EMAIL}</arg>
+<arg>${VALUE_EMAIL}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:41:32.116052" elapsed="0.117104"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:32.804490" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:41:32.234159" elapsed="0.570331"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:32.804490" level="INFO">Typing text '123456789' into text field 'id=senha'.</msg>
+<arg>${INPUT_LOGIN_PASSWORD}</arg>
+<arg>${VALUE_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:41:32.804490" elapsed="0.079589"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:33.484369" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:41:32.884079" elapsed="0.601291"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:33.485370" level="INFO">Clicking element 'id=botaoLogar'.</msg>
+<arg>${BTN_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:41:33.485370" elapsed="0.187053"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:41:31.530579" elapsed="2.141844"/>
+</kw>
+<kw name="Acessar a lista de denuncias" owner="CFResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_LIST_DENUNCIA}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:41:33.673422" elapsed="0.025488"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:33.840027" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:41:33.698910" elapsed="0.141117"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:33.841534" level="INFO">Clicking element 'id=btn-report-list'.</msg>
+<arg>${BTN_LIST_DENUNCIA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:41:33.840027" elapsed="0.049212"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:41:33.673422" elapsed="0.215817"/>
+</kw>
+<kw name="Analisar a denuncia" owner="CFResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_ANALISE}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:41:33.889239" elapsed="0.222904"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:34.236849" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:41:34.112143" elapsed="0.124706"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:34.236849" level="INFO">Clicking element 'id=btn-analyse'.</msg>
+<arg>${BTN_ANALISE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:41:34.236849" elapsed="0.052273"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:41:33.889239" elapsed="0.399883"/>
+</kw>
+<kw name="Banir usuario" owner="CFResource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_BAN}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:41:34.290131" elapsed="0.232425"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:34.607615" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:41:34.522556" elapsed="0.085059"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:34.608646" level="INFO">Clicking element 'id=ban'.</msg>
+<arg>${BTN_BAN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:41:34.607615" elapsed="0.078172"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_BANIR_USUARIO}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-31T23:41:34.685787" elapsed="0.014622"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:34.956055" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:41:34.700409" elapsed="0.255646"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:34.956055" level="INFO">Selecting options from selection list 'id=motivo-ban' by value Publicacao_de_conteudo_improprio_ou_explicito.</msg>
+<arg>${INPUT_SELECT_MOTIVO}</arg>
+<arg>${OPTION_MOTIVO}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-10-31T23:41:34.956055" elapsed="0.067607"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:35.117679" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-10-31T23:41:35.023662" elapsed="0.094017"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-31T23:41:35.118685" level="INFO">Clicking element 'id=banir_usuario'.</msg>
+<arg>${BTN_BANIR_USUARIO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T23:41:35.118685" elapsed="0.151566"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:41:34.289122" elapsed="0.981129"/>
+</kw>
+<kw name="Fechar o navegador" owner="CFResource" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-31T23:41:35.270251" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-10-31T23:41:35.270251" elapsed="2.143656"/>
+</kw>
+<status status="PASS" start="2025-10-31T23:41:35.270251" elapsed="2.143656"/>
+</kw>
+<doc>Esse teste tem como objetivo banir um usuario no Dailygreen</doc>
+<tag>Banir_Usuario</tag>
+<status status="PASS" start="2025-10-31T23:41:29.732343" elapsed="7.681564"/>
+</test>
+<status status="PASS" start="2025-10-31T23:41:29.456140" elapsed="7.958769"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Banir_Usuario</stat>
+</tag>
+<suite>
+<stat name="caminhoFeliz" id="s1" pass="1" fail="0" skip="0">caminhoFeliz</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
